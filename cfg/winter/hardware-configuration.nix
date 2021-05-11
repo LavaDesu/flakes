@@ -28,7 +28,7 @@
       fsType = "ext4";
     };
 
-  swapDevices = [ ];
+  swapDevices = [ { device = "/swapfile"; size = 6144; } ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
