@@ -4,8 +4,8 @@
     fontconfig = {
       defaultFonts = {
         serif = ["NotoSerif"];
-	      sansSerif = ["NotoSans"];
-	      monospace = ["CascadiaCode"];
+        sansSerif = ["NotoSans"];
+        monospace = ["CascadiaCode"];
       };
     };
     fonts = with pkgs; [
@@ -44,14 +44,14 @@
       enable = true;
       package = pkgs.i3-gaps;
       extraPackages = with pkgs; [
-	      dunst
-	      feh
-	      lxappearance
-	      maim
-	      picom
-	      polybar
+        dunst
+        feh
+        lxappearance
+        maim
+        picom
+        polybar
         rofi
-	      xclip
+        xclip
       ];
     };
     xkbOptions = "ctrl:swapescape";
