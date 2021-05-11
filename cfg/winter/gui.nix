@@ -4,8 +4,8 @@
     fontconfig = {
       defaultFonts = {
         serif = ["NotoSerif"];
-	sansSerif = ["NotoSans"];
-	monospace = ["CascadiaCode"];
+	      sansSerif = ["NotoSans"];
+	      monospace = ["CascadiaCode"];
       };
     };
     fonts = with pkgs; [
@@ -29,9 +29,7 @@
       lightdm.enable = lib.mkForce false;
       startx.enable = true;
     };
-    desktopManager = {
-      xterm.enable = false;
-    };
+    desktopManager.xterm.enable = false;
     libinput.enable = true;
     config = ''
       Section "InputClass"
@@ -46,14 +44,14 @@
       enable = true;
       package = pkgs.i3-gaps;
       extraPackages = with pkgs; [
-	dunst
-	feh
-	lxappearance
-	maim
-	picom
-	polybar
+	      dunst
+	      feh
+	      lxappearance
+	      maim
+	      picom
+	      polybar
         rofi
-	xclip
+	      xclip
       ];
     };
     xkbOptions = "ctrl:swapescape";
