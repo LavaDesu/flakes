@@ -8,6 +8,9 @@
     blacklistedKernelModules = [
       "uvcvideo"
     ];
+    kernel.sysctl = {
+      "kernel.sysrq" = 1;
+    };
     kernelParams = [
       "amdgpu.gpu_recovery=1"
       "amdgpu.si_support=1"
