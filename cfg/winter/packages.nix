@@ -10,4 +10,5 @@
     '')
   ];
   services.gnome3.sushi.enable = true;
+  services.ipfs.enable = true;
 }
