@@ -28,6 +28,10 @@
     displayManager = {
       lightdm.enable = lib.mkForce false;
       startx.enable = true;
+      xserverArgs = [
+        "-ardelay 250"
+        "-arinterval 15"
+      ];
     };
     desktopManager.xterm.enable = false;
     libinput.enable = true;
@@ -35,11 +39,12 @@
       Section "InputClass"
         Identifier "mouse accel"
         Driver "libinput"
-        MatchIsPointer "on"
+        MatchIsPointer "yes"
         Option "AccelProfile" "flat"
         Option "AccelSpeed" "0"
       EndSection
     '';
+    xkbOptions = "caps:swapescape";
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;
@@ -54,6 +59,5 @@
         xclip
       ];
     };
-    xkbOptions = "ctrl:swapescape";
   };
 }
