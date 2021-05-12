@@ -34,16 +34,13 @@
       ];
     };
     desktopManager.xterm.enable = false;
-    libinput.enable = true;
-    config = ''
-      Section "InputClass"
-        Identifier "mouse accel"
-        Driver "libinput"
-        MatchIsPointer "yes"
-        Option "AccelProfile" "flat"
-        Option "AccelSpeed" "0"
-      EndSection
-    '';
+    libinput = {
+      enable = true;
+      mouse = {
+        accelSpeed = "0";
+        accelProfile = "flat";
+      };
+    };
     xkbOptions = "caps:swapescape";
     windowManager.i3 = {
       enable = true;
