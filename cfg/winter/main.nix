@@ -17,6 +17,7 @@
     '';
   };
   nixpkgs.overlays = with overlays; [
+    linux
     polybar
     picom
   ];

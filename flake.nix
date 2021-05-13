@@ -12,6 +12,7 @@
         nix.registry.nixpkgs.flake = nixpkgs;
       };
       overlays = {
+        linux = import ./overlays/linux.nix;
         picom = import ./overlays/picom.nix;
         polybar = import ./overlays/polybar.nix;
       };
