@@ -9,6 +9,6 @@
       exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"
     '')
   ];
-  services.gnome3.sushi.enable = true;
+  services.gnome.sushi.enable = true;
   services.ipfs.enable = true;
 }
