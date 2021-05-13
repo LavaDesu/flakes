@@ -5,17 +5,26 @@
     secrets = { url = "github:LavaDesu/flakes-secrets"; };
   };
 
-  outputs = { self, nixpkgs, secrets }: {
-    nixosConfigurations."winter" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        {
-          system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
-          nix.registry.nixpkgs.flake = nixpkgs;
-        }
-        secrets.nixosModules.winter
-        ./cfg/winter/main.nix
-      ];
+  outputs = { self, nixpkgs, secrets }: with nixpkgs.lib;
+    let
+      base = {
+        system.configurationRevision = mkIf (self ? rev) self.rev;
+        nix.registry.nixpkgs.flake = nixpkgs;
+      };
+      overlays = {
+        picom = import ./overlays/picom.nix;
+        polybar = import ./overlays/polybar.nix;
+      };
+    in
+    {
+      nixosConfigurations."winter" = nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          base
+          secrets.nixosModules.winter
+          ./cfg/winter/main.nix
+        ];
+        specialArgs = { inherit overlays; };
+      };
     };
-  };
 }
