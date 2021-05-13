@@ -4,6 +4,7 @@
     gnupg
     glxinfo htop light ncdu xorg.xgamma
     alacritty discord-canary element-desktop firefox gnome3.nautilus pavucontrol tor-browser-bundle-bin
+    wine-osu
 
     (pkgs.writeShellScriptBin "nix-flakes" ''
       exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"

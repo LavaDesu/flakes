@@ -23,6 +23,7 @@
     linux
     polybar
     picom
+    wine-osu
   ];
   nixpkgs.config.allowUnfree = true;
 

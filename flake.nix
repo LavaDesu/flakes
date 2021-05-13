@@ -24,6 +24,7 @@
             };
           };
         });
+        wine-osu = import ./overlays/wine-osu.nix;
       };
     in
     {
