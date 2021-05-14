@@ -17,6 +17,7 @@
     '';
   };
   nixpkgs.overlays = with overlays; [
+    discord
     linux
     polybar
     picom

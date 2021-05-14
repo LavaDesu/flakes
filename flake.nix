@@ -15,6 +15,15 @@
         linux = import ./overlays/linux.nix;
         picom = import ./overlays/picom.nix;
         polybar = import ./overlays/polybar.nix;
+        discord = (self: super: {
+          discord-canary = super.discord-canary.override rec {
+            version = "0.0.121";
+            src = builtins.fetchurl {
+              url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
+              sha256 = "0s85nh31wv39adawfmllp128n0wgyisbi604n0cngzi28rdw7bph";
+            };
+          };
+        });
       };
     in
     {
