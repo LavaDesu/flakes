@@ -5,6 +5,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+    supportedFilesystems = ["bcachefs"];
     blacklistedKernelModules = [
       "uvcvideo"
     ];
@@ -21,6 +22,6 @@
       "radeon.si_support=0"
       "intel_pstate=passive"
     ];
-    kernelPackages = pkgs.linux-lava;
+    kernelPackages = pkgs.lib.mkForce pkgs.linux-lava;
   };
 }

@@ -39,6 +39,13 @@ self: super: {
           sha256 = "0lf374ccxhhr8idb8kbpzxzw7pi4s4ghdvnffp4pd6q56qs5j86j";
         };
       }
+      {
+        name = "bcachefs";
+        patch = builtins.fetchurl {
+          url = "https://raw.githubusercontent.com/Frogging-Family/linux-tkg/master/linux-tkg-patches/5.11/0008-5.11-bcachefs.patch";
+          sha256 = "06b3c6k56i5zqgmh5i3rixhz7mhq187cckkcnxb7d2g4vxy1v0vc";
+        };
+      }
     ];
   }).overrideAttrs(o: {
     passthru = o.passthru // {
