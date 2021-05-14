@@ -2,7 +2,7 @@
   environment.systemPackages = with pkgs; [
     git lf neofetch neovim nodejs rsync wget
     gnupg
-    light glxinfo
+    glxinfo htop light ncdu
     alacritty discord-canary element-desktop firefox gnome3.nautilus pavucontrol tor-browser-bundle-bin
 
     (pkgs.writeShellScriptBin "nix-flakes" ''
