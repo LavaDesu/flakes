@@ -26,6 +26,7 @@
       "amdgpu.si_support=1"
       "radeon.si_support=0"
       "intel_pstate=passive"
+      "msr.allow_writes=on"
     ];
     kernelPackages = pkgs.lib.mkForce pkgs.linux-lava;
   };
