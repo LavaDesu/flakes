@@ -8,14 +8,15 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
+  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" "bcachefs" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/25ffa0da-054d-4906-84aa-1625f94b0cf2";
-      fsType = "ext4";
+    { device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=4G" "mode=755" ];
     };
 
   fileSystems."/boot" =
@@ -23,12 +24,47 @@
       fsType = "vfat";
     };
 
+  fileSystems."/mnt/bcachefs" =
+    { device = "/dev/sda2";
+      fsType = "bcachefs";
+      neededForBoot = true;
+    };
+
+  fileSystems."/nix" =
+    { device = "/mnt/bcachefs/binds/nix";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/mnt/bcachefs/binds/home";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/var" =
+    { device = "/mnt/bcachefs/binds/var";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/root" =
+    { device = "/mnt/bcachefs/binds/root";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/etc/nixos" =
+    { device = "/mnt/bcachefs/binds/etc_nixos";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
   fileSystems."/mnt/hdd" =
     { device = "/dev/disk/by-uuid/d5e3cfe5-c73a-4695-b81b-fc0215d4cefe";
       fsType = "ext4";
     };
 
-  swapDevices = [];
+  swapDevices = [ ];
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

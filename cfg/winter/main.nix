@@ -2,6 +2,8 @@
   networking.hostName = "winter";
   system.stateVersion = "20.09";
 
+  environment.etc."machine-id".source = "/mnt/bcachefs/machine-id";
+
   imports = [
     ./gui.nix
     ./hardware-configuration.nix
@@ -31,10 +33,12 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  users.mutableUsers = false;
   users.users.lava = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
+    initialPassword = "gaming";
   };
 
   console.useXkbConfig = true;
