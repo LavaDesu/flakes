@@ -9,6 +9,7 @@
       exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"
     '')
   ];
+  environment.variables.EDITOR = "nvim";
   programs.steam.enable = true;
   services.gnome.sushi.enable = true;
   services.ipfs.enable = true;
