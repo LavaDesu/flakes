@@ -10,6 +10,7 @@
       exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"
     '')
   ];
+  hardware.opentabletdriver.enable = true;
   environment.variables.EDITOR = "nvim";
   programs.steam.enable = true;
   services.gnome.sushi.enable = true;
