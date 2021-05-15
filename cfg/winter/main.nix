@@ -38,7 +38,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
-    initialPassword = "gaming";
   };
 
   console.useXkbConfig = true;
