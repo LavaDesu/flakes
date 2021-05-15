@@ -29,4 +29,5 @@
     ];
     kernelPackages = pkgs.lib.mkForce pkgs.linux-lava;
   };
+  zramSwap.enable = true;
 }
