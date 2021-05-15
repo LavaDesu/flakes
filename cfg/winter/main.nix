@@ -5,6 +5,7 @@
   environment.etc."machine-id".source = "/mnt/bcachefs/machine-id";
 
   imports = [
+    ./audio.nix
     ./gui.nix
     ./hardware-configuration.nix
     ./kernel.nix
@@ -30,9 +31,6 @@
   # set in flakes-secrets
   # time.timeZone = "";
   i18n.defaultLocale = "en_GB.UTF-8";
-
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   users.mutableUsers = false;
   users.users.lava = {
