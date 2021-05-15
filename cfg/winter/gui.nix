@@ -41,7 +41,7 @@
         accelProfile = "flat";
       };
     };
-    xkbOptions = "caps:swapescape";
+    xkbOptions = "caps:escape";
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;
