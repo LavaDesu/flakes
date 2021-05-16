@@ -2,8 +2,8 @@
 let
   int = {
     quantum = {
-      min = 128;
-      def = 256;
+      min = 256;
+      def = 512;
       max = 2048;
     };
     rate = 48000;
