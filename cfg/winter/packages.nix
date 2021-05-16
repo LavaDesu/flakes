@@ -4,7 +4,7 @@
     gnupg
     glxinfo htop light ncdu xorg.xgamma
     alacritty discord-canary element-desktop firefox gnome3.nautilus pavucontrol tor-browser-bundle-bin
-    wine-osu (winetricks.override { wine = wine-osu; })
+    appimage-run wine-osu (winetricks.override { wine = wine-osu; })
 
     (pkgs.writeShellScriptBin "nix-flakes" ''
       exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"
