@@ -33,7 +33,7 @@
         modules = [
           base
           secrets.nixosModules.winter
-          ./cfg/winter/main.nix
+          ./cfg/winter
         ];
         specialArgs = { inherit overlays; };
       };
