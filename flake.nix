@@ -1,15 +1,22 @@
 {
   inputs = {
     nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
-    #secrets = { url = "git+ssh://git@github.com/LavaDesu/flakes-secrets.git"; };
+    home-manager = { url = "github:nix-community/home-manager"; };
     secrets = { url = "github:LavaDesu/flakes-secrets"; };
+
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, secrets }: with nixpkgs.lib;
+  outputs = inputs: with inputs;
     let
       base = {
-        system.configurationRevision = mkIf (self ? rev) self.rev;
+        system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
         nix.registry.nixpkgs.flake = nixpkgs;
+      };
+      hm-module = {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.rin = import ./cfg/winter/rin/home.nix; # TODO: decoupling
       };
       overlays = {
         linux = import ./overlays/linux.nix;
@@ -28,14 +35,15 @@
       };
     in
     {
-      nixosConfigurations."winter" = nixosSystem {
+      nixosConfigurations."winter" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           base
-          secrets.nixosModules.winter
           ./cfg/winter
+          home-manager.nixosModules.home-manager hm-module
+          secrets.nixosModules.winter
         ];
-        specialArgs = { inherit overlays; };
+        specialArgs = { inherit inputs overlays; };
       };
     };
 }

@@ -9,6 +9,7 @@
     "ssh/ssh_host_ed25519_key".source = "/mnt/bcachefs/ssh_host_ed25519_key";
     "ssh/ssh_host_ed25519_key.pub".source = "/mnt/bcachefs/ssh_host_ed25519_key.pub";
   };
+  environment.pathsToLink = [ "/share/zsh" ];
   users.mutableUsers = false;
 
   imports = [
@@ -19,6 +20,8 @@
     ./networking.nix
     ./packages.nix
     ./security.nix
+
+    ./rin
   ];
   nix = {
     package = pkgs.nixUnstable;

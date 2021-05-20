@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1621135068,
+        "narHash": "sha256-aPJlgosfLp3QtPDFLf/N7qNpIo5Q45MpYyzlaACL2G4=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "77188bcd6e2c6c7a99253b36f08ed7b65f2901d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1620901170,
@@ -18,17 +38,18 @@
     },
     "root": {
       "inputs": {
+        "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "secrets": "secrets"
       }
     },
     "secrets": {
       "locked": {
-        "lastModified": 1621051136,
-        "narHash": "sha256-3eEwOo2ncOmCh2nDc7kyiA3BS3zp5TOp3PtoJMDT8gk=",
+        "lastModified": 1621183588,
+        "narHash": "sha256-liXvLHfUDyWvWzNCTNEwJQu/nSAXpy8XHcuzpX36CyU=",
         "owner": "LavaDesu",
         "repo": "flakes-secrets",
-        "rev": "e701ac0c29f6917c7bf8e24360fbd0e72c7ed7f5",
+        "rev": "a7e33c0223639ada24f0ae56d185f5bf6d5bd900",
         "type": "github"
       },
       "original": {
