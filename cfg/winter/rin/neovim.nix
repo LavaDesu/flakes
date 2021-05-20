@@ -63,6 +63,7 @@ in {
             \ <SID>check_back_space() ? "\<Tab>" :
             \ coc#refresh()
 
+      inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
       inoremap <silent><expr> <c-space> coc#refresh()
 
       " various aliases
