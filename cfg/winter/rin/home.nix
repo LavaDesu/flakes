@@ -16,7 +16,6 @@
       nodejs
       pavucontrol
       osu-lazer
-      cargo rustc clippy cmake gcc gnumake pkg-config
       tor-browser-bundle-bin
       wine-osu
       (winetricks.override { wine = wine-osu; })
