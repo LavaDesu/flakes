@@ -45,11 +45,11 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1621183588,
-        "narHash": "sha256-liXvLHfUDyWvWzNCTNEwJQu/nSAXpy8XHcuzpX36CyU=",
+        "lastModified": 1621557628,
+        "narHash": "sha256-exoyO1kp/2Pheentn1MPHU9gbx/wtbkPay3aoC0ooOM=",
         "owner": "LavaDesu",
         "repo": "flakes-secrets",
-        "rev": "a7e33c0223639ada24f0ae56d185f5bf6d5bd900",
+        "rev": "365392dd012cb896fcbbedbd8b05ad91fcf0b56a",
         "type": "github"
       },
       "original": {

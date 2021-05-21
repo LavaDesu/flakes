@@ -38,12 +38,6 @@
   ];
   nixpkgs.config.allowUnfree = true;
 
-  users.users.lava = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    shell = pkgs.zsh;
-  };
-
   i18n.defaultLocale = "en_GB.UTF-8";
   console.useXkbConfig = true;
 }

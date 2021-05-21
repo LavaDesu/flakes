@@ -13,10 +13,6 @@
           keepEnv = true;
           persist = true;
         }
-        {
-          users = ["lava"];
-          noPass = true;
-        }
       ];
     };
   };
