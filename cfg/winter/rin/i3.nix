@@ -63,6 +63,7 @@ in rec {
       floating = {
         titlebar = false;
         modifier = super;
+        border = 0;
       };
 
       window.border = 0;
