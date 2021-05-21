@@ -5,6 +5,7 @@
     stateVersion = "21.05";
     packages = with pkgs; [
       appimage-run
+      cachix
       discord-canary
       element-desktop
       firefox
