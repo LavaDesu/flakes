@@ -23,8 +23,6 @@
       blur-method = "dual_kawase";
       blur-strength = 5;
 
-      unredir-if-possible = true;
-
       detect-transient = true;
       detect-client-leader = true;
       detect-client-opacity = true;
