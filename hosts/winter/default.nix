@@ -21,7 +21,7 @@
     ./packages.nix
     ./security.nix
 
-    ./rin
+    ../../users/rin
   ];
   nix = {
     package = pkgs.nixUnstable;

@@ -13,10 +13,9 @@
         system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
         nix.registry.nixpkgs.flake = nixpkgs;
       };
-      hm-module = {
+      hm-base = {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.rin = import ./cfg/winter/rin/home.nix; # TODO: decoupling
       };
       overlays = {
         linux = import ./overlays/linux.nix;
@@ -40,8 +39,9 @@
         system = "x86_64-linux";
         modules = [
           base
-          ./cfg/winter
-          home-manager.nixosModules.home-manager hm-module
+          home-manager.nixosModules.home-manager
+          hm-base
+          ./hosts/winter
           secrets.nixosModules.winter
         ];
         specialArgs = { inherit inputs overlays; };

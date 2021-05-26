@@ -23,9 +23,9 @@ self: super: {
     };
   in {
     inherit (super) lib stdenv;
-    version = "${major}.${minor}.${patch}-tkg-Lava";
+    version = "${mmp}-tkg-Lava";
     allowImportFromDerivation = true;
-    configfile = ./kernel.config;
+    configfile = ./misc/kernel.config;
     isZen = true;
 
     src = kernelUrl "linux-${mm}.tar" "1d37w0zvmf8c1l99xvy1hy6p55icjhmbsv7f0amxy2nly1a7pw04";
