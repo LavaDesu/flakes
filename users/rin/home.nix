@@ -14,7 +14,6 @@
       gnupg
       lf
       neofetch
-      nodejs
       pavucontrol
       osu-lazer
       tor-browser-bundle-bin
@@ -29,6 +28,7 @@
 
     ./alacritty.nix
     ./neovim.nix
+    ./npm.nix
     ./rofi.nix
     ./zsh.nix
 

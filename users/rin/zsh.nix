@@ -111,6 +111,8 @@ in rec {
       WINEARCH = "win64";
 
       EDITOR = "nvim";
+      PATH = "${config.xdg.dataHome}/npm/bin:$PATH";
+      DIRENV_LOG_FORMAT = "";
     };
     localVariables = {
       PS1 = "%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b ";
