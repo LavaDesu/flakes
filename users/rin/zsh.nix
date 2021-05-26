@@ -68,6 +68,9 @@ let
     echo -ne '\e[5 q'
     preexec() { echo -ne '\e[5 q' ;}
   '';
+  direnv = ''
+    eval "$(direnv hook zsh)"
+  '';
   viExtraNav = ''
     bindkey -M menuselect 'h' vi-backward-char
     bindkey -M menuselect 'k' vi-up-line-or-history
@@ -130,6 +133,7 @@ in rec {
     '';
     initExtra = lib.concatStringsSep "\n" [
       cursorShape
+      direnv
       genAbbrs
       viExtraNav
     ];

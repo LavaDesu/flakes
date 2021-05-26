@@ -47,6 +47,11 @@
 
   programs = {
     feh.enable = true;
+
+    direnv = {
+      enable = true;
+      enableNixDirenvIntegration = true;
+    };
     git = {
       enable = true;
       userName = "LavaDesu";
