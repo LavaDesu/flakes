@@ -22,6 +22,7 @@
         linux = import ./overlays/linux.nix;
         picom = import ./overlays/picom.nix;
         polybar = import ./overlays/polybar.nix;
+        winetricks = import ./overlays/winetricks.nix;
         discord = (self: super: {
           discord-canary = super.discord-canary.override rec {
             version = "0.0.123";

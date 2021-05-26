@@ -35,6 +35,7 @@
     polybar
     picom
     wine-osu
+    winetricks
   ];
   nixpkgs.config.allowUnfree = true;
 
