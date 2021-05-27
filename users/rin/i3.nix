@@ -30,6 +30,7 @@ let
 
 in rec {
   home.file.".xinitrc".source = ./scripts/xinitrc;
+  xdg.configFile."i3/wallpaper.png".source = ../../res/wallpaper.png;
   xsession.enable = true;
   xsession.windowManager.i3 = {
     enable = true;
@@ -44,7 +45,7 @@ in rec {
           notification = false;
         }
         {
-          command = "feh --bg-fill /home/rin/Pictures/Wallpapers/current";
+          command = "feh --no-fehbg --bg-fill ${config.xdg.configHome}/i3/wallpaper.png";
           always = true;
           notification = false;
         }
