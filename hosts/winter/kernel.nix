@@ -28,7 +28,7 @@
       "intel_pstate=passive"
       "msr.allow_writes=on"
     ];
-    kernelPackages = pkgs.lib.mkForce pkgs.linux-lava;
+    kernelPackages = pkgs.lib.mkForce (pkgs.linuxPackagesFor pkgs.linux-lava);
   };
   zramSwap.enable = true;
 }

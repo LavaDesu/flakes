@@ -12,6 +12,7 @@
       base = {
         system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
         nix.registry.nixpkgs.flake = nixpkgs;
+        nixpkgs.overlays = builtins.attrValues overlays;
       };
       hm-base = {
         home-manager.useGlobalPkgs = true;
@@ -44,7 +45,17 @@
           ./hosts/winter
           secrets.nixosModules.winter
         ];
-        specialArgs = { inherit inputs overlays; };
+        specialArgs = { inherit overlays; };
       };
+
+      packages.x86_64-linux =
+        let
+          pkgs = import nixpkgs {
+            overlays = builtins.attrValues overlays;
+            system = "x86_64-linux";
+          };
+        in {
+          inherit (pkgs) linux-lava wine-osu;
+        };
     };
 }

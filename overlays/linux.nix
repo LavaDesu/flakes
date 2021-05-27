@@ -1,5 +1,5 @@
 self: super: {
-  linux-lava = super.linuxPackagesFor ((super.linuxManualConfig (
+  linux-lava = (super.linuxManualConfig (
   let
     major = "5";
     minor = "11";
@@ -71,5 +71,5 @@ self: super: {
         ia32Emulation = true;
       };
     };
-  }));
+  });
 }
