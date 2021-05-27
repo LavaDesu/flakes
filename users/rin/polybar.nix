@@ -43,6 +43,8 @@ in {
           color = "#00";
           size = 1;
         };
+
+        enable-ipc = true;
       };
 
       "bar/top" = _base // {
