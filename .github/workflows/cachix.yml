@@ -18,7 +18,7 @@ jobs:
         with:
           name: lava
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: nix build .#linux-lava
+      - run: nix build -L .#linux-lava
   wine:
     name: Build Wine
     runs-on: ubuntu-latest
@@ -32,4 +32,4 @@ jobs:
         with:
           name: lava
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: nix build .#wine-osu
+      - run: nix build -L .#wine-osu
