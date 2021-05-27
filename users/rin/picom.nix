@@ -11,7 +11,9 @@
     fadeDelta = 5;
     fadeSteps = [ "0.05" "0.05" ];
 
-    inactiveOpacity = "0.8";
+    opacityRule = [
+      "80:class_g = 'Alacritty' && !focused"
+    ];
     vSync = true;
 
     extraOptions = ''
