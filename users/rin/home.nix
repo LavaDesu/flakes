@@ -25,6 +25,7 @@
 
   imports = [
     ./gtk.nix
+    ./xdg.nix
 
     ./alacritty.nix
     ./neovim.nix
@@ -38,12 +39,6 @@
 
     ./i3.nix
   ];
-
-  xdg = {
-    enable = true;
-    mime.enable = true;
-    mimeApps.enable = true;
-  };
 
   programs = {
     feh.enable = true;
