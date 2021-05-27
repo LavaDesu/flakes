@@ -6,6 +6,7 @@
     packages = with pkgs; [
       appimage-run
       cachix
+      chromium
       discord-canary
       element-desktop
       firefox
