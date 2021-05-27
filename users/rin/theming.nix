@@ -11,8 +11,15 @@
       name = "Yaru";
     };
     theme = {
-      name = "Adapta-Nokto-Eta";
-      package = pkgs.adapta-gtk-theme;
+      name = "Materia-dark";
+      package = pkgs.materia-theme;
     };
   };
+
+  # TODO: i gave up
+  #xsession.pointerCursor = {
+  #  package = pkgs.bibata-cursors;
+  #  name = "Bibata_Classic";
+  #  size = 16;
+  #};
 }

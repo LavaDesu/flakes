@@ -25,7 +25,7 @@
   };
 
   imports = [
-    ./gtk.nix
+    ./theming.nix
     ./xdg.nix
 
     ./alacritty.nix
