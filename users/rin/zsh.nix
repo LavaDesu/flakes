@@ -35,12 +35,14 @@ let
     nr = "doas nixos-rebuild switch --flake .#winter -v";
 
     gs = "git status";
-    ga = "git add .";
+    ga = "git add";
+    gaa = "git add .";
     gc = "git commit";
     gac = "git add .; git commit";
     gcm = "git commit -m";
     gco = "git checkout";
     gd = "git diff";
+    gds = "git diff --staged";
     gf = "git commit --amend --no-edit";
     gl = "git log";
     gr = "git rebase -i";
