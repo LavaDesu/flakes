@@ -18,6 +18,7 @@
       pavucontrol
       osu-lazer
       tor-browser-bundle-bin
+      transcrypt
       wine-osu
       (winetricks.override { wine = wine-osu; })
       xorg.xgamma

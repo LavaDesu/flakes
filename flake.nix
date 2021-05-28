@@ -23,6 +23,7 @@
         linux = import ./overlays/linux.nix;
         picom = import ./overlays/picom.nix;
         polybar = import ./overlays/polybar.nix;
+        transcrypt = import ./overlays/transcrypt.nix;
         winetricks = import ./overlays/winetricks.nix;
         wine-osu = import ./overlays/wine-osu.nix;
       };

@@ -1,0 +1,45 @@
+diff --git a/transcrypt b/transcrypt
+index 610b94f..7cc5035 100755
+--- a/transcrypt
++++ b/transcrypt
+@@ -282,6 +282,7 @@ save_helper_scripts() {
+ 
+ 	cat <<-'EOF' >"${GIT_DIR}/crypt/clean"
+ 		#!/usr/bin/env bash
++		PATH="$(transcrypt-depspathprefix 2>/dev/null)$PATH"
+ 		filename=$1
+ 		# ignore empty files
+ 		if [[ -s $filename ]]; then
+@@ -304,6 +305,7 @@ save_helper_scripts() {
+ 
+ 	cat <<-'EOF' >"${GIT_DIR}/crypt/smudge"
+ 		#!/usr/bin/env bash
++		PATH="$(transcrypt-depspathprefix 2>/dev/null)$PATH"
+ 		tempfile=$(mktemp 2>/dev/null || mktemp -t tmp)
+ 		trap 'rm -f "$tempfile"' EXIT
+ 		cipher=$(git config --get --local transcrypt.cipher)
+@@ -313,6 +315,7 @@ save_helper_scripts() {
+ 
+ 	cat <<-'EOF' >"${GIT_DIR}/crypt/textconv"
+ 		#!/usr/bin/env bash
++		PATH="$(transcrypt-depspathprefix 2>/dev/null)$PATH"
+ 		filename=$1
+ 		# ignore empty files
+ 		if [[ -s $filename ]]; then
+@@ -324,6 +327,7 @@ save_helper_scripts() {
+ 
+ 	cat <<-'EOF' >"${GIT_DIR}/crypt/merge"
+ 		#!/usr/bin/env bash
++		PATH="$(transcrypt-depspathprefix 2>/dev/null)$PATH"
+ 
+ 		# Look up name of local branch/ref to which changes are being merged
+ 		OURS_LABEL=$(git rev-parse --abbrev-ref HEAD)
+@@ -459,7 +463,7 @@ save_configuration() {
+ 	git config merge.crypt.name 'Merge transcrypt secret files'
+ 
+ 	# add a git alias for listing encrypted files
+-	git config alias.ls-crypt "!git -c core.quotePath=false ls-files | git -c core.quotePath=false check-attr --stdin filter | awk 'BEGIN { FS = \":\" }; /crypt$/{ print \$1 }'"
++	git config alias.ls-crypt "!PATH=\"\$(transcrypt-depspathprefix 2>/dev/null)\$PATH\"; git -c core.quotePath=false ls-files | git -c core.quotePath=false check-attr --stdin filter | awk 'BEGIN { FS = \":\" }; /crypt$/{ print \$1 }'"
+ }
+ 
+ # display the current configuration settings
