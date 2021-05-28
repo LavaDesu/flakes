@@ -58,7 +58,7 @@ self: super: {
       ( tkgPatch "0007-v${mm}-fsync"            "0mplwdglw58bmkkxix4ccwgax3r02gahax9042dx33mybdnbl0mk" )
       ( tkgPatch "0007-v${mm}-futex2_interface" "1j29zyx2s85scfhbprgb9cs11rp50glbzczl4plphli8wds342pw" )
       ( tkgPatch "0007-v${mm}-winesync"         "1q82439450bldni0lra9hmhvdxnjxxhlv8v95kd36wah7fki4k83" )
-      ( tkgPatch "0009-prjc_v${mm}-r3"          "1z731jiwyc7z4d5hzd6szrxnvw0iygbqx82y2anzm32n22731dqv" )
+      ( tkgPatch "0009-prjc_v${mm}-r1"          "1z731jiwyc7z4d5hzd6szrxnvw0iygbqx82y2anzm32n22731dqv" )
     ];
   })).overrideAttrs(o: {
     passthru = o.passthru // {
