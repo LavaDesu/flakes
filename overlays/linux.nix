@@ -2,9 +2,9 @@ self: super: {
   linux-lava = (super.linuxManualConfig (
   let
     major = "5";
-    minor = "11";
-    patch = "21";
-    tkg = "467e6c3f41da14ae6f5aa57a1d0490b4244fbce0";
+    minor = "12";
+    patch = "7";
+    tkg = "6006c78ceaae9ca344682db51d225576a4ff9914";
 
     mm = "${major}.${minor}";
     mmp = "${major}.${minor}.${patch}";
@@ -28,21 +28,18 @@ self: super: {
     configfile = ./misc/kernel.config;
     isZen = true;
 
-    src = kernelUrl "linux-${mm}.tar" "1d37w0zvmf8c1l99xvy1hy6p55icjhmbsv7f0amxy2nly1a7pw04";
+    src = kernelUrl "linux-${mm}.tar" "0rn3z942vjc7bixjw066rm6kcr0x0wzgxqfq1f6xd113pzrgc3bx";
     kernelPatches = [
       # Kernel version patch
       {
         name = "patch-${patch}";
-        patch = kernelUrl "patch-${mmp}" "0va01x8hb9ny7hrjbq5kviz6awg2d495zs2fn0vswrjkdi18cq7j";
+        patch = kernelUrl "patch-${mmp}" "1yfjc32xmx7rhx2glbv4x0968wfdyxbchs5z4w7gxha5nam0rl1d";
       }
 
       # AMD SI manual clocking
       {
         name = "amd";
-        patch = builtins.fetchurl {
-          url = "https://gist.githubusercontent.com/LavaDesu/98997b93ced7337ef3b6b12c4fc4d9dd/raw/7fe92260c2af90a405ff4c3153707a12664d8dd2/0001-Lava-s-amdgpu-patches.patch";
-          sha256 = "09vf2scckw2blw75ggyjqk432x33vym6qyjhy61w5zpbgmm75lql";
-        };
+        patch = ./misc/0001-Lava-s-amdgpu-patches.patch;
       }
 
       # Graysky gcc patches
@@ -59,10 +56,9 @@ self: super: {
       ( tkgPatch "0003-glitched-base"           "1dg177i3y54z5nadc5678hm67angram2vlr314mpxv3jgsh7vj8s" )
       ( tkgPatch "0005-glitched-pds"            "0833awp8n9ngyl5spx8znwyw1lj3nacp8vg7ffysw0j5r8akv9pw" )
       ( tkgPatch "0007-v${mm}-fsync"            "0mplwdglw58bmkkxix4ccwgax3r02gahax9042dx33mybdnbl0mk" )
-      ( tkgPatch "0007-v${mm}-futex2_interface" "15jl2h9fgj9ic93nj5xypmg2f97nl8lwgdgdbkdspacanj57ngh7" )
-      ( tkgPatch "0007-v${mm}-winesync"         "0lf374ccxhhr8idb8kbpzxzw7pi4s4ghdvnffp4pd6q56qs5j86j" )
-      ( tkgPatch "0008-${mm}-bcachefs"          "06b3c6k56i5zqgmh5i3rixhz7mhq187cckkcnxb7d2g4vxy1v0vc" )
-      ( tkgPatch "0009-prjc_v${mm}-r3"          "0q40p9rn6dh3dr2wsmfn15zi33pbjbb7pi0i8fgz85x5wcvlkmjw" )
+      ( tkgPatch "0007-v${mm}-futex2_interface" "1j29zyx2s85scfhbprgb9cs11rp50glbzczl4plphli8wds342pw" )
+      ( tkgPatch "0007-v${mm}-winesync"         "1q82439450bldni0lra9hmhvdxnjxxhlv8v95kd36wah7fki4k83" )
+      ( tkgPatch "0009-prjc_v${mm}-r3"          "1z731jiwyc7z4d5hzd6szrxnvw0iygbqx82y2anzm32n22731dqv" )
     ];
   })).overrideAttrs(o: {
     passthru = o.passthru // {
