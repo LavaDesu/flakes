@@ -15,6 +15,7 @@
       gnupg
       lf
       neofetch
+      pamixer
       pavucontrol
       tor-browser-bundle-bin
       transcrypt

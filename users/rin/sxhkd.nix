@@ -19,7 +19,7 @@ in rec {
       "super + shift + p" = "systemctl --user restart picom";
 
       # Volume
-      "XF86Audio{RaiseVolume,LowerVolume,Mute}" = "pactl set-sink-volume 0 {+5%,-5%,toggle}";
+      "XF86Audio{RaiseVolume,LowerVolume,Mute}" = "pamixer -{i 5,d 5,t}";
 
       # Brightness
       "XF86MonBrightness{Up,Down}" = "light -{A,U} 10";

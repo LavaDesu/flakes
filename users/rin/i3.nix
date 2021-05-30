@@ -95,9 +95,9 @@ in rec {
         "${super}+Shift+p" = "exec systemctl --user restart picom";
 
         # Volume
-        "XF86AudioRaiseVolume" = "exec pactl set-sink-volume 0 +5%";
-        "XF86AudioLowerVolume" = "exec pactl set-sink-volume 0 -5%";
-        "XF86AudioMute" = "exec pactl set-sink-volume 0 toggle";
+        "XF86AudioRaiseVolume" = "exec pamixer -i 5%";
+        "XF86AudioLowerVolume" = "exec pamixer -d 5%";
+        "XF86AudioMute" = "exec pamixer -t";
 
         # Brightness
         "XF86MonBrightnessUp" = "exec light -A 10";
