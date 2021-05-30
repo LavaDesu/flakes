@@ -1,9 +1,9 @@
 self: super: {
-  linux-lava = (super.linuxManualConfig (
+  linux-lava = super.buildLinux (
   let
     major = "5";
     minor = "12";
-    patch = "7";
+    patch = "8";
     tkg = "6006c78ceaae9ca344682db51d225576a4ff9914";
 
     mm = "${major}.${minor}";
@@ -22,18 +22,27 @@ self: super: {
       };
     };
   in {
-    inherit (super) lib stdenv;
     version = "${mmp}-tkg-Lava";
-    allowImportFromDerivation = true;
-    configfile = ./misc/kernel.config;
     isZen = true;
+    structuredExtraConfig = with super.lib.kernel; {
+      CONFIG_LOCALVERSION = freeform "-tkg-Lava";
+      CONFIG_ZENIFY = yes;
+      CONFIG_FUTEX2 = yes;
+      CONFIG_SCHED_ALT = yes;
+      CONFIG_SCHED_PDS = yes;
+      CONFIG_MHASWELL = yes;
+      CONFIG_NO_HZ = yes;
+      CONFIG_NO_HZ_IDLE = yes;
+      CONFIG_HZ_100 = yes;
+      CONFIG_WINESYNC = yes;
+    };
 
     src = kernelUrl "linux-${mm}.tar" "0rn3z942vjc7bixjw066rm6kcr0x0wzgxqfq1f6xd113pzrgc3bx";
     kernelPatches = [
       # Kernel version patch
       {
         name = "patch-${patch}";
-        patch = kernelUrl "patch-${mmp}" "1yfjc32xmx7rhx2glbv4x0968wfdyxbchs5z4w7gxha5nam0rl1d";
+        patch = kernelUrl "patch-${mmp}" "0pjkddh40irbmhh24yfxjl46dwc0plpm8mz5mg5q84937b23kkx6";
       }
 
       # AMD SI manual clocking
@@ -60,12 +69,5 @@ self: super: {
       ( tkgPatch "0007-v${mm}-winesync"         "1q82439450bldni0lra9hmhvdxnjxxhlv8v95kd36wah7fki4k83" )
       ( tkgPatch "0009-prjc_v${mm}-r1"          "1z731jiwyc7z4d5hzd6szrxnvw0iygbqx82y2anzm32n22731dqv" )
     ];
-  })).overrideAttrs(o: {
-    passthru = o.passthru // {
-      features = {
-        efiBootStub = true;
-        ia32Emulation = true;
-      };
-    };
   });
 }
