@@ -36,6 +36,7 @@ self: super: {
       CONFIG_HZ_100 = yes;
       CONFIG_WINESYNC = yes;
     };
+    ignoreConfigErrors = true;
 
     src = kernelUrl "linux-${mm}.tar" "0rn3z942vjc7bixjw066rm6kcr0x0wzgxqfq1f6xd113pzrgc3bx";
     kernelPatches = [
