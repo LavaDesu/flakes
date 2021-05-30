@@ -23,7 +23,7 @@
       use-damage = true;
 
       blur-method = "dual_kawase";
-      blur-strength = 5;
+      blur-strength = 15;
 
       detect-transient = true;
       detect-client-leader = true;
