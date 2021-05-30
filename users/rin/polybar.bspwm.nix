@@ -44,7 +44,7 @@
         type = "internal/bspwm";
 
         pin-workspaces = true;
-        enable-click = false;
+        enable-click = true;
         enable-scroll = false;
         reverse-scroll = false;
 
