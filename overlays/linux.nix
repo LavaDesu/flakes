@@ -25,16 +25,16 @@ self: super: {
     version = "${mmp}-tkg-Lava";
     isZen = true;
     structuredExtraConfig = with super.lib.kernel; {
-      CONFIG_LOCALVERSION = freeform "-tkg-Lava";
-      CONFIG_ZENIFY = yes;
-      CONFIG_FUTEX2 = yes;
-      CONFIG_SCHED_ALT = yes;
-      CONFIG_SCHED_PDS = yes;
-      CONFIG_MHASWELL = yes;
-      CONFIG_NO_HZ = yes;
-      CONFIG_NO_HZ_IDLE = yes;
-      CONFIG_HZ_100 = yes;
-      CONFIG_WINESYNC = yes;
+      LOCALVERSION = freeform "-tkg-Lava";
+      ZENIFY = yes;
+      FUTEX2 = yes;
+      SCHED_ALT = yes;
+      SCHED_PDS = yes;
+      MHASWELL = yes;
+      NO_HZ = yes;
+      NO_HZ_IDLE = yes;
+      HZ_100 = yes;
+      WINESYNC = yes;
     };
     ignoreConfigErrors = true;
 
