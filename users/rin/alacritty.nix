@@ -30,9 +30,9 @@
       #   };
       # }];
 
-      background_opacity = 0.8;
+      colors.primary.background = "#000000";
+      background_opacity = 0.65;
       draw_bold_text_with_bright_colors = true;
-      live_config_reload = true;
     };
   };
 }
