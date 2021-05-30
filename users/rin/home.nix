@@ -32,6 +32,7 @@
     ./neovim.nix
     ./npm.nix
     ./rofi.nix
+    # ./urxvt.nix
     ./zsh.nix
 
     ./dunst.nix

@@ -5,7 +5,7 @@
 
     blur = true;
     blurExclude = [
-      "class_g != 'Alacritty' && class_g != 'Polybar'"
+      "class_g != 'Alacritty' && class_g != 'Polybar' && class_g != 'URxvt'"
     ];
     fade = true;
     fadeDelta = 5;
