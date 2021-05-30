@@ -73,6 +73,10 @@ let
   direnv = ''
     eval "$(direnv hook zsh)"
   '';
+  pure = ''
+    autoload -U promptinit; promptinit
+    prompt pure
+  '';
   viExtraNav = ''
     bindkey -M menuselect 'h' vi-backward-char
     bindkey -M menuselect 'k' vi-up-line-or-history
@@ -135,6 +139,7 @@ in rec {
       autoload -U colors && colors
     '';
     initExtra = lib.concatStringsSep "\n" [
+      # pure
       cursorShape
       direnv
       genAbbrs
@@ -169,6 +174,15 @@ in rec {
           sha256 = "0m102makrfz1ibxq8rx77nngjyhdqrm8hsrr9342zzhq1nf4wxxc";
         };
       }
+      # {
+      #   name = "pure";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "sindresorhus";
+      #     repo = "pure";
+      #     rev = "43aafe0b4dc05174c57ee623c03c64400e832ece";
+      #     sha256 = "0dadhbmq9ijk9nvkg936axgp12x2v2wppxqvlzn095d6v9nikc9p";
+      #   };
+      # }
     ];
   };
 }
