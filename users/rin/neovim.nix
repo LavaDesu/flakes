@@ -24,6 +24,7 @@ in {
       vim-airline
       vim-material
       vim-nix
+      vim-repeat
       vim-surround
 
       lf-vim
