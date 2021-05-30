@@ -20,10 +20,15 @@
           y = 0;
         };
       };
-      mouse = {
-        url.launcher.program = "xdg-open";
-        modifiers = "Control";
-      };
+      # TODO: how
+      # hints.enabled = [{
+      #   command = "xdg-open";
+      #   post_processing = true;
+      #   mouse = {
+      #     enabled = true;
+      #     mods = "Control";
+      #   };
+      # }];
 
       background_opacity = 0.8;
       draw_bold_text_with_bright_colors = true;
