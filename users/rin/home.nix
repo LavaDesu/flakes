@@ -68,4 +68,8 @@
       package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
     };
   };
+
+  services = {
+    clipmenu.enable = true;
+  };
 }
