@@ -8,13 +8,13 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" "bcachefs" ];
+  boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "none";
+    { device = "rootfs";
       fsType = "tmpfs";
       options = [ "defaults" "size=4G" "mode=755" ];
     };
@@ -24,40 +24,34 @@
       fsType = "vfat";
     };
 
-  fileSystems."/mnt/bcachefs" =
-    { device = "/dev/sda2";
-      fsType = "bcachefs";
-      neededForBoot = true;
+  fileSystems."/mnt/butter" =
+    { device = "/dev/disk/by-uuid/8f0ba28e-5dff-4a4e-8db0-aa72cc90cb5d";
+      fsType = "btrfs";
+      options = [ "autodefrag" "compress=zstd:3" "nossd" "nossd_spread" "relatime" "subvolid=5" ];
     };
 
   fileSystems."/nix" =
-    { device = "/mnt/bcachefs/binds/nix";
-      fsType = "none";
-      options = [ "bind" ];
+    { device = "/dev/disk/by-uuid/8f0ba28e-5dff-4a4e-8db0-aa72cc90cb5d";
+      fsType = "btrfs";
+      options = [ "autodefrag" "compress=zstd:3" "nossd" "nossd_spread" "relatime" "subvolid=258" ];
     };
 
   fileSystems."/home" =
-    { device = "/mnt/bcachefs/binds/home";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var" =
-    { device = "/mnt/bcachefs/binds/var";
-      fsType = "none";
-      options = [ "bind" ];
+    { device = "/dev/disk/by-uuid/8f0ba28e-5dff-4a4e-8db0-aa72cc90cb5d";
+      fsType = "btrfs";
+      options = [ "autodefrag" "compress=zstd:3" "nossd" "nossd_spread" "relatime" "subvolid=260" ];
     };
 
   fileSystems."/root" =
-    { device = "/mnt/bcachefs/binds/root";
-      fsType = "none";
-      options = [ "bind" ];
+    { device = "/dev/disk/by-uuid/8f0ba28e-5dff-4a4e-8db0-aa72cc90cb5d";
+      fsType = "btrfs";
+      options = [ "autodefrag" "compress=zstd:3" "nossd" "nossd_spread" "relatime" "subvolid=261" ];
     };
 
-  fileSystems."/etc/nixos" =
-    { device = "/mnt/bcachefs/binds/etc_nixos";
-      fsType = "none";
-      options = [ "bind" ];
+  fileSystems."/var" =
+    { device = "/dev/disk/by-uuid/8f0ba28e-5dff-4a4e-8db0-aa72cc90cb5d";
+      fsType = "btrfs";
+      options = [ "autodefrag" "compress=zstd:3" "nossd" "nossd_spread" "relatime" "subvolid=259" ];
     };
 
   fileSystems."/mnt/hdd" =
@@ -66,5 +60,4 @@
     };
 
   swapDevices = [ ];
-
 }

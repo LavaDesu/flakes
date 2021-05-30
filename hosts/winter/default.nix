@@ -3,11 +3,11 @@
   system.stateVersion = "20.09";
 
   environment.etc = {
-    "machine-id".source = "/mnt/bcachefs/machine-id";
-    "ssh/ssh_host_rsa_key".source = "/mnt/bcachefs/ssh_host_rsa_key";
-    "ssh/ssh_host_rsa_key.pub".source = "/mnt/bcachefs/ssh_host_rsa_key.pub";
-    "ssh/ssh_host_ed25519_key".source = "/mnt/bcachefs/ssh_host_ed25519_key";
-    "ssh/ssh_host_ed25519_key.pub".source = "/mnt/bcachefs/ssh_host_ed25519_key.pub";
+    "machine-id".source = "/var/persist/machine-id";
+    "ssh/ssh_host_rsa_key".source = "/var/persist/ssh_host_rsa_key";
+    "ssh/ssh_host_rsa_key.pub".source = "/var/persist/ssh_host_rsa_key.pub";
+    "ssh/ssh_host_ed25519_key".source = "/var/persist/ssh_host_ed25519_key";
+    "ssh/ssh_host_ed25519_key.pub".source = "/var/persist/ssh_host_ed25519_key.pub";
   };
   environment.pathsToLink = [ "/share/zsh" ];
   users.mutableUsers = false;
