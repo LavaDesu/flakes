@@ -21,6 +21,7 @@
       overlays = {
         discord = import ./overlays/discord.nix;
         linux = import ./overlays/linux.nix;
+        material-icons = import ./overlays/material-icons.nix;
         picom = import ./overlays/picom.nix;
         polybar = import ./overlays/polybar.nix;
         transcrypt = import ./overlays/transcrypt.nix;
