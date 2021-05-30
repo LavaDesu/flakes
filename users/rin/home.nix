@@ -36,9 +36,13 @@
 
     ./dunst.nix
     ./picom.nix
-    ./polybar.nix
+    ./polybar.bspwm.nix
+    # ./polybar.i3.nix
 
-    ./i3.nix
+    ./xorg.nix
+    ./sxhkd.nix
+    ./bspwm.nix
+    # ./i3.nix
   ];
 
   programs = {

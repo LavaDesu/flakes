@@ -29,9 +29,6 @@ let
   }) states);
 
 in rec {
-  home.file.".xinitrc".source = ./scripts/xinitrc;
-  xdg.configFile."i3/wallpaper.png".source = ../../res/wallpaper.png;
-  xsession.enable = true;
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
@@ -45,7 +42,7 @@ in rec {
           notification = false;
         }
         {
-          command = "feh --no-fehbg --bg-fill ${config.xdg.configHome}/i3/wallpaper.png";
+          command = "feh --no-fehbg --bg-fill ${config.xdg.configHome}/xorg/wallpaper.png";
           always = true;
           notification = false;
         }
