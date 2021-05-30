@@ -16,7 +16,6 @@
       lf
       neofetch
       pavucontrol
-      osu-lazer
       tor-browser-bundle-bin
       transcrypt
       wine-osu
