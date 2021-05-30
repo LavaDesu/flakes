@@ -16,10 +16,9 @@
     };
   };
 
-  # TODO: i gave up
-  #xsession.pointerCursor = {
-  #  package = pkgs.bibata-cursors;
-  #  name = "Bibata_Classic";
-  #  size = 16;
-  #};
+  xsession.pointerCursor = {
+    package = pkgs.yaru-theme;
+    name = "Yaru";
+    size = 16;
+  };
 }
