@@ -11,8 +11,8 @@ in rec {
       "super + Return" = "rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'";
 
       # Printscreen
-      "Print" = "maim -us | tee ~/Pictures/Screenshots/$(date  + %s)c.png | xclip -selection clipboard -t image/png";
-      "shift + Print" = "maim -u | tee ~/Pictures/Screenshots/$(date  + %s).png | xclip -selection clipboard -t image/png";
+      "Print" = "maim -us | tee ~/Pictures/Screenshots/$(date +%s)c.png | xclip -selection clipboard -t image/png";
+      "shift + Print" = "maim -u | tee ~/Pictures/Screenshots/$(date +%s).png | xclip -selection clipboard -t image/png";
 
       # Quick-kill picom
       "super + p" = "systemctl --user stop picom";
