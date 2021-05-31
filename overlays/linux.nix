@@ -24,7 +24,10 @@ self: super: {
   in {
     version = "${mmp}-tkg-Lava";
     isZen = true;
-    structuredExtraConfig = with super.lib.kernel; {
+    # TODO:
+    # some stuff is set in pkgs/os-specific/linux/kernel/common-config.nix
+    # but i have no idea how to change it
+    structuredExtraConfig = with super.lib.kernel; builtins.mapAttrs (_: value: super.lib.mkForce value) {
       LOCALVERSION = freeform "-tkg-Lava";
       ZENIFY = yes;
       FUTEX2 = yes;
@@ -56,9 +59,7 @@ self: super: {
       CGROUP_DEBUG = no;
 
       # disable numa
-      # TODO: is set in pkgs/os-specific/linux/kernel/common-config.nix
-      # but i have no idea how to change it
-      NUMA = super.lib.mkForce no;
+      NUMA = no;
       AMD_NUMA = no;
       X86_64_ACPI_NUMA = no;
       NODES_SPAN_OTHER_NODES = no;
