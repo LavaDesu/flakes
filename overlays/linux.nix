@@ -56,7 +56,9 @@ self: super: {
       CGROUP_DEBUG = no;
 
       # disable numa
-      NUMA = no;
+      # TODO: is set in pkgs/os-specific/linux/kernel/common-config.nix
+      # but i have no idea how to change it
+      NUMA = super.lib.mkForce no;
       AMD_NUMA = no;
       X86_64_ACPI_NUMA = no;
       NODES_SPAN_OTHER_NODES = no;
