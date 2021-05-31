@@ -6,6 +6,7 @@
       window_gap = 10;
       border_width = 0;
       split_ratio = 0.5;
+      top_padding = 25;
     };
     extraConfig = ''
       feh --no-fehbg --bg-fill ${config.xdg.configHome}/xorg/wallpaper.png

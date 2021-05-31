@@ -8,7 +8,7 @@
         width = "100%";
         height = 35;
         #background = "#64506c";
-        background = "#10000000";
+        background = "#00000000";
         foreground = "#fff";
 
         spacing = 2;
@@ -17,6 +17,7 @@
           right = 5;
           bottom = 5;
         };
+        override-redirect = true;
 
         font = [
           "NotoSans:style=Regular:size=11:antialias=true;2"
@@ -54,11 +55,11 @@
           focused = "%{T3}"; # ef4a
           occupied = {
             text = "%{T3}"; # e837
-            foreground = "#B0FFFFFF";
+            foreground = "#80FFFFFF";
           };
           empty = {
             text = "%{T3}"; # ef4a
-            foreground = "#B0FFFFFF";
+            foreground = "#80FFFFFF";
           };
           urgent = {
             text = "%{T3}"; # e837
