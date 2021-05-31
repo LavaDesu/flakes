@@ -4,7 +4,7 @@ self: super: {
     major = "5";
     minor = "12";
     patch = "8";
-    tkg = "6006c78ceaae9ca344682db51d225576a4ff9914";
+    tkg = "4307fc377dbc7c7ea7eb6207f74c40547c3bbbd2";
 
     mm = "${major}.${minor}";
     mmp = "${major}.${minor}.${patch}";
@@ -28,13 +28,52 @@ self: super: {
       LOCALVERSION = freeform "-tkg-Lava";
       ZENIFY = yes;
       FUTEX2 = yes;
-      SCHED_ALT = yes;
-      SCHED_PDS = yes;
       MHASWELL = yes;
+      WINESYNC = module;
+
+      # timers
+      HZ_PERIODIC = no;
       NO_HZ = yes;
-      NO_HZ_IDLE = yes;
-      HZ_100 = yes;
-      WINESYNC = yes;
+      NO_HZ_COMMON = yes;
+      NO_HZ_FULL = yes;
+      NO_HZ_IDLE = no;
+      CONTEXT_TRACKING = yes;
+      CONTEXT_TRACKING_FORCE = yes;
+      # HZ_100 = yes;
+      HZ_1000 = yes;
+      HZ_1000_NODEF = yes;
+
+      # scheduler
+      # SCHED_ALT = yes;
+      # SCHED_PDS = yes;
+      CACULE_SCHED = yes;
+
+      # cacule stuff
+      SCHED_AUTOGROUP = yes;
+      BSD_PROCESS_ACCT = no;
+      TASK_XACCT = no;
+      CGROUP_CPUACCT = no;
+      CGROUP_DEBUG = no;
+
+      # disable numa
+      NUMA = no;
+      AMD_NUMA = no;
+      X86_64_ACPI_NUMA = no;
+      NODES_SPAN_OTHER_NODES = no;
+      NUMA_EMU = no;
+      NEED_MULTIPLE_NODES = no;
+      USE_PERCPU_NUMA_NODE_ID = no;
+      ACPI_NUMA = no;
+
+      # disable misc debugging
+      SLUB_DEBUG = no;
+      PM_DEBUG = no;
+      PM_ADVANCED_DEBUG = no;
+      PM_SLEEP_DEBUG = no;
+      ACPI_DEBUG = no;
+      SCHED_DEBUG = no;
+      LATENCYTOP = no;
+      DEBUG_PREEMPT = no;
     };
     ignoreConfigErrors = true;
 
@@ -63,12 +102,15 @@ self: super: {
 
       # TK-Glitch patches
       ( tkgPatch "0002-clear-patches"           "1h1gx6rq2c961d36z1szqv9xpq1xgz2bhqjsyb03jjdrdzlcv9rm" )
+      ( tkgPatch "0003-cacule-${mm}"            "1m0frr0x0rj9qjzbqknx1zjiycfjzin4pv1sl25czz4w603yi686" )
       ( tkgPatch "0003-glitched-base"           "1dg177i3y54z5nadc5678hm67angram2vlr314mpxv3jgsh7vj8s" )
-      ( tkgPatch "0005-glitched-pds"            "0833awp8n9ngyl5spx8znwyw1lj3nacp8vg7ffysw0j5r8akv9pw" )
+      ( tkgPatch "0003-glitched-cfs"            "1cm4s72pymxnh37da84qrzvrwbbwagk46m1xsk99ir7cjb1l1zay" )
+      # ( tkgPatch "0005-glitched-pds"            "0833awp8n9ngyl5spx8znwyw1lj3nacp8vg7ffysw0j5r8akv9pw" )
       ( tkgPatch "0007-v${mm}-fsync"            "0mplwdglw58bmkkxix4ccwgax3r02gahax9042dx33mybdnbl0mk" )
       ( tkgPatch "0007-v${mm}-futex2_interface" "1j29zyx2s85scfhbprgb9cs11rp50glbzczl4plphli8wds342pw" )
       ( tkgPatch "0007-v${mm}-winesync"         "1q82439450bldni0lra9hmhvdxnjxxhlv8v95kd36wah7fki4k83" )
-      ( tkgPatch "0009-prjc_v${mm}-r1"          "1z731jiwyc7z4d5hzd6szrxnvw0iygbqx82y2anzm32n22731dqv" )
+      # ( tkgPatch "0009-prjc_v${mm}-r1"          "1z731jiwyc7z4d5hzd6szrxnvw0iygbqx82y2anzm32n22731dqv" )
+      ( tkgPatch "0012-misc-additions"          "092ws9v1snk61i6x3gbqm5m803zd81wykkdxizn7knvy2r611cbz")
     ];
   });
 }
