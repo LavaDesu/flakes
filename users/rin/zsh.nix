@@ -120,7 +120,11 @@ in rec {
       WINEARCH = "win64";
 
       EDITOR = "nvim";
-      PATH = "${config.xdg.dataHome}/npm/bin:$PATH";
+      PATH = builtins.concatStringsSep ":" [
+        "${config.home.homeDirectory}/.local/bin"
+        "${config.xdg.dataHome}/npm/bin"
+        "$PATH"
+      ];
       DIRENV_LOG_FORMAT = "";
       CARGO_HOME = "${config.xdg.dataHome}/cargo";
     };

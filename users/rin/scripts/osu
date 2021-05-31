@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd ~/Games/osu
+
+export DRI_PRIME=1
+export vblank_mode=0
+export STAGING_AUDIO_DURATION=200000
+
+wine ~/.local/bin/ipc-bridge.exe &
+wine osu\!.exe
