@@ -19,6 +19,7 @@
       pavucontrol
       tor-browser-bundle-bin
       transcrypt
+      vlc
       wine-osu
       (winetricks.override { wine = wine-osu; })
       xorg.xgamma
