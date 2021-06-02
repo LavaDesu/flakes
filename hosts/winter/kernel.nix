@@ -1,5 +1,5 @@
 { config, pkgs, ...}: {
-  powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.cpuFreqGovernor = "ondemand";
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -10,10 +10,7 @@
         device = "nodev";
       };
     };
-    supportedFilesystems = ["bcachefs"];
-    blacklistedKernelModules = [
-      "uvcvideo"
-    ];
+    blacklistedKernelModules = ["uvcvideo"];
     initrd = {
       includeDefaultModules = false;
       kernelModules = [ "i915" ];
