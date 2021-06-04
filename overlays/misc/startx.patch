@@ -1,0 +1,26 @@
+diff --git a/startx.cpp b/startx.cpp
+index 125c398..296b29f 100644
+--- a/startx.cpp
++++ b/startx.cpp
+@@ -47,10 +47,10 @@ XCOMM so export the new PATH just in case the user changes the shell
+ export PATH
+ #endif
+ 
+-userclientrc=$HOME/.xinitrc
++userclientrc="${XINITRC:-$HOME/.xinitrc}"
+ sysclientrc=XINITDIR/xinitrc
+ 
+-userserverrc=$HOME/.xserverrc
++userserverrc="${XSERVERRC:-$HOME/.xserverrc}"
+ sysserverrc=XINITDIR/xserverrc
+ defaultclient=XTERM
+ defaultserver=XSERVER
+@@ -270,7 +270,7 @@ if [ x"$enable_xauth" = x1 ] ; then
+     dummy=0
+ 
+     XCOMM create a file with auth information for the server. ':0' is a dummy.
+-    xserverauthfile=$HOME/.serverauth.$$
++    xserverauthfile=$XAUTHORITY
+     trap "rm -f '$xserverauthfile'" HUP INT QUIT ILL TRAP KILL BUS TERM
+     xauth -q -f "$xserverauthfile" << EOF
+ add :$dummy . $mcookie
