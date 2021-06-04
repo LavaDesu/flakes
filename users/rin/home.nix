@@ -10,6 +10,7 @@
       chromium
       discord-canary
       element-desktop
+      ffmpeg
       firefox
       gimp
       glxinfo
@@ -24,6 +25,7 @@
       wine-osu
       (winetricks.override { wine = wine-osu; })
       xorg.xgamma
+      youtube-dl
     ];
   };
 
