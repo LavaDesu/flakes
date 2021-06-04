@@ -67,10 +67,18 @@
         signByDefault = true;
       };
     };
+    gpg = {
+      enable = true;
+      homedir = "${config.xdg.dataHome}/gnupg";
+    };
   };
 
   services = {
     clipmenu.enable = true;
+    gpg-agent = {
+      enable = true;
+      pinentryFlavor = "gnome3";
+    };
   };
 
   home.file.".local/bin/ipc-bridge.exe".source = builtins.fetchurl {
