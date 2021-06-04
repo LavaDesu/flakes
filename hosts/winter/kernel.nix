@@ -16,6 +16,7 @@
       kernelModules = [ "i915" ];
     };
     kernel.sysctl = {
+      "kernel.core_pattern" = "|/bin/false";
       "kernel.sysrq" = 1;
     };
     kernelParams = [
