@@ -74,7 +74,8 @@
   };
 
   services = {
-    clipmenu.enable = true;
+    # TODO: borked
+    clipmenu.enable = false;
     gpg-agent = {
       enable = true;
       pinentryFlavor = "gnome3";
