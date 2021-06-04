@@ -116,17 +116,26 @@ in rec {
     '';
 
     sessionVariables = {
-      WINEPREFIX = "${config.xdg.dataHome}/wine64";
-      WINEARCH = "win64";
-
-      EDITOR = "nvim";
       PATH = builtins.concatStringsSep ":" [
         "${config.home.homeDirectory}/.local/bin"
         "${config.xdg.dataHome}/npm/bin"
         "$PATH"
       ];
-      DIRENV_LOG_FORMAT = "";
+
+      XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
+      EDITOR = "nvim";
+
       CARGO_HOME = "${config.xdg.dataHome}/cargo";
+      DIRENV_LOG_FORMAT = "";
+      GNUPGHOME = "${config.xdg.dataHome}/gnupg";
+      GTK2_RC_FILES = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+      LESSHISTFILE = "-";
+      NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/npmrc";
+      WGETRC = "${config.xdg.configHome}/wgetrc";
+      XINITRC = "${config.xdg.configHome}/xorg/xinitrc";
+
+      WINEPREFIX = "${config.xdg.dataHome}/wine64";
+      WINEARCH = "win64";
     };
     localVariables = {
       PS1 = "%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b ";
