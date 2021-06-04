@@ -13,10 +13,6 @@
     wget
 
     gnome3.nautilus
-
-    (pkgs.writeShellScriptBin "nix-flakes" ''
-      exec ${pkgs.nixUnstable}/bin/nix --experimental-features "nix-command flakes" "$@"
-    '')
   ];
   environment.variables.EDITOR = "nvim";
 
