@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
-    home-manager = { url = "github:nix-community/home-manager"; };
+    home-manager = { url = "github:LavaDesu/home-manager/xsession-profilePath"; };
     secrets = { url = "github:LavaDesu/flakes-secrets"; };
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
