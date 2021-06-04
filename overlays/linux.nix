@@ -3,8 +3,8 @@ self: super: {
   let
     major = "5";
     minor = "12";
-    patch = "8";
-    tkg = "4307fc377dbc7c7ea7eb6207f74c40547c3bbbd2";
+    patch = "9";
+    tkg = "8c2ba7508792fe1644948f31ddaab683643950fe";
 
     mm = "${major}.${minor}";
     mmp = "${major}.${minor}.${patch}";
@@ -85,7 +85,7 @@ self: super: {
       # Kernel version patch
       {
         name = "patch-${patch}";
-        patch = kernelUrl "patch-${mmp}" "0pjkddh40irbmhh24yfxjl46dwc0plpm8mz5mg5q84937b23kkx6";
+        patch = kernelUrl "patch-${mmp}" "1s0430sbfbfmm225xazvhl8ln33qq81qp0r2wdw5b4azw9xyqi5q";
       }
 
       # AMD SI manual clocking
@@ -105,7 +105,7 @@ self: super: {
 
       # TK-Glitch patches
       ( tkgPatch "0002-clear-patches"           "1h1gx6rq2c961d36z1szqv9xpq1xgz2bhqjsyb03jjdrdzlcv9rm" )
-      ( tkgPatch "0003-cacule-${mm}"            "1m0frr0x0rj9qjzbqknx1zjiycfjzin4pv1sl25czz4w603yi686" )
+      ( tkgPatch "0003-cacule-${mm}"            "1rgdk1x514xsjwcjjcdmggbaj6biql5p41skn98ysqbjaw7k22ib" )
       ( tkgPatch "0003-glitched-base"           "1dg177i3y54z5nadc5678hm67angram2vlr314mpxv3jgsh7vj8s" )
       ( tkgPatch "0003-glitched-cfs"            "1cm4s72pymxnh37da84qrzvrwbbwagk46m1xsk99ir7cjb1l1zay" )
       # ( tkgPatch "0005-glitched-pds"            "0833awp8n9ngyl5spx8znwyw1lj3nacp8vg7ffysw0j5r8akv9pw" )
