@@ -1,15 +1,6 @@
 self: super: {
   wine-osu = (super.wineStaging.overrideDerivation(o: {
-    patches = (o.patches or []) ++ [
-      #(builtins.fetchurl {
-      #  url = "https://gist.githubusercontent.com/LavaDesu/01c0f3144526da6aed4b2deb1d10cc99/raw/304d2def1b37f1319e27428f049f22c74eea882b/winepulse-v6.5-revert-wasapifriendy.patch";
-      #  sha256 = "1wjjwf1jfwafk1kdq0iw0r3hvi1h0i7ni276pv263rkkv418i8bq";
-      #})
-      (builtins.fetchurl {
-        url = "https://gist.githubusercontent.com/LavaDesu/01c0f3144526da6aed4b2deb1d10cc99/raw/304d2def1b37f1319e27428f049f22c74eea882b/winepulse-v6.5-wasapifriendy.patch";
-        sha256 = "12fhnbyl6kw284z3d6685xhcx21jmwhvibphx669qqbxj9bfk4hi";
-      })
-    ];
+    patches = (o.patches or []) ++ [ ./misc/wine-lowlatency.patch ];
   })).override {
     wineRelease = "staging";
     wineBuild = "wineWow";
