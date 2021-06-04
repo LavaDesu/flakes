@@ -1,11 +1,11 @@
 { config, ... }:
 let
-  genFF = mimeTypes: builtins.listToAttrs (builtins.map (mimeType: {
+  genMimes = mimeTypes: builtins.listToAttrs (builtins.map (mimeType: {
     name = mimeType;
-    value = "firefox.desktop";
+    value = "brave-browser.desktop";
   }) mimeTypes);
 
-  ffMimes = genFF [
+  mimes = genMimes [
     "x-scheme-handler/http"
     "x-scheme-handler/https"
     "x-scheme-handler/chrome"
@@ -24,8 +24,8 @@ in {
     mimeApps = {
       enable = true;
 
-      associations.added = ffMimes;
-      defaultApplications = ffMimes;
+      associations.added = mimes;
+      defaultApplications = mimes;
     };
   };
 }

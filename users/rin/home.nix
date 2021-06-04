@@ -6,14 +6,10 @@
     packages = with pkgs; [
       appimage-run
       brave
-      cachix
-      chromium
       discord-canary
       element-desktop
       ffmpeg
-      firefox
       gimp
-      glxinfo
       gnupg
       lf
       neofetch
