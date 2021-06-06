@@ -16,6 +16,14 @@
   ];
   environment.variables.EDITOR = "nvim";
 
+  hardware.opengl.extraPackages = with pkgs; [
+     vaapiIntel
+     vaapiVdpau
+     libvdpau-va-gl
+     intel-ocl
+     rocm-opencl-icd
+     rocm-opencl-runtime
+  ];
   programs.light.enable = true;
   hardware.opentabletdriver.enable = true;
   programs.steam.enable = true;
