@@ -130,6 +130,7 @@ in rec {
       GNUPGHOME = "${config.xdg.dataHome}/gnupg";
       GTK2_RC_FILES = "${config.xdg.configHome}/gtk-2.0/gtkrc";
       LESSHISTFILE = "-";
+      NODE_REPL_HISTORY="${config.xdg.dataHome}/nodejs/repl_history";
       NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/npmrc";
       WGETRC = "${config.xdg.configHome}/wgetrc";
       XINITRC = "${config.xdg.configHome}/xorg/xinitrc";
