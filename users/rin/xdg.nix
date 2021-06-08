@@ -28,4 +28,9 @@ in {
       defaultApplications = mimes;
     };
   };
+
+  # XXX: might need to be moved
+  xdg.configFile."wgetrc".text = ''
+    hsts-file = ${config.xdg.cacheHome}/wget-hsts
+  '';
 }
