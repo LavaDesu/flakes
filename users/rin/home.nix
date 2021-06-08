@@ -11,6 +11,7 @@
       ffmpeg
       gimp
       gnupg
+      inkscape
       lf
       neofetch
       pamixer
