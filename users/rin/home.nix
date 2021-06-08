@@ -12,6 +12,7 @@
       gimp
       gnupg
       inkscape
+      kotatogram-desktop
       lf
       neofetch
       pamixer
