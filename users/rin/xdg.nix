@@ -16,7 +16,10 @@ let
     "application/xhtml+xml"
     "application/x-extension-xhtml"
     "application/x-extension-xht"
-  ];
+  ] // {
+    # XXX: this thing found it unwritable so it just deletes it and rewrite???
+    "x-scheme-handler/tg" = "userapp-Kotatogram Desktop-CHJI40.desktop";
+  };
 in {
   xdg = {
     enable = true;
