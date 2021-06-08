@@ -22,6 +22,7 @@ in {
       ale
       coc-nvim
       vim-airline
+      vim-javascript
       vim-material
       vim-nix
       vim-repeat
