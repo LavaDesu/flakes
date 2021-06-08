@@ -146,8 +146,8 @@ in rec {
     };
 
     shellAliases = {
-      ls = "ls --color=tty -v";
-      diff = "diff -Naur --color=always";
+      ls = "ls --color=auto --group-directories-first -v";
+      diff = "diff -Naur --color=auto";
     };
     initExtraFirst = ''
       autoload -U colors && colors
