@@ -1,5 +1,8 @@
 { config, ... }: {
-  networking.wireless.enable = true;
+  networking.wireless = {
+    enable = true;
+    interfaces = [ "wlp3s0" ];
+  };
 
   networking.useDHCP = false;
   networking.interfaces.eno1.useDHCP = false;
