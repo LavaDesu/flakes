@@ -9,6 +9,7 @@
       discord-canary
       element-desktop
       ffmpeg
+      ghidra-bin
       gimp
       gnupg
       inkscape
