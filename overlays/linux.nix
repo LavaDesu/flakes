@@ -3,8 +3,8 @@ self: super: {
   let
     major = "5";
     minor = "12";
-    patch = "9";
-    tkg = "8c2ba7508792fe1644948f31ddaab683643950fe";
+    patch = "10";
+    tkg = "2da317c20ed6f70085b195639b9aad2cacf31ab5";
 
     mm = "${major}.${minor}";
     mmp = "${major}.${minor}.${patch}";
@@ -111,7 +111,7 @@ self: super: {
       # ( tkgPatch "0005-glitched-pds"            "0833awp8n9ngyl5spx8znwyw1lj3nacp8vg7ffysw0j5r8akv9pw" )
       ( tkgPatch "0007-v${mm}-fsync"            "0mplwdglw58bmkkxix4ccwgax3r02gahax9042dx33mybdnbl0mk" )
       ( tkgPatch "0007-v${mm}-futex2_interface" "1j29zyx2s85scfhbprgb9cs11rp50glbzczl4plphli8wds342pw" )
-      ( tkgPatch "0007-v${mm}-winesync"         "1q82439450bldni0lra9hmhvdxnjxxhlv8v95kd36wah7fki4k83" )
+      ( tkgPatch "0007-v${mm}-winesync"         "1av2k86ns0zc3lmgbfdch1z2a808brp2jvsfl4cwwlwwb51qzipp" )
       # ( tkgPatch "0009-prjc_v${mm}-r1"          "1z731jiwyc7z4d5hzd6szrxnvw0iygbqx82y2anzm32n22731dqv" )
       ( tkgPatch "0012-misc-additions"          "092ws9v1snk61i6x3gbqm5m803zd81wykkdxizn7knvy2r611cbz")
     ];
