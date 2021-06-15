@@ -21,6 +21,7 @@ in {
       # vim-fugitive
       ale
       coc-nvim
+      dart-vim-plugin
       vim-airline
       vim-javascript
       vim-material
