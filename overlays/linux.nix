@@ -85,7 +85,7 @@ self: super: {
       # Kernel version patch
       {
         name = "patch-${patch}";
-        patch = kernelUrl "patch-${mmp}" "1s0430sbfbfmm225xazvhl8ln33qq81qp0r2wdw5b4azw9xyqi5q";
+        patch = kernelUrl "patch-${mmp}" "06ddk5d81lnkkhg1691b7vh5zqqw93prkxsf3gy2cflzsjdb6kh3";
       }
 
       # AMD SI manual clocking
