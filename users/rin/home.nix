@@ -14,6 +14,7 @@
       inkscape
       kotatogram-desktop
       lf
+      mps-youtube
       neofetch
       pamixer
       pavucontrol
@@ -32,6 +33,7 @@
     ./xdg.nix
 
     ./alacritty.nix
+    ./mpv.nix
     ./neovim.nix
     ./npm.nix
     ./rofi.nix
