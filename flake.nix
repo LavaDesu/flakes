@@ -9,8 +9,15 @@
 
   outputs = inputs: with inputs;
     let
-      base = {
-        system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+      revCount = "295536";
+      base = { config, ... }: {
+        system = {
+          configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+          nixos = rec {
+            version = config.system.nixos.release + versionSuffix;
+            versionSuffix = ".${nixpkgs.lib.substring 0 8 (nixpkgs.lastModifiedDate or nixpkgs.lastModified or "19700101")}.r${revCount}-${nixpkgs.lib.substring 0 11 (nixpkgs.rev or "dirty")}";
+          };
+        };
         nix.registry.nixpkgs.flake = nixpkgs;
         nixpkgs.overlays = builtins.attrValues overlays;
       };
