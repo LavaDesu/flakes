@@ -9,6 +9,7 @@
       discord-canary
       element-desktop
       ffmpeg
+      gnome.file-roller
       ghidra-bin
       gimp
       gnupg
