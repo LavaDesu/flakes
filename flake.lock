@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1622792670,
-        "narHash": "sha256-GLmBd1uBC0XgupoxkwJyJEtUvM8d6hfLFXqExbtRD9Y=",
+        "lastModified": 1624126484,
+        "narHash": "sha256-x0LmdaceksI7posLR3yRzuIwuaK+Sf7/r+g9OX9uYAA=",
         "owner": "LavaDesu",
         "repo": "home-manager",
-        "rev": "3ce1ab8ff24cad4cc465c285bb2631126ecd4e51",
+        "rev": "410c8a5d87e6d341fca25f8632b2e2e5df4c1982",
         "type": "github"
       },
       "original": {
