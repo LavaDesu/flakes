@@ -22,6 +22,7 @@
       pavucontrol
       tor-browser-bundle-bin
       transcrypt
+      unrar
       vlc
       wine-osu
       (winetricks.override { wine = wine-osu; })
