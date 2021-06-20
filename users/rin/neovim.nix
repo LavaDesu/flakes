@@ -81,4 +81,9 @@ in {
       set fcs=eob:\ 
     '';
   };
+  xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
+    "rust-analyzer.lens.enable" = false;
+    "rust-analyzer.inlayHints.enable" = false;
+    "rust-analyzer.serverPath" = pkgs.rust-analyzer + "/bin/rust-analyzer";
+  };
 }
