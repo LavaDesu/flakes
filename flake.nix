@@ -9,7 +9,7 @@
 
   outputs = inputs: with inputs;
     let
-      revCount = "295536";
+      revCount = "296773";
       base = { config, ... }: {
         system = {
           configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
