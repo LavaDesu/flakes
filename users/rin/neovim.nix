@@ -79,6 +79,8 @@ in {
 
       " disable empty line tildes
       set fcs=eob:\ 
+
+      let g:coc_global_extensions = ['coc-tsserver', 'coc-rust-analyzer', 'coc-flutter']
     '';
   };
   xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
