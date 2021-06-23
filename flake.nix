@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs = { url = "github:NixOS/nixpkgs"; };
+    nixpkgs = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
     home-manager = { url = "github:LavaDesu/home-manager/xsession-profilePath"; };
     secrets = { url = "github:LavaDesu/flakes-secrets"; };
 
@@ -9,7 +9,7 @@
 
   outputs = inputs: with inputs;
     let
-      revCount = "296773";
+      revCount = "297098";
       base = { config, ... }: {
         system = {
           configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
