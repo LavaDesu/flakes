@@ -1,0 +1,26 @@
+From e17fb0bda3c042beec05b918e2d171211742e01c Mon Sep 17 00:00:00 2001
+From: Torge Matthies <openglfreak@googlemail.com>
+Date: Fri, 12 Feb 2021 13:58:35 +0100
+Subject: [PATCH 3/4] secur32: Fix crash from invalid context in
+ InitializeSecurityContextW.
+
+Signed-off-by: Torge Matthies <openglfreak@googlemail.com>
+---
+ dlls/secur32/schannel.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/dlls/secur32/schannel.c b/dlls/secur32/schannel.c
+index 9c7e98b32a4c55588a78ac6c3811b89db9e09db7..b2baefbc8caaf370c9c0ec31b7daf4cc9bb7fbb8 100644
+--- a/dlls/secur32/schannel.c
++++ b/dlls/secur32/schannel.c
+@@ -983,6 +983,7 @@ static SECURITY_STATUS SEC_ENTRY schan_InitializeSecurityContextW(
+         unsigned char *ptr;
+ 
+         ctx = schan_get_object(phContext->dwLower, SCHAN_HANDLE_CTX);
++        if (!ctx) return SEC_E_INVALID_HANDLE;
+         if (pInput)
+         {
+             idx = schan_find_sec_buffer_idx(pInput, 0, SECBUFFER_TOKEN);
+-- 
+2.32.0
+
