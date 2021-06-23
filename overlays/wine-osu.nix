@@ -1,6 +1,6 @@
 self: super: {
   wine-osu = (super.wineStaging.overrideDerivation(o: {
-    patches = (o.patches or []) ++ builtins.attrNames (builtins.readDir ./misc/wine);
+    patches = (o.patches or []) ++ builtins.map (e: ./misc/wine + ("/" + e)) (builtins.attrNames (builtins.readDir ./misc/wine));
   })).override {
     wineRelease = "staging";
     wineBuild = "wineWow";
