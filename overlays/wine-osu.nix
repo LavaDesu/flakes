@@ -4,7 +4,7 @@ let
     owner = "wine-mirror";
     repo = "wine";
     rev = "1de583a4dac7d704b2d4291ada4a1885cd8cd1c9";
-    sha256 = "0h3wgd84lvv55b4fknzkclnmkj32c5xcr7z0fgqkfghv2b0ywpnb";
+    sha256 = "1mbyy3szwgi0wjgb30hqy8y9azx6xnjrz80j3j1liv3194bmsia1";
   };
 
   staging = super.fetchFromGitHub rec {
