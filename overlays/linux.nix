@@ -47,11 +47,11 @@ self: super: {
       HZ_1000_NODEF = yes;
 
       # preempt
-      CONFIG_PREEMPT = yes;
-      CONFIG_PREEMPT_COUNT = yes;
-      CONFIG_PREEMPT_VOLUNTARY = no;
-      CONFIG_PREEMPTION = yes;
-      CONFIG_PREEMPT_DYNAMIC = yes;
+      PREEMPT = yes;
+      PREEMPT_COUNT = yes;
+      PREEMPT_VOLUNTARY = no;
+      PREEMPTION = yes;
+      PREEMPT_DYNAMIC = yes;
 
       # scheduler
       # SCHED_ALT = yes;
