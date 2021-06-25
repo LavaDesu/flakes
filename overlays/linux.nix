@@ -3,7 +3,7 @@ self: super: {
   let
     major = "5";
     minor = "12";
-    patch = "10";
+    patch = "13";
     tkg = "2da317c20ed6f70085b195639b9aad2cacf31ab5";
 
     mm = "${major}.${minor}";
@@ -92,7 +92,7 @@ self: super: {
       # Kernel version patch
       {
         name = "patch-${patch}";
-        patch = kernelUrl "patch-${mmp}" "06ddk5d81lnkkhg1691b7vh5zqqw93prkxsf3gy2cflzsjdb6kh3";
+        patch = kernelUrl "patch-${mmp}" "17d38hns5qfbw1pajpa5y38v86r49nqnw7a3pwsay5fapj69z8w4";
       }
 
       # AMD SI manual clocking
