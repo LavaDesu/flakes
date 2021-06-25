@@ -22,6 +22,7 @@
       pavucontrol
       tor-browser-bundle-bin
       transcrypt
+      transmission-remote-gtk
       unrar
       vlc
       wine-osu
