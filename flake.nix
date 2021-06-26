@@ -9,6 +9,26 @@
 
   outputs = inputs: with inputs;
     let
+      getPaths = root: builtins.map
+        (path: root + ("/" + path)) # Prepends root path
+        (builtins.attrNames (builtins.readDir root)); # Reads root path
+
+      customPackages = pkgs:
+        let
+          callPackage = pkgs.callPackage;
+        in {
+          linux-lava = callPackage ./packages/linux-lava {};
+          wine-osu = callPackage ./packages/wine-osu { inherit getPaths; };
+        };
+
+      overlays = (builtins.map
+        (path: import path) # Imports path
+        (builtins.filter
+          (path: nixpkgs.lib.hasSuffix ".nix" path) # Checks file extension
+          (getPaths ./overlays)
+        )
+      ) ++ [(self: super: customPackages super)];
+
       revCount = "297098";
       base = { config, ... }: {
         system = {
@@ -19,23 +39,14 @@
           };
         };
         nix.registry.nixpkgs.flake = nixpkgs;
-        nixpkgs.overlays = builtins.attrValues overlays;
+        nixpkgs.overlays = overlays;
       };
+
       hm-base = {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-      };
-      overlays = {
-        discord = import ./overlays/discord.nix;
-        linux = import ./overlays/linux.nix;
-        material-icons = import ./overlays/material-icons.nix;
-        mps-youtube = import ./overlays/mps-youtube.nix;
-        picom = import ./overlays/picom.nix;
-        polybar = import ./overlays/polybar.nix;
-        transcrypt = import ./overlays/transcrypt.nix;
-        winetricks = import ./overlays/winetricks.nix;
-        wine-osu = import ./overlays/wine-osu.nix;
-        xinit = import ./overlays/xinit.nix;
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+        };
       };
     in
     {
@@ -48,17 +59,7 @@
           ./hosts/winter
           secrets.nixosModules.winter
         ];
-        specialArgs = { inherit overlays; };
       };
-
-      packages.x86_64-linux =
-        let
-          pkgs = import nixpkgs {
-            overlays = builtins.attrValues overlays;
-            system = "x86_64-linux";
-          };
-        in {
-          inherit (pkgs) linux-lava wine-osu;
-        };
+      packages.x86_64-linux = customPackages nixpkgs.legacyPackages.x86_64-linux;
     };
 }

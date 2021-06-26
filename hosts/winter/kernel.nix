@@ -1,4 +1,4 @@
-{ config, pkgs, ...}: {
+{ config, pkgs, ... }: {
   powerManagement.cpuFreqGovernor = "ondemand";
   boot = {
     loader = {

@@ -2,7 +2,7 @@ self: super: {
   transcrypt = super.transcrypt.overrideAttrs(o: rec {
     version = "2.1.0";
 
-    patches = [ ./misc/transcrypt.patch ];
+    patches = [ ./patches/transcrypt.patch ];
     src = super.fetchFromGitHub {
       owner = "elasticdog";
       repo = "transcrypt";
