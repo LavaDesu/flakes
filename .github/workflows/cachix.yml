@@ -28,7 +28,7 @@ jobs:
             kernelVersion: [5.4, 5.10, 5.11]
             sched: [bmq, cfs, cacule, muqss, pds]
             include:
-                kernelVersion: 5.10
+              - kernelVersion: 5.10
                 sched: upds
     steps:
       - uses: actions/checkout@v2.3.4
