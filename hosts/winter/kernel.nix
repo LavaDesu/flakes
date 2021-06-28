@@ -26,7 +26,19 @@
       "intel_pstate=passive"
       "msr.allow_writes=on"
     ];
-    kernelPackages = pkgs.lib.mkForce (pkgs.linuxPackagesFor pkgs.linux-lava);
+    kernelPackages = pkgs.linuxPackages_tkg {
+      debug = false;
+      scheduler = "cacule";
+      timerFreq = 2000;
+      numa = false;
+      tickless = 1;
+      localVersion = "Lava";
+    };
+    kernelPatches = [{
+      name = "si-clocking";
+      patch = ../../packages/linux-lava/si-manual-clocking.patch;
+    }];
+    #kernelPackages = pkgs.lib.mkForce (pkgs.linuxPackagesFor pkgs.linux-lava);
   };
   zramSwap.enable = true;
 }

@@ -16,9 +16,39 @@
       customPackages = pkgs:
         let
           callPackage = pkgs.callPackage;
-        in {
-          linux-lava = callPackage ./packages/linux-lava {};
+        in rec {
+          linux_lava = callPackage ./packages/linux-lava {};
+          linux_tkg = callPackage ./packages/linux-tkg {
+            kernelPatches = with pkgs.kernelPatches; [
+              bridge_stp_helper
+              request_key_helper
+            ];
+          };
+          linuxPackages_tkg = args: pkgs.recurseIntoAttrs (pkgs.linuxPackagesFor (linux_tkg.override args));
           wine-osu = callPackage ./packages/wine-osu { inherit getPaths; };
+        }
+        # For github workflow tests
+        // builtins.listToAttrs (builtins.map (e: {
+          name = "linux_tkg-${e.scheduler}-${e.version}";
+          value = callPackage ./packages/linux-tkg {
+            inherit (e) scheduler version;
+            kernelPatches = with pkgs.kernelPatches; [
+              bridge_stp_helper
+              request_key_helper
+            ];
+          };
+        }) (pkgs.lib.cartesianProductOfSets {
+          scheduler = ["bmq" "cfs" "cacule" "muqss" "pds"];
+          version = ["5.4" "5.10" "5.11"];
+        })) // {
+          "linux_tkg-upds-5.10" = callPackage ./packages/linux-tkg {
+            version = "5.10";
+            scheduler = "upds";
+            kernelPatches = with pkgs.kernelPatches; [
+              bridge_stp_helper
+              request_key_helper
+            ];
+          };
         };
 
       overlays = (builtins.map
