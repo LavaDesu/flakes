@@ -29,7 +29,7 @@
         }
         # For github workflow tests
         // builtins.listToAttrs (builtins.map (e: {
-          name = "linux_tkg-${e.scheduler}-${e.version}";
+          name = "linux_tkg-${e.scheduler}-${pkgs.lib.stringAsChars (x: if x == "." then "" else x) e.version}";
           value = callPackage ./packages/linux-tkg {
             inherit (e) scheduler version;
             kernelPatches = with pkgs.kernelPatches; [
@@ -41,7 +41,7 @@
           scheduler = ["bmq" "cfs" "cacule" "muqss" "pds"];
           version = ["5.4" "5.10" "5.11"];
         })) // {
-          "linux_tkg-upds-5.10" = callPackage ./packages/linux-tkg {
+          "linux_tkg-upds-510" = callPackage ./packages/linux-tkg {
             version = "5.10";
             scheduler = "upds";
             kernelPatches = with pkgs.kernelPatches; [
