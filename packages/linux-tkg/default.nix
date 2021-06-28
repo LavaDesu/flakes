@@ -234,7 +234,7 @@ let
     "0002-clear-patches"
     "0003-glitched-base"
   ]
-  ++ lib.optional miscAdditions "0012-misc-additions"
+  ++ lib.optional ((lib.versionAtLeast version "5.10") && miscAdditions) "0012-misc-additions"
   ++ lib.optionals (version == "5.12") [
     "0001-mm-Support-soft-dirty-flag-reset-for-VA-range"
     "0002-mm-Support-soft-dirty-flag-read-with-reset"
