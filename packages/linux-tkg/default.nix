@@ -140,8 +140,8 @@ let
       base = mapBoolToKernel false (builtins.map (e: "RQ_${lib.toUpper e}") types);
     in
       if (scheduler == "muqss") then
-        if (builtins.elem type types)
-        then base // { "RQ_${lib.toUpper type}" = yes; }
+        if (builtins.elem runqueueSharing types)
+        then base // { "RQ_${lib.toUpper runqueueSharing}" = yes; }
         else throw "Unknown runqueueSharing type"
       else {};
 
