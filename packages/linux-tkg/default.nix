@@ -18,9 +18,9 @@
 , tickless ? 2
 
 , enableAnbox ? false
-, bcachefs ? false
-, futex2 ? true
-, winesync ? true
+, bcachefs ? (version == "5.10" || version == "5.12")
+, futex2 ? (lib.versionAtLeast version "5.10")
+, winesync ? (lib.versionAtLeast version "5.12")
 , irqThreading ? false
 , randomTrustCPU ? false
 , smtNice ? true

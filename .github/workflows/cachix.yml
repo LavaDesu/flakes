@@ -18,7 +18,7 @@ jobs:
         with:
           name: lava
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: nix build -L .#linux-lava
+      - run: nix build -L .#linux_lava
 
   linux_tkg:
     name: Build Linux-tkg
