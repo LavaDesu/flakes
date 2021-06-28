@@ -42,8 +42,6 @@
 , ...
 } @ args:
 let
-  tkg = "2da317c20ed6f70085b195639b9aad2cacf31ab5";
-
   sources = import ./sources.nix { inherit fetchFromGitHub lib version; };
 
   boolToKernel = bool: with lib.kernel; if bool then yes else no;
@@ -325,11 +323,6 @@ in buildLinux(args // rec {
   } // flattenedConfig
     // extraConfig);
 
-  kernelPatches = #args.kernelPatches
-    [{
-       name = "patch-${version}";
-       patch = sources.patchSrc;
-    }]
-    ++ tkgPatches;
+  kernelPatches = tkgPatches;
   src = sources.kernelSrc;
 } // (args.argsOverride or {}))
