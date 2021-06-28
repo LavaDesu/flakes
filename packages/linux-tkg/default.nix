@@ -309,12 +309,12 @@ let
     inherit name;
     patch = "${sources.tkg}/linux-tkg-patches/${version}/${name}.patch";
   };
-  tkgPatches = builtins.map (e: toPatch e) (lib.naturalSort patchNames);
+  tkgPatches = builtins.map (e: toPatch e) patchNames;
 
   suffix = if builtins.stringLength localVersion != 0 then "-tkg-${localVersion}" else "-tkg";
 in buildLinux(args // rec {
-  version = "${sources.fullVersion}-tkg";
-  modDirVersion = version + suffix;
+  version = sources.fullVersion + suffix;
+  modDirVersion = version;
 
   isZen = zenify;
 
