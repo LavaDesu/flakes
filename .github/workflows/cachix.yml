@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
         matrix:
-            kernelVersion: ["54", "510", "511"]
+            kernelVersion: ["54", "510", "512"]
             sched: [bmq, cfs, cacule, muqss, pds]
             include:
               - kernelVersion: "510"

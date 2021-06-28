@@ -44,31 +44,7 @@
 let
   tkg = "2da317c20ed6f70085b195639b9aad2cacf31ab5";
 
-  majorVersion =
-    if lib.versions.major version == "5"
-    then "5"
-    else throw "Unsupported major version";
-  minorVersion = lib.versions.minor version;
-  patchVersion =
-         if minorVersion == "4" then "128"
-    else if minorVersion == "10" then "46"
-    else if minorVersion == "12" then "13"
-    else throw "Unsupported minor version";
-
-  mmp = "${majorVersion}.${minorVersion}.${patchVersion}";
-  mm = "${majorVersion}.${minorVersion}";
-
-  kernelUrl = name: sha256: builtins.fetchurl {
-    inherit sha256;
-    url = "https://cdn.kernel.org/pub/linux/kernel/v${majorVersion}.x/${name}.xz";
-  };
-
-  tkgSource = fetchFromGitHub {
-    owner = "Frogging-Family";
-    repo = "linux-tkg";
-    rev = "2da317c20ed6f70085b195639b9aad2cacf31ab5";
-    sha256 = "06a5fpafids8nc550pcsyvar2igphi6bpghqzl6cp48hg6p2g07w";
-  };
+  sources = import ./sources.nix { inherit fetchFromGitHub lib version; };
 
   boolToKernel = bool: with lib.kernel; if bool then yes else no;
   boolToKernelMod = bool: with lib.kernel; if bool then module else no;
@@ -105,10 +81,10 @@ let
         "5.4" = {
           TP_SMAPI = module;
           RAID6_USE_PREFER_GEN = yes;
-          RCU_BOOST_DELAY = freeform 0;
+          RCU_BOOST_DELAY = freeform "0";
         };
       };
-    in base // (if builtins.hasAttr mm extras then extras.${mm} else {});
+    in base // (if builtins.hasAttr version extras then extras.${version} else {});
 
     debug =
       if debug
@@ -154,7 +130,7 @@ let
     in
       if builtins.hasAttr scheduler schedConfigs
       then
-        if builtins.elem scheduler supportedSchedulers.${mm}
+        if builtins.elem scheduler supportedSchedulers.${version}
         then schedConfigs.${scheduler}
         else throw "Unsupported scheduler for kernel version"
       else throw "Unknown scheduler";
@@ -260,7 +236,7 @@ let
     "0003-glitched-base"
   ]
   ++ lib.optional miscAdditions "0012-misc-additions"
-  ++ lib.optionals (mm == "5.12") [
+  ++ lib.optionals (version == "5.12") [
     "0001-mm-Support-soft-dirty-flag-reset-for-VA-range"
     "0002-mm-Support-soft-dirty-flag-read-with-reset"
   ]
@@ -272,33 +248,33 @@ let
       };
       map = {
         muqss = [
-          "0004-${mm}-ck1"
+          "0004-${version}-ck1"
           "0004-glitched-muqss"
         ];
         upds = [
-          "0005-v${mm}_undead-pds099o"
+          "0005-v${version}_undead-pds099o"
           "0005-undead-glitched-pds"
         ];
-        pds = if mm == "5.4"
+        pds = if version == "5.4"
           then [
-            "0005-v${mm}_undead-pds099o"
+            "0005-v${version}_undead-pds099o"
             "0005-glitched-pds"
           ]
           else [
-            "0009-prjc_v${mm}-r${prjcRevisions.${mm}}"
+            "0009-prjc_v${version}-r${prjcRevisions.${version}}"
             "0005-glitched-pds"
           ];
-        bmq = if mm == "5.4"
+        bmq = if version == "5.4"
           then [
             "0009-bmq_v5.4-r2"
             "0009-glitched-bmq"
           ]
           else [
-            "0009-prjc_v${mm}-r${prjcRevisions.${mm}}"
+            "0009-prjc_v${version}-r${prjcRevisions.${version}}"
             "0009-glitched-bmq"
           ];
         cacule = [
-          "0003-cacule-${mm}"
+          "0003-cacule-${version}"
           "0003-glitched-cfs"
         ];
         cfs = ["0003-glitched-cfs"];
@@ -313,10 +289,10 @@ let
     let map = rec {
       muqss = "0004-glitched-ondemand-muqss";
       upds = "0005-undead-glitched-ondemand-pds";
-      pds = if mm == "5.4"
+      pds = if version == "5.4"
         then "0005-glitched-ondemand-pds"
         else "0009-glitched-ondemand-bmq";
-      bmq = if mm != "5.4"
+      bmq = if version != "5.4"
         then "0009-glitched-ondemand-bmq"
         else {};
     }; in
@@ -324,21 +300,21 @@ let
     then [map.${scheduler}]
     else []
   )
-  ++ lib.optional bcachefs "0008-${mm}-bcachefs"
-  ++ lib.optional fsync "0007-v${mm}-fsync"
-  ++ lib.optional futex2 "0007-v${mm}-futex2_interface"
-  ++ lib.optional winesync "0007-v${mm}-winesync"
+  ++ lib.optional bcachefs "0008-${version}-bcachefs"
+  ++ lib.optional fsync "0007-v${version}-fsync"
+  ++ lib.optional futex2 "0007-v${version}-futex2_interface"
+  ++ lib.optional winesync "0007-v${version}-winesync"
   ++ lib.optional zfsFix "0011-ZFS-fix";
 
   toPatch = name: {
     inherit name;
-    patch = "${tkgSource}/linux-tkg-patches/${mm}/${name}.patch";
+    patch = "${sources.tkg}/linux-tkg-patches/${version}/${name}.patch";
   };
   tkgPatches = builtins.map (e: toPatch e) (lib.naturalSort patchNames);
 
   suffix = if builtins.stringLength localVersion != 0 then "-tkg-${localVersion}" else "-tkg";
 in buildLinux(args // rec {
-  version = "${mmp}-tkg";
+  version = "${sources.fullVersion}-tkg";
   modDirVersion = version + suffix;
 
   isZen = zenify;
@@ -351,9 +327,9 @@ in buildLinux(args // rec {
 
   kernelPatches = #args.kernelPatches
     [{
-       name = "patch-${mmp}";
-       patch = kernelUrl "patch-${mmp}" "17d38hns5qfbw1pajpa5y38v86r49nqnw7a3pwsay5fapj69z8w4";
+       name = "patch-${version}";
+       patch = sources.patchSrc;
     }]
     ++ tkgPatches;
-  src = kernelUrl "linux-${mm}.tar" "0rn3z942vjc7bixjw066rm6kcr0x0wzgxqfq1f6xd113pzrgc3bx";
+  src = sources.kernelSrc;
 } // (args.argsOverride or {}))

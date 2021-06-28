@@ -39,7 +39,7 @@
           };
         }) (pkgs.lib.cartesianProductOfSets {
           scheduler = ["bmq" "cfs" "cacule" "muqss" "pds"];
-          version = ["5.4" "5.10" "5.11"];
+          version = ["5.4" "5.10" "5.12"];
         })) // {
           "linux_tkg-upds-510" = callPackage ./packages/linux-tkg {
             version = "5.10";
