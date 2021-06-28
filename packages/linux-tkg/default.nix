@@ -35,7 +35,8 @@
 , aggressiveOndemand ? true
 , fsync ? true
 , miscAdditions ? true
-, zfsFix ? (lib.versionOlder version "5.11")
+# XXX: This patch is pretty broken
+, zfsFix ? false # (lib.versionOlder version "5.11")
 
 , localVersion ? ""
 
