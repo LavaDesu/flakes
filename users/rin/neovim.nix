@@ -80,10 +80,14 @@ in {
       " disable empty line tildes
       set fcs=eob:\ 
 
-      let g:coc_global_extensions = ['coc-tsserver', 'coc-rust-analyzer', 'coc-flutter']
+      let g:coc_global_extensions = ['coc-eslint', 'coc-tsserver', 'coc-rust-analyzer', 'coc-flutter']
     '';
   };
   xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
+    "eslint.enable" = true;
+    "eslint.options" = {
+      configFile = "./.eslintrc.json";
+    };
     "rust-analyzer.lens.enable" = false;
     "rust-analyzer.inlayHints.enable" = false;
     "rust-analyzer.serverPath" = pkgs.rust-analyzer + "/bin/rust-analyzer";
