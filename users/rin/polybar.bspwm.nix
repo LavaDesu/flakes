@@ -18,6 +18,7 @@
           bottom = 5;
         };
         override-redirect = true;
+        wm-restack = "bspwm";
 
         font = [
           "NotoSans:style=Regular:size=11:antialias=true;2"
