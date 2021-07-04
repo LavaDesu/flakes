@@ -29,7 +29,7 @@
         )
       ) ++ [(self: super: customPackages super)];
 
-      revCount = "297098";
+      revCount = "299942";
       base = { config, ... }: {
         system = {
           configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
