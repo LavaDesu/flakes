@@ -19,11 +19,11 @@ in {
     plugins = with pkgs.vimPlugins; [
       # nerdtree
       # vim-fugitive
-      ale
+      # ale
       coc-nvim
       dart-vim-plugin
       vim-airline
-      vim-javascript
+      # vim-javascript
       vim-material
       vim-nix
       vim-repeat
