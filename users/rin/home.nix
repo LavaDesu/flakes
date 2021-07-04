@@ -20,6 +20,7 @@
       neofetch
       pamixer
       pavucontrol
+      rnix-lsp
       tor-browser-bundle-bin
       transcrypt
       transmission-remote-gtk

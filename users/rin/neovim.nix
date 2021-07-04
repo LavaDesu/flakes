@@ -3,10 +3,10 @@ let
   vim-material = pkgs.vimUtils.buildVimPlugin {
     name = "vim-material";
     src = pkgs.fetchFromGitHub {
-      owner = "hzchirs";
-      repo = "vim-material";
-      rev = "05461c967b861ef532c44d5348555febac94b0d5";
-      sha256 = "1w59zqrx3scqsrg1a43497xybc3m4zm00kwfqpvjfw6qrpk2zb3f";
+      owner = "kaicataldo";
+      repo = "material.vim";
+      rev = "7dfa4bbf1fe43fcebcd836ef4f3b1342b4ea69be";
+      sha256 = "1ihakmh07j47rzy76242zbipcgdn4yh5bivz09469hr1jj2snyj3";
     };
   };
 in {
@@ -17,13 +17,15 @@ in {
     vimdiffAlias = true;
 
     plugins = with pkgs.vimPlugins; [
-      # nerdtree
-      # vim-fugitive
-      # ale
       coc-nvim
-      dart-vim-plugin
+      coc-eslint
+      coc-json
+      coc-rust-analyzer
+      coc-tsserver
+      coc-yaml
+
+      nerdtree
       vim-airline
-      # vim-javascript
       vim-material
       vim-nix
       vim-repeat
@@ -48,12 +50,12 @@ in {
       set expandtab
 
       " theming
-      set termguicolors
       hi MatchParen cterm=underline ctermbg=none ctermfg=white
-      let g:material_style='oceanic'
+      set termguicolors
       let g:airline_theme='material'
-      set background=dark
-      colorscheme vim-material
+      let g:material_terminal_italics = 1
+      let g:material_theme_style = 'ocean'
+      colorscheme material
 
       " using tab for trigger completion
       function! s:check_back_space() abort
@@ -79,11 +81,15 @@ in {
 
       " disable empty line tildes
       set fcs=eob:\ 
-
-      let g:coc_global_extensions = ['coc-eslint', 'coc-tsserver', 'coc-rust-analyzer', 'coc-flutter']
     '';
   };
   xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
+    languageserver = {
+      nix = {
+        command = "rnix-lsp";
+        filetypes = [ "nix" ];
+      };
+    };
     "eslint.enable" = true;
     "eslint.options" = {
       configFile = "./.eslintrc.json";
