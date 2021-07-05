@@ -15,6 +15,7 @@ in {
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    package = pkgs.neovim-nightly;
 
     plugins = with pkgs.vimPlugins; [
       coc-nvim

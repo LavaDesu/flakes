@@ -2,9 +2,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     secrets.url = "github:LavaDesu/flakes-secrets";
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: with inputs;
@@ -27,7 +29,8 @@
           (path: nixpkgs.lib.hasSuffix ".nix" path) # Checks file extension
           (getPaths ./overlays)
         )
-      ) ++ [(self: super: customPackages super)];
+      ) ++ [(self: super: customPackages super)]
+        ++ [inputs.neovim-nightly.overlay];
 
       revCount = "299942";
       base = { config, ... }: {
