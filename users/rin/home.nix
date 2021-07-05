@@ -38,6 +38,7 @@
     ./xdg.nix
 
     ./alacritty.nix
+    ./kitty.nix
     ./mpv.nix
     ./neovim.nix
     ./npm.nix

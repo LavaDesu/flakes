@@ -7,6 +7,7 @@
     blurExclude = [
       (builtins.concatStringsSep " && " [
         "class_g != 'Alacritty'"
+        "class_g != 'kitty'"
         #"class_g != 'Polybar'"
         "class_g != 'URxvt'"
       ])
@@ -17,6 +18,7 @@
 
     opacityRule = [
       "80:class_g = 'Alacritty' && !focused"
+      "92:class_g = 'kitty' && !focused"
     ];
     vSync = true;
 

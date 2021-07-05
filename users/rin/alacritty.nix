@@ -8,7 +8,7 @@
       };
       font = {
         normal = {
-          family = "CascadiaCode";
+          family = "CascadiaCodePL";
           style = "Regular";
         };
         size = 8.6;
