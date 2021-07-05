@@ -32,8 +32,6 @@ in {
       vim-repeat
       vim-surround
 
-      lf-vim
-      vim-floaterm
       (nvim-treesitter.withPlugins (p: with p; [
         tree-sitter-nix
         tree-sitter-typescript
@@ -76,7 +74,6 @@ in {
       inoremap <silent><expr> <c-space> coc#refresh()
 
       " various aliases
-      nnoremap <c-p> :Lf<CR>
       nnoremap <leader>r :source $MYVIMRC<CR>
       command! -nargs=0 Sw w !doas tee % > /dev/null
 
