@@ -44,6 +44,7 @@ in {
       " configuration
       syntax enable
       set relativenumber number
+      set cursorline
       set noswapfile
       set hlsearch
       set ignorecase
