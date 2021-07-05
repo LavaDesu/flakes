@@ -25,6 +25,7 @@ in {
       coc-tsserver
       coc-yaml
 
+      ctrlp-vim
       nerdtree
       vim-airline
       vim-material
@@ -74,6 +75,7 @@ in {
       inoremap <silent><expr> <c-space> coc#refresh()
 
       " various aliases
+      nnoremap <c-h> :NERDTreeToggle
       nnoremap <leader>r :source $MYVIMRC<CR>
       command! -nargs=0 Sw w !doas tee % > /dev/null
 
