@@ -34,6 +34,10 @@ in {
 
       lf-vim
       vim-floaterm
+      (nvim-treesitter.withPlugins (p: with p; [
+        tree-sitter-nix
+        tree-sitter-typescript
+      ]))
     ];
     withNodeJs = true;
 
@@ -82,6 +86,12 @@ in {
 
       " disable empty line tildes
       set fcs=eob:\ 
+
+      lua <<EOF
+        require'nvim-treesitter.configs'.setup {
+          highlight = { enable = true }
+        }
+      EOF
     '';
   };
   xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
