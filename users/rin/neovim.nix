@@ -3,10 +3,10 @@ let
   vim-material = pkgs.vimUtils.buildVimPlugin {
     name = "vim-material";
     src = pkgs.fetchFromGitHub {
-      owner = "kaicataldo";
-      repo = "material.vim";
-      rev = "7dfa4bbf1fe43fcebcd836ef4f3b1342b4ea69be";
-      sha256 = "1ihakmh07j47rzy76242zbipcgdn4yh5bivz09469hr1jj2snyj3";
+      owner = "hzchirs";
+      repo = "vim-material";
+      rev = "05461c967b861ef532c44d5348555febac94b0d5";
+      sha256 = "1w59zqrx3scqsrg1a43497xybc3m4zm00kwfqpvjfw6qrpk2zb3f";
     };
   };
 in {
@@ -58,9 +58,8 @@ in {
       hi MatchParen cterm=underline ctermbg=none ctermfg=white
       set termguicolors
       let g:airline_theme='material'
-      let g:material_terminal_italics = 1
-      let g:material_theme_style = 'ocean'
-      colorscheme material
+      let g:material_style='oceanic'
+      colorscheme vim-material
 
       " using tab for trigger completion
       function! s:check_back_space() abort
