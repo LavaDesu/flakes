@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 let
-  vim-material = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-material";
+  tokyonight-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "tokyonight-nvim";
     src = pkgs.fetchFromGitHub {
-      owner = "hzchirs";
-      repo = "vim-material";
-      rev = "05461c967b861ef532c44d5348555febac94b0d5";
-      sha256 = "1w59zqrx3scqsrg1a43497xybc3m4zm00kwfqpvjfw6qrpk2zb3f";
+      owner = "folke";
+      repo = "tokyonight.nvim";
+      rev = "0ead86afe390603f9bd688103d7a5fc6724a828e";
+      sha256 = "1l6hscamapmqjn1kc2hrpynwwrljdlp84g27282wfvc2i0kpj884";
     };
   };
 in {
@@ -26,9 +26,9 @@ in {
       coc-yaml
 
       ctrlp-vim
+      lualine-nvim
       nerdtree
-      vim-airline
-      vim-material
+      tokyonight-nvim
       vim-nix
       vim-repeat
       vim-surround
@@ -55,11 +55,8 @@ in {
       set expandtab
 
       " theming
-      hi MatchParen cterm=underline ctermbg=none ctermfg=white
-      set termguicolors
-      let g:airline_theme='material'
-      let g:material_style='oceanic'
-      colorscheme vim-material
+      let g:tokyonight_style='night'
+      colorscheme tokyonight
 
       " using tab for trigger completion
       function! s:check_back_space() abort
@@ -87,8 +84,13 @@ in {
       set fcs=eob:\ 
 
       lua <<EOF
-        require'nvim-treesitter.configs'.setup {
+        require('nvim-treesitter.configs').setup {
           highlight = { enable = true }
+        }
+        require('lualine').setup {
+          options = {
+            theme = 'tokyonight'
+          }
         }
       EOF
     '';
