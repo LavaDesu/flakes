@@ -40,7 +40,7 @@
     ./theming.nix
     ./xdg.nix
 
-    ./alacritty.nix
+    # ./alacritty.nix
     ./kitty.nix
     ./mpv.nix
     ./neovim.nix
