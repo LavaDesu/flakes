@@ -23,7 +23,6 @@ in {
       coc-json
       coc-rust-analyzer
       coc-tsserver
-      coc-yaml
 
       ctrlp-vim
       lualine-nvim
@@ -34,8 +33,10 @@ in {
       vim-surround
 
       (nvim-treesitter.withPlugins (p: with p; [
+        tree-sitter-javascript
         tree-sitter-nix
         tree-sitter-typescript
+        tree-sitter-yaml
       ]))
     ];
     withNodeJs = true;
@@ -53,6 +54,7 @@ in {
       set clipboard^=unnamed
       set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
       set expandtab
+      let g:yaml_recommended_style=0
 
       " theming
       let g:tokyonight_style='night'
