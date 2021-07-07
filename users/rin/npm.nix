@@ -1,6 +1,4 @@
 { config, pkgs, ... }: {
-  home.packages = [ pkgs.nodejs ];
-
   xdg.configFile."npm/npmrc".text = ''
     cache=${config.xdg.dataHome}/npm/cache
     prefix=${config.xdg.dataHome}/npm

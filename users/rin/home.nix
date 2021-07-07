@@ -18,6 +18,7 @@
       lf
       mps-youtube
       neofetch
+      nodejs-16_x
       pamixer
       pavucontrol
       rnix-lsp
@@ -30,6 +31,8 @@
       (winetricks.override { wine = wine-osu; })
       xorg.xgamma
       youtube-dl
+
+      nodePackages_latest.pnpm
     ];
   };
 
