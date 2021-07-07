@@ -76,7 +76,8 @@ in {
 
       " various aliases
       nnoremap <c-h> :NERDTreeToggle
-      nnoremap <leader>r :source $MYVIMRC<CR>
+      nnoremap <leader>rs :source $MYVIMRC<CR>
+      nmap <leader>rn <Plug>(coc-rename)
       command! -nargs=0 Sw w !doas tee % > /dev/null
 
       " disable read-only warning
