@@ -1,10 +1,10 @@
 { fetchFromGitHub, lib }:
 let
-  version = "5.13.0";
+  version = "5.13.1";
   kernelHash = "1nc9didbjlycs9h8xahny1gwl8m8clylybnza6gl663myfbslsrz";
-  kernelPatchHash = "";
-  tkgRev = "1137522351b2044de4ac9edc6675b3dcb3de504a";
-  tkgHash = "118hvwjjc71gh8jsyswpbap90fmqczcknxdf7bvyn7cgacaix7bq";
+  kernelPatchHash = "0yaaap7z4j452q99139cajvflc6if0dm4yjhzzif9bpzd0s0fmmk";
+  tkgRev = "1f9d4f458cfbd1a661fc973338e67477e0e9126c";
+  tkgHash = "1jyc8vnhvfjq45gz93k50x1xsk772gbcm82i1d2jr36a562pskbc";
 
   tkgPatches = [
     "0001-mm-Support-soft-dirty-flag-reset-for-VA-range"
@@ -30,6 +30,14 @@ let
     rev = tkgRev;
     sha256 = tkgHash;
   };
+  kernelPatchSrc = {
+    name = "patch";
+    patch = builtins.fetchurl {
+      url = "https://cdn.kernel.org/pub/linux/kernel/v${lib.versions.major version}.x/patch-${version}.xz";
+      sha256 = kernelPatchHash;
+    };
+  };
+
   mm = lib.versions.majorMinor version;
 in {
   inherit version;
@@ -39,11 +47,10 @@ in {
     sha256 = kernelHash;
   };
 
-  kernelPatches = [(patch ./si-manual-clocking.patch)]
-  # ++ [(builtins.fetchurl {
-  #   url = "https://cdn.kernel.org/pub/linux/kernel/v${lib.versions.major version}.x/patch${version}.xz";
-  #   sha256 = kernelPatchHash;
-  # })]
+  kernelPatches = [
+    kernelPatchSrc
+    (patch ./si-manual-clocking.patch)
+  ]
   ++ builtins.map (name: {
     inherit name;
     patch = "${tkgSrc}/linux-tkg-patches/${mm}/${name}.patch";
