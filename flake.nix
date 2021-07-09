@@ -32,7 +32,7 @@
       ) ++ [(self: super: customPackages super)]
         ++ [inputs.neovim-nightly.overlay];
 
-      revCount = "299942";
+      revCount = "301044";
       base = { config, ... }: {
         system = {
           configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
