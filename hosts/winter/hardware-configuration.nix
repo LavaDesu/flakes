@@ -42,6 +42,12 @@
       options = [ "autodefrag" "compress=zstd:3" "nossd" "nossd_spread" "relatime" "subvolid=260" ];
     };
 
+  fileSystems."/home/.snapshots" =
+    { device = "/dev/disk/by-uuid/8f0ba28e-5dff-4a4e-8db0-aa72cc90cb5d";
+      fsType = "btrfs";
+      options = [ "autodefrag" "compress=zstd:3" "nossd" "nossd_spread" "relatime" "subvolid=319" ];
+    };
+
   fileSystems."/root" =
     { device = "/dev/disk/by-uuid/8f0ba28e-5dff-4a4e-8db0-aa72cc90cb5d";
       fsType = "btrfs";

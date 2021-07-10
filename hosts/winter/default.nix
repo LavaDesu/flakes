@@ -20,6 +20,7 @@
     ./networking.nix
     ./packages.nix
     ./security.nix
+    ./snapper.nix
 
     ../../users/rin
   ];
