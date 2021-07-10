@@ -108,6 +108,7 @@ in rec {
 
     enableCompletion = true;
     initExtraBeforeCompInit = ''
+      fpath+=(/run/current-system/sw/share/zsh/site-functions)
       zstyle ':completion:*' completer _complete
       zstyle ':completion:*' matcher-list "" 'm:{[:lower:][:upper:]-_}={[:upper:][:lower:]_-}' '+l:|=* r:|=*'
       zstyle ':completion:*' menu select
