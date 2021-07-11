@@ -8,6 +8,7 @@
       brave
       discord-canary
       element-desktop
+      feh
       ffmpeg
       gnome.file-roller
       ghidra-bin
@@ -16,6 +17,8 @@
       inkscape
       kotatogram-desktop
       lf
+      lxappearance
+      maim
       mps-youtube
       neofetch
       nodejs-16_x
@@ -29,6 +32,7 @@
       vlc
       wine-osu
       (winetricks.override { wine = wine-osu; })
+      xclip
       xorg.xgamma
       youtube-dl
 

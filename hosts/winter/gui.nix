@@ -42,19 +42,5 @@
       };
     };
     xkbOptions = "caps:escape";
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
-      extraPackages = with pkgs; [
-        dunst
-        feh
-        lxappearance
-        maim
-        picom
-        polybar
-        rofi
-        xclip
-      ];
-    };
   };
 }
