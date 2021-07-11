@@ -35,6 +35,8 @@ in {
       (nvim-treesitter.withPlugins (p: with p; [
         tree-sitter-javascript
         tree-sitter-nix
+        tree-sitter-rust
+        tree-sitter-toml
         tree-sitter-typescript
         tree-sitter-yaml
       ]))
