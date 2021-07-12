@@ -35,6 +35,10 @@ in rec {
       "super + {h,j,k,l}" = "bspc node -f {west,south,north,east}";
       "super + {Left,Down,Up,Right}" = "bspc node -f {west,south,north,east}";
 
+      # Switch windows
+      "super + shift + {h,j,k,l}" = "bspc node -s {west,south,north,east}";
+      "super + shift + {Left,Down,Up,Right}" = "bspc node -s {west,south,north,east}";
+
       # Move focused window
       "super + shift + {1-9,0}" = "bspc node -d ^{1-9,10}";
 
