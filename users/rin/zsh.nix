@@ -118,7 +118,7 @@ in rec {
 
     localVariables = {
       KEYTIMEOUT = "1";
-      PS1 = "%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b ";
+      #PS1 = "%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b ";
       ZSH_AUTOSUGGEST_STRATEGY = ["completion"];
       ZSH_AUTOSUGGEST_USE_ASYNC = true;
       ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE = 40;
@@ -132,7 +132,7 @@ in rec {
       autoload -U colors && colors
     '';
     initExtra = lib.concatStringsSep "\n" [
-      # pure
+      pure
       cursorShape
       direnv
       genAbbrs
@@ -167,15 +167,15 @@ in rec {
           sha256 = "0m102makrfz1ibxq8rx77nngjyhdqrm8hsrr9342zzhq1nf4wxxc";
         };
       }
-      # {
-      #   name = "pure";
-      #   src = pkgs.fetchFromGitHub {
-      #     owner = "sindresorhus";
-      #     repo = "pure";
-      #     rev = "43aafe0b4dc05174c57ee623c03c64400e832ece";
-      #     sha256 = "0dadhbmq9ijk9nvkg936axgp12x2v2wppxqvlzn095d6v9nikc9p";
-      #   };
-      # }
+      {
+        name = "pure";
+        src = pkgs.fetchFromGitHub {
+          owner = "sindresorhus";
+          repo = "pure";
+          rev = "43aafe0b4dc05174c57ee623c03c64400e832ece";
+          sha256 = "0qfs7rvpyd8jb7x4ziqrkh0b6g9ldds8sn6qbqgrir80vdk90gpa";
+        };
+      }
     ];
   };
 }
