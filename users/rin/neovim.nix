@@ -1,15 +1,4 @@
-{ config, pkgs, ... }:
-let
-  tokyonight-nvim = pkgs.vimUtils.buildVimPlugin {
-    name = "tokyonight-nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "folke";
-      repo = "tokyonight.nvim";
-      rev = "0ead86afe390603f9bd688103d7a5fc6724a828e";
-      sha256 = "1l6hscamapmqjn1kc2hrpynwwrljdlp84g27282wfvc2i0kpj884";
-    };
-  };
-in {
+{ config, pkgs, ... }: {
   programs.neovim = {
     enable = true;
     viAlias = true;
