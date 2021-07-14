@@ -38,12 +38,10 @@
       ) ++ [(self: super: customPackages super)]
         ++ [inputs.neovim-nightly.overlay];
 
-      base = { config, ... }: {
+      base = if !(self ? rev) then throw "Dirty git tree detected." else
+      { config, ... }: {
         system = rec {
-          configurationRevision =
-            if self ? rev
-            then self.rev
-            else throw "Refusing to build from a dirty Git tree!";
+          configurationRevision = self.rev;
           nixos = rec {
             version = config.system.nixos.release + versionSuffix;
             versionSuffix = "-${config.system.name}.r${builtins.toString self.revCount}.${self.shortRev}";
