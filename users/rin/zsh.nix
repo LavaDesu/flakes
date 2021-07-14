@@ -1,3 +1,4 @@
+# vim: ft=nix
 { config, pkgs, ... }:
 let
   lib = pkgs.lib;
