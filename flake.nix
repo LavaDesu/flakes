@@ -32,13 +32,16 @@
       ) ++ [(self: super: customPackages super)]
         ++ [inputs.neovim-nightly.overlay];
 
-      revCount = "301044";
       base = { config, ... }: {
-        system = {
-          configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+        system = rec {
+          configurationRevision =
+            if self ? rev
+            then self.rev
+            else throw "Refusing to build from a dirty Git tree!";
           nixos = rec {
             version = config.system.nixos.release + versionSuffix;
-            versionSuffix = ".${nixpkgs.lib.substring 0 8 (nixpkgs.lastModifiedDate or nixpkgs.lastModified or "19700101")}.r${revCount}-${nixpkgs.lib.substring 0 11 (nixpkgs.rev or "dirty")}";
+            versionSuffix = "-${config.system.name}.r${builtins.toString self.revCount}.${self.shortRev}";
+            #versionSuffix = ".${nixpkgs.lib.substring 0 8 (nixpkgs.lastModifiedDate or nixpkgs.lastModified or "19700101")}.r${revCount}-${nixpkgs.lib.substring 0 11 (nixpkgs.rev or "dirty")}";
           };
         };
         nix.registry.nixpkgs.flake = nixpkgs;
