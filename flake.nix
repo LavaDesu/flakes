@@ -7,6 +7,12 @@
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
+
+    # zsh plugins
+    zsh-abbr = { url = "github:olets/zsh-abbr"; flake = false; };
+    zsh-history-substring-search = { url = "github:zsh-users/zsh-history-substring-search"; flake = false; };
+    zsh-fast-syntax-highlighting = { url = "github:zdharma/fast-syntax-highlighting"; flake = false; };
+    zsh-pure = { url = "github:sindresorhus/pure"; flake = false; };
   };
 
   outputs = inputs: with inputs;
@@ -52,6 +58,7 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          extraSpecialArgs = { inherit inputs; };
         };
       };
     in
@@ -65,6 +72,7 @@
           ./hosts/winter
           secrets.nixosModules.winter
         ];
+        specialArgs = { inherit inputs; };
       };
       packages.x86_64-linux = customPackages nixpkgs.legacyPackages.x86_64-linux;
     };

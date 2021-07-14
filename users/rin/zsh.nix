@@ -1,7 +1,12 @@
 # vim: ft=nix
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 let
   lib = pkgs.lib;
+
+  pluginFromInput = name: {
+    inherit name;
+    src = inputs.${name};
+  };
 
   abbrs = {
     e = "$EDITOR";
@@ -140,43 +145,11 @@ in rec {
       viExtraNav
     ];
 
-    plugins = [
-      {
-        name = "zsh-abbr";
-        src = pkgs.fetchFromGitHub {
-          owner = "olets";
-          repo = "zsh-abbr";
-          rev = "99af0455b7b86ff3894a4bcf73380be2d595fa54";
-          sha256 = "014zvikfqqcv40x24h60ad3vyjz6kf9f7xhkk6iz7qyxwgcs90zs";
-        };
-      }
-      {
-        name = "zsh-history-substring-search";
-        src = pkgs.fetchFromGitHub {
-          owner = "zsh-users";
-          repo = "zsh-history-substring-search";
-          rev = "0f80b8eb3368b46e5e573c1d91ae69eb095db3fb";
-          sha256 = "0y8va5kc2ram38hbk2cibkk64ffrabfv1sh4xm7pjspsba9n5p1y";
-        };
-      }
-      {
-        name = "fast-syntax-highlighting";
-        src = pkgs.fetchFromGitHub {
-          owner = "zdharma";
-          repo = "fast-syntax-highlighting";
-          rev = "817916dfa907d179f0d46d8de355e883cf67bd97";
-          sha256 = "0m102makrfz1ibxq8rx77nngjyhdqrm8hsrr9342zzhq1nf4wxxc";
-        };
-      }
-      {
-        name = "pure";
-        src = pkgs.fetchFromGitHub {
-          owner = "sindresorhus";
-          repo = "pure";
-          rev = "43aafe0b4dc05174c57ee623c03c64400e832ece";
-          sha256 = "0qfs7rvpyd8jb7x4ziqrkh0b6g9ldds8sn6qbqgrir80vdk90gpa";
-        };
-      }
+    plugins = builtins.map (e: pluginFromInput e) [
+      "zsh-abbr"
+      "zsh-history-substring-search"
+      "zsh-fast-syntax-highlighting"
+      "zsh-pure"
     ];
   };
 }
