@@ -21,7 +21,7 @@
         wm-restack = "bspwm";
 
         font = [
-          "NotoSans:style=Regular:size=11:antialias=true;2"
+          "NotoSans:style=SemiBold:size=11:antialias=true;2"
           "NotoSans:size=11:antialias=true;2"
           "MaterialIcons:size=17:antialias=true;6"
 
