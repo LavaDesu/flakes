@@ -28,19 +28,7 @@
     displayManager = {
       lightdm.enable = lib.mkForce false;
       startx.enable = true;
-      xserverArgs = [
-        "-ardelay 250"
-        "-arinterval 15"
-      ];
     };
     desktopManager.xterm.enable = false;
-    libinput = {
-      enable = true;
-      mouse = {
-        accelSpeed = "0";
-        accelProfile = "flat";
-      };
-    };
-    xkbOptions = "caps:escape";
   };
 }

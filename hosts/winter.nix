@@ -16,6 +16,7 @@
     audio
     gui
     hardware-configuration
+    input
     kernel
     networking
     packages
@@ -43,6 +44,5 @@
   nixpkgs.config.allowUnfree = true;
 
   i18n.defaultLocale = "en_GB.UTF-8";
-  console.useXkbConfig = true;
 }
 
