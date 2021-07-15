@@ -1,5 +1,6 @@
 { config, lib, ... }: {
   services.snapper = {
+    cleanupInterval = "1h";
     configs.home = {
       fstype = "btrfs";
       subvolume = "/home";
