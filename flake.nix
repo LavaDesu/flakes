@@ -11,8 +11,8 @@
     # zsh plugins
     zsh-abbr = { url = "github:olets/zsh-abbr"; flake = false; };
     zsh-history-substring-search = { url = "github:zsh-users/zsh-history-substring-search"; flake = false; };
-    zsh-fast-syntax-highlighting = { url = "github:zdharma/fast-syntax-highlighting"; flake = false; };
-    zsh-pure = { url = "github:sindresorhus/pure"; flake = false; };
+    fast-syntax-highlighting = { url = "github:zdharma/fast-syntax-highlighting"; flake = false; };
+    pure = { url = "github:sindresorhus/pure"; flake = false; };
   };
 
   outputs = inputs: with inputs;

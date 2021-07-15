@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "fast-syntax-highlighting": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1621022231,
+        "narHash": "sha256-rHdOnA0Y/i/ISDlriGrGDXr5rD2nZ4T7iuG7PFUVIFQ=",
+        "owner": "zdharma",
+        "repo": "fast-syntax-highlighting",
+        "rev": "817916dfa907d179f0d46d8de355e883cf67bd97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zdharma",
+        "repo": "fast-syntax-highlighting",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -111,16 +127,32 @@
         "type": "github"
       }
     },
+    "pure": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1626016475,
+        "narHash": "sha256-6j6QZtsA5ZgfXthYjXRrND2zAJwZx0/6WRI1f3c+2mE=",
+        "owner": "sindresorhus",
+        "repo": "pure",
+        "rev": "f4c6d79ba2417d63c8008b6acce628631fd462ec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sindresorhus",
+        "repo": "pure",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "fast-syntax-highlighting": "fast-syntax-highlighting",
         "home-manager": "home-manager",
         "neovim-nightly": "neovim-nightly",
         "nixpkgs": "nixpkgs",
+        "pure": "pure",
         "secrets": "secrets",
         "zsh-abbr": "zsh-abbr",
-        "zsh-fast-syntax-highlighting": "zsh-fast-syntax-highlighting",
-        "zsh-history-substring-search": "zsh-history-substring-search",
-        "zsh-pure": "zsh-pure"
+        "zsh-history-substring-search": "zsh-history-substring-search"
       }
     },
     "secrets": {
@@ -154,22 +186,6 @@
         "type": "github"
       }
     },
-    "zsh-fast-syntax-highlighting": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1621022231,
-        "narHash": "sha256-rHdOnA0Y/i/ISDlriGrGDXr5rD2nZ4T7iuG7PFUVIFQ=",
-        "owner": "zdharma",
-        "repo": "fast-syntax-highlighting",
-        "rev": "817916dfa907d179f0d46d8de355e883cf67bd97",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zdharma",
-        "repo": "fast-syntax-highlighting",
-        "type": "github"
-      }
-    },
     "zsh-history-substring-search": {
       "flake": false,
       "locked": {
@@ -183,22 +199,6 @@
       "original": {
         "owner": "zsh-users",
         "repo": "zsh-history-substring-search",
-        "type": "github"
-      }
-    },
-    "zsh-pure": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1626016475,
-        "narHash": "sha256-6j6QZtsA5ZgfXthYjXRrND2zAJwZx0/6WRI1f3c+2mE=",
-        "owner": "sindresorhus",
-        "repo": "pure",
-        "rev": "f4c6d79ba2417d63c8008b6acce628631fd462ec",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sindresorhus",
-        "repo": "pure",
         "type": "github"
       }
     }

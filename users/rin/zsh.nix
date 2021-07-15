@@ -148,8 +148,8 @@ in {
     plugins = builtins.map (e: pluginFromInput e) [
       "zsh-abbr"
       "zsh-history-substring-search"
-      "zsh-fast-syntax-highlighting"
-      "zsh-pure"
+      "fast-syntax-highlighting"
+      "pure"
     ];
   };
 }
