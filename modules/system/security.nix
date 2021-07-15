@@ -14,7 +14,7 @@
       enable = true;
       extraRules = [
         {
-          groups = ["wheel"];
+          groups = [ "wheel" ];
           keepEnv = true;
           persist = true;
         }

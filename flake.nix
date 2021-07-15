@@ -24,24 +24,24 @@
         (builtins.attrNames (builtins.readDir root)); # Reads root path
 
       modules =
-      let
-        getName = path: lib.removeSuffix ".nix" ( # Strip extension
-          lib.last (                              # Gets the last part (filename)
-            lib.splitString "/" (                 # Splits the path into components
-              builtins.toString path              # Converts the path into a string
+        let
+          getName = path: lib.removeSuffix ".nix" ( # Strip extension
+            lib.last (                              # Gets the last part (filename)
+              lib.splitString "/" (                 # Splits the path into components
+                builtins.toString path              # Converts the path into a string
+              )
             )
-          )
-        );
-        genModulePaths = basePath: builtins.listToAttrs (
-          builtins.map (path: {
-            name = getName path;
-            value = path;
-          }) (getPaths basePath)
-        );
-      in {
-        user = genModulePaths ./modules/user;
-        system = genModulePaths ./modules/system;
-      };
+          );
+          genModulePaths = basePath: builtins.listToAttrs (
+            builtins.map (path: {
+              name = getName path;
+              value = path;
+            }) (getPaths basePath)
+          );
+        in {
+          user = genModulePaths ./modules/user;
+          system = genModulePaths ./modules/system;
+        };
 
       customPackages = pkgs:
         let

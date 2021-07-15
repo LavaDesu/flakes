@@ -1,5 +1,5 @@
 self: super: {
-  picom = super.picom.overrideAttrs(old: {
+  picom = super.picom.overrideAttrs (old: {
     src = super.fetchFromGitHub {
       repo = "picom";
 

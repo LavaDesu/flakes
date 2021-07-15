@@ -1,5 +1,5 @@
 self: super: {
-  winetricks = super.winetricks.overrideAttrs(old: rec {
+  winetricks = super.winetricks.overrideAttrs (old: rec {
     name = "winetricks-20210528-073e2db";
     src = super.fetchFromGitHub {
       repo = "winetricks";

@@ -1,9 +1,8 @@
-{
-  buildLinux,
-  callPackage,
-  kernelPatches,
-  lib,
-  ...
+{ buildLinux
+, callPackage
+, kernelPatches
+, lib
+, ...
 } @ args:
 
 let

@@ -1,5 +1,5 @@
 self: super: {
-  transcrypt = super.transcrypt.overrideAttrs(o: rec {
+  transcrypt = super.transcrypt.overrideAttrs (old: rec {
     version = "2.1.0";
 
     patches = [ ./patches/transcrypt.patch ];

@@ -57,7 +57,7 @@
         GNUPGHOME = "${config.xdg.dataHome}/gnupg";
         GTK2_RC_FILES = "${config.xdg.configHome}/gtk-2.0/gtkrc";
         LESSHISTFILE = "-";
-        NODE_REPL_HISTORY="${config.xdg.dataHome}/nodejs/repl_history";
+        NODE_REPL_HISTORY = "${config.xdg.dataHome}/nodejs/repl_history";
         NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/npmrc";
         PUB_CACHE = "${config.xdg.cacheHome}/dart";
         WGETRC = "${config.xdg.configHome}/wgetrc";

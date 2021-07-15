@@ -1,9 +1,11 @@
 { config, ... }:
 let
-  genMimes = mimeTypes: builtins.listToAttrs (builtins.map (mimeType: {
-    name = mimeType;
-    value = "brave-browser.desktop";
-  }) mimeTypes);
+  genMimes = mimeTypes: builtins.listToAttrs (
+    builtins.map (mimeType: {
+      name = mimeType;
+      value = "brave-browser.desktop";
+    }) mimeTypes
+  );
 
   mimes = genMimes [
     "x-scheme-handler/http"

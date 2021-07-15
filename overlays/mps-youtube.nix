@@ -1,5 +1,5 @@
 self: super: {
-  mps-youtube = super.mps-youtube.overrideAttrs(old: rec {
+  mps-youtube = super.mps-youtube.overrideAttrs (old: {
     src = super.fetchFromGitHub {
       owner = "louisabraham";
       repo = "mps-youtube";

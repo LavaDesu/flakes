@@ -3,9 +3,9 @@
     enableDefaultFonts = true;
     fontconfig = {
       defaultFonts = {
-        serif = ["NotoSerif"];
-        sansSerif = ["NotoSans"];
-        monospace = ["CascadiaCode"];
+        serif = [ "NotoSerif" ];
+        sansSerif = [ "NotoSans" ];
+        monospace = [ "CascadiaCode" ];
       };
     };
     fonts = with pkgs; [

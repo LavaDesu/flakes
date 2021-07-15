@@ -1,13 +1,12 @@
-{
-  getPaths,
-  winePackages,
-  wineUnstable,
-  wineStaging,
-  ...
+{ getPaths
+, winePackages
+, wineUnstable
+, wineStaging
+, ...
 }:
 # TODO: Use winePackages.callPackage
-(wineStaging.overrideDerivation(o: {
-  patches = (o.patches or []) ++ getPaths ./patches;
+(wineStaging.overrideDerivation (old: {
+  patches = (old.patches or []) ++ getPaths ./patches;
 })).override {
   wineRelease = "staging";
   wineBuild = "wineWow";

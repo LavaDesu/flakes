@@ -10,7 +10,7 @@
         device = "nodev";
       };
     };
-    blacklistedKernelModules = ["uvcvideo"];
+    blacklistedKernelModules = [ "uvcvideo" ];
     initrd = {
       includeDefaultModules = false;
       kernelModules = [ "i915" ];
