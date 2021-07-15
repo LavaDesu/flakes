@@ -59,41 +59,17 @@
         )
       ) ++ [(self: super: customPackages super)]
         ++ [inputs.neovim-nightly.overlay];
-
-      base = if !(self ? rev) then throw "Dirty git tree detected." else
-      { config, ... }: {
-        system = {
-          configurationRevision = self.rev;
-          nixos = rec {
-            version = config.system.nixos.release + versionSuffix;
-            versionSuffix = "-${config.system.name}.r${builtins.toString self.revCount}.${self.shortRev}";
-            #versionSuffix = ".${nixpkgs.lib.substring 0 8 (nixpkgs.lastModifiedDate or nixpkgs.lastModified or "19700101")}.r${revCount}-${nixpkgs.lib.substring 0 11 (nixpkgs.rev or "dirty")}";
-          };
-        };
-        nix.registry.nixpkgs.flake = nixpkgs;
-        nixpkgs.overlays = overlays;
-
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          extraSpecialArgs = {
-            inherit inputs modules;
-            enableGUI = true;
-          };
-        };
-      };
     in
     {
       nixosConfigurations."winter" = lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          base
           home-manager.nixosModules.home-manager
           ./hosts/winter.nix
           secrets.nixosModules.winter
         ];
         specialArgs = {
-          inherit inputs modules;
+          inherit inputs modules overlays;
           enableGUI = true;
         };
       };
