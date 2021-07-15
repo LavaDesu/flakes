@@ -85,8 +85,8 @@
       "module/datetime" = {
         type = "internal/date";
         date = {
-          text = "%{T2}%%{F#fff}%H:%M%%{F-}";
-          alt = "%{T2}%%{F#ccc}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#ccc}%S%%{F-}";
+          text = "%{T1}%%{F#fff}%H:%M%%{F-}";
+          alt = "%{T2}%%{F#ccc}%A, %d %B %Y  %{T1}%%{F#fff}%H:%M%%{F#666}:%{T2}%%{F#ccc}%S%%{F-}";
         };
         format = {
           padding = 4;
