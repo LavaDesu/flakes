@@ -15,7 +15,7 @@
     pure = { url = "github:sindresorhus/pure"; flake = false; };
   };
 
-  outputs = inputs: with inputs;
+  outputs = { self, nixpkgs, home-manager, secrets, ... } @ inputs:
     let
       lib = nixpkgs.lib;
 
