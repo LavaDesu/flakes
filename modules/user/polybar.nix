@@ -1,7 +1,7 @@
 { config, ... }: {
   services.polybar = {
     enable = true;
-    script = builtins.readFile ./scripts/polybar.sh;
+    script = builtins.readFile ../../scripts/polybar.sh;
     settings = {
       "bar/top" = {
         monitor = "eDP-1";

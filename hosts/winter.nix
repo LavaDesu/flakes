@@ -1,4 +1,4 @@
-{ config, overlays, pkgs, ... }: {
+{ config, modules, overlays, pkgs, ... }: {
   networking.hostName = "winter";
   system.stateVersion = "20.09";
 
@@ -12,17 +12,17 @@
   environment.pathsToLink = [ "/share/zsh" ];
   users.mutableUsers = false;
 
-  imports = [
-    ./audio.nix
-    ./gui.nix
-    ./hardware-configuration.nix
-    ./kernel.nix
-    ./networking.nix
-    ./packages.nix
-    ./security.nix
-    ./snapper.nix
+  imports = with modules.system; [
+    audio
+    gui
+    hardware-configuration
+    kernel
+    networking
+    packages
+    security
+    snapper
 
-    ../../users/rin
+    ../users/rin.nix
   ];
   nix = rec {
     package = pkgs.nixUnstable;

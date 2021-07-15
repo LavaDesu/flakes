@@ -17,9 +17,31 @@
 
   outputs = inputs: with inputs;
     let
+      lib = nixpkgs.lib;
+
       getPaths = root: builtins.map
         (path: root + ("/" + path)) # Prepends root path
         (builtins.attrNames (builtins.readDir root)); # Reads root path
+
+      modules =
+      let
+        getName = path: lib.removeSuffix ".nix" ( # Strip extension
+          lib.last (                              # Gets the last part (filename)
+            lib.splitString "/" (                 # Splits the path into components
+              builtins.toString path              # Converts the path into a string
+            )
+          )
+        );
+        genModulePaths = basePath: builtins.listToAttrs (
+          builtins.map (path: {
+            name = getName path;
+            value = path;
+          }) (getPaths basePath)
+        );
+      in {
+        user = genModulePaths ./modules/user;
+        system = genModulePaths ./modules/system;
+      };
 
       customPackages = pkgs:
         let
@@ -32,7 +54,7 @@
       overlays = (builtins.map
         (path: import path) # Imports path
         (builtins.filter
-          (path: nixpkgs.lib.hasSuffix ".nix" path) # Checks file extension
+          (path: lib.hasSuffix ".nix" path) # Checks file extension
           (getPaths ./overlays)
         )
       ) ++ [(self: super: customPackages super)]
@@ -55,23 +77,23 @@
           useGlobalPkgs = true;
           useUserPackages = true;
           extraSpecialArgs = {
-            inherit inputs;
+            inherit inputs modules;
             enableGUI = true;
           };
         };
       };
     in
     {
-      nixosConfigurations."winter" = nixpkgs.lib.nixosSystem {
+      nixosConfigurations."winter" = lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           base
           home-manager.nixosModules.home-manager
-          ./hosts/winter
+          ./hosts/winter.nix
           secrets.nixosModules.winter
         ];
         specialArgs = {
-          inherit inputs;
+          inherit inputs modules;
           enableGUI = true;
         };
       };

@@ -6,7 +6,7 @@
     scriptPath = ".config/xorg/xsession";
   };
 
-  xdg.configFile."xorg/xinitrc".source = ./scripts/xinitrc;
+  xdg.configFile."xorg/xinitrc".source = ../../scripts/xinitrc;
   xdg.configFile."xorg/wallpaper.png".source = ../../res/wallpaper.png;
   xresources = {
     path = "${config.xdg.configHome}/xorg/xresources";
