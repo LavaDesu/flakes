@@ -69,6 +69,9 @@
     };
 
     imports = with modules.user; [
+      direnv
+      git
+      gpg
       neovim
       npm
       zsh
@@ -88,43 +91,6 @@
       sxhkd
       bspwm
     ];
-
-    programs = {
-      feh.enable = enableGUI;
-
-      direnv = {
-        enable = true;
-        nix-direnv = {
-          enable = true;
-          enableFlakes = true;
-        };
-      };
-      git = {
-        enable = true;
-        userName = "LavaDesu";
-        userEmail = "me@lava.moe";
-        signing = {
-          key = "059F098EBF0E9A13E10A46BF6500251E087653C9";
-          signByDefault = true;
-        };
-        extraConfig = {
-          core.abbrev = 11;
-        };
-      };
-      gpg = {
-        enable = true;
-        homedir = "${config.xdg.dataHome}/gnupg";
-      };
-    };
-
-    services = {
-      # TODO: borked
-      clipmenu.enable = false;
-      gpg-agent = {
-        enable = true;
-        pinentryFlavor = if enableGUI then "gnome3" else "tty";
-      };
-    };
 
     home.file.".local/bin/ipc-bridge.exe".source = builtins.fetchurl {
       url = "https://github.com/0e4ef622/wine-discord-ipc-bridge/releases/download/v0.0.1/winediscordipcbridge.exe";
