@@ -4,11 +4,8 @@
     homeDirectory = "/home/rin";
     stateVersion = "21.05";
     packages = with pkgs; [
-      appimage-run
       ffmpeg
       gnupg
-      lf
-      mps-youtube
       neofetch
       nodejs-16_x
       pamixer
@@ -26,16 +23,13 @@
       element-desktop
       feh
       gnome.file-roller
-      ghidra-bin
       gimp
-      inkscape
       kotatogram-desktop
       lxappearance
       maim
       pavucontrol
       tor-browser-bundle-bin
       transmission-remote-gtk
-      vlc
       xclip
       xorg.xgamma
     ];
@@ -75,21 +69,17 @@
     ./theming.nix
     ./xdg.nix
 
-    # ./alacritty.nix
     ./kitty.nix
     ./mpv.nix
     ./rofi.nix
-    # ./urxvt.nix
 
     ./dunst.nix
     ./picom.nix
-    ./polybar.bspwm.nix
-    # ./polybar.i3.nix
+    ./polybar.nix
 
     ./xorg.nix
     ./sxhkd.nix
     ./bspwm.nix
-    # ./i3.nix
   ];
 
   programs = {
