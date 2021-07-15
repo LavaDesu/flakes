@@ -1,42 +1,43 @@
-{ config, pkgs, ... }: rec {
+{ config, enableGUI, lib, pkgs, ... }: {
   home = {
     username = "rin";
     homeDirectory = "/home/rin";
     stateVersion = "21.05";
     packages = with pkgs; [
       appimage-run
-      brave
-      discord-canary
-      element-desktop
-      feh
       ffmpeg
-      gnome.file-roller
-      ghidra-bin
-      gimp
       gnupg
-      inkscape
-      kotatogram-desktop
       lf
-      lxappearance
-      maim
       mps-youtube
       neofetch
       nodejs-16_x
       pamixer
-      pavucontrol
       rnix-lsp
-      tor-browser-bundle-bin
       transcrypt
-      transmission-remote-gtk
       unrar
-      vlc
       wine-osu
       (winetricks.override { wine = wine-osu; })
-      xclip
-      xorg.xgamma
       youtube-dl
 
       nodePackages_latest.pnpm
+    ] ++ lib.optionals enableGUI [
+      brave
+      discord-canary
+      element-desktop
+      feh
+      gnome.file-roller
+      ghidra-bin
+      gimp
+      inkscape
+      kotatogram-desktop
+      lxappearance
+      maim
+      pavucontrol
+      tor-browser-bundle-bin
+      transmission-remote-gtk
+      vlc
+      xclip
+      xorg.xgamma
     ];
 
     sessionVariables = {
@@ -67,17 +68,18 @@
   };
 
   imports = [
+    ./neovim.nix
+    ./npm.nix
+    ./zsh.nix
+  ] ++ lib.optionals enableGUI [
     ./theming.nix
     ./xdg.nix
 
     # ./alacritty.nix
     ./kitty.nix
     ./mpv.nix
-    ./neovim.nix
-    ./npm.nix
     ./rofi.nix
     # ./urxvt.nix
-    ./zsh.nix
 
     ./dunst.nix
     ./picom.nix
@@ -91,7 +93,7 @@
   ];
 
   programs = {
-    feh.enable = true;
+    feh.enable = enableGUI;
 
     direnv = {
       enable = true;
@@ -123,7 +125,7 @@
     clipmenu.enable = false;
     gpg-agent = {
       enable = true;
-      pinentryFlavor = "gnome3";
+      pinentryFlavor = if enableGUI then "gnome3" else "tty";
     };
   };
 

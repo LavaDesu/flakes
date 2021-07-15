@@ -54,7 +54,10 @@
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = {
+            inherit inputs;
+            enableGUI = true;
+          };
         };
       };
     in
@@ -67,7 +70,10 @@
           ./hosts/winter
           secrets.nixosModules.winter
         ];
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+          enableGUI = true;
+        };
       };
 
       packages.x86_64-linux = customPackages nixpkgs.legacyPackages.x86_64-linux;
