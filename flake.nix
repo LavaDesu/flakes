@@ -59,20 +59,21 @@
         )
       ) ++ [(self: super: customPackages super)]
         ++ [inputs.neovim-nightly.overlay];
+
+      mkSystem =
+        if !(self ? rev) then throw "Dirty git tree detected." else
+        name: arch: enableGUI: lib.nixosSystem {
+          system = arch;
+          modules = [
+            home-manager.nixosModules.home-manager
+            secrets.nixosModules.winter
+            ./hosts/winter.nix
+          ];
+          specialArgs = { inherit inputs modules overlays enableGUI; };
+        };
     in
     {
-      nixosConfigurations."winter" = lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          home-manager.nixosModules.home-manager
-          ./hosts/winter.nix
-          secrets.nixosModules.winter
-        ];
-        specialArgs = {
-          inherit inputs modules overlays;
-          enableGUI = true;
-        };
-      };
+      nixosConfigurations."winter" = mkSystem "winter" "x86_64-linux" true;
 
       packages.x86_64-linux = customPackages nixpkgs.legacyPackages.x86_64-linux;
     };
