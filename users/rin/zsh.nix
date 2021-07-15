@@ -96,7 +96,7 @@ let
     bindkey -M vicmd 'k' history-substring-search-up
     bindkey -M vicmd 'j' history-substring-search-down
   '';
-in rec {
+in {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";

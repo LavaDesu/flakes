@@ -40,7 +40,7 @@
 
       base = if !(self ? rev) then throw "Dirty git tree detected." else
       { config, ... }: {
-        system = rec {
+        system = {
           configurationRevision = self.rev;
           nixos = rec {
             version = config.system.nixos.release + versionSuffix;
