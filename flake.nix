@@ -50,9 +50,7 @@
         };
         nix.registry.nixpkgs.flake = nixpkgs;
         nixpkgs.overlays = overlays;
-      };
 
-      hm-base = {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
@@ -66,12 +64,12 @@
         modules = [
           base
           home-manager.nixosModules.home-manager
-          hm-base
           ./hosts/winter
           secrets.nixosModules.winter
         ];
         specialArgs = { inherit inputs; };
       };
+
       packages.x86_64-linux = customPackages nixpkgs.legacyPackages.x86_64-linux;
     };
 }
