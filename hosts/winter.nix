@@ -14,10 +14,12 @@
 
   imports = with modules.system; [
     audio
+    base
+    filesystem-winter
     gui
-    hardware-configuration
     input
     kernel
+    kernel-winter
     networking
     packages
     security
