@@ -23,6 +23,7 @@
     kotatogram-desktop
     lxappearance
     maim
+    mongodb-compass
     pavucontrol
     tor-browser-bundle-bin
     transmission-remote-gtk
