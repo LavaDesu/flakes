@@ -21,6 +21,7 @@
     gnome.file-roller
     gimp
     kotatogram-desktop
+    insomnia
     lxappearance
     maim
     mongodb-compass
