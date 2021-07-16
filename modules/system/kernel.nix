@@ -10,5 +10,6 @@
       "kernel.sysrq" = 1;
     };
   };
+  hardware.enableRedistributableFirmware = true;
   zramSwap.enable = true;
 }
