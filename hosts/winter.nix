@@ -17,7 +17,6 @@
     base
     filesystem-winter
     gui
-    gui
     input
     kernel
     kernel-winter
