@@ -25,6 +25,7 @@
     lxappearance
     maim
     mongodb-compass
+    obs-studio
     pavucontrol
     tor-browser-bundle-bin
     transmission-remote-gtk
