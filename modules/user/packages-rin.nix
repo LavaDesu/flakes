@@ -27,6 +27,7 @@
     mongodb-compass
     obs-studio
     pavucontrol
+    screenkey
     tor-browser-bundle-bin
     transmission-remote-gtk
     xclip
