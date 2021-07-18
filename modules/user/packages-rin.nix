@@ -16,6 +16,7 @@
   ] ++ lib.optionals enableGUI [
     brave
     discord-canary
+    discover-overlay
     element-desktop
     feh
     gnome.file-roller

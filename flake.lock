@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "discover": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1619462451,
+        "narHash": "sha256-QR/Z0YGp1SLQTGUgL7NPWw2Sn4z9sYQeGqiTKyr6jV4=",
+        "owner": "trigg",
+        "repo": "Discover",
+        "rev": "4d917d30c8593f048423e834aa46121c59f635de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "trigg",
+        "repo": "Discover",
+        "type": "github"
+      }
+    },
     "fast-syntax-highlighting": {
       "flake": false,
       "locked": {
@@ -145,6 +161,7 @@
     },
     "root": {
       "inputs": {
+        "discover": "discover",
         "fast-syntax-highlighting": "fast-syntax-highlighting",
         "home-manager": "home-manager",
         "neovim-nightly": "neovim-nightly",

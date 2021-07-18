@@ -13,6 +13,9 @@
     zsh-history-substring-search = { url = "github:zsh-users/zsh-history-substring-search"; flake = false; };
     fast-syntax-highlighting = { url = "github:zdharma/fast-syntax-highlighting"; flake = false; };
     pure = { url = "github:sindresorhus/pure"; flake = false; };
+
+    # overlays
+    discover = { url = "github:trigg/Discover"; flake = false; };
   };
 
   outputs = { self, nixpkgs, home-manager, secrets, ... } @ inputs:
@@ -47,11 +50,12 @@
         let
           callPackage = pkgs.callPackage;
         in {
+          discover-overlay = callPackage ./packages/discover {};
           linux-lava = callPackage ./packages/linux-lava {};
           wine-osu = callPackage ./packages/wine-osu { inherit getPaths; };
         };
 
-      overlays = (builtins.map
+      overlays = [ (self: super: { inherit inputs; }) ] ++ (builtins.map
         (path: import path) # Imports path
         (builtins.filter
           (path: lib.hasSuffix ".nix" path) # Checks file extension
