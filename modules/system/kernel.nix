@@ -11,5 +11,6 @@
     };
   };
   hardware.enableRedistributableFirmware = true;
+  powerManagement.cpuFreqGovernor = "ondemand";
   zramSwap.enable = true;
 }
