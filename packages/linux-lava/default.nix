@@ -44,7 +44,6 @@ in buildLinux (args // {
     CACULE_SCHED = yes;
     SCHED_AUTOGROUP = yes;
     BSD_PROCESS_ACCT = no;
-    TASK_XACCT = no;
     CGROUP_CPUACCT = no;
     CGROUP_DEBUG = no;
 
