@@ -8,6 +8,7 @@
     msr-tools
     ncdu
     neovim
+    ntfs3g
     rsync
     wget
   ] ++ lib.optionals enableGUI [
