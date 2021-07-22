@@ -9,6 +9,7 @@
       "kernel.core_pattern" = "|/bin/false";
       "kernel.sysrq" = 1;
     };
+    loader.grub.useOSProber = true;
   };
   hardware.enableRedistributableFirmware = true;
   powerManagement.cpuFreqGovernor = "ondemand";
