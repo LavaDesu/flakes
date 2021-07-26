@@ -97,9 +97,6 @@
       };
     };
     "eslint.enable" = true;
-    "eslint.options" = {
-      configFile = "./.eslintrc.json";
-    };
     "rust-analyzer.lens.enable" = false;
     "rust-analyzer.inlayHints.enable" = false;
     "rust-analyzer.serverPath" = pkgs.rust-analyzer + "/bin/rust-analyzer";
