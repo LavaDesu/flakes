@@ -25,5 +25,11 @@ in
     "/home/.snapshots" = mkBtrfsMount 319 false;
     "/root" = mkBtrfsMount 261 false;
     "/var" = mkBtrfsMount 259 false;
+
+    "/mnt/nfs" = {
+      device = "192.168.100.11:/srv/nfs";
+      fsType = "nfs";
+      options = [ "defaults" ];
+    };
   };
 }

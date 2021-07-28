@@ -8,6 +8,7 @@
     msr-tools
     ncdu
     neovim
+    nfs-utils
     ntfs3g
     rsync
     wget
