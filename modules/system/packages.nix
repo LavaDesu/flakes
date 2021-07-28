@@ -16,6 +16,7 @@
     gnome3.nautilus
   ];
   environment.variables.EDITOR = "nvim";
+  programs.adb.enable = true;
 }
 // (if !enableGUI then {} else {
   hardware.opengl.extraPackages = with pkgs; [
