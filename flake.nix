@@ -71,7 +71,7 @@
           modules = [
             home-manager.nixosModules.home-manager
             secrets.nixosModules.winter
-            ./hosts/winter.nix
+            (./hosts + "/${name}.nix")
           ];
           specialArgs = { inherit inputs modules overlays enableGUI; };
         };
