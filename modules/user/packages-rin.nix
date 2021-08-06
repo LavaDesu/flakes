@@ -8,6 +8,7 @@
     rnix-lsp
     transcrypt
     unrar
+    weechat
     wine-osu
     (winetricks.override { wine = wine-osu; })
     youtube-dl
