@@ -27,7 +27,6 @@
     maim
     mongodb-compass
     obs-studio
-    osu-lazer
     pavucontrol
     screenkey
     tor-browser-bundle-bin
