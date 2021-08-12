@@ -22,7 +22,7 @@
       vim-surround
 
       (nvim-treesitter.withPlugins (p: with p; [
-        tree-sitter-javascript
+        # tree-sitter-javascript
         tree-sitter-nix
         tree-sitter-rust
         tree-sitter-toml
@@ -79,7 +79,8 @@
 
       lua <<EOF
         require('nvim-treesitter.configs').setup {
-          highlight = { enable = true }
+          highlight = { enable = true },
+          indent = { enable = false }
         }
         require('lualine').setup {
           options = {
