@@ -23,6 +23,7 @@
 
       (nvim-treesitter.withPlugins (p: with p; [
         # tree-sitter-javascript
+        tree-sitter-jsdoc
         tree-sitter-nix
         tree-sitter-rust
         tree-sitter-toml
