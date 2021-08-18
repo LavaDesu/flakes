@@ -42,6 +42,7 @@ in buildLinux (args // {
 
     # scheduler
     CACULE_SCHED = yes;
+    CACULE_RDB = yes;
     SCHED_AUTOGROUP = yes;
     BSD_PROCESS_ACCT = no;
     CGROUP_CPUACCT = no;

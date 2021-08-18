@@ -1,10 +1,10 @@
 { fetchFromGitHub, lib }:
 let
-  version = "5.13.8";
+  version = "5.13.11";
   kernelHash = "1nc9didbjlycs9h8xahny1gwl8m8clylybnza6gl663myfbslsrz";
-  kernelPatchHash = "0vb17vjgqdkblb53bjpg8hlqs6wnm9h78ndbx3xj346n5hqszfnz";
-  tkgRev = "dd79616e3828786635443b8f83d1ecaa7a2c1e94";
-  tkgHash = "0afbrv6j9r4zlhpfqvp8i8c4ghfcb1a976b0h3rv7304gyzdnhlr";
+  kernelPatchHash = "1rd25a7jjqhw7af423aza97lrhb4zwcvqzvh418g7p6490ffiybh";
+  tkgRev = "03978df2abc4479f422ea3ff2b16cb4adb6db069";
+  tkgHash = "07z6q2120bmh7qc8cgk9w6bvgl4295iddiwhizj4d0mnnrj0i5qz";
 
   tkgPatches = [
     "0001-mm-Support-soft-dirty-flag-reset-for-VA-range"
