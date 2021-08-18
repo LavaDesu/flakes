@@ -22,6 +22,7 @@
       vim-surround
 
       (nvim-treesitter.withPlugins (p: with p; [
+        tree-sitter-comment
         # tree-sitter-javascript
         tree-sitter-jsdoc
         tree-sitter-nix
