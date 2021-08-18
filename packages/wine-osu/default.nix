@@ -1,13 +1,16 @@
-{ getPaths
+{ callPackage
+, getPaths
+, lib
 , winePackages
 , wineUnstable
 , wineStaging
 , ...
 }:
+let
+  sources = callPackage ./sources.nix {};
+in
 # TODO: Use winePackages.callPackage
-(wineStaging.overrideDerivation (old: {
-  patches = (old.patches or []) ++ getPaths ./patches;
-})).override {
+(wineStaging.override {
   wineRelease = "staging";
   wineBuild = "wineWow";
 
@@ -47,4 +50,17 @@
   faudioSupport = true;
   vkd3dSupport = true;
   mingwSupport = true;
-}
+}).overrideDerivation (old: {
+  inherit (sources) src;
+  name = "wine-osu-${sources.version}-staging";
+  patches = (old.patches or []) ++ getPaths ./patches;
+  postPatch = wineUnstable.postPatch or "" + ''
+    patchShebangs tools
+    cp -r ${sources.staging}/patches .
+    chmod +w patches
+    cd patches
+    patchShebangs gitapply.sh
+    ./patchinstall.sh DESTDIR="$PWD/.." --all ${lib.concatMapStringsSep " " (ps: "-W ${ps}") []}
+    cd ..
+  '';
+})
