@@ -53,11 +53,11 @@
       let g:yaml_recommended_style=0
 
       " signify
-      set signcolumn=yes:2
+      set signcolumn=yes:3
       let g:signify_priority               = 5
       let g:signify_sign_show_count        = 0
       let g:signify_sign_add               = '┃'
-      let g:signify_sign_delete            = '┣━'
+      let g:signify_sign_delete            = g:signify_sign_add
       let g:signify_sign_delete_first_line = '┏━'
       let g:signify_sign_change            = g:signify_sign_add
       let g:signify_sign_change_delete     = g:signify_sign_delete
@@ -81,12 +81,14 @@
       inoremap <silent><expr> <c-space> coc#refresh()
 
       " various aliases
-      nnoremap <c-h> :NERDTreeToggle
       nnoremap <leader>rs :source $MYVIMRC<CR>
+      nnoremap <C-N> :NERDTreeToggle<CR>
       nnoremap <C-H> <C-W>h
       nnoremap <C-J> <C-W>j
       nnoremap <C-K> <C-W>k
       nnoremap <C-L> <C-W>l
+      nnoremap <C-Q> :q<CR>
+      nmap <leader>gd :Gdiff<CR>
       nmap <leader>rn <Plug>(coc-rename)
       command! -nargs=0 Sw w !doas tee % > /dev/null
 
