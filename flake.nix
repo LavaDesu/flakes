@@ -8,6 +8,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
 
+    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
+    powercord-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
     # zsh plugins
     zsh-abbr = { url = "github:olets/zsh-abbr"; flake = false; };
     zsh-history-substring-search = { url = "github:zsh-users/zsh-history-substring-search"; flake = false; };
@@ -16,6 +19,22 @@
 
     # overlays
     discover = { url = "github:trigg/Discover"; flake = false; };
+
+    # powercord plugins/themes
+    better-status-indicators = { url = "github:griefmodz/better-status-indicators"; flake = false; };
+    channel-typing = { url = "github:powercord-community/channel-typing"; flake = false; };
+    discord-tweaks = { url = "github:NurMarvin/discord-tweaks"; flake = false; };
+    fix-user-popouts = { url = "github:cyyynthia/fix-user-popouts"; flake = false; };
+    no-double-back-pc = { url = "github:the-cord-plug/no-double-back-pc"; flake = false; };
+    powercord-popout-fix = { url = "github:Nexure/PowerCord-Popout-Fix"; flake = false; };
+    rolecolor-everywhere = { url = "github:powercord-community/rolecolor-everywhere"; flake = false; };
+    theme-toggler = { url = "github:redstonekasi/theme-toggler"; flake = false; };
+    twemoji-but-good = { url = "github:powercord-community/twemoji-but-good"; flake = false; };
+    view-raw = { url = "github:Juby210/view-raw"; flake = false; };
+    who-reacted = { url = "github:jaimeadf/who-reacted"; flake = false; };
+
+    radialstatus = { url = "github:DiscordStyles/RadialStatus"; flake = false; };
+    tokyonight = { url = "github:Dyzean/Tokyo-Night"; flake = false; };
   };
 
   outputs = { self, nixpkgs, home-manager, secrets, ... } @ inputs:
@@ -62,7 +81,8 @@
           (getPaths ./overlays)
         )
       ) ++ [(self: super: customPackages super)]
-        ++ [inputs.neovim-nightly.overlay];
+        ++ [inputs.neovim-nightly.overlay]
+        ++ [inputs.powercord-overlay.overlay];
 
       mkSystem =
         if !(self ? rev) then throw "Dirty git tree detected." else
