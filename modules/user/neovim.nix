@@ -19,6 +19,7 @@
       tokyonight-nvim
       vim-nix
       vim-repeat
+      vim-signify
       vim-surround
 
       (nvim-treesitter.withPlugins (p: with p; [
@@ -49,6 +50,16 @@
       set expandtab
       set updatetime=100
       let g:yaml_recommended_style=0
+
+      " signify
+      set signcolumn=yes:2
+      let g:signify_priority               = 5
+      let g:signify_sign_show_count        = 0
+      let g:signify_sign_add               = '┃'
+      let g:signify_sign_delete            = '┣━'
+      let g:signify_sign_delete_first_line = '┏━'
+      let g:signify_sign_change            = g:signify_sign_add
+      let g:signify_sign_change_delete     = g:signify_sign_delete
 
       " theming
       let g:tokyonight_style='night'
@@ -90,6 +101,14 @@
             theme = 'tokyonight'
           }
         }
+
+        local colors = require("tokyonight.colors").setup({})
+
+        vim.cmd("highlight SignifySignAdd             guifg="..colors.green)
+        vim.cmd("highlight SignifySignChange          guifg="..colors.orange)
+        vim.cmd("highlight SignifySignDelete          guifg="..colors.red)
+        vim.cmd("highlight SignifySignDeleteFirstLine guifg="..colors.red)
+        vim.cmd("highlight SignifySignChangeDelete    guifg="..colors.red)
       EOF
     '';
   };
