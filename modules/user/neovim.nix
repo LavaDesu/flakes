@@ -17,6 +17,7 @@
       lualine-nvim
       nerdtree
       tokyonight-nvim
+      vim-fugitive
       vim-nix
       vim-repeat
       vim-signify
