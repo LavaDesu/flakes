@@ -83,6 +83,10 @@
       " various aliases
       nnoremap <c-h> :NERDTreeToggle
       nnoremap <leader>rs :source $MYVIMRC<CR>
+      nnoremap <C-H> <C-W>h
+      nnoremap <C-J> <C-W>j
+      nnoremap <C-K> <C-W>k
+      nnoremap <C-L> <C-W>l
       nmap <leader>rn <Plug>(coc-rename)
       command! -nargs=0 Sw w !doas tee % > /dev/null
 
