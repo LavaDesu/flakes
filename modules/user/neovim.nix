@@ -47,6 +47,7 @@
       set clipboard^=unnamed
       set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
       set expandtab
+      set updatetime=100
       let g:yaml_recommended_style=0
 
       " theming
