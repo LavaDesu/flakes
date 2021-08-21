@@ -90,7 +90,7 @@
           system = arch;
           modules = [
             home-manager.nixosModules.home-manager
-            secrets.nixosModules.winter
+            secrets.nixosModules.${name}
             (./hosts + "/${name}")
           ];
           specialArgs = { inherit inputs modules overlays enableGUI; };
