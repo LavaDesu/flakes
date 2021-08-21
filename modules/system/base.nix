@@ -1,4 +1,4 @@
-{ config, inputs, modules, overlays, ... }: {
+{ config, enableGUI, inputs, modules, overlays, ... }: {
   environment.etc = {
     "machine-id".source = "/var/persist/machine-id";
     "ssh/ssh_host_rsa_key".source = "/var/persist/ssh_host_rsa_key";
@@ -25,8 +25,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit inputs modules;
-      enableGUI = true;
+      inherit enableGUI inputs modules;
     };
   };
 }
