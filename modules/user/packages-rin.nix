@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     ffmpeg
     gnupg
+    kitty
     neofetch
     nodejs-16_x
     pamixer
