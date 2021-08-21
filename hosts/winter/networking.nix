@@ -18,6 +18,6 @@
       prefixLength = 24;
     }];
     defaultGateway = "192.168.100.1";
-    nameservers = [ "192.168.100.11" ];
+    nameservers = [ "8.8.8.8" ];
   };
 }
