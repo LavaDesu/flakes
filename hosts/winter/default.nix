@@ -5,18 +5,19 @@
   imports = with modules.system; [
     audio
     base
-    filesystem-winter
     gui
     input
     kernel
-    kernel-winter
-    networking
     nix
     packages
     security
     snapper
 
-    ../users/rin.nix
+    ./filesystem.nix
+    ./kernel.nix
+    ./networking.nix
+
+    ../../users/rin.nix
   ];
 }
 
