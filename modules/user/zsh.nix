@@ -1,5 +1,5 @@
 # vim: ft=nix
-{ config, inputs, pkgs, ... }:
+{ config, inputs, pkgs, sysConfig, ... }:
 let
   lib = pkgs.lib;
 
@@ -38,7 +38,7 @@ let
     jf = "doas journalctl -f";
 
     fl = "cd ~/Projects/flakes";
-    nr = "doas nixos-rebuild switch --flake .#winter -v";
+    nr = "doas nixos-rebuild switch --flake .#${sysConfig.networking.hostName} -v";
 
     gs = "git status";
     ga = "git add";
