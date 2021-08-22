@@ -31,5 +31,17 @@ in
     #   fsType = "nfs";
     #   options = [ "defaults" ];
     # };
+    "/mnt/apricot" = {
+      device = "rin@apricot:/";
+      fsType = "fuse.sshfs";
+      options = [
+        "noauto"
+        "x-systemd.automount"
+        "_netdev"
+        "IdentityFile=/home/rin/.ssh/id_rsa"
+        "allow_other"
+        "reconnect"
+      ];
+    };
   };
 }

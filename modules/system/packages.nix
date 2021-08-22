@@ -10,6 +10,7 @@
     neovim
     nfs-utils
     ntfs3g
+    sshfs
     rsync
     wget
   ] ++ lib.optionals enableGUI [
