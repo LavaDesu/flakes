@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "discord-tokyonight": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1629986468,
+        "narHash": "sha256-QK9LfLca3eFZgq4TutQv98Kc5p0yqtQdAL/6msWOjyU=",
+        "owner": "DanisDGK",
+        "repo": "zelk-customizations",
+        "rev": "930f9d593fa6311445fc06fa5863d8f87f97b7ad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DanisDGK",
+        "repo": "zelk-customizations",
+        "type": "github"
+      }
+    },
     "discord-tweaks": {
       "flake": false,
       "locked": {
@@ -344,6 +360,7 @@
       "inputs": {
         "better-status-indicators": "better-status-indicators",
         "channel-typing": "channel-typing",
+        "discord-tokyonight": "discord-tokyonight",
         "discord-tweaks": "discord-tweaks",
         "discover": "discover",
         "fast-syntax-highlighting": "fast-syntax-highlighting",
@@ -363,6 +380,7 @@
         "twemoji-but-good": "twemoji-but-good",
         "view-raw": "view-raw",
         "who-reacted": "who-reacted",
+        "zelk": "zelk",
         "zsh-abbr": "zsh-abbr",
         "zsh-history-substring-search": "zsh-history-substring-search"
       }
@@ -478,6 +496,22 @@
       "original": {
         "owner": "jaimeadf",
         "repo": "who-reacted",
+        "type": "github"
+      }
+    },
+    "zelk": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1629733004,
+        "narHash": "sha256-I0gFmGoYRT3Bdi/qw3yzsWZJ8PLU8nRRPdGirO4ADI8=",
+        "owner": "schnensch0",
+        "repo": "zelk",
+        "rev": "4066e60aa999613f6649f453fee72638df749c65",
+        "type": "github"
+      },
+      "original": {
+        "owner": "schnensch0",
+        "repo": "zelk",
         "type": "github"
       }
     },

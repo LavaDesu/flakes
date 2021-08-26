@@ -1,0 +1,8 @@
+{
+    "version": "1.0",
+    "name": "Tokyo Night Colours",
+    "author": "DanisDGK",
+    "license": "MIT",
+    "theme": "colors/tokyonight_night.css",
+    "description": "Tokyonight colourscheme"
+}

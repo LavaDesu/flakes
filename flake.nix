@@ -18,6 +18,7 @@
     pure = { url = "github:sindresorhus/pure"; flake = false; };
 
     # overlays
+    discord-tokyonight = { url = "github:DanisDGK/zelk-customizations"; flake = false; };
     discover = { url = "github:trigg/Discover"; flake = false; };
 
     # powercord plugins/themes
@@ -35,6 +36,7 @@
 
     radialstatus = { url = "github:DiscordStyles/RadialStatus"; flake = false; };
     tokyonight = { url = "github:Dyzean/Tokyo-Night"; flake = false; };
+    zelk = { url = "github:schnensch0/zelk"; flake = false; };
   };
 
   outputs = { self, nixpkgs, home-manager, secrets, ... } @ inputs:
@@ -69,6 +71,7 @@
         let
           callPackage = pkgs.callPackage;
         in {
+          discord-tokyonight = callPackage ./packages/discord-tokyonight {};
           discover-overlay = callPackage ./packages/discover {};
           linux-lava = callPackage ./packages/linux-lava {};
           wine-osu = callPackage ./packages/wine-osu { inherit getPaths; };
