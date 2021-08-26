@@ -279,11 +279,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1629479476,
-        "narHash": "sha256-Fwsh55fOetuDTtY+wvtz1zwlqkG9OnkY3tCCQqXMl0s=",
+        "lastModified": 1629990696,
+        "narHash": "sha256-2OLCJnZpQ4b2TcjrYVrfGubUnIrvrgDifBxVmxKJefE=",
         "owner": "LavaDesu",
         "repo": "powercord-overlay",
-        "rev": "0722e7c79a89bdb276cb2739c22d875d3ec58920",
+        "rev": "10450a1769f69c8bbfe3e97361ce1af1d7c26b9c",
         "type": "github"
       },
       "original": {
