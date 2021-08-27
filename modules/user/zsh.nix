@@ -49,7 +49,7 @@ let
     gco = "git checkout";
     gd = "git diff";
     gds = "git diff --staged";
-    gf = "git commit --amend --no-edit";
+    gf = "git commit --amend --no-edit --reset-author";
     gl = "git log";
     gr = "git rebase -i";
   };
