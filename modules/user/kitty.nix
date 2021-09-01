@@ -11,8 +11,8 @@
       enable_audio_bell = false;
     };
     extraConfig = builtins.readFile (builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/kitty_tokyonight_night.conf";
-      sha256 = "0mgjkmn4grr7rrxc5rrs1n0cghf03gp0v55hf3phll6czjavjldf";
+      url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/eede574f9ef57137e6d7e4bab37b09db636c5a56/extras/kitty_tokyonight_night.conf";
+      sha256 = "0l9yl3qmgf7b10x7hy7q5hma0hsyamq3n14lfbw31cimm6snwim6";
     });
   };
 }
