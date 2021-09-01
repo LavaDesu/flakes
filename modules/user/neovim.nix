@@ -89,6 +89,8 @@
       nnoremap <C-K> <C-W>k
       nnoremap <C-L> <C-W>l
       nnoremap <C-Q> :q<CR>
+      nnoremap gd <Plug>(coc-definition)
+      nmap <leader>ref <Plug>(coc-references)
       nmap <leader>gd :Gdiff<CR>
       nmap <leader>rn <Plug>(coc-rename)
       command! -nargs=0 Sw w !doas tee % > /dev/null
