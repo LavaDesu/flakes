@@ -25,6 +25,7 @@
 
       (nvim-treesitter.withPlugins (p: with p; [
         tree-sitter-comment
+        tree-sitter-c-sharp
         # tree-sitter-javascript
         tree-sitter-jsdoc
         tree-sitter-nix
@@ -127,6 +128,7 @@
       };
     };
     "eslint.enable" = true;
+    "omnisharp.path" = "${pkgs.omnisharp-roslyn}/bin/omnisharp";
     "rust-analyzer.lens.enable" = false;
     "rust-analyzer.inlayHints.enable" = false;
     "rust-analyzer.serverPath" = pkgs.rust-analyzer + "/bin/rust-analyzer";
