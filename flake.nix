@@ -8,6 +8,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-gaming.url = "github:fufexan/nix-gaming";
     powercord-overlay.url = "github:LavaDesu/powercord-overlay";
     powercord-overlay.inputs.nixpkgs.follows = "nixpkgs";
 

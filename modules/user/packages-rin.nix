@@ -10,7 +10,7 @@
     transcrypt
     unrar
     weechat
-    wine-osu
+    inputs.nix-gaming.packages.x86_64-linux.wine-tkg
     (winetricks.override { wine = wine-osu; })
     youtube-dl
 
