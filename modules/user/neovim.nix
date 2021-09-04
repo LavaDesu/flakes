@@ -26,12 +26,18 @@
       (nvim-treesitter.withPlugins (p: with p; [
         tree-sitter-comment
         tree-sitter-c-sharp
-        # tree-sitter-javascript
+        tree-sitter-html
+        tree-sitter-javascript
         tree-sitter-jsdoc
+        tree-sitter-json
+        tree-sitter-lua
         tree-sitter-nix
+        tree-sitter-php
+        tree-sitter-regex
         tree-sitter-rust
         tree-sitter-toml
         tree-sitter-typescript
+        tree-sitter-tsx
         tree-sitter-yaml
       ]))
     ];
