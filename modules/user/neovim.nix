@@ -104,6 +104,9 @@
       " disable read-only warning
       au BufEnter * set noro
 
+      " set filetype=html for handlebar templates
+      au BufRead,BufNewFile *.hbs set filetype=html
+
       " disable empty line tildes
       set fcs=eob:\ 
 
