@@ -7,11 +7,14 @@
     package = pkgs.neovim-nightly;
 
     plugins = with pkgs.vimPlugins; [
+      coc-css
+      coc-html
       coc-nvim
       coc-eslint
       coc-json
       coc-rust-analyzer
       coc-tsserver
+      coc-yaml
 
       ctrlp-vim
       lualine-nvim
