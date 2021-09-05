@@ -447,6 +447,7 @@
         "theme-toggler": "theme-toggler",
         "tokyonight": "tokyonight",
         "tree-sitter-glimmer": "tree-sitter-glimmer",
+        "tree-sitter-jsonc": "tree-sitter-jsonc",
         "twemoji-but-good": "twemoji-but-good",
         "view-raw": "view-raw",
         "who-reacted": "who-reacted",
@@ -533,6 +534,22 @@
         "owner": "alexlafroscia",
         "repo": "tree-sitter-glimmer",
         "type": "github"
+      }
+    },
+    "tree-sitter-jsonc": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1615145540,
+        "narHash": "sha256-iWc2ePRiQnZ0FEdMAaAwa3iYt/SY0bEjQrZyqE9EhlU=",
+        "owner": "WhyNotHugo",
+        "repo": "tree-sitter-jsonc",
+        "rev": "02b01653c8a1c198ae7287d566efa86a135b30d5",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "WhyNotHugo",
+        "repo": "tree-sitter-jsonc",
+        "type": "gitlab"
       }
     },
     "twemoji-but-good": {

@@ -34,6 +34,7 @@
         tree-sitter-javascript
         tree-sitter-jsdoc
         tree-sitter-json
+        pkgs.tree-sitter-jsonc
         tree-sitter-lua
         tree-sitter-nix
         tree-sitter-php
