@@ -446,6 +446,7 @@
         "secrets": "secrets",
         "theme-toggler": "theme-toggler",
         "tokyonight": "tokyonight",
+        "tree-sitter-glimmer": "tree-sitter-glimmer",
         "twemoji-but-good": "twemoji-but-good",
         "view-raw": "view-raw",
         "who-reacted": "who-reacted",
@@ -515,6 +516,22 @@
       "original": {
         "owner": "Dyzean",
         "repo": "Tokyo-Night",
+        "type": "github"
+      }
+    },
+    "tree-sitter-glimmer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1629886333,
+        "narHash": "sha256-oATwywaI3PNTcvyhMKCPKfqI6MCo65pXA8onTnXwTZA=",
+        "owner": "alexlafroscia",
+        "repo": "tree-sitter-glimmer",
+        "rev": "3241521b21a824d164e2915eede08abc7a67f9ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "alexlafroscia",
+        "repo": "tree-sitter-glimmer",
         "type": "github"
       }
     },

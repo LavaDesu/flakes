@@ -21,6 +21,7 @@
     # overlays
     discord-tokyonight = { url = "github:DanisDGK/zelk-customizations"; flake = false; };
     discover = { url = "github:trigg/Discover"; flake = false; };
+    tree-sitter-glimmer = { url = "github:alexlafroscia/tree-sitter-glimmer"; flake = false; };
 
     # powercord plugins/themes
     better-status-indicators = { url = "github:griefmodz/better-status-indicators"; flake = false; };
@@ -75,6 +76,7 @@
           discord-tokyonight = callPackage ./packages/discord-tokyonight {};
           discover-overlay = callPackage ./packages/discover {};
           linux-lava = callPackage ./packages/linux-lava {};
+          tree-sitter-glimmer = callPackage ./packages/tree-sitter-glimmer {};
           wine-osu = callPackage ./packages/wine-osu { inherit getPaths; };
         };
 

@@ -29,6 +29,7 @@
       (nvim-treesitter.withPlugins (p: with p; [
         tree-sitter-comment
         tree-sitter-c-sharp
+        pkgs.tree-sitter-glimmer
         tree-sitter-html
         tree-sitter-javascript
         tree-sitter-jsdoc
@@ -108,7 +109,7 @@
       au BufEnter * set noro
 
       " set filetype=html for handlebar templates
-      au BufRead,BufNewFile *.hbs set filetype=html
+      " au BufRead,BufNewFile *.hbs set filetype=html
 
       " disable empty line tildes
       set fcs=eob:\ 
