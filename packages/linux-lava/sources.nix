@@ -1,12 +1,12 @@
 { fetchFromGitHub, lib }:
 let
-  version = "5.13.13";
-  kernelHash = "1nc9didbjlycs9h8xahny1gwl8m8clylybnza6gl663myfbslsrz";
-  kernelPatchHash = "1f3wc6iak94wa05byjpl0bcyx4k7kkhp3p01d71gax1ysi0nwqnv";
-  tkgRev = "e2d99fd98a7b55fedd80b5944189adf8a4b1e946";
-  tkgHash = "1r0qwj13m0zj0wp5zs25zs56a43dsb60inmb1hisxpa7cz59x9m7";
-  caculeRev = "c8a8d0d84a1337f87fe0a218c978a61e90874fa2";
-  caculeHash = "04lbmyp8s0zl1jcl6ndi1yvmzs6xjwawmmq5dw1wpz5wja20wvj9";
+  version = "5.14.1";
+  kernelHash = "1cki6af9r30k8820j73qdyycp23mwpf2a2rjwl82p9i61mg8n1ky";
+  kernelPatchHash = "1ms4ybm1v83m8hwg1ymw2g8blf0mq1n3h0rzg8kmd3sh7vjbph4n";
+  tkgRev = "0eaf5ba619ac3b82bbdb7bd1c1eb5ed3a2164272";
+  tkgHash = "10q0anzfjh7qwa8xqjl3rzvi7vblykvv4bavi8qfs6lbk6isf00a";
+  caculeRev = "d03c1167152d4af037fc008bc9fa651b900d75d5";
+  caculeHash = "0xcfamxs4znmq3wfracr5jf59dlpig0b5s0aabi9zqzb61ds7i5z";
 
   tkgPatches = [
     "0001-mm-Support-soft-dirty-flag-reset-for-VA-range"

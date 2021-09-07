@@ -1,23 +1,23 @@
-From 5d133651479c4be74cd7eb8006fc43366c9b15b9 Mon Sep 17 00:00:00 2001
+From 8676738da851887056cb4461f70848ddeef35263 Mon Sep 17 00:00:00 2001
 From: LavaDesu <me@lava.moe>
-Date: Wed, 3 Mar 2021 17:37:38 +0700
+Date: Tue, 7 Sep 2021 09:32:22 +0700
 Subject: [PATCH] Lava's amdgpu patches
 
 ---
  drivers/gpu/drm/amd/amdgpu/amdgpu.h         |   6 ++
  drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c |   2 +-
- drivers/gpu/drm/amd/pm/amdgpu_pm.c          | 111 +++++++++++++++++++-
+ drivers/gpu/drm/amd/pm/amdgpu_pm.c          | 112 +++++++++++++++++++-
  drivers/gpu/drm/amd/pm/powerplay/si_dpm.c   |  17 +++
- 4 files changed, 130 insertions(+), 6 deletions(-)
+ 4 files changed, 131 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu.h b/drivers/gpu/drm/amd/amdgpu/amdgpu.h
-index 29885febc0b0..2ed893e8983c 100644
+index 8ac6eb9f1fd..33ccd30800a 100644
 --- a/drivers/gpu/drm/amd/amdgpu/amdgpu.h
 +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu.h
-@@ -191,6 +191,12 @@ extern int amdgpu_discovery;
- extern int amdgpu_mes;
+@@ -212,6 +212,12 @@ extern int amdgpu_mes;
  extern int amdgpu_noretry;
  extern int amdgpu_force_asic_type;
+ extern int amdgpu_smartshift_bias;
 +
 +extern __u32 amdgpu_force_mclk;
 +extern __u32 amdgpu_force_sclk;
@@ -28,10 +28,10 @@ index 29885febc0b0..2ed893e8983c 100644
  extern int sched_policy;
  extern bool debug_evictions;
 diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c
-index 47e0b48dc26f..f1e4485a60b2 100644
+index a9475b20751..5f558684bd1 100644
 --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c
 +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c
-@@ -146,7 +146,7 @@ static int amdgpu_dma_buf_attach(struct dma_buf *dmabuf,
+@@ -100,7 +100,7 @@ static int amdgpu_dma_buf_attach(struct dma_buf *dmabuf,
  	struct amdgpu_device *adev = amdgpu_ttm_adev(bo->tbo.bdev);
  	int r;
  
@@ -41,10 +41,10 @@ index 47e0b48dc26f..f1e4485a60b2 100644
  
  	if (attach->dev->driver == adev->dev->driver)
 diff --git a/drivers/gpu/drm/amd/pm/amdgpu_pm.c b/drivers/gpu/drm/amd/pm/amdgpu_pm.c
-index 5fa65f191a37..8a90331da0e5 100644
+index 769f58d5ae1..614a14bde84 100644
 --- a/drivers/gpu/drm/amd/pm/amdgpu_pm.c
 +++ b/drivers/gpu/drm/amd/pm/amdgpu_pm.c
-@@ -39,6 +39,11 @@
+@@ -36,6 +36,11 @@
  #include <asm/processor.h>
  #include "hwmgr.h"
  
@@ -56,11 +56,11 @@ index 5fa65f191a37..8a90331da0e5 100644
  static const struct cg_flag_name clocks[] = {
  	{AMD_CG_SUPPORT_GFX_FGCG, "Graphics Fine Grain Clock Gating"},
  	{AMD_CG_SUPPORT_GFX_MGCG, "Graphics Medium Grain Clock Gating"},
-@@ -2167,6 +2172,94 @@ static ssize_t amdgpu_get_gpu_metrics(struct device *dev,
- 	return size;
+@@ -2002,6 +2007,94 @@ static int ss_bias_attr_update(struct amdgpu_device *adev, struct amdgpu_device_
+ 	return 0;
  }
  
-+/**
++/*
 + * DOC: pp_override_mclk
 + *
 + * It's like pp_od_clk_voltage but worse and can potentially destroy your gpu idk
@@ -150,11 +150,12 @@ index 5fa65f191a37..8a90331da0e5 100644
 +
  static struct amdgpu_device_attr amdgpu_device_attrs[] = {
  	AMDGPU_DEVICE_ATTR_RW(power_dpm_state,				ATTR_FLAG_BASIC|ATTR_FLAG_ONEVF),
- 	AMDGPU_DEVICE_ATTR_RW(power_dpm_force_performance_level,	ATTR_FLAG_BASIC),
-@@ -2193,6 +2286,10 @@ static struct amdgpu_device_attr amdgpu_device_attrs[] = {
- 	AMDGPU_DEVICE_ATTR_RO(unique_id,				ATTR_FLAG_BASIC),
- 	AMDGPU_DEVICE_ATTR_RW(thermal_throttling_logging,		ATTR_FLAG_BASIC),
- 	AMDGPU_DEVICE_ATTR_RO(gpu_metrics,				ATTR_FLAG_BASIC),
+ 	AMDGPU_DEVICE_ATTR_RW(power_dpm_force_performance_level,	ATTR_FLAG_BASIC|ATTR_FLAG_ONEVF),
+@@ -2034,6 +2127,11 @@ static struct amdgpu_device_attr amdgpu_device_attrs[] = {
+ 			      .attr_update = ss_power_attr_update),
+ 	AMDGPU_DEVICE_ATTR_RW(smartshift_bias,				ATTR_FLAG_BASIC,
+ 			      .attr_update = ss_bias_attr_update),
++
 +	AMDGPU_DEVICE_ATTR_RW(pp_override_mclk,				ATTR_FLAG_BASIC),
 +	AMDGPU_DEVICE_ATTR_RW(pp_override_sclk,				ATTR_FLAG_BASIC),
 +	AMDGPU_DEVICE_ATTR_RW(pp_override_vddc,				ATTR_FLAG_BASIC),
@@ -162,7 +163,7 @@ index 5fa65f191a37..8a90331da0e5 100644
  };
  
  static int default_attr_update(struct amdgpu_device *adev, struct amdgpu_device_attr *attr,
-@@ -2220,11 +2317,15 @@ static int default_attr_update(struct amdgpu_device *adev, struct amdgpu_device_
+@@ -2063,11 +2161,15 @@ static int default_attr_update(struct amdgpu_device *adev, struct amdgpu_device_
  		if (asic_type < CHIP_VEGA20)
  			*states = ATTR_STATE_UNSUPPORTED;
  	} else if (DEVICE_ATTR_IS(pp_od_clk_voltage)) {
@@ -184,7 +185,7 @@ index 5fa65f191a37..8a90331da0e5 100644
  		if (adev->flags & AMD_IS_APU || asic_type == CHIP_VEGA10)
  			*states = ATTR_STATE_UNSUPPORTED;
 diff --git a/drivers/gpu/drm/amd/pm/powerplay/si_dpm.c b/drivers/gpu/drm/amd/pm/powerplay/si_dpm.c
-index afa1711c9620..74b847bf83e0 100644
+index 15c0b8af376..31e520d5e21 100644
 --- a/drivers/gpu/drm/amd/pm/powerplay/si_dpm.c
 +++ b/drivers/gpu/drm/amd/pm/powerplay/si_dpm.c
 @@ -3492,6 +3492,23 @@ static void si_apply_state_adjust_rules(struct amdgpu_device *adev,
@@ -212,5 +213,5 @@ index afa1711c9620..74b847bf83e0 100644
  			if (ps->performance_levels[i].sclk > max_sclk_vddc)
  				ps->performance_levels[i].sclk = max_sclk_vddc;
 -- 
-2.31.1
+2.32.0
 
