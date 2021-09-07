@@ -100,7 +100,13 @@
       nnoremap <C-K> <C-W>k
       nnoremap <C-L> <C-W>l
       nnoremap <C-Q> :q<CR>
-      nnoremap gd <Plug>(coc-definition)
+
+      nmap <silent> [g <Plug>(coc-diagnostic-prev)
+      nmap <silent> ]g <Plug>(coc-diagnostic-next)
+      nmap <silent> gd <Plug>(coc-definition)
+      nmap <silent> gy <Plug>(coc-type-definition)
+      nmap <silent> gi <Plug>(coc-implementation)
+      nmap <silent> gr <Plug>(coc-references)
       nmap <leader>ref <Plug>(coc-references)
       nmap <leader>gd :Gdiff<CR>
       nmap <leader>rn <Plug>(coc-rename)
