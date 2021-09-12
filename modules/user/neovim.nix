@@ -112,6 +112,10 @@
       nmap <leader>rn <Plug>(coc-rename)
       command! -nargs=0 Sw w !doas tee % > /dev/null
 
+      " autosave rust source files on change
+      au FileType rust inoremap <silent><esc> <esc>:update<cr>
+      au TextChanged,FocusLost,BufEnter *.rs silent update
+
       " disable read-only warning
       au BufEnter * set noro
 
