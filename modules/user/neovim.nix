@@ -158,5 +158,6 @@
     "rust-analyzer.lens.enable" = false;
     "rust-analyzer.inlayHints.enable" = false;
     "rust-analyzer.serverPath" = pkgs.rust-analyzer + "/bin/rust-analyzer";
+    "typescript.showUnused" = false;
   };
 }
