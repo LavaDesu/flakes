@@ -444,6 +444,7 @@
         "radialstatus": "radialstatus",
         "rolecolor-everywhere": "rolecolor-everywhere",
         "secrets": "secrets",
+        "spotify-adblock": "spotify-adblock",
         "theme-toggler": "theme-toggler",
         "tokyonight": "tokyonight",
         "tree-sitter-glimmer": "tree-sitter-glimmer",
@@ -468,6 +469,22 @@
       "original": {
         "owner": "LavaDesu",
         "repo": "flakes-secrets",
+        "type": "github"
+      }
+    },
+    "spotify-adblock": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1629619654,
+        "narHash": "sha256-We5lVQDLJTD2ect06poC9wJ0xDANcRbcGMHwqVCfvts=",
+        "owner": "abba23",
+        "repo": "spotify-adblock",
+        "rev": "d129a8d1e74df15f9f37e1da9612aa9d646b7f96",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abba23",
+        "repo": "spotify-adblock",
         "type": "github"
       }
     },

@@ -1,0 +1,32 @@
+From 9a6d08d266a5e138c08e822a6ffb761db644aead Mon Sep 17 00:00:00 2001
+From: LavaDesu <me@lava.moe>
+Date: Sun, 19 Sep 2021 11:28:45 +0700
+Subject: [PATCH] allow setting config from environment variable
+
+---
+ src/lib.rs | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/lib.rs b/src/lib.rs
+index 5a0d7bd961e..86f2ac04ebf 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -7,6 +7,7 @@ use lazy_static::lazy_static;
+ use libc::{addrinfo, c_char, dlsym, EAI_FAIL, RTLD_NEXT};
+ use regex::Regex;
+ use serde::Deserialize;
++use std::env;
+ use std::ffi::CStr;
+ use std::fs::read_to_string;
+ use std::mem;
+@@ -44,6 +45,7 @@ struct Config {
+ lazy_static! {
+     static ref CONFIG: Config = {
+         let config_paths = vec![
++            PathBuf::from(env::var("SPOTIFY_ADBLOCK_CONFIG").unwrap_or("".into())),
+             PathBuf::from("config.toml"),
+             #[allow(deprecated)] // std::env::home_dir() is only broken on Windows
+             std::env::home_dir().unwrap().join(".config/spotify-adblock/config.toml"),
+-- 
+2.32.0
+
