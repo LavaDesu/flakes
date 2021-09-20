@@ -3,6 +3,10 @@
   system.stateVersion = "21.05";
   time.timeZone = "Australia/Melbourne";
 
+  age.secrets = {
+    passwd.file = ../../secrets/passwd.age;
+    wg_fondue.file = ../../secrets/wg_fondue.age;
+  };
   imports = with modules.system; [
     (modulesPath + "/profiles/qemu-guest.nix")
     base

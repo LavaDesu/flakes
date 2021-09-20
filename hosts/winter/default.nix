@@ -5,6 +5,7 @@
 
   age.secrets = {
     passwd.file = ../../secrets/passwd.age;
+    wg_winter.file = ../../secrets/wg_winter.age;
     wpa_conf.file = ../../secrets/wpa_conf.age;
   };
   imports = with modules.system; [
