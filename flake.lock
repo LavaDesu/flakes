@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "agenix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1631896269,
+        "narHash": "sha256-DAyCxJ8JacayOzGgGSfzrn7ghtsfL/EsCyk1NEUaAR8=",
+        "owner": "ryantm",
+        "repo": "agenix",
+        "rev": "daf1d773989ac5d949aeef03fce0fe27e583dbca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ryantm",
+        "repo": "agenix",
+        "type": "github"
+      }
+    },
     "better-status-indicators": {
       "flake": false,
       "locked": {
@@ -426,6 +446,7 @@
     },
     "root": {
       "inputs": {
+        "agenix": "agenix",
         "better-status-indicators": "better-status-indicators",
         "channel-typing": "channel-typing",
         "discord-tokyonight": "discord-tokyonight",
@@ -443,7 +464,6 @@
         "pure": "pure",
         "radialstatus": "radialstatus",
         "rolecolor-everywhere": "rolecolor-everywhere",
-        "secrets": "secrets",
         "spotify-adblock": "spotify-adblock",
         "theme-toggler": "theme-toggler",
         "tokyonight": "tokyonight",
@@ -455,21 +475,6 @@
         "zelk": "zelk",
         "zsh-abbr": "zsh-abbr",
         "zsh-history-substring-search": "zsh-history-substring-search"
-      }
-    },
-    "secrets": {
-      "locked": {
-        "lastModified": 1626423937,
-        "narHash": "sha256-ar4JcAS4q6PL2YiTXcFAsiLpvVZLc7/2r4TS6pI3Aww=",
-        "owner": "LavaDesu",
-        "repo": "flakes-secrets",
-        "rev": "73ec1e3c23216c1a42fb9a00dbf443d90af68f45",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LavaDesu",
-        "repo": "flakes-secrets",
-        "type": "github"
       }
     },
     "spotify-adblock": {

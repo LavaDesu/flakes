@@ -4,6 +4,7 @@
     extraGroups = [ "adbusers" "audio" "video" "wheel" ];
     shell = pkgs.zsh;
     uid = 1001;
+    passwordFile = config.age.secrets.passwd.path;
   };
   home-manager.users.rin = { config, enableGUI, lib, pkgs, ... }: {
     home = {

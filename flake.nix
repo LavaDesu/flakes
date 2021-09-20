@@ -3,8 +3,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-    secrets.url = "github:LavaDesu/flakes-secrets";
+    agenix.url = "github:ryantm/agenix";
 
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -43,7 +44,7 @@
     zelk = { url = "github:schnensch0/zelk"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, home-manager, secrets, ... } @ inputs:
+  outputs = { self, agenix, nixpkgs, home-manager, ... } @ inputs:
     let
       lib = nixpkgs.lib;
 
@@ -100,7 +101,7 @@
           system = arch;
           modules = [
             home-manager.nixosModules.home-manager
-            secrets.nixosModules.${name}
+            agenix.nixosModules.age
             (./hosts + "/${name}")
           ];
           specialArgs = { inherit inputs modules overlays enableGUI; };

@@ -1,4 +1,5 @@
 { config, ... }: {
+  environment.etc."wpa_supplicant.conf".source = config.age.secrets.wpa_conf.path;
   networking = {
     wireless = {
       enable = true;
