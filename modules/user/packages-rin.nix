@@ -10,8 +10,6 @@
     transcrypt
     unrar
     weechat
-    inputs.nix-gaming.packages.x86_64-linux.wine-tkg
-    inputs.nix-gaming.packages.x86_64-linux.wowtricks
     youtube-dl
 
     nodePackages_latest.pnpm
@@ -55,6 +53,8 @@
     screenkey
     tor-browser-bundle-bin
     transmission-remote-gtk
+    inputs.nix-gaming.packages.x86_64-linux.wine-tkg
+    inputs.nix-gaming.packages.x86_64-linux.wowtricks
     xclip
     xorg.xgamma
   ];
