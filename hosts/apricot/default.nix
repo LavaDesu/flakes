@@ -15,6 +15,7 @@
     packages
     security
     snapper
+    wireguard
 
     ./filesystem.nix
     ./kernel.nix

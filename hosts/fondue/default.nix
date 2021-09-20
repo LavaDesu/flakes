@@ -12,6 +12,7 @@
     packages
     security
     snapper
+    wireguard
 
     ./filesystem.nix
     ./firewall.nix

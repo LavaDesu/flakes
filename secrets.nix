@@ -9,4 +9,8 @@ let
 in {
   "secrets/passwd.age".publicKeys = [ apricot fondue winter rin-apricot rin-fondue rin-winter ];
   "secrets/wpa_conf.age".publicKeys = [ apricot winter rin-apricot rin-winter ];
+
+  "secrets/wg_apricot.age".publicKeys = [ apricot rin-apricot rin-winter ];
+  "secrets/wg_fondue.age".publicKeys = [ fondue rin-fondue rin-winter ];
+  "secrets/wg_winter.age".publicKeys = [ winter rin-winter ];
 }
