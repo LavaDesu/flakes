@@ -16,6 +16,7 @@
 
     nodePackages_latest.pnpm
   ] ++ lib.optionals enableGUI [
+    adoptopenjdk-hotspot-bin-16
     brave
     (discord-plugged.override {
       plugins = [
