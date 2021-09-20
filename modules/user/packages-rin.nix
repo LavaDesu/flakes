@@ -43,6 +43,7 @@
     feh
     gnome.file-roller
     gimp
+    jetbrains.idea-community
     kotatogram-desktop
     insomnia
     lxappearance
