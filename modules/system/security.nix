@@ -6,6 +6,20 @@
     permitRootLogin = "no";
     passwordAuthentication = false;
     forwardX11 = true;
+
+    hostKeys = [
+      {
+        bits = 4096;
+        path = "/var/persist/ssh_host_rsa_key";
+        rounds = 100;
+        type = "rsa";
+      }
+      {
+        path = "/var/persist/ssh_host_ed25519_key";
+        rounds = 100;
+        type = "ed25519";
+      }
+    ];
   };
 
   security = {
