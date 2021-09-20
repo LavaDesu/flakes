@@ -1,5 +1,9 @@
 { config, pkgs, ... }: {
-  networking.firewall.enable = false;
+  networking.firewall = {
+    enable = true;
+    allowedUDPPorts = [ 20100 ];
+    trustedInterfaces = [ "wg0" ];
+  };
 
   services.openssh = {
     enable = true;

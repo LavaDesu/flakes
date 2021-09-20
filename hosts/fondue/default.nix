@@ -14,6 +14,7 @@
     snapper
 
     ./filesystem.nix
+    ./firewall.nix
     ./kernel.nix
     ./networking.nix
 
