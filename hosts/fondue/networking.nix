@@ -9,5 +9,10 @@
     }];
     defaultGateway = "192.168.100.1";
     nameservers = [ "8.8.8.8" ];
+
+    extraHosts = ''
+      10.100.0.2 apricot
+      10.100.0.3 winter
+    '';
   };
 }
