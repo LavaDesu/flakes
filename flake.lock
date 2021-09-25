@@ -180,11 +180,11 @@
     },
     "flake-utils_3": {
       "locked": {
-        "lastModified": 1623875721,
-        "narHash": "sha256-A8BU7bjS5GirpAUv4QA+QnJ4CceLHkcXdRp4xITDB0s=",
+        "lastModified": 1629481132,
+        "narHash": "sha256-JHgasjPR0/J1J3DRm4KxM4zTyAj4IOJY8vIl75v/kPI=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "f7e004a55b120c02ecb6219596820fcd32ca8772",
+        "rev": "997f7efcb746a9c140ce1f13c72263189225f482",
         "type": "github"
       },
       "original": {
@@ -345,11 +345,11 @@
     "powercord": {
       "flake": false,
       "locked": {
-        "lastModified": 1630330973,
-        "narHash": "sha256-ydYbaaOH1hH8NuoTZ/HuEpkXfl7XyEDF4JEogsTQx74=",
+        "lastModified": 1631549850,
+        "narHash": "sha256-67V4ISXw+LeM83u4xyrxaQU+oJ7Wt1PBu7exuSMNYP8=",
         "owner": "powercord-org",
         "repo": "powercord",
-        "rev": "5d7500d5a4b1f671ad5fecaa5a7a998408b7149e",
+        "rev": "ea8c01eae414da4fe677abb826131f110ded67f0",
         "type": "github"
       },
       "original": {
@@ -367,11 +367,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1630379957,
-        "narHash": "sha256-55hkdoICwt3AORUW9DbPDh70+odIiCvPxYXheU1fEoM=",
+        "lastModified": 1632064972,
+        "narHash": "sha256-QoJr0qlBN1SwtDwQ8iyI3m42Tb+abWKjCcXZTlCLL9M=",
         "owner": "LavaDesu",
         "repo": "powercord-overlay",
-        "rev": "fc808c502a97a772a3f49d93833dcc9e7b2646e8",
+        "rev": "3b47934a6e49e2c72c7a13b878e50d712923720d",
         "type": "github"
       },
       "original": {
@@ -614,16 +614,15 @@
         "flake-utils": "flake-utils_3"
       },
       "locked": {
-        "lastModified": 1628855985,
-        "narHash": "sha256-OqhVFoCCA6GfGuMhZXQ5CrmZUYsumCJTwI72FOMf82I=",
+        "lastModified": 1631138716,
+        "narHash": "sha256-hp+/dyKWtt9p0MD7dNTR1foRWrjcitUp3848OnRQz7w=",
         "owner": "gytis-ivaskevicius",
         "repo": "flake-utils-plus",
-        "rev": "a79a0b86e59dc087df6704f9b13b1ed951ef5c5f",
+        "rev": "51169bf93d010a874bc8fe8ea3dee1c24471b697",
         "type": "github"
       },
       "original": {
         "owner": "gytis-ivaskevicius",
-        "ref": "staging",
         "repo": "flake-utils-plus",
         "type": "github"
       }
