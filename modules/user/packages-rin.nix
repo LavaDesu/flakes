@@ -48,6 +48,12 @@
     lxappearance
     maim
     mongodb-compass
+    ((multimc.override {
+      jdk8 = adoptopenjdk-hotspot-bin-8;
+      jdk = adoptopenjdk-hotspot-bin-16;
+    }).overrideAttrs(o: {
+      postPatch = lib.strings.replaceStrings ["/lib/openjdk"] [""] o.postPatch;
+    }))
     obs-studio
     pavucontrol
     screenkey
