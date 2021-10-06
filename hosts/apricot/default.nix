@@ -16,6 +16,7 @@
     packages
     security
     snapper
+    transmission
     wireguard
 
     ./filesystem.nix
