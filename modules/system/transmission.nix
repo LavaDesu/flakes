@@ -1,7 +1,9 @@
 { config, ... }: {
+  networking.firewall.allowedTCPPorts = [ 9091 ];
   services.transmission = {
     enable = true;
     downloadDirPermissions = "775";
+    openFirewall = true;
     settings = {
       alt-speed-down = 512;
       alt-speed-enabled = true;
