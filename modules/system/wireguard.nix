@@ -12,6 +12,10 @@ let
       publicKey = "6nVhazYdmC15A/nke9VrqIg3sOBVOmqj4GEsyBq7MVo=";
       allowedIPs = [ "10.100.0.3/32" ];
     };
+    strawberry = {
+      publicKey = "Fkcp/VSN4Dkhly8V4hskF4lnDviA7VZHCnWf7OliFCg=";
+      allowedIPs = [ "10.100.0.4/32" ];
+    };
   };
 
   clientPeers = builtins.attrValues clients;
