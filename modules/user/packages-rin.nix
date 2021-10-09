@@ -1,5 +1,6 @@
 { config, enableGUI, inputs, pkgs, ... }: {
   home.packages = with pkgs; [
+    dconf
     ffmpeg
     gnupg
     kitty
