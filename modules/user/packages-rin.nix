@@ -6,6 +6,7 @@
     kitty
     neofetch
     nodejs-16_x
+    packwiz
     pamixer
     rnix-lsp
     transcrypt

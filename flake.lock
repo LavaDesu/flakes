@@ -342,6 +342,22 @@
         "type": "github"
       }
     },
+    "packwiz": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1633808410,
+        "narHash": "sha256-Xjd7ditCMpe6H9CiblihMwKVEWwaZoGoubDHKLoI5SQ=",
+        "owner": "comp500",
+        "repo": "packwiz",
+        "rev": "9ef87bc0d3c668464be61de3ec985989808df350",
+        "type": "github"
+      },
+      "original": {
+        "owner": "comp500",
+        "repo": "packwiz",
+        "type": "github"
+      }
+    },
     "powercord": {
       "flake": false,
       "locked": {
@@ -459,6 +475,7 @@
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
         "no-double-back-pc": "no-double-back-pc",
+        "packwiz": "packwiz",
         "powercord-overlay": "powercord-overlay",
         "powercord-popout-fix": "powercord-popout-fix",
         "pure": "pure",

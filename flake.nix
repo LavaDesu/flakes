@@ -22,6 +22,7 @@
     # overlays
     discord-tokyonight = { url = "github:DanisDGK/zelk-customizations"; flake = false; };
     discover = { url = "github:trigg/Discover"; flake = false; };
+    packwiz = { url = "github:comp500/packwiz"; flake = false; };
     spotify-adblock = { url = "github:abba23/spotify-adblock"; flake = false; };
     tree-sitter-glimmer = { url = "github:alexlafroscia/tree-sitter-glimmer"; flake = false; };
     tree-sitter-jsonc = { url = "gitlab:WhyNotHugo/tree-sitter-jsonc"; flake = false; };
@@ -79,6 +80,7 @@
           discord-tokyonight = callPackage ./packages/discord-tokyonight {};
           discover-overlay = callPackage ./packages/discover {};
           linux-lava = callPackage ./packages/linux-lava {};
+          packwiz = callPackage ./packages/packwiz {};
           spotify-adblock = callPackage ./packages/spotify-adblock {};
           tree-sitter-glimmer = callPackage ./packages/tree-sitter-glimmer {};
           tree-sitter-jsonc = callPackage ./packages/tree-sitter-jsonc {};
