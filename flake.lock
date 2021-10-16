@@ -361,11 +361,11 @@
     "powercord": {
       "flake": false,
       "locked": {
-        "lastModified": 1631549850,
-        "narHash": "sha256-67V4ISXw+LeM83u4xyrxaQU+oJ7Wt1PBu7exuSMNYP8=",
+        "lastModified": 1632849355,
+        "narHash": "sha256-POggxwjMhUONH9P0YpUQq5JeWE80xjCso4/gEmsExyU=",
         "owner": "powercord-org",
         "repo": "powercord",
-        "rev": "ea8c01eae414da4fe677abb826131f110ded67f0",
+        "rev": "737d09139c06b1b48450a6c8086f101ecfd5d780",
         "type": "github"
       },
       "original": {
@@ -383,11 +383,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1632064972,
-        "narHash": "sha256-QoJr0qlBN1SwtDwQ8iyI3m42Tb+abWKjCcXZTlCLL9M=",
+        "lastModified": 1634366138,
+        "narHash": "sha256-EPNy7fRnOhCcJxZ9NZDwlh59ocflP1WlNNSQXYsjNB4=",
         "owner": "LavaDesu",
         "repo": "powercord-overlay",
-        "rev": "3b47934a6e49e2c72c7a13b878e50d712923720d",
+        "rev": "dbc86990eeec7cd70098053f6cf9fd2949d89442",
         "type": "github"
       },
       "original": {
@@ -631,11 +631,11 @@
         "flake-utils": "flake-utils_3"
       },
       "locked": {
-        "lastModified": 1631138716,
-        "narHash": "sha256-hp+/dyKWtt9p0MD7dNTR1foRWrjcitUp3848OnRQz7w=",
+        "lastModified": 1632420560,
+        "narHash": "sha256-8Tsa4Hp/CHCA6J8/E7EODhp75z5N1NBhFiOb3lBv/tI=",
         "owner": "gytis-ivaskevicius",
         "repo": "flake-utils-plus",
-        "rev": "51169bf93d010a874bc8fe8ea3dee1c24471b697",
+        "rev": "4b1bcafcfcd78bd36ceabfe3872822ba5c7fcbe8",
         "type": "github"
       },
       "original": {
