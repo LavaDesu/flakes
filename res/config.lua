@@ -11,7 +11,7 @@ vim.cmd('au FileType rust inoremap <silent><esc> <esc>:update<cr>')
 vim.cmd('au TextChanged,FocusLost,BufEnter *.rs silent update')
 vim.cmd('au BufEnter * set noro')
 vim.cmd('au CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })')
-vim.cmd('au CursorHoldI * silent! lua vim.lsp.buf.signature_help()')
+vim.cmd('au CursorHoldI * silent! lua vim.lsp.buf.signature_help({ focusable = false })')
 
 -- Settings
 vim.opt.relativenumber = true
@@ -123,11 +123,15 @@ end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
+        focusable = false,
         virtual_text = false,
         underline = true,
         signs = true,
         update_in_insert = true
     }
+)
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+    vim.lsp.handlers.signature_help, { focusable = false }
 )
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
