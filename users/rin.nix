@@ -11,6 +11,7 @@
       username = "rin";
       homeDirectory = "/home/rin";
       stateVersion = "21.05";
+      keyboard = null; # see https://github.com/nix-community/home-manager/issues/2219
     };
 
     imports = with modules.user; [
