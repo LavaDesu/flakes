@@ -23,11 +23,11 @@
     "better-status-indicators": {
       "flake": false,
       "locked": {
-        "lastModified": 1633333353,
-        "narHash": "sha256-QY0hLa+7YR8aViEyK8XNC70OpYDRKeJzw00+J5wh4WY=",
+        "lastModified": 1634894730,
+        "narHash": "sha256-7XlUCeGEKfnysWcbo4Fp+BagKbcpZPRbW+VAl2TV6LE=",
         "owner": "griefmodz",
         "repo": "better-status-indicators",
-        "rev": "3c09fda3f8ea05928cb24bdb2e5e41b56fac0062",
+        "rev": "e4de533953c55477ec498f4f3b93e45fed513a27",
         "type": "github"
       },
       "original": {
@@ -39,11 +39,11 @@
     "channel-typing": {
       "flake": false,
       "locked": {
-        "lastModified": 1616011610,
-        "narHash": "sha256-HH8bFnFzkhlnOpMw9HnlOU7g78cnATR0Cd11gWxGmc4=",
+        "lastModified": 1634895849,
+        "narHash": "sha256-wlbzg2zzFcwBGCa90DAKUEAtytQBc8kYAjzXGq1J6AM=",
         "owner": "powercord-community",
         "repo": "channel-typing",
-        "rev": "f229247b2dc134ba77e81c814285e040780718db",
+        "rev": "8e41b085410a5bb72ddf9f372c8957eed6d2cb82",
         "type": "github"
       },
       "original": {
@@ -119,11 +119,11 @@
     "fix-user-popouts": {
       "flake": false,
       "locked": {
-        "lastModified": 1624453628,
-        "narHash": "sha256-ujj9Sfmyu1kr/fLD8N34n7l/d8ln3501DmhEoMDiskA=",
+        "lastModified": 1634895855,
+        "narHash": "sha256-QayntcvZkPTJZVCNmH5eSkd3ONEmCLLGWbjt6VRihBI=",
         "owner": "cyyynthia",
         "repo": "fix-user-popouts",
-        "rev": "7acb547a13bd7dba8fe302ac1d71663a1234c585",
+        "rev": "cd765921f3af16865dd4b2610dee2f3a617c08e7",
         "type": "github"
       },
       "original": {
@@ -431,11 +431,11 @@
     "radialstatus": {
       "flake": false,
       "locked": {
-        "lastModified": 1627474668,
-        "narHash": "sha256-qCgbkrldvZlcDl6WA/ozVVkGKRfTK9HoJWqyayQXp9M=",
+        "lastModified": 1634522242,
+        "narHash": "sha256-/QGOdZ+GBR0EE6fpuP+hsyOcJxlK6+vmYesVntLUa1k=",
         "owner": "DiscordStyles",
         "repo": "RadialStatus",
-        "rev": "6ccdaf5b3ab8c57a7e8d1a776bdc1acd5db09558",
+        "rev": "32f6cc91988233af36345d5e8b5f6dc29955625c",
         "type": "github"
       },
       "original": {
@@ -447,11 +447,11 @@
     "rolecolor-everywhere": {
       "flake": false,
       "locked": {
-        "lastModified": 1629501336,
-        "narHash": "sha256-6D6HjVWyajcShFbEe34Oy+FUgxcRfl6HiulndOfTdXg=",
+        "lastModified": 1634895874,
+        "narHash": "sha256-gF8JIsAWYJ0zRkHuB0JqJl5QNYGkZMqrg3yS86AgN5M=",
         "owner": "powercord-community",
         "repo": "rolecolor-everywhere",
-        "rev": "5fdae76d884355647b679a4e2201a9895b7e9f0b",
+        "rev": "78719265fdcc34c7b0e77ebafc896ffdcd5198b1",
         "type": "github"
       },
       "original": {
