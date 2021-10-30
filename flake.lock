@@ -23,11 +23,11 @@
     "better-status-indicators": {
       "flake": false,
       "locked": {
-        "lastModified": 1634894730,
-        "narHash": "sha256-7XlUCeGEKfnysWcbo4Fp+BagKbcpZPRbW+VAl2TV6LE=",
+        "lastModified": 1635549788,
+        "narHash": "sha256-51b+RSVCctPG981cnfxAHFtbwjsn4yFfrTlCeqAzxds=",
         "owner": "griefmodz",
         "repo": "better-status-indicators",
-        "rev": "e4de533953c55477ec498f4f3b93e45fed513a27",
+        "rev": "ad6057f143bbb19ce3a7ae94a4fcdb833095568f",
         "type": "github"
       },
       "original": {
