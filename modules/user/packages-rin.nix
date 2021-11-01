@@ -6,7 +6,6 @@
     kitty
     neofetch
     nodejs-16_x
-    packwiz
     pamixer
     rnix-lsp
     transcrypt
@@ -39,7 +38,6 @@
         inputs.zelk
       ];
     })
-    discover-overlay
     element-desktop
     feh
     gnome.file-roller
@@ -49,7 +47,6 @@
     insomnia
     lxappearance
     maim
-    mongodb-compass
     ((multimc.override {
       jdk8 = adoptopenjdk-hotspot-bin-8;
       jdk = adoptopenjdk-hotspot-bin-16;

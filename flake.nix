@@ -16,7 +16,7 @@
     # zsh plugins
     zsh-abbr = { url = "github:olets/zsh-abbr"; flake = false; };
     zsh-history-substring-search = { url = "github:zsh-users/zsh-history-substring-search"; flake = false; };
-    fast-syntax-highlighting = { url = "github:zdharma/fast-syntax-highlighting"; flake = false; };
+    fast-syntax-highlighting = { url = "github:zdharma-continuum/fast-syntax-highlighting"; flake = false; };
     pure = { url = "github:sindresorhus/pure"; flake = false; };
 
     # overlays
