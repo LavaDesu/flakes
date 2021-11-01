@@ -111,8 +111,8 @@
     in
     {
       nixosConfigurations."apricot" = mkSystem "apricot" "x86_64-linux" false;
+      nixosConfigurations."blossom" = mkSystem "blossom" "x86_64-linux" true;
       nixosConfigurations."fondue" = mkSystem "fondue" "x86_64-linux" false;
-      nixosConfigurations."winter" = mkSystem "winter" "x86_64-linux" true;
 
       packages.x86_64-linux = customPackages nixpkgs.legacyPackages.x86_64-linux;
     };

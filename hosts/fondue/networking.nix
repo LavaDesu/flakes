@@ -13,6 +13,7 @@
     extraHosts = ''
       10.100.0.2 apricot
       10.100.0.3 winter
+      10.100.0.3 blossom
       10.100.0.4 strawberry
     '';
   };

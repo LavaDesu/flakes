@@ -8,7 +8,7 @@ let
       publicKey = "CpQJxoDeWJr7DdhbIO09svCxP7tuG2vUwRM8U4io5ms=";
       allowedIPs = [ "10.100.0.2/32" ];
     };
-    winter = {
+    blossom = {
       publicKey = "6nVhazYdmC15A/nke9VrqIg3sOBVOmqj4GEsyBq7MVo=";
       allowedIPs = [ "10.100.0.3/32" ];
     };

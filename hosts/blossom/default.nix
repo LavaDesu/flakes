@@ -1,11 +1,11 @@
 { config, modules, overlays, pkgs, ... }: {
-  networking.hostName = "winter";
-  system.stateVersion = "20.09";
+  networking.hostName = "blossom";
+  system.stateVersion = "21.05";
   time.timeZone = "Asia/Phnom_Penh";
 
   age.secrets = {
     passwd.file = ../../secrets/passwd.age;
-    wg_winter.file = ../../secrets/wg_winter.age;
+    wg_blossom.file = ../../secrets/wg_blossom.age;
     wpa_conf.file = ../../secrets/wpa_conf.age;
   };
   imports = with modules.system; [
