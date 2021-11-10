@@ -1,6 +1,6 @@
 self: super:
 let
-  version = "2021.1006.1";
+  version = "2021.1108.0";
 in {
   osu-lazer = super.osu-lazer.overrideAttrs(old: {
     inherit version;
