@@ -97,6 +97,7 @@ let
     bindkey -M vicmd 'j' history-substring-search-down
   '';
 in {
+  programs.command-not-found.enable = true;
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
