@@ -213,6 +213,22 @@
         "type": "github"
       }
     },
+    "linux-tkg": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1636723194,
+        "narHash": "sha256-zsnD3NnWAEPa4ibYE22bHBvrY3JhD3lO/gkKseYT2E0=",
+        "owner": "Frogging-Family",
+        "repo": "linux-tkg",
+        "rev": "ba636511f4862466b11ea69264cab70b7ccb3459",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Frogging-Family",
+        "repo": "linux-tkg",
+        "type": "github"
+      }
+    },
     "neovim-flake": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -472,6 +488,7 @@
         "fast-syntax-highlighting": "fast-syntax-highlighting",
         "fix-user-popouts": "fix-user-popouts",
         "home-manager": "home-manager",
+        "linux-tkg": "linux-tkg",
         "neovim-nightly": "neovim-nightly",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",

@@ -22,6 +22,7 @@
     # overlays
     discord-tokyonight = { url = "github:DanisDGK/zelk-customizations"; flake = false; };
     discover = { url = "github:trigg/Discover"; flake = false; };
+    linux-tkg = { url = "github:Frogging-Family/linux-tkg"; flake = false; };
     packwiz = { url = "github:comp500/packwiz"; flake = false; };
     spotify-adblock = { url = "github:abba23/spotify-adblock"; flake = false; };
     tree-sitter-glimmer = { url = "github:alexlafroscia/tree-sitter-glimmer"; flake = false; };
@@ -77,13 +78,13 @@
         let
           callPackage = pkgs.callPackage;
         in {
-          discord-tokyonight = callPackage ./packages/discord-tokyonight {};
-          discover-overlay = callPackage ./packages/discover {};
-          linux-lava = callPackage ./packages/linux-lava {};
-          packwiz = callPackage ./packages/packwiz {};
-          spotify-adblock = callPackage ./packages/spotify-adblock {};
-          tree-sitter-glimmer = callPackage ./packages/tree-sitter-glimmer {};
-          tree-sitter-jsonc = callPackage ./packages/tree-sitter-jsonc {};
+          discord-tokyonight = callPackage ./packages/discord-tokyonight { inherit inputs; };
+          discover-overlay = callPackage ./packages/discover { inherit inputs; };
+          linux-lava = callPackage ./packages/linux-lava { inherit inputs; };
+          packwiz = callPackage ./packages/packwiz { inherit inputs; };
+          spotify-adblock = callPackage ./packages/spotify-adblock { inherit inputs; };
+          tree-sitter-glimmer = callPackage ./packages/tree-sitter-glimmer { inherit inputs; };
+          tree-sitter-jsonc = callPackage ./packages/tree-sitter-jsonc { inherit inputs; };
           wine-osu = callPackage ./packages/wine-osu { inherit getPaths; };
         };
 

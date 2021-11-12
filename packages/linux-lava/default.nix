@@ -1,12 +1,13 @@
 { buildLinux
 , callPackage
+, inputs
 , kernelPatches
 , lib
 , ...
 } @ args:
 
 let
-  sources = callPackage ./sources.nix {};
+  sources = callPackage ./sources.nix { inherit inputs; };
 in buildLinux (args // {
   inherit (sources) src kernelPatches;
   version = "${sources.version}-tkg-Lava";
@@ -17,7 +18,6 @@ in buildLinux (args // {
   structuredExtraConfig = with lib.kernel; builtins.mapAttrs (_: value: lib.mkForce value) {
     LOCALVERSION = freeform "-tkg-Lava";
     ZENIFY = yes;
-    FUTEX2 = yes;
     MHASWELL = yes;
     WINESYNC = module;
 

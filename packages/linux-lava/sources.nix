@@ -1,12 +1,10 @@
-{ fetchFromGitHub, lib }:
+{ fetchFromGitHub, inputs, lib }:
 let
-  version = "5.14.14";
-  kernelHash = "1cki6af9r30k8820j73qdyycp23mwpf2a2rjwl82p9i61mg8n1ky";
-  kernelPatchHash = "1lsjswbfn67ndcy2l1prrmn7cbabvhd8mhhg0v36x1pvml86q3wq";
-  tkgRev = "f2fa2f00ef379d4bb8f794a58d1dc5a48966c74c";
-  tkgHash = "1ycxip1hlshcl9nxb8si4ckl8q7w62nyndwcj8iqmxbwnsx1kvkd";
-  caculeRev = "d03c1167152d4af037fc008bc9fa651b900d75d5";
-  caculeHash = "0xcfamxs4znmq3wfracr5jf59dlpig0b5s0aabi9zqzb61ds7i5z";
+  version = "5.15.2";
+  kernelHash = "1s0yk78kilcr3vd14k67cmllnrx0x0i00jdkl5kkn3lij5lwzcjp";
+  kernelPatchHash = "0d6x90dcq9sdpw4za62bsd3yijy2s6y0v5vr36hcvqwv661ab822";
+  caculeRev = "2ac16b14bc0281c3b6c14828688981633b82ffd8";
+  caculeHash = "0li0zaizxvpigngv1954hkw8dirwyvqy93gb3af33cm47ir9049p";
 
   tkgPatches = [
     "0001-mm-Support-soft-dirty-flag-reset-for-VA-range"
@@ -15,8 +13,8 @@ let
     #"0003-cacule-${mm}"
     "0003-glitched-base"
     "0003-glitched-cfs"
-    "0007-v${mm}-fsync"
-    "0007-v${mm}-futex2_interface"
+    "0007-v${mm}-futex_waitv"
+    "0007-v${mm}-fsync1_via_futex_waitv"
     "0007-v${mm}-winesync"
     "0012-misc-additions"
   ];
@@ -25,12 +23,6 @@ let
   patch = path: {
     name = "patch-${path}";
     patch = path;
-  };
-  tkgSrc = fetchFromGitHub {
-    owner = "Frogging-Family";
-    repo = "linux-tkg";
-    rev = tkgRev;
-    sha256 = tkgHash;
   };
   kernelPatchSrc = {
     name = "patch";
@@ -42,8 +34,8 @@ let
   caculeSrc = {
     name = "cacule";
     patch = builtins.fetchurl {
-        url = "https://raw.githubusercontent.com/hamadmarri/cacule-cpu-scheduler/${caculeRev}/patches/CacULE/v${mm}/cacule-${mm}.patch";
-        sha256 = caculeHash;
+      url = "https://raw.githubusercontent.com/CachyOS/cacule-cpu-scheduler/${caculeRev}/patches/CacULE/v${mm}/cacule-${mm}-full.patch";
+      sha256 = caculeHash;
     };
   };
 
@@ -63,6 +55,6 @@ in {
   ]
   ++ builtins.map (name: {
     inherit name;
-    patch = "${tkgSrc}/linux-tkg-patches/${mm}/${name}.patch";
+    patch = "${inputs.linux-tkg}/linux-tkg-patches/${mm}/${name}.patch";
   }) tkgPatches;
 }
