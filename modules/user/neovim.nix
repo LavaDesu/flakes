@@ -1,16 +1,5 @@
 { config, lib, pkgs, ... }:
 let
-  nvim-cmp = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "nvim-cmp";
-    version = "2021-10-09";
-    src = pkgs.fetchFromGitHub {
-      owner = "hrsh7th";
-      repo = "nvim-cmp";
-      rev = "339fe9177b8eff85b21a0e118db400ab89775c28";
-      sha256 = "16k9zqqhsw4z4zx1x1y34yss2k2jzq04f4mlp5xc2rwnfxi8yd93";
-    };
-    meta.homepage = "https://github.com/hrsh7th/nvim-cmp/";
-  };
   luaconf = pkgs.writeText "config.lua"
     (lib.replaceStrings ["{{OMNISHARP_PATH}}"] ["${pkgs.omnisharp-roslyn}/bin/omnisharp"]
       (builtins.readFile ../../res/config.lua));
