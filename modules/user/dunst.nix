@@ -1,22 +1,30 @@
-# TODO: i've literally never configured dunst ever since i first installed it (the rc was copypasted from somewhere i forgot im sorry), should play around with it later
-{ config, ... }: {
+{ config, pkgs, ... }:
+let
+  historyScript = pkgs.writeShellScript "dunst_history.sh" ''
+    echo "$(date +%s):$DUNST_TIMESTAMP:$DUNST_APP_NAME:$DUNST_URGENCY:$DUNST_SUMMARY:$DUNST_BODY" >> ${config.xdg.dataHome}/dunst/history
+  '';
+in {
+  systemd.user.tmpfiles.rules = [ "d ${config.xdg.dataHome}/dunst - - - -" ];
+
   services.dunst = {
     enable = true;
     settings = {
       global = {
         monitor = 0;
         follow = "mouse";
-        #geometry = "250x50-24+24";
-        geometry = "600x50-24+24";
+        width = 460;
+        origin = "top-right";
+        offset = "24x30";
+        notification_limit = 0;
         indicate_hidden = true;
         shrink = true;
         separator_height = 0;
         padding = 16;
         horizontal_padding = 24;
-        frame_width = 2;
+        frame_width = 0;
         sort = false;
-        idle_threshold = 120;
-        font = "Open Sans 8";
+        idle_threshold = 60;
+        font = "Open Sans 9";
         line_height = 4;
         markup = "full";
         format = "<b>%s</b>\\n%b";
@@ -30,37 +38,32 @@
         icon_position = "left";
         max_icon_size = 32;
         sticky_history = true;
-        history_length = 20;
-        browser = "/run/current-system/sw/bin/firefox -new-tab";
+        history_length = 100;
+        browser = "${pkgs.brave}/bin/brave -new-tab";
         always_run_script = true;
         title = "Dunst";
         class = "Dunst";
-        corner_radius = 5;
-      };
+        corner_radius = 10;
 
-      shortcuts = {
-        close = "ctrl+space";
-        close_all = "ctrl+shift+space";
-        history = "ctrl+grave";
-        context = "ctrl+shift+period";
+        script = historyScript.outPath;
       };
 
       urgency_low = {
-        background = "#2f343f";
+        background = "#12131b";
         foreground = "#d8dee8";
-        timeout = 2;
+        timeout = 3;
       };
 
       urgency_normal = {
-        background = "#2f343f";
+        background = "#12131b";
         foreground = "#d8dee8";
-        timeout = 4;
+        timeout = 5;
       };
 
       urgency_critical = {
-        background = "#2f343f";
+        background = "#12131b";
         foreground = "#d8dee8";
-        frame_color = "#bf616a";
+        # frame_color = "#bf616a";
         timeout = 0;
       };
     };
