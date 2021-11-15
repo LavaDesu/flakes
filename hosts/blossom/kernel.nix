@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   boot = {
     loader = {
       systemd-boot.enable = true;
@@ -7,6 +7,7 @@
         enable = true;
         efiSupport = true;
         device = "nodev";
+        useOSProber = lib.mkForce false;
       };
     };
     initrd.kernelModules = [ "i915" ];
@@ -17,6 +18,6 @@
       "intel_pstate=passive"
       "msr.allow_writes=on"
     ];
-    kernelPackages = pkgs.lib.mkForce (pkgs.linuxPackagesFor pkgs.linux-lava);
+    kernelPackages = lib.mkForce (pkgs.linuxPackagesFor pkgs.linux-lava);
   };
 }
