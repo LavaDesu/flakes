@@ -7,8 +7,6 @@ map('n', '<C-L>', '<C-W>l', { noremap = true })
 map('n', '<C-Q>', ':q<CR>', { noremap = true })
 
 -- Autocommands
-vim.cmd('au FileType rust inoremap <silent><esc> <esc>:update<cr>')
-vim.cmd('au TextChanged,FocusLost,BufEnter *.rs silent update')
 vim.cmd('au BufEnter * set noro')
 vim.cmd('au CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({ focusable = false })')
 vim.cmd('au CursorHoldI * silent! lua vim.lsp.buf.signature_help({ focusable = false })')
@@ -59,6 +57,11 @@ vim.cmd("highlight SignifySignChange          guifg="..colors.orange)
 vim.cmd("highlight SignifySignDelete          guifg="..colors.red)
 vim.cmd("highlight SignifySignDeleteFirstLine guifg="..colors.red)
 vim.cmd("highlight SignifySignChangeDelete    guifg="..colors.red)
+
+-- Set this specific highlight group in rust
+-- Shown when using #[cfg] directives, entire chunks of disabled code has squiggly lines and I don't want
+-- to see it
+vim.cmd("au FileType rust highlight DiagnosticUnderlineHint ctermfg=14 gui=italic guifg="..colors.comment)
 
 -- Plugins
 require('nvim-treesitter.configs').setup {
