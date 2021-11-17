@@ -193,6 +193,21 @@
         "type": "github"
       }
     },
+    "flake-utils_4": {
+      "locked": {
+        "lastModified": 1623875721,
+        "narHash": "sha256-A8BU7bjS5GirpAUv4QA+QnJ4CceLHkcXdRp4xITDB0s=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "f7e004a55b120c02ecb6219596820fcd32ca8772",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -499,6 +514,7 @@
         "pure": "pure",
         "radialstatus": "radialstatus",
         "rolecolor-everywhere": "rolecolor-everywhere",
+        "rust-overlay": "rust-overlay",
         "spotify-adblock": "spotify-adblock",
         "theme-toggler": "theme-toggler",
         "tokyonight": "tokyonight",
@@ -510,6 +526,27 @@
         "zelk": "zelk",
         "zsh-abbr": "zsh-abbr",
         "zsh-history-substring-search": "zsh-history-substring-search"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "flake-utils": "flake-utils_4",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1637115307,
+        "narHash": "sha256-G+RKZeE1yLrnq+ExHF+HnSJsT+QJWebGhssgZHz3B00=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "8a2e5fa870df3d34667d28fb3383d19516d182e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "spotify-adblock": {

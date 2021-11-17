@@ -28,6 +28,10 @@
     tree-sitter-glimmer = { url = "github:alexlafroscia/tree-sitter-glimmer"; flake = false; };
     tree-sitter-jsonc = { url = "gitlab:WhyNotHugo/tree-sitter-jsonc"; flake = false; };
 
+    # shells
+    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
     # powercord plugins/themes
     better-status-indicators = { url = "github:griefmodz/better-status-indicators"; flake = false; };
     channel-typing = { url = "github:powercord-community/channel-typing"; flake = false; };
@@ -81,6 +85,7 @@
       nixosConfigurations."blossom" = mkSystem "blossom" "x86_64-linux" true;
       nixosConfigurations."fondue" = mkSystem "fondue" "x86_64-linux" false;
 
+      devShells.x86_64-linux = pkgs.callPackage ./shells { inherit inputs; };
       packages.x86_64-linux = pkgs.me;
     };
 }
