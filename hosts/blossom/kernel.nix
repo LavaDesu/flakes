@@ -18,6 +18,6 @@
       "intel_pstate=passive"
       "msr.allow_writes=on"
     ];
-    kernelPackages = lib.mkForce (pkgs.linuxPackagesFor pkgs.linux-lava);
+    kernelPackages = lib.mkForce (pkgs.linuxPackagesFor pkgs.me.linux-lava);
   };
 }

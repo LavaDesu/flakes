@@ -48,66 +48,32 @@
 
   outputs = { self, agenix, nixpkgs, home-manager, ... } @ inputs:
     let
-      lib = nixpkgs.lib;
-
-      getPaths = root: builtins.map
-        (path: root + ("/" + path)) # Prepends root path
-        (builtins.attrNames (builtins.readDir root)); # Reads root path
-
-      modules =
-        let
-          getName = path: lib.removeSuffix ".nix" ( # Strip extension
-            lib.last (                              # Gets the last part (filename)
-              lib.splitString "/" (                 # Splits the path into components
-                builtins.toString path              # Converts the path into a string
-              )
-            )
-          );
-          genModulePaths = basePath: builtins.listToAttrs (
-            builtins.map (path: {
-              name = getName path;
-              value = path;
-            }) (getPaths basePath)
-          );
-        in {
-          user = genModulePaths ./modules/user;
-          system = genModulePaths ./modules/system;
-        };
-
-      customPackages = pkgs:
-        let
-          callPackage = pkgs.callPackage;
-        in {
-          discord-tokyonight = callPackage ./packages/discord-tokyonight { inherit inputs; };
-          discover-overlay = callPackage ./packages/discover { inherit inputs; };
-          linux-lava = callPackage ./packages/linux-lava { inherit inputs; };
-          packwiz = callPackage ./packages/packwiz { inherit inputs; };
-          spotify-adblock = callPackage ./packages/spotify-adblock { inherit inputs; };
-          tree-sitter-glimmer = callPackage ./packages/tree-sitter-glimmer { inherit inputs; };
-          tree-sitter-jsonc = callPackage ./packages/tree-sitter-jsonc { inherit inputs; };
-          wine-osu = callPackage ./packages/wine-osu { inherit getPaths; };
-        };
-
-      overlays = [ (self: super: { inherit inputs; }) ] ++ (builtins.map
-        (path: import path) # Imports path
-        (builtins.filter
-          (path: lib.hasSuffix ".nix" path) # Checks file extension
-          (getPaths ./overlays)
-        )
-      ) ++ [(self: super: customPackages super)]
+      overlays = (import ./overlays)
         ++ [inputs.neovim-nightly.overlay]
-        ++ [inputs.powercord-overlay.overlay];
+        ++ [inputs.powercord-overlay.overlay]
+        ++ [(final: prev: {
+          me = prev.callPackage ./packages { inherit inputs; } // { inherit inputs; };
+        })];
+
+      pkgs = import nixpkgs {
+        inherit overlays;
+        system = "x86_64-linux";
+      };
+
+      lib = pkgs.lib;
+      modules = import ./modules { inherit lib; };
 
       mkSystem =
         if !(self ? rev) then throw "Dirty git tree detected." else
-        name: arch: enableGUI: lib.nixosSystem {
+        name: arch: enableGUI: nixpkgs.lib.nixosSystem {
           system = arch;
           modules = [
+            { nixpkgs.overlays = overlays; }
             home-manager.nixosModules.home-manager
             agenix.nixosModules.age
             (./hosts + "/${name}")
           ];
-          specialArgs = { inherit inputs modules overlays enableGUI; };
+          specialArgs = { inherit inputs modules enableGUI; };
         };
     in
     {
@@ -115,6 +81,6 @@
       nixosConfigurations."blossom" = mkSystem "blossom" "x86_64-linux" true;
       nixosConfigurations."fondue" = mkSystem "fondue" "x86_64-linux" false;
 
-      packages.x86_64-linux = customPackages nixpkgs.legacyPackages.x86_64-linux;
+      packages.x86_64-linux = pkgs.me;
     };
 }

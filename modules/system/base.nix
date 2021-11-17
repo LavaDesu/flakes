@@ -20,7 +20,6 @@
   };
   nix.registry.config.flake = inputs.self;
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
-  nixpkgs.overlays = overlays;
 
   home-manager = {
     useGlobalPkgs = true;

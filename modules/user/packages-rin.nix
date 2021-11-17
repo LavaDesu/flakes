@@ -32,7 +32,7 @@
         inputs.who-reacted
       ];
       themes = [
-        pkgs.discord-tokyonight
+        pkgs.me.discord-tokyonight
         inputs.radialstatus
         inputs.tokyonight
         inputs.zelk

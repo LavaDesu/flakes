@@ -45,12 +45,12 @@ in {
       (nvim-treesitter.withPlugins (p: with p; [
         tree-sitter-comment
         tree-sitter-c-sharp
-        pkgs.tree-sitter-glimmer
+        pkgs.me.tree-sitter-glimmer
         tree-sitter-html
         tree-sitter-javascript
         tree-sitter-jsdoc
         tree-sitter-json
-        pkgs.tree-sitter-jsonc
+        pkgs.me.tree-sitter-jsonc
         tree-sitter-lua
         tree-sitter-nix
         tree-sitter-php
