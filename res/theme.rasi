@@ -1,0 +1,88 @@
+// Stolen from https://github.com/DanisDGK thanks uwu
+
+configuration {
+  modi:                           "drun,run";
+  terminal:                       "kitty";
+  display-drun:                   "";
+  drun-display-format:            "{name}";
+  sidebar-mode:                   false;
+  show-icons:                     true;
+}
+
+@theme "/dev/null"
+
+* {
+  bg:                              #12131b;
+  fg:                              #f3f6ff;
+  button:                          #ae58c8;
+
+  background-color:                @bg;
+  text-color:                      @fg;
+}
+
+window {
+  transparency:                   "real";
+  width:                          40%;
+  border-radius:                  20px;
+}
+
+prompt { enabled: false; }
+
+entry {
+  placeholder:                    "Search";
+  placeholder-color:              #f3f6ff90;
+  transparency:                   "real";
+  expand:                         true;
+  font:                           "Noto Sans 32";
+  padding:                        1.5%;
+  border-radius:                  8px;
+  background-color:               transparent;
+}
+
+inputbar {
+  children:                       [ prompt, entry ];
+  expand:                         false;
+  border-radius:                  0px 0 8px 8px;
+  padding:                        30px 30px 15px 30px;
+}
+
+listview {
+  columns:                        1;
+  lines:                          4;
+  cycle:                          false;
+  dynamic:                        true;
+  layout:                         vertical;
+  padding:                        30px 30px 15px 30px;
+}
+
+mainbox { children: [ inputbar, listview ]; }
+
+element {
+  orientation:                    horizontal;
+  padding:                        1.5% 0% 1.5% 0%;
+  border-radius:                  8px;
+}
+
+element-text {
+  expand:                         true;
+  vertical-align:                 0.5;
+  horizontal-align:               0.97;
+  margin:                         0% 3% 0.5% 3%;
+  background-color:               inherit;
+  text-color:                     inherit;
+  font:                           "Noto Sans 12";
+}
+
+element-icon {
+  vertical-align:                 0.5;
+  horizonal-align:                0.03;
+  margin:                         0.5% 3% 0.5% 3%;
+  background-color:               inherit;
+  text-color:                     inherit;
+  size:                           54;
+}
+
+element selected {
+  background-color:               @button;
+  border-radius:                  8px;
+}
