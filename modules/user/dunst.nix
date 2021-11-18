@@ -14,7 +14,7 @@ in {
         follow = "mouse";
         width = 460;
         origin = "top-right";
-        offset = "24x30";
+        offset = "24x35";
         notification_limit = 0;
         indicate_hidden = true;
         shrink = true;
@@ -43,7 +43,7 @@ in {
         always_run_script = true;
         title = "Dunst";
         class = "Dunst";
-        corner_radius = 10;
+        corner_radius = 15;
 
         script = historyScript.outPath;
       };
