@@ -12,6 +12,21 @@
     enable = true;
     script = builtins.readFile ../../scripts/polybar.sh;
     settings = {
+      "bar/scroller" = {
+        monitor = "eDP-1";
+        width = "100%";
+        height = 1;
+        background = colours.background1;
+        spacing = 2;
+        override-redirect = true;
+
+        modules.center = "workspaces-stub";
+        scroll = {
+          up = "#workspaces-stub.prev";
+          down = "#workspaces-stub.next";
+        };
+      };
+
       "bar/top" = {
         monitor = "eDP-1";
         width = "100%";
@@ -108,6 +123,22 @@
             background = colours.background2;
             padding = "0";
           };
+        };
+      };
+
+      "module/workspaces-stub" = {
+        type = "internal/bspwm";
+        pin-workspaces = true;
+        enable-click = false;
+        enable-scroll = false;
+        reverse-scroll = false;
+        label = {
+          monitor = "";
+          focused = "";
+          occupied = "";
+          empty = "";
+          urgent = "";
+          separator = "";
         };
       };
 
