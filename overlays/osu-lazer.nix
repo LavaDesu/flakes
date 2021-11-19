@@ -1,6 +1,6 @@
 self: super:
 let
-  version = "2021.1108.0";
+  version = "2021.1113.0";
 in rec {
   osu-lazer-unwrapped = super.osu-lazer.overrideAttrs(old: {
     inherit version;
@@ -10,7 +10,7 @@ in rec {
       owner = "ppy";
       repo = "osu";
       rev = version;
-      sha256 = "zQMXDqWfZ8g4HP3VQgeLogif51vVFLjb+a+7ma7OHIc=";
+      sha256 = "0pq2vvj1f0bkyq9dwi18qwh1wmjqf770vjl5jgxd34f3d46bfd8h";
     };
 
     buildPhase = super.lib.replaceStrings [ old.version ] [ version ] old.buildPhase;
