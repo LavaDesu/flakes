@@ -1,9 +1,10 @@
 self: super:
 let
   version = "2021.1108.0";
-in {
-  osu-lazer = super.osu-lazer.overrideAttrs(old: {
+in rec {
+  osu-lazer-unwrapped = super.osu-lazer.overrideAttrs(old: {
     inherit version;
+    pname = "osu-lazer-unwrapped";
 
     src = super.fetchFromGitHub {
       owner = "ppy";
@@ -25,4 +26,27 @@ in {
     patches = [ ./patches/bypass-tamper-detection.patch ];
     patchFlags = [ "--binary" "-p1" ];
   });
+
+  osu-lazer =
+  let
+    startScript = super.writeShellScript "osu-lazer" ''
+      DRI_PRIME=1 vblank_mode=0 PIPEWIRE_LATENCY=64/48000 ${super.pipewire}/bin/pw-jack ${osu-lazer-unwrapped.outPath}/bin/osu\\!
+    '';
+    desktopEntry = super.makeDesktopItem {
+      desktopName = "osu!";
+      name = "osu";
+      exec = startScript.outPath;
+      icon = "osu!";
+      comment = osu-lazer-unwrapped.meta.description;
+      type = "Application";
+      categories = "Game;";
+    };
+  in super.stdenvNoCC.mkDerivation {
+    inherit version;
+    pname = "osu-lazer";
+
+    buildPhase = ''
+      cp ${desktopEntry}/share/applications $out/share
+    '';
+  };
 }
