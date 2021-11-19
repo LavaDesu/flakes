@@ -1,8 +1,8 @@
 { fetchFromGitHub, inputs, lib }:
 let
-  version = "5.15.2";
+  version = "5.15.3";
   kernelHash = "1s0yk78kilcr3vd14k67cmllnrx0x0i00jdkl5kkn3lij5lwzcjp";
-  kernelPatchHash = "0d6x90dcq9sdpw4za62bsd3yijy2s6y0v5vr36hcvqwv661ab822";
+  kernelPatchHash = "0rkln6v65lcfcc5d42bsggba9dzs6g4lpzhmpz0i3w0jxcsrib1y";
   caculeRev = "2ac16b14bc0281c3b6c14828688981633b82ffd8";
   caculeHash = "0li0zaizxvpigngv1954hkw8dirwyvqy93gb3af33cm47ir9049p";
 
