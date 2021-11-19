@@ -2,7 +2,7 @@
 let
   int = {
     quantum = {
-      min = 512;
+      min = 64;
       def = 1024;
       max = 2048;
     };
