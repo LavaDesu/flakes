@@ -7,9 +7,9 @@ in {
     enable = true;
     keybindings = {
       # Dunst (Notification daemon)
-      "super + {_,shift + }space" = "dunstctl close{_,-all}";
       "super + grave" = "dunstctl history-pop";
       "super + shift + period" = "dunstctl context";
+      "super + shift + space" = "dunstctl close-all";
 
       # Rofi (App launcher)
       "super + Return" = "rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'";
