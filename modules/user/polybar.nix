@@ -1,15 +1,24 @@
 { config, ... }: {
-  services.polybar = {
+  services.polybar =
+  let
+    colours = {
+      background1 = "#1a1b26";
+      background2 = "#9d7cd8";
+      accent = "#c0caf5";
+      foreground2 = "#1a1b26";
+      foreground2trans = "#cc1a1b26";
+    };
+  in {
     enable = true;
     script = builtins.readFile ../../scripts/polybar.sh;
     settings = {
       "bar/top" = {
         monitor = "eDP-1";
         width = "100%";
-        height = 35;
-        #background = "#64506c";
-        background = "#00000000";
+        height = 29;
+        background = colours.background1;
         foreground = "#fff";
+        offset-y = 3;
 
         spacing = 2;
         padding = {
@@ -24,21 +33,42 @@
           "NotoSans:style=SemiBold:size=11:antialias=true;2"
           "NotoSans:size=11:antialias=true;2"
           "MaterialIcons:size=17:antialias=true;6"
+          "Iosevka:style=Medium:antialias=false:size=19;4"
 
           "HanaMinA:size=9.8;1"
           "HanaMinB:size=9.8;1"
         ];
 
         modules = {
-          left = "workspaces";
+          left = "left workspaces right";
           center = "title";
-          right = "datetime";
+          right = "left datetime right";
         };
 
         enable-ipc = true;
         scroll = {
           up = "#workspaces.prev";
           down = "#workspaces.next";
+        };
+      };
+
+      "module/left" = {
+        type = "custom/text";
+
+        content = {
+          text = "%{T4}";
+          background = colours.background1;
+          foreground = colours.background2;
+        };
+      };
+
+      "module/right" = {
+        type = "custom/text";
+
+        content = {
+          text = "%{T4}";
+          background = colours.background1;
+          foreground = colours.background2;
         };
       };
 
@@ -50,25 +80,32 @@
         enable-scroll = false;
         reverse-scroll = false;
 
-        #ws-icon.default = "%{T3}"; # ef4a
         label = {
           monitor = "";
-          focused = "%{T3}"; # ef4a
+          focused = {
+            text = "%{T3}"; # ef4a
+            background = colours.background2;
+            foreground = colours.accent;
+          };
           occupied = {
             text = "%{T3}"; # e837
-            foreground = "#80FFFFFF";
+            background = colours.background2;
+            foreground = colours.background1;
           };
           empty = {
-            text = "%{T3}"; # ef4a
-            foreground = "#80FFFFFF";
+            text = "%{T3}"; # ef4a
+            background = colours.background2;
+            foreground = colours.background1;
           };
           urgent = {
             text = "%{T3}"; # e837
-            foreground = "#EE1012";
+            background = colours.background2;
+            foreground = colours.background1;
           };
 
           separator = {
             text = " ";
+            background = colours.background2;
             padding = "0";
           };
         };
@@ -85,11 +122,11 @@
       "module/datetime" = {
         type = "internal/date";
         date = {
-          text = "%{T1}%%{F#fff}%H:%M%%{F-}";
-          alt = "%{T2}%%{F#ccc}%A, %d %B %Y  %{T1}%%{F#fff}%H:%M%%{F#666}:%{T2}%%{F#ccc}%S%%{F-}";
+          text = "%{T1}%%{F${colours.foreground2}}%H:%M%%{F-}";
+          alt = "%{T2}%%{F${colours.foreground2trans}}%A, %d %B %Y  %{T1}%%{F${colours.foreground2}}%H:%M%%{F${colours.foreground2trans}}:%{T2}%S%%{F-}";
         };
         format = {
-          padding = 4;
+          background = colours.background2;
         };
       };
     };
