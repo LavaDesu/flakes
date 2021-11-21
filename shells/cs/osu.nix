@@ -11,7 +11,7 @@
   alsa-lib,
   ffmpeg_4,
   icu,
-  lltng-ust,
+  lttng-ust,
   numactl,
   openssl,
   SDL2
