@@ -6,7 +6,6 @@ builtins.map (path: import path) [
   ./picom.nix
   ./polybar.nix
   ./transcrypt.nix
-  ./tree-sitter.nix
   ./winetricks.nix
   ./xinit.nix
 ]
