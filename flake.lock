@@ -357,6 +357,22 @@
         "type": "github"
       }
     },
+    "nvim-treesitter": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1637761627,
+        "narHash": "sha256-E8/CY1JjalIlyzI2Is2ZrhD1DXCfuX4u81qj+7CXYTg=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "rev": "8016b74cea415596be405b14067d2938914b2e18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "type": "github"
+      }
+    },
     "oglfPatches": {
       "flake": false,
       "locked": {
@@ -508,6 +524,7 @@
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
         "no-double-back-pc": "no-double-back-pc",
+        "nvim-treesitter": "nvim-treesitter",
         "packwiz": "packwiz",
         "powercord-overlay": "powercord-overlay",
         "powercord-popout-fix": "powercord-popout-fix",

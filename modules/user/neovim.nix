@@ -42,7 +42,7 @@ in {
       cmp_luasnip
       luasnip
 
-      (nvim-treesitter.withPlugins (p: with p; [
+      (pkgs.me.nvim-treesitter-nightly.withPlugins (p: with p; [
         tree-sitter-comment
         tree-sitter-c-sharp
         pkgs.me.tree-sitter-glimmer

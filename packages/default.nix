@@ -5,6 +5,7 @@
   discord-tokyonight = callPackage ./discord-tokyonight { inherit inputs; };
   discover-overlay = callPackage ./discover { inherit inputs; };
   linux-lava = callPackage ./linux-lava { inherit inputs; };
+  nvim-treesitter-nightly = callPackage ./nvim-treesitter-nightly { inherit inputs; };
   packwiz = callPackage ./packwiz { inherit inputs; };
   spotify-adblock = callPackage ./spotify-adblock { inherit inputs; };
   tree-sitter-glimmer = callPackage ./tree-sitter-glimmer { inherit inputs; };

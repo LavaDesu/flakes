@@ -23,6 +23,7 @@
     discord-tokyonight = { url = "github:DanisDGK/zelk-customizations"; flake = false; };
     discover = { url = "github:trigg/Discover"; flake = false; };
     linux-tkg = { url = "github:Frogging-Family/linux-tkg"; flake = false; };
+    nvim-treesitter = { url = "github:nvim-treesitter/nvim-treesitter"; flake = false; };
     packwiz = { url = "github:comp500/packwiz"; flake = false; };
     spotify-adblock = { url = "github:abba23/spotify-adblock"; flake = false; };
     tree-sitter-glimmer = { url = "github:alexlafroscia/tree-sitter-glimmer"; flake = false; };
