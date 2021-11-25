@@ -3,6 +3,7 @@
     efibootmgr
     git
     htop
+    jq
     libarchive
     lf
     msr-tools
