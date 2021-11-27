@@ -17,7 +17,7 @@
   SDL2
 }:
 let
-  baseBuild = "-f net5.0 -v minimal /property:Version=$OSU_VERSION osu.Desktop -- $@";
+  baseBuild = "-f net5.0 -v minimal osu.Desktop -- $@";
 
   deps = [
     alsa-lib ffmpeg_4 icu lttng-ust numactl openssl SDL2 
@@ -33,7 +33,7 @@ let
   '';
   buildReleaseScript = writeScript "osu-build-rel" ''
     rm -f osu.Desktop/bin/Release/net5.0/linux-x64/libSDL2.so
-    dotnet build -c Release -r linux-x64 ${baseBuild} && ${fixSdl}
+    dotnet build -c Release -r linux-x64 /property:Version=$OSU_VERSION ${baseBuild} && ${fixSdl}
   '';
   publishScript = writeScript "osu-publish" ''
     rm -f osu.Desktop/bin/Release/net5.0/linux-x64/libSDL2.so
