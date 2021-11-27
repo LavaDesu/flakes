@@ -26,6 +26,8 @@
       glx-no-stencil = true;
       glx-copy-from-front = false;
       glx-no-rebind-pixmap = true;
+      # https://github.com/yshui/picom/issues/578
+      glx-use-copysubbuffer-mesa = false;
       use-damage = true;
 
       blur-method = "dual_kawase";
