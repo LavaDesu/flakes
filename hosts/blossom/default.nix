@@ -1,6 +1,6 @@
 { config, modules, overlays, pkgs, ... }: {
   networking.hostName = "blossom";
-  system.stateVersion = "21.05";
+  system.stateVersion = "21.11";
   time.timeZone = "Asia/Phnom_Penh";
 
   age.secrets = {
