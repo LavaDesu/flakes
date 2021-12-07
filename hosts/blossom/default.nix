@@ -24,7 +24,7 @@
     ./kernel.nix
     ./networking.nix
 
-    ../../users/rin.nix
+    ../../users/rin
   ];
 }
 

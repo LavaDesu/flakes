@@ -15,7 +15,7 @@
     };
 
     imports = with modules.user; [
-      packages-rin
+      ./packages.nix
       sessionVariables
 
       direnv
@@ -47,7 +47,7 @@
     };
     home.file.".local/bin/osu" = {
       executable = true;
-      source = ../scripts/osu;
+      source = ../../scripts/osu;
     };
   };
 }
