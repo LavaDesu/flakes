@@ -54,7 +54,6 @@
       postPatch = lib.strings.replaceStrings ["/lib/openjdk"] [""] o.postPatch;
     }))
     obs-studio
-    osu-lazer
     pavucontrol
     screenkey
     tor-browser-bundle-bin
