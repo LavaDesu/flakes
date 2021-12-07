@@ -4,11 +4,9 @@
     ffmpeg
     gnupg
     kitty
-    neofetch
     nodejs-16_x
     pamixer
     rnix-lsp
-    transcrypt
     unrar
     weechat
     youtube-dl
@@ -42,10 +40,8 @@
     feh
     gnome.file-roller
     gimp
-    jetbrains.idea-community
     kotatogram-desktop
     insomnia
-    lxappearance
     maim
     ((multimc.override {
       jdk8 = adoptopenjdk-hotspot-bin-8;
