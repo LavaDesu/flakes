@@ -1,4 +1,27 @@
-{ config, enableGUI, inputs, pkgs, ... }: {
+{ config, enableGUI, inputs, pkgs, ... }:
+let
+  discord = pkgs.discord-plugged.override {
+    plugins = [
+      inputs.better-status-indicators
+      inputs.channel-typing
+      inputs.discord-tweaks
+      inputs.fix-user-popouts
+      inputs.no-double-back-pc
+      inputs.powercord-popout-fix
+      inputs.rolecolor-everywhere
+      inputs.theme-toggler
+      inputs.twemoji-but-good
+      inputs.view-raw
+      inputs.who-reacted
+    ];
+    themes = [
+      pkgs.me.discord-tokyonight
+      inputs.radialstatus
+      inputs.tokyonight
+      inputs.zelk
+    ];
+  };
+in {
   home.packages = with pkgs; [
     dconf
     ffmpeg
@@ -15,27 +38,7 @@
   ] ++ lib.optionals enableGUI [
     adoptopenjdk-hotspot-bin-16
     brave
-    (discord-plugged.override {
-      plugins = [
-        inputs.better-status-indicators
-        inputs.channel-typing
-        inputs.discord-tweaks
-        inputs.fix-user-popouts
-        inputs.no-double-back-pc
-        inputs.powercord-popout-fix
-        inputs.rolecolor-everywhere
-        inputs.theme-toggler
-        inputs.twemoji-but-good
-        inputs.view-raw
-        inputs.who-reacted
-      ];
-      themes = [
-        pkgs.me.discord-tokyonight
-        inputs.radialstatus
-        inputs.tokyonight
-        inputs.zelk
-      ];
-    })
+    discord
     element-desktop
     feh
     gnome.file-roller
