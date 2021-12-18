@@ -244,6 +244,22 @@
         "type": "github"
       }
     },
+    "multitask": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1634895861,
+        "narHash": "sha256-YJomiL8l4YhA5FhjGrSBRnJafAkSPldzETuNubUg1c8=",
+        "owner": "powercord-community",
+        "repo": "multitask",
+        "rev": "0582f00e41e2a0b48003b3817d03d84a5b7619be",
+        "type": "github"
+      },
+      "original": {
+        "owner": "powercord-community",
+        "repo": "multitask",
+        "type": "github"
+      }
+    },
     "neovim-flake": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -520,6 +536,7 @@
         "fix-user-popouts": "fix-user-popouts",
         "home-manager": "home-manager",
         "linux-tkg": "linux-tkg",
+        "multitask": "multitask",
         "neovim-nightly": "neovim-nightly",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",

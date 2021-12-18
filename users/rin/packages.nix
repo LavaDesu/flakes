@@ -1,11 +1,24 @@
 { config, enableGUI, inputs, pkgs, ... }:
 let
+  mediaKeyPatch = pkgs.fetchurl {
+    url = "https://github.com/powercord-org/powercord/commit/6c9e57de7fcbd50e473c6d9b1c81e56fef85fa93.diff";
+    sha256 = "16jy1qkkbjxmylqpjfm3y47nf40hw5anq284aj6kc9z3n3323pic";
+  };
   discord = pkgs.discord-plugged.override {
+    powercord = pkgs.powercord.override {
+      powercord-unwrapped = pkgs.powercord.unwrapped.overrideAttrs(old: {
+        patches = (if (old ? patches) then old.patches else []) ++ [
+          mediaKeyPatch
+          ./powercordMediaKeyPatchPatch.patch
+        ];
+      });
+    };
     plugins = [
       inputs.better-status-indicators
       inputs.channel-typing
       inputs.discord-tweaks
       inputs.fix-user-popouts
+      inputs.multitask
       inputs.no-double-back-pc
       inputs.powercord-popout-fix
       inputs.rolecolor-everywhere

@@ -38,6 +38,7 @@
     channel-typing = { url = "github:powercord-community/channel-typing"; flake = false; };
     discord-tweaks = { url = "github:NurMarvin/discord-tweaks"; flake = false; };
     fix-user-popouts = { url = "github:cyyynthia/fix-user-popouts"; flake = false; };
+    multitask = { url = "github:powercord-community/multitask"; flake = false; };
     no-double-back-pc = { url = "github:the-cord-plug/no-double-back-pc"; flake = false; };
     powercord-popout-fix = { url = "github:Nexure/PowerCord-Popout-Fix"; flake = false; };
     rolecolor-everywhere = { url = "github:powercord-community/rolecolor-everywhere"; flake = false; };
