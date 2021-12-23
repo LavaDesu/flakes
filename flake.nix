@@ -28,6 +28,7 @@
     spotify-adblock = { url = "github:abba23/spotify-adblock"; flake = false; };
     tree-sitter-glimmer = { url = "github:alexlafroscia/tree-sitter-glimmer"; flake = false; };
     tree-sitter-jsonc = { url = "gitlab:WhyNotHugo/tree-sitter-jsonc"; flake = false; };
+    wine-discord-ipc-bridge = { url = "github:0e4ef622/wine-discord-ipc-bridge"; flake = false; };
 
     # shells
     rust-overlay.url = "github:oxalica/rust-overlay";

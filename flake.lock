@@ -557,6 +557,7 @@
         "twemoji-but-good": "twemoji-but-good",
         "view-raw": "view-raw",
         "who-reacted": "who-reacted",
+        "wine-discord-ipc-bridge": "wine-discord-ipc-bridge",
         "zelk": "zelk",
         "zsh-abbr": "zsh-abbr",
         "zsh-history-substring-search": "zsh-history-substring-search"
@@ -762,6 +763,22 @@
       "original": {
         "owner": "jaimeadf",
         "repo": "who-reacted",
+        "type": "github"
+      }
+    },
+    "wine-discord-ipc-bridge": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1637884098,
+        "narHash": "sha256-D6H1RsrxhW25g6xKYjt831AKRBx4bLRHOWEk3HzM4zo=",
+        "owner": "0e4ef622",
+        "repo": "wine-discord-ipc-bridge",
+        "rev": "3f6432a2a2b6e929a361fc59e1fbfbb9d79d59a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0e4ef622",
+        "repo": "wine-discord-ipc-bridge",
         "type": "github"
       }
     },

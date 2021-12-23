@@ -10,4 +10,5 @@
   spotify-adblock = callPackage ./spotify-adblock { inherit inputs; };
   tree-sitter-glimmer = callPackage ./tree-sitter-glimmer { inherit inputs; };
   tree-sitter-jsonc = callPackage ./tree-sitter-jsonc { inherit inputs; };
+  wine-discord-ipc-bridge = callPackage ./wine-discord-ipc-bridge { inherit inputs; };
 }
