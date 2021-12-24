@@ -49,7 +49,6 @@ in {
 
     nodePackages_latest.pnpm
   ] ++ lib.optionals enableGUI [
-    adoptopenjdk-hotspot-bin-16
     brave
     discord
     element-desktop
@@ -59,13 +58,9 @@ in {
     kotatogram-desktop
     insomnia
     maim
-    ((multimc.override {
-      jdk8 = adoptopenjdk-hotspot-bin-8;
-      jdk = adoptopenjdk-hotspot-bin-16;
-    }).overrideAttrs(o: {
-      postPatch = lib.strings.replaceStrings ["/lib/openjdk"] [""] o.postPatch;
-    }))
+    multimc
     obs-studio
+    openjdk17
     pavucontrol
     screenkey
     tor-browser-bundle-bin
