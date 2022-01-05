@@ -58,6 +58,7 @@ in {
     kotatogram-desktop
     insomnia
     maim
+    me.tetrio-desktop-plus
     multimc
     obs-studio
     openjdk17
