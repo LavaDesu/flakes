@@ -1,0 +1,14 @@
+--- a/arch/parisc/install.sh	2022-01-05 21:26:01.042463247 +0700
++++ b/arch/parisc/install.sh	2022-01-05 21:26:08.467328153 +0700
+@@ -37,9 +37,8 @@
+ # User may have a custom install script
+ 
+ if [ -n "${INSTALLKERNEL}" ]; then
+-  if [ -x ~/bin/${INSTALLKERNEL} ]; then exec ~/bin/${INSTALLKERNEL} "$@"; fi
+-  if [ -x /sbin/${INSTALLKERNEL} ]; then exec /sbin/${INSTALLKERNEL} "$@"; fi
+-  if [ -x /usr/sbin/${INSTALLKERNEL} ]; then exec /usr/sbin/${INSTALLKERNEL} "$@"; fi
++  if [ -x ~${INSTALLKERNEL} ]; then exec ~${INSTALLKERNEL} "$@"; fi
++  if [ -x ${INSTALLKERNEL} ]; then exec ${INSTALLKERNEL} "$@"; fi
+ fi
+ 
+ # Default install

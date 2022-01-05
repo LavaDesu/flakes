@@ -30,8 +30,8 @@ in buildLinux (args // {
     NO_HZ_IDLE = no;
     CONTEXT_TRACKING = yes;
     CONTEXT_TRACKING_FORCE = no;
-    HZ_2000 = yes;
-    HZ_2000_NODEF = yes;
+    HZ_500 = yes;
+    HZ_500_NODEF = yes;
 
     # preempt
     PREEMPT = yes;
@@ -41,22 +41,21 @@ in buildLinux (args // {
     PREEMPT_DYNAMIC = yes;
 
     # scheduler
-    CACULE_SCHED = yes;
-    CACULE_RDB = yes;
-    SCHED_AUTOGROUP = yes;
-    BSD_PROCESS_ACCT = no;
-    CGROUP_CPUACCT = no;
-    CGROUP_DEBUG = no;
+    SCHED_ALT = yes;
+    SCHED_PDS = yes;
+    FAIR_GROUP_SCHED = no;
+    CFS_BANDWIDTH = no;
 
     # disable numa
     NUMA = no;
     AMD_NUMA = no;
+    ACPI_NUMA = no;
     X86_64_ACPI_NUMA = no;
     NODES_SPAN_OTHER_NODES = no;
     NUMA_EMU = no;
+    NODES_SHIFT = no;
     NEED_MULTIPLE_NODES = no;
     USE_PERCPU_NUMA_NODE_ID = no;
-    ACPI_NUMA = no;
 
     # disable ftrace
     FUNCTION_TRACER = no;
