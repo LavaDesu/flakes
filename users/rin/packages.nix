@@ -67,7 +67,7 @@ in {
     tor-browser-bundle-bin
     transmission-remote-gtk
     inputs.nix-gaming.packages.x86_64-linux.wine-tkg
-    inputs.nix-gaming.packages.x86_64-linux.wowtricks
+    winetricks
     xclip
     xorg.xgamma
   ];
