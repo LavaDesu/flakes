@@ -1,7 +1,8 @@
 { config, pkgs, ... }: {
   networking.firewall = {
     enable = true;
-    allowedUDPPorts = [ 20100 ];
+    allowedUDPPortRanges = [ { from = 20000; to = 20100; } ];
+    allowedTCPPortRanges = [ { from = 20000; to = 20100; } ];
     trustedInterfaces = [ "wg0" ];
   };
 
