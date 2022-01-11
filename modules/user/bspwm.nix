@@ -1,7 +1,7 @@
 { config, ... }: {
   xsession.windowManager.bspwm = {
     enable = true;
-    monitors = { eDP-1 = [ "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "XI" "X" ]; };
+    monitors = { eDP-1 = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "0"]; };
     settings = {
       window_gap = 10;
       border_width = 0;
