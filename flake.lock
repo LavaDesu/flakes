@@ -714,11 +714,11 @@
     "zelk": {
       "flake": false,
       "locked": {
-        "lastModified": 1640275918,
-        "narHash": "sha256-HryrqO399mvC/kO5b5wHUyZo2FapYs/RDLLmFGK1PMI=",
+        "lastModified": 1642000738,
+        "narHash": "sha256-H/uGrllR7/1++6TcU83bRerXnzOOK1symS/A/BJws5g=",
         "owner": "schnensch0",
         "repo": "zelk",
-        "rev": "555dce61a4f62eeb25c9d2fc482a5fe3cb2b6059",
+        "rev": "251230038d98dbbd1e6332845cc2455b7d821609",
         "type": "github"
       },
       "original": {
