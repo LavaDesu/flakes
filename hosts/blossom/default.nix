@@ -11,6 +11,7 @@
   imports = with modules.system; [
     audio
     base
+    greetd
     gui
     input
     kernel

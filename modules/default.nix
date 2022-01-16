@@ -17,6 +17,7 @@ in {
   system = mkAttrsFromPaths [
     ./system/audio.nix
     ./system/base.nix
+    ./system/greetd.nix
     ./system/gui.nix
     ./system/input.nix
     ./system/kernel.nix
