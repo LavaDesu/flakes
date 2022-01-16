@@ -53,6 +53,7 @@ in {
     discord
     element-desktop
     feh
+    firefox
     gnome.file-roller
     gimp
     kotatogram-desktop
