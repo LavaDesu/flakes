@@ -39,6 +39,7 @@ in {
     ./user/neovim.nix
     ./user/npm.nix
     ./user/packages-rin.nix
+    ./user/pass.nix
     ./user/picom.nix
     ./user/polybar.nix
     ./user/rofi.nix
