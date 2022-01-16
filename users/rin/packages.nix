@@ -53,7 +53,7 @@ in {
     discord
     element-desktop
     feh
-    firefox
+    (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
     gnome.file-roller
     gimp
     kotatogram-desktop
