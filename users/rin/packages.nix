@@ -35,6 +35,11 @@ let
     ];
   };
 in {
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox.override { extraNativeMessagingHosts = [ pkgs.passff-host ]; };
+  };
+
   home.packages = with pkgs; [
     dconf
     ffmpeg
@@ -49,11 +54,9 @@ in {
 
     nodePackages_latest.pnpm
   ] ++ lib.optionals enableGUI [
-    brave
     discord
     element-desktop
     feh
-    (firefox.override { extraNativeMessagingHosts = [ passff-host ]; })
     gnome.file-roller
     gimp
     kotatogram-desktop

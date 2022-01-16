@@ -3,7 +3,7 @@ let
   genMimes = mimeTypes: builtins.listToAttrs (
     builtins.map (mimeType: {
       name = mimeType;
-      value = "brave-browser.desktop";
+      value = "firefox.desktop";
     }) mimeTypes
   );
 
