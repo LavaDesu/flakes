@@ -391,11 +391,11 @@
     "powercord": {
       "flake": false,
       "locked": {
-        "lastModified": 1640708207,
-        "narHash": "sha256-bZfAf3DqoAmqCuPfkvBT6TfAEJWYRZ8jT7azj/HZ7W0=",
+        "lastModified": 1642452856,
+        "narHash": "sha256-BMMuJ5zrl5/rdBX/Sl+F0RmRPyJR78sabdmWJao+FBw=",
         "owner": "powercord-org",
         "repo": "powercord",
-        "rev": "8872f5f30ac135dce24a542ede4087499c204b79",
+        "rev": "12de9dc6c8c35cec730d134731e8cb7c282f0899",
         "type": "github"
       },
       "original": {
@@ -412,11 +412,11 @@
         "powercord": "powercord"
       },
       "locked": {
-        "lastModified": 1641390922,
-        "narHash": "sha256-rb+Ulds+jvwmdodyNcJNh2HfTCIqxuBIN+l6xGupAqo=",
+        "lastModified": 1642613814,
+        "narHash": "sha256-wNdlf2bHhj6tCaS1rPNBH9S0drIL2tpczV1W74kN394=",
         "owner": "LavaDesu",
         "repo": "powercord-overlay",
-        "rev": "bdf20fb7ab0ba89fa7eecdda845ce55569376b61",
+        "rev": "00c54c8acbced4c0b43880ab5e9a99691b7ac885",
         "type": "github"
       },
       "original": {
