@@ -213,6 +213,27 @@
         "type": "github"
       }
     },
+    "home-manager-porcupine": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-porcupine"
+        ]
+      },
+      "locked": {
+        "lastModified": 1643735249,
+        "narHash": "sha256-hwX+qvF9fipwItm3V6M3mL3L0Iis+PY2DfXqnhPi+uQ=",
+        "owner": "LavaDesu",
+        "repo": "home-manager",
+        "rev": "ea795dd7acc9ce6069a786f6088a296f8e64c280",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LavaDesu",
+        "ref": "backport/gpg-agent",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "linux-tkg": {
       "flake": false,
       "locked": {
@@ -310,6 +331,21 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1641965797,
+        "narHash": "sha256-AfxfIzAZbt9aAzpVBn0Bwhd/M4Wix7G91kEjm9H6FPo=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "87a35a0d58f546dc23f37b4f6af575d0e4be6a7a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1637579689,
@@ -321,6 +357,22 @@
       },
       "original": {
         "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-porcupine": {
+      "locked": {
+        "lastModified": 1643503720,
+        "narHash": "sha256-tJic20ufuRnG8V+fTCd3YU6xl1ImxNspoEkXHct0AG4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0f316e4d72daed659233817ffe52bf08e081b5de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-21.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -500,11 +552,14 @@
         "fast-syntax-highlighting": "fast-syntax-highlighting",
         "fix-user-popouts": "fix-user-popouts",
         "home-manager": "home-manager",
+        "home-manager-porcupine": "home-manager-porcupine",
         "linux-tkg": "linux-tkg",
         "multitask": "multitask",
         "neovim-nightly": "neovim-nightly",
         "nix-gaming": "nix-gaming",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-porcupine": "nixpkgs-porcupine",
         "no-double-back-pc": "no-double-back-pc",
         "nvim-treesitter": "nvim-treesitter",
         "packwiz": "packwiz",

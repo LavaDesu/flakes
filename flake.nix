@@ -1,12 +1,16 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs-porcupine.url = "github:NixOS/nixpkgs/nixos-21.11";
     home-manager.url = "github:nix-community/home-manager";
+    home-manager-porcupine.url = "github:LavaDesu/home-manager/backport/gpg-agent";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix.url = "github:ryantm/agenix";
 
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager-porcupine.inputs.nixpkgs.follows = "nixpkgs-porcupine";
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
@@ -53,7 +57,7 @@
     zelk = { url = "github:schnensch0/zelk"; flake = false; };
   };
 
-  outputs = { self, agenix, nixpkgs, ... } @ inputs:
+  outputs = { self, agenix, nixpkgs, nixpkgs-porcupine, ... } @ inputs:
     let
       overlays = (import ./overlays)
         ++ [inputs.neovim-nightly.overlay]
@@ -81,6 +85,8 @@
       nixosConfigurations."apricot" = mkSystem nixpkgs "apricot" "x86_64-linux" false;
       nixosConfigurations."blossom" = mkSystem nixpkgs "blossom" "x86_64-linux" true;
       nixosConfigurations."fondue" = mkSystem nixpkgs "fondue" "x86_64-linux" false;
+
+      nixosConfigurations."caramel" = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false;
 
       # TODO: currently broken
       # devShells.x86_64-linux = pkgs.callPackage ./shells { inherit inputs; };
