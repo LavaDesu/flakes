@@ -88,6 +88,28 @@
 
       nixosConfigurations."caramel" = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false;
 
+      packages."x86_64-linux" =
+        let
+          pkgs = import nixpkgs {
+            inherit overlays;
+            system = "x86_64-linux";
+          };
+        in
+        {
+          inherit (pkgs.me) linux-lava;
+        };
+
+      packages."aarch64-linux" =
+        let
+          pkgs = import nixpkgs-porcupine {
+            inherit overlays;
+            system = "aarch64-linux";
+          };
+        in
+        {
+          inherit (pkgs) nixUnstable;
+        };
+
       # TODO: currently broken
       # devShells.x86_64-linux = pkgs.callPackage ./shells { inherit inputs; };
     };
