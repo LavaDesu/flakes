@@ -62,17 +62,9 @@
           me = prev.callPackage ./packages { inherit inputs; } // { inherit inputs; };
         })];
 
-      pkgs = import nixpkgs {
-        inherit overlays;
-        system = "x86_64-linux";
-      };
-
-      lib = pkgs.lib;
-      modules = import ./modules { inherit lib; };
-
       mkSystem =
         if !(self ? rev) then throw "Dirty git tree detected." else
-        name: arch: enableGUI: nixpkgs.lib.nixosSystem {
+        nixpkgs: name: arch: enableGUI: nixpkgs.lib.nixosSystem {
           system = arch;
           modules = [
             { nixpkgs.overlays = overlays; }
@@ -80,13 +72,16 @@
             agenix.nixosModules.age
             (./hosts + "/${name}")
           ];
-          specialArgs = { inherit inputs modules enableGUI; };
+          specialArgs = {
+            inherit inputs enableGUI;
+            modules = import ./modules { lib = nixpkgs.lib; };
+          };
         };
     in
     {
-      nixosConfigurations."apricot" = mkSystem "apricot" "x86_64-linux" false;
-      nixosConfigurations."blossom" = mkSystem "blossom" "x86_64-linux" true;
-      nixosConfigurations."fondue" = mkSystem "fondue" "x86_64-linux" false;
+      nixosConfigurations."apricot" = mkSystem nixpkgs "apricot" "x86_64-linux" false;
+      nixosConfigurations."blossom" = mkSystem nixpkgs "blossom" "x86_64-linux" true;
+      nixosConfigurations."fondue" = mkSystem nixpkgs "fondue" "x86_64-linux" false;
 
       # TODO: currently broken
       # devShells.x86_64-linux = pkgs.callPackage ./shells { inherit inputs; };
