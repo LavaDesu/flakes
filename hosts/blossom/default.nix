@@ -1,4 +1,4 @@
-{ config, modules, overlays, pkgs, ... }: {
+{ config, inputs, modules, overlays, pkgs, ... }: {
   networking.hostName = "blossom";
   system.stateVersion = "21.11";
   time.timeZone = "Asia/Phnom_Penh";
@@ -9,6 +9,9 @@
     wpa_conf.file = ../../secrets/wpa_conf.age;
   };
   imports = with modules.system; [
+    inputs.home-manager.nixosModule
+    home-manager
+
     audio
     base
     greetd

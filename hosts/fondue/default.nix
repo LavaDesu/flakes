@@ -1,4 +1,4 @@
-{ config, modules, modulesPath, overlays, pkgs, ... }: {
+{ config, inputs, modules, modulesPath, overlays, pkgs, ... }: {
   networking.hostName = "fondue";
   system.stateVersion = "21.05";
   time.timeZone = "Australia/Melbourne";
@@ -9,6 +9,9 @@
   };
   imports = with modules.system; [
     (modulesPath + "/profiles/qemu-guest.nix")
+    inputs.home-manager.nixosModule
+    home-manager
+
     base
     input
     kernel

@@ -21,13 +21,4 @@
   nix.registry.config.flake = inputs.self;
   nix.registry.nixpkgs.flake = inputs.nixpkgs;
   nix.registry.shells.flake = inputs.self;
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    extraSpecialArgs = {
-      inherit enableGUI inputs modules;
-      sysConfig = config;
-    };
-  };
 }

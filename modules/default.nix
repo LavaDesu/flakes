@@ -19,6 +19,7 @@ in {
     ./system/base.nix
     ./system/greetd.nix
     ./system/gui.nix
+    ./system/home-manager.nix
     ./system/input.nix
     ./system/kernel.nix
     ./system/nix.nix

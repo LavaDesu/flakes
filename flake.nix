@@ -53,7 +53,7 @@
     zelk = { url = "github:schnensch0/zelk"; flake = false; };
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, ... } @ inputs:
+  outputs = { self, agenix, nixpkgs, ... } @ inputs:
     let
       overlays = (import ./overlays)
         ++ [inputs.neovim-nightly.overlay]
@@ -68,7 +68,6 @@
           system = arch;
           modules = [
             { nixpkgs.overlays = overlays; }
-            home-manager.nixosModules.home-manager
             agenix.nixosModules.age
             (./hosts + "/${name}")
           ];
