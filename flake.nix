@@ -90,6 +90,5 @@
 
       # TODO: currently broken
       # devShells.x86_64-linux = pkgs.callPackage ./shells { inherit inputs; };
-      packages.x86_64-linux = pkgs.me;
     };
 }
