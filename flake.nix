@@ -88,7 +88,8 @@
       nixosConfigurations."blossom" = mkSystem "blossom" "x86_64-linux" true;
       nixosConfigurations."fondue" = mkSystem "fondue" "x86_64-linux" false;
 
-      devShells.x86_64-linux = pkgs.callPackage ./shells { inherit inputs; };
+      # TODO: currently broken
+      # devShells.x86_64-linux = pkgs.callPackage ./shells { inherit inputs; };
       packages.x86_64-linux = pkgs.me;
     };
 }
