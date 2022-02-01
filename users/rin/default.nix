@@ -46,10 +46,6 @@
       url = "https://github.com/0e4ef622/wine-discord-ipc-bridge/releases/download/v0.0.1/winediscordipcbridge.exe";
       sha256 = "1swn9spxpq6blm74kjmfz4ipq6a8qjzccvb2msb25pf5b1z7jnns";
     };
-    home.file.".local/bin/ipcbridge" = {
-      executable = true;
-      text = lib.strings.replaceStrings ["{{BRIDGE_EXEC}}"] [pkgs.me.wine-discord-ipc-bridge.outPath] (builtins.readFile ../../scripts/ipcbridge);
-    };
     home.file.".local/bin/osu" = {
       executable = true;
       source = ../../scripts/osu;
