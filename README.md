@@ -11,12 +11,18 @@ may or may not work on your machine if copied directly (but theoretically they s
 But if you insist, just copy-paste one of the hosts in `hosts/`, one of the users in `users/`, and modify them
 to your liking. Open up `flake.nix`, add your new host config at the bottom, and then build it!
 
-## Host naming
-| Name    | Description |
-| ------- | ----------- |
-| apricot | Homeserver  |
-| blossom | Laptop and main PC |
-| fondue  | VM lent by [a friend](https://github.com/Aiamded) in Australia |
+## Hosts
+| Name      | Description |
+| -------   | ----------- |
+| blossom   | Laptop and main PC |
+| caramel   | Raspberry Pi 400, stateless |
+| sugarcane | OVHCloud VPS, stateless |
+
+## Users
+| Name | Description |
+| ---- | ----------- |
+| rin  | Main user for usage |
+| hana | Lightweight user intended for inspecting stateless hosts |
 
 ## License
 Licensed under CC0; basically you can fork, modify, redistribute, or do whatever you want I don't really care.

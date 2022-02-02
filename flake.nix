@@ -81,9 +81,7 @@
         };
     in
     {
-      #nixosConfigurations."apricot" = mkSystem nixpkgs "apricot" "x86_64-linux" false;
       nixosConfigurations."blossom" = mkSystem nixpkgs "blossom" "x86_64-linux" true;
-      #nixosConfigurations."fondue" = mkSystem nixpkgs "fondue" "x86_64-linux" false;
 
       nixosConfigurations."caramel" = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false;
       nixosConfigurations."sugarcane" = mkSystem nixpkgs-porcupine "sugarcane" "x86_64-linux" false;
