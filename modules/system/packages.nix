@@ -33,6 +33,6 @@
   programs.light.enable = true;
   hardware.opentabletdriver.enable = true;
   programs.steam.enable = true;
-  services.dbus.packages = [ pkgs.gnome3.dconf pkgs.gcr ];
+  services.dbus.packages = [ pkgs.dconf pkgs.gcr ];
   services.gnome.sushi.enable = true;
 })
