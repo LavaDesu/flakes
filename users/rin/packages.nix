@@ -63,10 +63,10 @@ in {
     insomnia
     maim
     me.tetrio-desktop-plus
-    multimc
     obs-studio
     openjdk17
     pavucontrol
+    polymc
     screenkey
     tor-browser-bundle-bin
     transmission-remote-gtk
