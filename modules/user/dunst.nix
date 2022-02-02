@@ -39,7 +39,7 @@ in {
         max_icon_size = 32;
         sticky_history = true;
         history_length = 100;
-        browser = "${pkgs.brave}/bin/brave -new-tab";
+        browser = "${pkgs.firefox}/bin/firefox -new-tab";
         always_run_script = true;
         title = "Dunst";
         class = "Dunst";
