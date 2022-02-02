@@ -13,7 +13,7 @@
     base
     home-manager
     input
-    nix
+    nix-porcupine
     security
 
     ./filesystem.nix
