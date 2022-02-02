@@ -3,6 +3,7 @@
   system.stateVersion = "21.11";
   time.timeZone = "Asia/Phnom_Penh";
 
+  nixpkgs.overlays = [ inputs.neovim-nightly.overlay ];
   age.secrets = {
     passwd.file = ../../secrets/passwd.age;
     wg_blossom.file = ../../secrets/wg_blossom.age;

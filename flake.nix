@@ -60,7 +60,6 @@
   outputs = { self, agenix, nixpkgs, nixpkgs-porcupine, ... } @ inputs:
     let
       overlays = (import ./overlays)
-        ++ [inputs.neovim-nightly.overlay]
         ++ [inputs.powercord-overlay.overlay]
         ++ [(final: prev: {
           me = prev.callPackage ./packages { inherit inputs; } // { inherit inputs; };
