@@ -5,6 +5,7 @@
 
   age.secrets = {
     passwd.file = ../../secrets/passwd.age;
+    wg_sugarcane.file = ../../secrets/wg_sugarcane.age;
   };
   imports = with modules.system; [
     (modulesPath + "/profiles/qemu-guest.nix")
