@@ -18,7 +18,7 @@
     imports = with modules.user; [
       direnv
       git
-      neovim
+      neovim-minimal
       sessionVariables
       zsh
     ];

@@ -38,6 +38,7 @@ in {
     ./user/kitty.nix
     ./user/mpv.nix
     ./user/neovim.nix
+    ./user/neovim-minimal.nix
     ./user/npm.nix
     ./user/packages-rin.nix
     ./user/pass.nix
