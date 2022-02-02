@@ -15,6 +15,7 @@
     input
     nix-porcupine
     security
+    wireguard
 
     ./filesystem.nix
     ./kernel.nix
