@@ -7,6 +7,8 @@
     rsync
     sshfs
     wget
+
+    kitty.terminfo
   ];
   environment.variables.EDITOR = "nvim";
 }
