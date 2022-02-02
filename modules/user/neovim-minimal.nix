@@ -27,7 +27,7 @@
       cmp_luasnip
       luasnip
 
-      (pkgs.me.nvim-treesitter-nightly.withPlugins (p: with p; [
+      (nvim-treesitter.withPlugins (p: with p; [
         tree-sitter-comment
         tree-sitter-json
         tree-sitter-lua
