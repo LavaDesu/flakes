@@ -1,6 +1,8 @@
 { config, ... }: {
   environment.etc."wpa_supplicant.conf".source = config.age.secrets.wpa_conf.path;
   networking = {
+    firewall.allowedTCPPorts = [ 80 443 ];
+
     wireless = {
       enable = true;
       interfaces = [ "wlan0" ];
