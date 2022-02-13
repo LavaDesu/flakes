@@ -5,6 +5,23 @@ let
   serverInterface = "ens3";
   serverIp = "51.79.240.130";
 
+  forwarding = {
+    "80" = [ "10.100.0.2" "80" ];
+    "443" = [ "10.100.0.2" "443" ];
+  };
+
+  mapForwards = type:
+    builtins.concatStringsSep "\n" (
+      lib.mapAttrsToList (sport: tuple:
+      let
+        dest = builtins.head tuple;
+        dport = lib.last tuple;
+      in ''
+        ${pkgs.iptables}/bin/iptables -${type} PREROUTING -t nat -i ${serverInterface} -p tcp --dport ${sport} -j DNAT --to ${dest}:${dport}
+        ${pkgs.iptables}/bin/iptables -${type} FORWARD -p tcp -d ${dest} --dport ${dport} -j ACCEPT
+      '') forwarding
+    );
+
   routeBypass = {
     caramel = {
       gateway = "192.168.100.1";
@@ -52,6 +69,7 @@ let
       internalInterfaces = [ "wg0" ];
     };
     firewall = {
+      allowedTCPPorts = (builtins.map (s: lib.strings.toInt s) (builtins.attrNames forwarding));
       allowedUDPPorts = [ port ];
     };
 
@@ -61,9 +79,11 @@ let
 
       postSetup = ''
         ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${serverInterface} -j MASQUERADE
+        ${mapForwards "A"}
       '';
       postShutdown = ''
         ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o ${serverInterface} -j MASQUERADE
+        ${mapForwards "D"}
       '';
 
       privateKeyFile = config.age.secrets."wg_${serverName}".path;
@@ -76,19 +96,18 @@ let
     let
       client = clients."${config.networking.hostName}";
       routes = routeBypass."${config.networking.hostName}";
-      mappedAdd = lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route add ${r} via ${routes.gateway} dev ${routes.interface}") routes.routes;
-      mappedDel = lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route del ${r} via ${routes.gateway} dev ${routes.interface}") routes.routes;
+      mapRoutes = type: lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route ${type} ${r} via ${routes.gateway} dev ${routes.interface}") routes.routes;
     in {
       ips = client.allowedIPs;
       listenPort = port;
 
       postSetup = ''
-        ${mappedAdd}
+        ${mapRoutes "add"}
         ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${serverInterface} -j MASQUERADE
       '';
 
       postShutdown = ''
-        ${mappedDel}
+        ${mapRoutes "del"}
         ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${serverInterface} -j MASQUERADE
       '';
 
