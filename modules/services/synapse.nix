@@ -3,8 +3,8 @@ let
   dom = "lava.moe";
   sub = "matrix.lava.moe";
   dir = "/persist/matrix-synapse";
-  uid = config.ids.uids.matrix-synapse;
-  gid = config.ids.gids.matrix-synapse;
+  uid = toString config.ids.uids.matrix-synapse;
+  gid = toString config.ids.gids.matrix-synapse;
 in {
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   systemd.tmpfiles.rules = [ "d ${dir} 700 ${uid} ${gid}" ];
