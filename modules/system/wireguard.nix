@@ -82,11 +82,13 @@ let
       ips = client.allowedIPs;
       listenPort = port;
 
-      postSetup = mappedAdd + ''
+      postSetup = ''
+        ${mappedAdd}
         ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${serverInterface} -j MASQUERADE
       '';
 
-      postShutdown = mappedDel + ''
+      postShutdown = ''
+        ${mappedDel}
         ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${serverInterface} -j MASQUERADE
       '';
 
