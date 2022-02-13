@@ -5,12 +5,31 @@ let
   serverInterface = "ens3";
   serverIp = "51.79.240.130";
 
+  routeBypass = {
+    caramel = {
+      gateway = "192.168.100.1";
+      interface = "wlan0";
+      routes = [
+        serverIp
+      ];
+    };
+    blossom = {
+      gateway = "192.168.100.1";
+      interface = "wlp3s0";
+      routes = [
+        serverIp
+      ];
+    };
+  };
+
   clients = {
+    caramel = {
+      publicKey = "VDqcpS0lJzFgwikj61MJ1xc9P8Cuq0NXa+Hc+etn2iA=";
+      allowedIPs = [ "10.100.0.2/32" ];
+    };
     blossom = {
       publicKey = "6nVhazYdmC15A/nke9VrqIg3sOBVOmqj4GEsyBq7MVo=";
       allowedIPs = [ "10.100.0.3/32" ];
-      interface = "wlp3s0";
-      gateway = "192.168.100.1";
     };
     strawberry = {
       publicKey = "Fkcp/VSN4Dkhly8V4hskF4lnDviA7VZHCnWf7OliFCg=";
@@ -55,18 +74,18 @@ let
   clientConfig = {
     wireguard.interfaces.wg0 =
     let
-      client = clients."${config.networking.hostName}";
+      client = routeBypass."${config.networking.hostName}";
+      mappedAdd = lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route add ${r} via ${client.gateway} dev ${client.interface}") client.routes;
+      mappedDel = lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route del ${r} via ${client.gateway} dev ${client.interface}") client.routes;
     in {
       ips = client.allowedIPs;
       listenPort = port;
 
-      postSetup = ''
-        ${pkgs.iproute2}/bin/ip route add ${serverIp} via ${client.gateway} dev ${client.interface}
+      postSetup = mappedAdd + ''
         ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${serverInterface} -j MASQUERADE
       '';
 
-      postShutdown = ''
-        ${pkgs.iproute2}/bin/ip route del ${serverIp} via ${client.gateway} dev ${client.interface}
+      postShutdown = mappedDel + ''
         ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${serverInterface} -j MASQUERADE
       '';
 
