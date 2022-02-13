@@ -17,10 +17,6 @@ in
       options = [ "defaults" "size=4G" "mode=755" ];
     };
     "/boot" = mkMount "186A-A42E" "vfat";
-    "/mnt/hdd" = mkMount "d5e3cfe5-c73a-4695-b81b-fc0215d4cefe" "ext4";
-    "/mnt/prev" = mkMount "8f0ba28e-5dff-4a4e-8db0-aa72cc90cb5d" "btrfs" // {
-      options = [ "autodefrag" "compress=zstd:3" "defaults" "nossd" "noatime" "ro" ];
-    };
 
     "/mnt/butter" = mkBtrfsMount 5 true;
     "/nix" = mkBtrfsMount 257 false;
