@@ -1,7 +1,7 @@
 { config, ... }:
 let
   bind = src: {
-    depends = [ "/nix" ];
+    depends = [ "/persist" ];
     device = src;
     fsType = "none";
     neededForBoot = true;
@@ -21,8 +21,15 @@ in {
       options = [ "defaults" "noatime" ];
     };
 
-    "/var/persist" = bind "/nix/persist";
-    "/var/log/journal" = bind "/nix/persist/journal";
-    "/boot" = bind "/nix/persist/boot";
+    "/persist" = {
+      device = "/dev/disk/by-label/PI_HDD";
+      fsType = "ext4";
+      options = [ "defaults" "relatime" ];
+      neededForBoot = true;
+    };
+
+    "/var/persist" = bind "/persist";
+    "/var/log/journal" = bind "/persist/journal";
+    "/boot" = (bind "/nix/persist/boot") // { depends = [ "/nix" ]; };
   };
 }
