@@ -6,6 +6,7 @@
   age.secrets = {
     passwd.file = ../../secrets/passwd.age;
     wpa_conf.file = ../../secrets/wpa_conf.age;
+    wg_caramel.file = ../../secrets/wg_caramel.age;
   };
   imports = with modules.system; [
     inputs.home-manager-porcupine.nixosModule

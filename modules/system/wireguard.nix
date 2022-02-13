@@ -74,9 +74,10 @@ let
   clientConfig = {
     wireguard.interfaces.wg0 =
     let
-      client = routeBypass."${config.networking.hostName}";
-      mappedAdd = lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route add ${r} via ${client.gateway} dev ${client.interface}") client.routes;
-      mappedDel = lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route del ${r} via ${client.gateway} dev ${client.interface}") client.routes;
+      client = clients."${config.networking.hostName}";
+      routes = routeBypass."${config.networking.hostName}";
+      mappedAdd = lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route add ${r} via ${routes.gateway} dev ${routes.interface}") routes.routes;
+      mappedDel = lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route del ${r} via ${routes.gateway} dev ${routes.interface}") routes.routes;
     in {
       ips = client.allowedIPs;
       listenPort = port;
