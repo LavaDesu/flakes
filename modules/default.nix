@@ -14,6 +14,11 @@ let
     }) paths
   );
 in {
+  services = mkAttrsFromPaths [
+    ./services/nginx.nix
+    ./services/postgres.nix
+    ./services/synapse.nix
+  ];
   system = mkAttrsFromPaths [
     ./system/audio.nix
     ./system/base.nix

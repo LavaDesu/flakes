@@ -8,21 +8,27 @@
     wpa_conf.file = ../../secrets/wpa_conf.age;
     wg_caramel.file = ../../secrets/wg_caramel.age;
   };
-  imports = with modules.system; [
-    inputs.home-manager-porcupine.nixosModule
+  imports =
+    (with modules.system; [
+      inputs.home-manager-porcupine.nixosModule
 
-    base
-    home-manager
-    input
-    nix-porcupine
-    security
-    wireguard
+      base
+      home-manager
+      input
+      nix-porcupine
+      security
+      wireguard
 
-    ./filesystem.nix
-    ./kernel.nix
-    ./networking.nix
-    ./packages.nix
+      ./filesystem.nix
+      ./kernel.nix
+      ./networking.nix
+      ./packages.nix
 
-    ../../users/hana
-  ];
+      ../../users/hana
+    ]) ++
+    (with modules.services; [
+      nginx
+      postgres
+      synapse
+    ]);
 }
