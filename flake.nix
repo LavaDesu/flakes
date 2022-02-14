@@ -17,6 +17,9 @@
     powercord-overlay.url = "github:LavaDesu/powercord-overlay";
     powercord-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
+    # services
+    website = { url = "github:LavaDesu/lavadesu.github.io/master"; flake = false; };
+
     # zsh plugins
     zsh-abbr = { url = "github:olets/zsh-abbr"; flake = false; };
     zsh-history-substring-search = { url = "github:zsh-users/zsh-history-substring-search"; flake = false; };

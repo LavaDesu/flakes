@@ -1,4 +1,4 @@
-{ ... }: {
+{ inputs, ... }: {
   security.acme.acceptTerms = true;
   security.acme.email = "me@lava.moe";
   services.nginx = {
@@ -12,10 +12,7 @@
       "lava.moe" = {
         enableACME = true;
         forceSSL = true;
-
-        locations."/".extraConfig = ''
-          return 404;
-        '';
+        root = inputs.website.outPath;
       };
     };
   };

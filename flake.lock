@@ -576,6 +576,7 @@
         "tree-sitter-jsonc": "tree-sitter-jsonc",
         "twemoji-but-good": "twemoji-but-good",
         "view-raw": "view-raw",
+        "website": "website",
         "who-reacted": "who-reacted",
         "wine-discord-ipc-bridge": "wine-discord-ipc-bridge",
         "zelk": "zelk",
@@ -731,6 +732,23 @@
       "original": {
         "owner": "Juby210",
         "repo": "view-raw",
+        "type": "github"
+      }
+    },
+    "website": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1609417219,
+        "narHash": "sha256-ZwJckHqfdx+w02qxf/G1O4wUWJSkly4ot/rII+btB1M=",
+        "owner": "LavaDesu",
+        "repo": "lavadesu.github.io",
+        "rev": "63d9b345ae481658e37ccb64b6992efd729a690b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LavaDesu",
+        "ref": "master",
+        "repo": "lavadesu.github.io",
         "type": "github"
       }
     },
