@@ -29,6 +29,7 @@ in {
     };
 
     "/var/persist" = bind "/persist";
+    "/var/lib/acme" = bind "/persist/acme";
     "/var/log/journal" = bind "/persist/journal";
     "/boot" = (bind "/nix/persist/boot") // { depends = [ "/nix" ]; };
   };
