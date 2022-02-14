@@ -18,5 +18,8 @@
       "msr.allow_writes=on"
     ];
     kernelPackages = lib.mkForce (pkgs.linuxPackagesFor pkgs.me.linux-lava);
+
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback.out ];
+    kernelModules = [ "v4l2loopback" ];
   };
 }
