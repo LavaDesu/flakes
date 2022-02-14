@@ -55,7 +55,7 @@ in {
         useACMEHost = dom;
 
         locations."/".extraConfig = ''
-          return 404;
+          return 302 'https://${dom}';
         '';
 
         locations."/_matrix" = {
