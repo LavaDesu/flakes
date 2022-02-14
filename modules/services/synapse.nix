@@ -30,7 +30,6 @@ in {
   services.nginx = {
     virtualHosts = {
       ${dom} = {
-        serverAliases = [ sub ];
         locations."= /.well-known/matrix/server".extraConfig =
           let
             server = { "m.server" = "${sub}:443"; };
