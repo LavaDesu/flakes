@@ -30,5 +30,6 @@
       nginx
       postgres
       synapse
+      tmptsync
     ]);
 }
