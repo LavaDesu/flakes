@@ -17,7 +17,7 @@ in
 
       tmptsync-save = {
         environment.FILE = dir;
-        script = "${../../scripts/tmptsync.sh} load";
+        script = "${../../scripts/tmptsync.sh} save";
         wantedBy = [ "basic.target" ];
       };
     };
