@@ -24,7 +24,7 @@ in
     timers.tmptsync-save = {
       timerConfig = {
         Unit = "tmptsync-save.service";
-        OnBootSec = "30mn";
+        OnBootSec = "30min";
         OnUnitActiveSec = "2h";
       };
     };
