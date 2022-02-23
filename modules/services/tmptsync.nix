@@ -10,11 +10,13 @@ in
         after = [ "local-fs.target" "sysinit.target" ];
         unitConfig.DefaultDependencies = false;
 
+        environment.FILE = dir;
         script = "${../../scripts/tmptsync.sh} load";
         wantedBy = [ "basic.target" ];
       };
 
       tmptsync-save = {
+        environment.FILE = dir;
         script = "${../../scripts/tmptsync.sh} load";
         wantedBy = [ "basic.target" ];
       };

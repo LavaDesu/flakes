@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 #
 # Super simple script that saves clock to file and reads from it later
 # Something like fake-hwclock from debian
