@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, options, pkgs, ... }:
 let
   dom = "lava.moe";
   sub = "matrix.lava.moe";
@@ -69,6 +69,7 @@ in {
     enable = true;
     dataDir = dir;
     server_name = dom;
+    logConfig = builtins.replaceStrings [ "INFO" ] [ "WARNING" ] options.services.matrix-synapse.logConfig.default;
     listeners = [
       {
         port = 8008;
