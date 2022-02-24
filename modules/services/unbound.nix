@@ -23,10 +23,15 @@ in {
 
       server = {
         interface = [ "0.0.0.0" ];
-        access-control = [ "192.168.100.0/24 allow" ];
+        access-control = [
+          "127.0.0.1/8      allow"
+          "192.168.100.0/24 allow"
+        ];
       };
 
       include = "${inputs.hosts-blocklists}/unbound/unbound.blacklist.conf";
     };
   };
+
+  systemd.services.unbound.serviceConfig.ReadWritePaths = [ dir ];
 }
