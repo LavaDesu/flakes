@@ -19,7 +19,7 @@
       prefixLength = 24;
     }];
     defaultGateway = "192.168.100.1";
-    nameservers = [ "8.8.8.8" ];
+    nameservers = [ "192.168.100.15" ];
 
     extraHosts = ''
       192.168.100.12 strawberry
