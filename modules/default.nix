@@ -19,6 +19,7 @@ in {
     ./services/postgres.nix
     ./services/synapse.nix
     ./services/tmptsync.nix
+    ./services/unbound.nix
   ];
   system = mkAttrsFromPaths [
     ./system/audio.nix

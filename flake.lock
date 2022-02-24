@@ -234,6 +234,22 @@
         "type": "github"
       }
     },
+    "hosts-blocklists": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1645608170,
+        "narHash": "sha256-fOOmZyagbl5JYp+YYBqeE8uJqr+a3zjoHlW7DQ9ZRK8=",
+        "owner": "notracking",
+        "repo": "hosts-blocklists",
+        "rev": "c5371d52040ef76a54b607fadcd18ece2d18301f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "notracking",
+        "repo": "hosts-blocklists",
+        "type": "github"
+      }
+    },
     "linux-tkg": {
       "flake": false,
       "locked": {
@@ -553,6 +569,7 @@
         "fix-user-popouts": "fix-user-popouts",
         "home-manager": "home-manager",
         "home-manager-porcupine": "home-manager-porcupine",
+        "hosts-blocklists": "hosts-blocklists",
         "linux-tkg": "linux-tkg",
         "multitask": "multitask",
         "neovim-nightly": "neovim-nightly",

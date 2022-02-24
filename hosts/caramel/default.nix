@@ -31,5 +31,6 @@
       postgres
       synapse
       tmptsync
+      unbound
     ]);
 }
