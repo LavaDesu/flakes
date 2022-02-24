@@ -1,11 +1,18 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+let
+  dir = "/persist/unbound";
+  uid = toString config.ids.uids.unbound;
+  gid = toString config.ids.gids.unbound;
+in {
   networking.firewall.interfaces.wlan0 = {
     allowedUDPPorts = [ 53 ];
     allowedTCPPorts = [ 53 ];
   };
+  systemd.tmpfiles.rules = [ "d ${dir} 700 ${uid} ${gid}" ];
+
   services.unbound = {
     enable = true;
-    stateDir = "/persist/unbound";
+    stateDir = dir;
     settings = {
       forward-zone = [{
         name = ".";
