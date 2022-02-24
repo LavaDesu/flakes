@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
 let
   dir = "/persist/unbound";
   uid = toString config.ids.uids.unbound;
