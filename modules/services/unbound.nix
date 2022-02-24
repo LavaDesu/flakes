@@ -1,14 +1,12 @@
-{ config, inputs, ... }:
+{ inputs, ... }:
 let
   dir = "/persist/unbound";
-  uid = toString config.ids.uids.unbound;
-  gid = toString config.ids.gids.unbound;
 in {
   networking.firewall.interfaces.wlan0 = {
     allowedUDPPorts = [ 53 ];
     allowedTCPPorts = [ 53 ];
   };
-  systemd.tmpfiles.rules = [ "d ${dir} 700 ${uid} ${gid}" ];
+  systemd.tmpfiles.rules = [ "d ${dir} 700 unbound unbound" ];
 
   services.unbound = {
     enable = true;
