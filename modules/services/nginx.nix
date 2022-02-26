@@ -1,6 +1,14 @@
-{ inputs, ... }: {
-  security.acme.acceptTerms = true;
-  security.acme.email = "me@lava.moe";
+{ config, inputs, ... }: {
+  security.acme = {
+    acceptTerms = true;
+    email = "me@lava.moe";
+    certs."lava.moe" = {
+      domain = "*.lava.moe";
+      dnsProvider = "cloudflare";
+      credentialsFile = config.age.secrets."acme_dns".path;
+    };
+  };
+
   services.nginx = {
     enable = true;
     recommendedTlsSettings = true;
@@ -10,7 +18,7 @@
 
     virtualHosts = {
       "lava.moe" = {
-        enableACME = true;
+        useACMEHost = "lava.moe";
         forceSSL = true;
         root = inputs.website.outPath;
       };

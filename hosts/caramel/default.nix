@@ -4,6 +4,7 @@
   time.timeZone = "Asia/Phnom_Penh";
 
   age.secrets = {
+    acme_dns.file = ../../secrets/acme_dns.age;
     passwd.file = ../../secrets/passwd.age;
     wpa_conf.file = ../../secrets/wpa_conf.age;
     wg_caramel.file = ../../secrets/wg_caramel.age;

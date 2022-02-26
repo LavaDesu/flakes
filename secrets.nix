@@ -8,6 +8,7 @@ in {
   "secrets/passwd.age".publicKeys = [ blossom caramel sugarcane rin ];
   "secrets/wpa_conf.age".publicKeys = [ blossom caramel rin ];
 
+  "secrets/acme_dns.age".publicKeys = [ caramel rin ];
   "secrets/wg_blossom.age".publicKeys = [ blossom rin ];
   "secrets/wg_caramel.age".publicKeys = [ caramel rin ];
   "secrets/wg_sugarcane.age".publicKeys = [ sugarcane rin ];
