@@ -3,6 +3,7 @@
     acceptTerms = true;
     email = "me@lava.moe";
     certs."lava.moe" = {
+      group = "nginx";
       domain = "*.lava.moe";
       dnsProvider = "cloudflare";
       credentialsFile = config.age.secrets."acme_dns".path;
