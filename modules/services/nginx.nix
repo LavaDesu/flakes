@@ -5,6 +5,7 @@
     certs."lava.moe" = {
       group = "nginx";
       domain = "*.lava.moe";
+      extraDomains = [ "lava.moe" ];
       dnsProvider = "cloudflare";
       credentialsFile = config.age.secrets."acme_dns".path;
     };
