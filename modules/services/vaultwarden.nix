@@ -9,6 +9,7 @@ in {
     "d ${dir}_backup 700 ${user} ${group}"
   ];
   services.vaultwarden = {
+    enable = true;
     backupDir = "${dir}_backup";
     config = {
       dataFolder = dir;
