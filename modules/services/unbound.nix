@@ -28,10 +28,10 @@ in {
           "10.0.0.0/8       allow"
           "192.168.100.0/24 allow"
         ];
-        domain-insecure = [ "local.lava.moe" ];
-        local-zone = [ "local.lava.moe. redirect" ];
+        domain-insecure = [ "\"local.lava.moe\"" ];
+        local-zone = [ "\"local.lava.moe.\" redirect" ];
         local-data = [
-          "warden.local.lava.moe. IN A 192.168.100.15"
+          "\"warden.local.lava.moe. IN A 192.168.100.15\""
         ];
       };
 
