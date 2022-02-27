@@ -24,7 +24,7 @@ in {
     forceSSL = true;
     useACMEHost = "lava.moe";
 
-    locations."/".proxyPass = "http://[::1]:8002";
+    locations."/".proxyPass = "http://localhost:8002";
   };
 
   systemd.services.vaultwarden.serviceConfig.ReadWritePaths = [ dir ];
