@@ -31,7 +31,7 @@ in {
         domain-insecure = [ "\"local.lava.moe\"" ];
         local-zone = [ "\"warden.local.lava.moe.\" redirect" ];
         local-data = [
-          "\"warden.local.lava.moe. IN A 192.168.100.15\""
+          "\"warden.local.lava.moe. IN A 10.100.0.2\""
         ];
       };
 
