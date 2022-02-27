@@ -13,9 +13,9 @@ in {
     config = {
       dataFolder = dir;
       signupsAllowed = false;
+      domain = "warden.local.lava.moe";
       rocketPort = 8002;
     };
-    domain = "warden.local.lava.moe";
     environmentFile = config.age.secrets.warden_admin.path;
   };
 
