@@ -20,6 +20,7 @@ in {
     ./services/synapse.nix
     ./services/tmptsync.nix
     ./services/unbound.nix
+    ./services/vaultwarden.nix
   ];
   system = mkAttrsFromPaths [
     ./system/audio.nix

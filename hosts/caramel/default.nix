@@ -6,6 +6,7 @@
   age.secrets = {
     acme_dns.file = ../../secrets/acme_dns.age;
     passwd.file = ../../secrets/passwd.age;
+    warden_admin.file = ../../secrets/warden_admin.age;
     wpa_conf.file = ../../secrets/wpa_conf.age;
     wg_caramel.file = ../../secrets/wg_caramel.age;
   };
@@ -33,5 +34,6 @@
       synapse
       tmptsync
       unbound
+      vaultwarden
     ]);
 }
