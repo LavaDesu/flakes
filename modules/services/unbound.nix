@@ -3,8 +3,8 @@ let
   dir = "/persist/unbound";
 in {
   networking.firewall.interfaces.wlan0 = {
-    allowedUDPPorts = [ 53 ];
-    allowedTCPPorts = [ 53 ];
+    allowedUDPPorts = [ 53 853 ];
+    allowedTCPPorts = [ 53 853 ];
   };
   systemd.tmpfiles.rules = [ "d ${dir} 700 unbound unbound" ];
 
