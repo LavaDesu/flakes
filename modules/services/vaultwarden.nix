@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   dir = "/persist/vaultwarden";
   user = config.users.users.vaultwarden.name;
@@ -28,5 +28,5 @@ in {
   };
 
   systemd.services.vaultwarden.serviceConfig.ReadWritePaths = [ dir ];
-  systemd.services.backup-vaultwarden.environment.DATA_FOLDER = dir;
+  systemd.services.backup-vaultwarden.environment.DATA_FOLDER = lib.mkForce dir;
 }
