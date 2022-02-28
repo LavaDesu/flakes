@@ -10,7 +10,7 @@
     };
     fonts = with pkgs; [
       cascadia-code
-      font-awesome-ttf
+      font-awesome
       font-awesome_4
       hanazono
       material-icons
