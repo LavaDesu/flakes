@@ -755,11 +755,11 @@
     "website": {
       "flake": false,
       "locked": {
-        "lastModified": 1609417219,
-        "narHash": "sha256-ZwJckHqfdx+w02qxf/G1O4wUWJSkly4ot/rII+btB1M=",
+        "lastModified": 1646476530,
+        "narHash": "sha256-QcfOirZbVVd1x7WposSMMqIo4tDg8ZqSEurgXI9APos=",
         "owner": "LavaDesu",
         "repo": "lavadesu.github.io",
-        "rev": "63d9b345ae481658e37ccb64b6992efd729a690b",
+        "rev": "54ee8a04d67710afc36f797ca69e6587a3eaefaf",
         "type": "github"
       },
       "original": {
