@@ -1,0 +1,49 @@
+$background: #1a1b26;
+$accent: #9d7cd8;
+$foreground: #c0caf5;
+
+* {
+  all: unset;
+}
+
+window {
+    background: transparent;
+}
+
+.bar {
+    margin: 5px 20px 0px 20px;
+}
+
+.widget {
+    background: $background;
+    color: $foreground;
+    font-family: "Noto Sans";
+    font-weight: 600;
+    font-size: 15px;
+    padding: 5px 15px;
+    border-radius: 50px;
+}
+
+.time {
+    .base {
+        font-weight: 700;
+    }
+    .extension {
+        font-weight: 500;
+        color: rgba($foreground, .7);
+    }
+}
+
+.workspaces {
+    padding: 5px 10px;
+    font-size: 22px;
+
+    button {
+        padding: 0px 2px;
+    }
+
+    .empty, .occupied {
+        color: $accent;
+    }
+}
+

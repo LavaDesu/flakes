@@ -56,6 +56,7 @@ in {
   ] ++ lib.optionals enableGUI [
     discord
     element-desktop
+    eww
     feh
     gnome.file-roller
     gimp

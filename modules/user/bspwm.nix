@@ -1,3 +1,4 @@
+# Depends on eww
 { config, pkgs, ... }: {
   xsession.windowManager.bspwm = {
     enable = true;
@@ -6,11 +7,13 @@
       window_gap = 10;
       border_width = 0;
       split_ratio = 0.5;
-      top_padding = 25;
+      top_padding = 35;
     };
     extraConfig = ''
       ${pkgs.feh}/bin/feh --no-fehbg --bg-fill ~/Pictures/Wallpapers/current
-      systemctl --user restart polybar # home-manager loads this too early
+
+      ${pkgs.procps}/bin/pkill -SIGINT eww
+      ${pkgs.eww}/bin/eww open mainbar
     '';
   };
 }

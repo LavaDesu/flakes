@@ -34,8 +34,8 @@
       rofi
 
       dunst
+      eww
       picom
-      polybar
 
       xorg
       sxhkd

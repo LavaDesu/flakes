@@ -42,6 +42,7 @@ in {
     ./user/bspwm.nix
     ./user/direnv.nix
     ./user/dunst.nix
+    ./user/eww.nix
     ./user/git.nix
     ./user/gpg.nix
     ./user/kitty.nix
