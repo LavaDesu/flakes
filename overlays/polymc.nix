@@ -1,6 +1,8 @@
 self: super: {
-  polymc = super.polymc.overrideAttrs(_: rec {
+  polymc = super.polymc.overrideAttrs(old: rec {
     version = "1.1.0";
+
+    cmakeFlags = old.cmakeFlags ++ [ "-DLauncher_PORTABLE=0" ];
 
     src = self.fetchFromGitHub {
         owner = "PolyMC";
