@@ -4,6 +4,7 @@
   time.timeZone = "Asia/Singapore";
 
   age.secrets = {
+    acme_dns.file = ../../secrets/acme_dns.age;
     passwd.file = ../../secrets/passwd.age;
     wg_sugarcane.file = ../../secrets/wg_sugarcane.age;
   };
