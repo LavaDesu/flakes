@@ -42,11 +42,13 @@ in {
 
   home.packages = with pkgs; [
     dconf
+    fd
     ffmpeg
     gnupg
     kitty
     nodejs-16_x
     pamixer
+    ripgrep
     rnix-lsp
     unrar
     weechat

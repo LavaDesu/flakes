@@ -26,15 +26,16 @@ in {
     ];
 
     plugins = with pkgs.vimPlugins; [
-      ctrlp-vim
+      fzf-vim
+      fzf-lsp-nvim
       lualine-nvim
-      nerdtree
       tokyonight-nvim
       vim-fugitive
       vim-nix
       vim-repeat
       vim-signify
       vim-surround
+      lsp_signature-nvim
 
       nvim-cmp
       nvim-lspconfig
@@ -43,12 +44,10 @@ in {
       luasnip
 
       (pkgs.me.nvim-treesitter-nightly.withPlugins (p: with p; [
-        tree-sitter-comment
         tree-sitter-c-sharp
         pkgs.me.tree-sitter-glimmer
         tree-sitter-html
         tree-sitter-javascript
-        tree-sitter-jsdoc
         tree-sitter-json
         pkgs.me.tree-sitter-jsonc
         tree-sitter-lua

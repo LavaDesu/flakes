@@ -5,11 +5,11 @@ map('n', '<C-J>', '<C-W>j', { noremap = true })
 map('n', '<C-K>', '<C-W>k', { noremap = true })
 map('n', '<C-L>', '<C-W>l', { noremap = true })
 map('n', '<C-Q>', ':q<CR>', { noremap = true })
+map('n', '<C-P>', ':Files<CR>', { noremap = true })
 
 -- Autocommands
 vim.cmd('au BufEnter * set noro')
 vim.cmd('au CursorHold * lua vim.diagnostic.open_float(0, { scope = "line", focusable = false })')
-vim.cmd('au CursorHoldI * silent! lua vim.lsp.buf.signature_help({ focusable = false })')
 
 -- Settings
 vim.opt.relativenumber = true
@@ -101,8 +101,6 @@ local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
     local opts = { noremap = true, silent = true }
 
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -141,7 +139,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local servers = { 'cssls', 'html', 'rnix', 'rust_analyzer', 'tsserver', 'yamlls' }
+local servers = { 'cssls', 'html', 'rnix', 'rust_analyzer', 'yamlls' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         capabilities = capabilities,
@@ -197,6 +195,12 @@ cmp.setup {
     }
 }
 
+-- LSP/Volar
+require'lspconfig'.volar.setup{
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
+  cmd = { 'vue-language-server', '--stdio' }
+}
+
 -- LSP/Omnisharp
 local pid = vim.fn.getpid()
 require'lspconfig'.omnisharp.setup {
@@ -209,7 +213,7 @@ require'lspconfig'.omnisharp.setup {
 nvim_lsp.diagnosticls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
-    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue' },
     init_options = {
         linters = {
             eslint = {
@@ -237,7 +241,18 @@ nvim_lsp.diagnosticls.setup {
             javascript = 'eslint',
             javascriptreact = 'eslint',
             typescript = 'eslint',
-            typescriptreact = 'eslint'
+            typescriptreact = 'eslint',
+            vue = 'eslint'
         }
     }
 }
+
+-- LSP/Signatures
+require("lsp_signature").setup {
+    hint_enable = false,
+    handler_opts = { border = "none" },
+    fix_pos = true
+}
+
+-- LSP/fzf
+require'fzf_lsp'.setup()

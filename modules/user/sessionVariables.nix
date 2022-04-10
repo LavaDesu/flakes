@@ -12,6 +12,7 @@
     _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${config.xdg.configHome}/java";
     CARGO_HOME = "${config.xdg.dataHome}/cargo";
     DIRENV_LOG_FORMAT = "";
+    FZF_DEFAULT_COMMAND = "fd --type f --hidden --follow --exclude .git";
     GNUPGHOME = "${config.xdg.dataHome}/gnupg";
     GTK2_RC_FILES = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     LESSHISTFILE = "-";
