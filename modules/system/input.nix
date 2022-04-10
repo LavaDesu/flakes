@@ -2,7 +2,7 @@
   services.xserver = {
     displayManager = {
       xserverArgs = [
-        "-ardelay 250"
+        "-ardelay 150"
         "-arinterval 15"
       ];
     };
