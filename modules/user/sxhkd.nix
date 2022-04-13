@@ -32,6 +32,9 @@ in {
       # Gamma
       "ctrl + XF86MonBrightness{Up,Down}" = "xgamma -gamma {1.3,1}";
 
+      "Super_L" = "eww open mainbar";
+      "@Super_L" = "eww close mainbar";
+
       # Kill focused window
       "super + {_,shift + }c" = "bspc node -{c,k}";
 

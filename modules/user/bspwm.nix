@@ -7,7 +7,7 @@
       window_gap = 10;
       border_width = 0;
       split_ratio = 0.5;
-      top_padding = 35;
+      top_padding = 0;
     };
     extraConfig = ''
       ${pkgs.feh}/bin/feh --no-fehbg --bg-fill ~/Pictures/Wallpapers/current
