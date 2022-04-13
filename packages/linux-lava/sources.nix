@@ -42,6 +42,7 @@ in {
   };
 
   kernelPatches = [
+    kernelPatchSrc
     (patch ./si-manual-clocking.patch)
   ]
   ++ builtins.map (name: {
