@@ -47,3 +47,26 @@ window {
     }
 }
 
+.widget.line-workspaces {
+    color: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0;
+
+    button {
+        padding: 0 17px;
+    }
+
+    .empty {
+        background-color: $background;
+    }
+
+    .occupied {
+        background-color: $accent;
+    }
+
+    .focused {
+        background-color: $foreground;
+    }
+}
+

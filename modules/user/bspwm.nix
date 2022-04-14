@@ -13,7 +13,7 @@
       ${pkgs.feh}/bin/feh --no-fehbg --bg-fill ~/Pictures/Wallpapers/current
 
       ${pkgs.procps}/bin/pkill -SIGINT eww
-      ${pkgs.eww}/bin/eww open mainbar
+      ${pkgs.eww}/bin/eww open linebar
     '';
   };
 }
