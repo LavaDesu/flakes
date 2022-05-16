@@ -63,6 +63,7 @@ in {
     gnome.file-roller
     gimp
     kotatogram-desktop
+    krita
     insomnia
     maim
     me.tetrio-desktop-plus
