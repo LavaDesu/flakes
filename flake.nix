@@ -99,6 +99,7 @@
         in
         {
           inherit (pkgs.me) linux-lava;
+          inherit (pkgs) mesa;
         };
 
       packages."aarch64-linux" =
