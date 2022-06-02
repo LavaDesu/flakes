@@ -1,8 +1,8 @@
 { fetchFromGitHub, inputs, lib }:
 let
-  version = "5.17.2";
-  kernelHash = "1cdi43x4c3l4chznh57gm55szycj4wjlxl1dss1ilnfvvmhyypsm";
-  kernelPatchHash = "0rsril9dpvxy4afc6agx8gsyhmbicww43dzmjhmxa8c4h6wdj8bx";
+  version = "5.18.1";
+  kernelHash = "1vjwhl4s8qxfg1aabn8xnpjza3qzrjcp5450h9qpjvl999lg3wsi";
+  kernelPatchHash = "1kppzbm3i8r6i7fqlfw1i2q4dly2qxr755abhvh5r0r4wrlj8alm";
 
   tkgPatches = [
     "0001-mm-Support-soft-dirty-flag-reset-for-VA-range"
@@ -11,7 +11,7 @@ let
     "0003-glitched-base"
     "0007-v${mm}-fsync1_via_futex_waitv"
     "0007-v${mm}-winesync"
-    "0009-prjc_v5.17-r0"
+    "0009-prjc_v${mm}-r1"
     "0009-glitched-ondemand-bmq"
     "0005-glitched-pds"
     "0012-misc-additions"
