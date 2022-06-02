@@ -15,9 +15,9 @@ index 8ac6eb9f1fd..33ccd30800a 100644
 --- a/drivers/gpu/drm/amd/amdgpu/amdgpu.h
 +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu.h
 @@ -212,6 +212,12 @@ extern int amdgpu_mes;
- extern int amdgpu_noretry;
  extern int amdgpu_force_asic_type;
  extern int amdgpu_smartshift_bias;
+ extern int amdgpu_use_xgmi_p2p;
 +
 +extern __u32 amdgpu_force_mclk;
 +extern __u32 amdgpu_force_sclk;
@@ -184,8 +184,8 @@ index 769f58d5ae1..614a14bde84 100644
  			*states = ATTR_STATE_UNSUPPORTED;
 diff --git a/drivers/gpu/drm/amd/pm/powerplay/si_dpm.c b/drivers/gpu/drm/amd/pm/powerplay/si_dpm.c
 index 15c0b8af376..31e520d5e21 100644
---- a/drivers/gpu/drm/amd/pm/powerplay/si_dpm.c
-+++ b/drivers/gpu/drm/amd/pm/powerplay/si_dpm.c
+--- a/drivers/gpu/drm/amd/pm/legacy-dpm/si_dpm.c
++++ b/drivers/gpu/drm/amd/pm/legacy-dpm/si_dpm.c
 @@ -3492,6 +3492,23 @@ static void si_apply_state_adjust_rules(struct amdgpu_device *adev,
  							&max_mclk_vddc);
  
