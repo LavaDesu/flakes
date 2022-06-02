@@ -168,9 +168,7 @@ index 769f58d5ae1..614a14bde84 100644
  			*states = ATTR_STATE_UNSUPPORTED;
  	} else if (DEVICE_ATTR_IS(pp_od_clk_voltage)) {
 -		*states = ATTR_STATE_UNSUPPORTED;
--		if ((is_support_sw_smu(adev) && adev->smu.od_enabled) ||
--		    (is_support_sw_smu(adev) && adev->smu.is_apu) ||
--			(!is_support_sw_smu(adev) && hwmgr->od_enabled))
+-		if (amdgpu_dpm_is_overdrive_supported(adev))
 -			*states = ATTR_STATE_SUPPORTED;
 +		*states = ATTR_STATE_SUPPORTED;
 +	} else if (DEVICE_ATTR_IS(pp_override_mclk)) {
