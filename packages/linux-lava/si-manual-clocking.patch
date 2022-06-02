@@ -163,7 +163,7 @@ index 769f58d5ae1..614a14bde84 100644
  };
  
  static int default_attr_update(struct amdgpu_device *adev, struct amdgpu_device_attr *attr,
-@@ -2063,11 +2161,15 @@ static int default_attr_update(struct amdgpu_device *adev, struct amdgpu_device_
+@@ -2063,9 +2161,15 @@ static int default_attr_update(struct amdgpu_device *adev, struct amdgpu_device_
  		if (asic_type < CHIP_VEGA20)
  			*states = ATTR_STATE_UNSUPPORTED;
  	} else if (DEVICE_ATTR_IS(pp_od_clk_voltage)) {
