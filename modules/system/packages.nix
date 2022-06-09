@@ -26,7 +26,6 @@
     vaapiIntel
     vaapiVdpau
     libvdpau-va-gl
-    intel-ocl
     rocm-opencl-icd
     rocm-opencl-runtime
   ];
