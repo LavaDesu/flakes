@@ -17,9 +17,11 @@
     };
   };
 
-  xsession.pointerCursor = {
+  home.pointerCursor = {
     package = pkgs.yaru-theme;
     name = "Yaru";
     size = 16;
+    gtk.enable = true;
+    x11.enable = true;
   };
 }
