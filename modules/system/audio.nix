@@ -97,6 +97,17 @@ in {
           };
         }
       ];
+      "pulse.rules" = [
+        {
+          # Discord notification sounds fix
+          matches = [ { "application.process.binary" = ".DiscordCanary-wrapped"; } ];
+          actions = {
+              update-props = {
+                  "pulse.min.quantum" = "1024/48000";
+              };
+          };
+        }
+      ];
       "stream.properties" = {
         "node.latency" = "${str.quantum.min}/${str.rate}";
         "resample.quality" = 1;
