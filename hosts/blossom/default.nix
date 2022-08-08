@@ -3,6 +3,7 @@
   system.stateVersion = "21.11";
   time.timeZone = "Asia/Phnom_Penh";
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nixpkgs.overlays = [ inputs.neovim-nightly.overlay ];
   age.secrets = {
     passwd.file = ../../secrets/passwd.age;
