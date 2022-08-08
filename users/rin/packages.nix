@@ -5,6 +5,13 @@ let
     sha256 = "16jy1qkkbjxmylqpjfm3y47nf40hw5anq284aj6kc9z3n3323pic";
   };
   discord = pkgs.discord-plugged.override {
+    discord-canary = pkgs.discord-canary.override rec {
+      version = "0.0.136";
+      src = builtins.fetchurl {
+        url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
+        sha256 = "01a855g3bj989ydd304ipvpjmz1p8ha4f3hl0q3yp2gk6pia1c9s";
+      };
+    };
     powercord = pkgs.powercord.override {
       powercord-unwrapped = pkgs.powercord.unwrapped.overrideAttrs(old: {
         patches = (if (old ? patches) then old.patches else []) ++ [
@@ -14,7 +21,7 @@ let
       });
     };
     plugins = [
-      inputs.better-status-indicators
+      #inputs.better-status-indicators
       inputs.channel-typing
       inputs.discord-tweaks
       inputs.fix-user-popouts
