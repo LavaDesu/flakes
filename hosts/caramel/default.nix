@@ -1,4 +1,4 @@
-{ config, inputs, modules, overlays, pkgs, ... }: {
+{ config, inputs, modules, modulesPath, overlays, pkgs, ... }: {
   networking.hostName = "caramel";
   system.stateVersion = "21.11";
   time.timeZone = "Asia/Phnom_Penh";
@@ -12,6 +12,7 @@
   };
   imports =
     (with modules.system; [
+      "${builtins.toString modulesPath}/installer/sd-card/sd-image-aarch64.nix"
       inputs.home-manager-porcupine.nixosModule
 
       base
@@ -23,15 +24,16 @@
 
       ./filesystem.nix
       ./kernel.nix
+      ./image.nix
       ./networking.nix
       ./packages.nix
 
       ../../users/hana
     ]) ++
     (with modules.services; [
-      nginx
-      postgres
-      synapse
+#       nginx
+#       postgres
+#       synapse
       tmptsync
       unbound
       vaultwarden

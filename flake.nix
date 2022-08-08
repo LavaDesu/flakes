@@ -7,11 +7,13 @@
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix.url = "github:ryantm/agenix";
+    nixos-generators.url = "github:nix-community/nixos-generators";
 
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager-porcupine.inputs.nixpkgs.follows = "nixpkgs-porcupine";
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-generators.inputs.nixpkgs.follows = "nixpkgs-porcupine";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
     powercord-overlay.url = "github:LavaDesu/powercord-overlay";
@@ -61,7 +63,7 @@
     zelk = { url = "github:schnensch0/zelk"; flake = false; };
   };
 
-  outputs = { self, agenix, nixpkgs, nixpkgs-porcupine, ... } @ inputs:
+  outputs = { self, agenix, nixos-generators, nixpkgs, nixpkgs-porcupine, ... } @ inputs:
     let
       overlays = (import ./overlays)
         ++ [inputs.powercord-overlay.overlay]
@@ -71,13 +73,13 @@
 
       mkSystem =
         if !(self ? rev) then throw "Dirty git tree detected." else
-        nixpkgs: name: arch: enableGUI: nixpkgs.lib.nixosSystem {
+        nixpkgs: name: arch: enableGUI: extraModules: nixpkgs.lib.nixosSystem {
           system = arch;
           modules = [
             { nixpkgs.overlays = overlays; }
             agenix.nixosModules.age
             (./hosts + "/${name}")
-          ];
+          ] ++ extraModules;
           specialArgs = {
             inherit inputs enableGUI;
             modules = import ./modules { lib = nixpkgs.lib; };
@@ -85,10 +87,10 @@
         };
     in
     {
-      nixosConfigurations."blossom" = mkSystem nixpkgs "blossom" "x86_64-linux" true;
+      nixosConfigurations."blossom" = mkSystem nixpkgs "blossom" "x86_64-linux" true [];
 
-      nixosConfigurations."caramel" = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false;
-      nixosConfigurations."sugarcane" = mkSystem nixpkgs-porcupine "sugarcane" "x86_64-linux" false;
+      nixosConfigurations."caramel" = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false [];
+      nixosConfigurations."sugarcane" = mkSystem nixpkgs-porcupine "sugarcane" "x86_64-linux" false [];
 
       packages."x86_64-linux" =
         let
@@ -104,12 +106,36 @@
       packages."aarch64-linux" =
         let
           pkgs = import nixpkgs-porcupine {
-            inherit overlays;
+            overlays = overlays ++ [
+              # See https://github.com/NixOS/nixpkgs/issues/126755#issuecomment-869149243
+            ];
             system = "aarch64-linux";
           };
+
+          caramel-sys = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false [{
+            nixpkgs.overlays = [
+              (self: super: {
+                makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
+              })
+            ];
+          }];
         in
         {
           inherit (pkgs) nixUnstable;
+
+          caramel-iso2 = caramel-sys.config.system.build.sdImage;
+          caramel-iso = nixos-generators.nixosGenerate {
+            inherit pkgs;
+            format = "sd-aarch64";
+            modules = [
+              agenix.nixosModules.age
+              ./hosts/caramel
+            ];
+            specialArgs = {
+              inherit inputs;
+              modules = import ./modules { lib = nixpkgs-porcupine.lib; };
+            };
+          };
         };
 
       # TODO: currently broken
