@@ -7,11 +7,13 @@
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix.url = "github:ryantm/agenix";
+    nixos-generators.url = "github:nix-community/nixos-generators";
 
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager-porcupine.inputs.nixpkgs.follows = "nixpkgs-porcupine";
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
     powercord-overlay.url = "github:LavaDesu/powercord-overlay";
@@ -61,7 +63,7 @@
     zelk = { url = "github:schnensch0/zelk"; flake = false; };
   };
 
-  outputs = { self, agenix, nixpkgs, nixpkgs-porcupine, ... } @ inputs:
+  outputs = { self, agenix, nixos-generators, nixpkgs, nixpkgs-porcupine, ... } @ inputs:
     let
       overlays = (import ./overlays)
         ++ [inputs.powercord-overlay.overlay]
@@ -110,6 +112,19 @@
         in
         {
           inherit (pkgs) nixUnstable;
+
+          caramel-iso = nixos-generators.nixosGenerate {
+            inherit pkgs;
+            format = "sd-aarch64";
+            modules = [
+              agenix.nixosModules.age
+              ./hosts/caramel
+            ];
+            specialArgs = {
+              inherit inputs;
+              modules = import ./modules { lib = nixpkgs-porcupine.lib; };
+            };
+          };
         };
 
       # TODO: currently broken
