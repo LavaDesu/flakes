@@ -89,7 +89,13 @@
     {
       nixosConfigurations."blossom" = mkSystem nixpkgs "blossom" "x86_64-linux" true [];
 
-      nixosConfigurations."caramel" = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false [];
+      nixosConfigurations."caramel" = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false [{
+        nixpkgs.overlays = [
+          (self: super: {
+            makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
+          })
+        ];
+      }];
       nixosConfigurations."sugarcane" = mkSystem nixpkgs-porcupine "sugarcane" "x86_64-linux" false [];
 
       packages."x86_64-linux" =
@@ -111,19 +117,11 @@
             ];
             system = "aarch64-linux";
           };
-
-          caramel-sys = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false [{
-            nixpkgs.overlays = [
-              (self: super: {
-                makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
-              })
-            ];
-          }];
         in
         {
           inherit (pkgs) nixUnstable;
 
-          caramel-iso2 = caramel-sys.config.system.build.sdImage;
+          caramel-iso2 = self.nixosConfigurations."caramel".config.system.build.sdImage;
           caramel-iso = nixos-generators.nixosGenerate {
             inherit pkgs;
             format = "sd-aarch64";
