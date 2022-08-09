@@ -34,6 +34,7 @@
 #       nginx
 #       postgres
 #       synapse
+      jellyfin
       tmptsync
       unbound
       vaultwarden
