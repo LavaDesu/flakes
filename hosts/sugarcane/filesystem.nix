@@ -22,7 +22,7 @@ in {
       neededForBoot = true;
     };
 
-    "/var/persist" = bind "/nix/persist";
+    "/persist" = bind "/nix/persist";
     "/var/log/journal" = bind "/nix/persist/journal";
     "/boot" = bind "/nix/persist/boot";
   };

@@ -43,7 +43,6 @@ in {
       neededForBoot = true;
     };
 
-    "/var/persist" = bind "/persist";
     "/var/lib/acme" = bind "/persist/acme";
     "/var/log/journal" = bind "/persist/journal";
     "/boot" = (bind "/mnt/image/boot") // { depends = [ "/mnt/image" ]; };
