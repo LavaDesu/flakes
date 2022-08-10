@@ -12,7 +12,7 @@ in
   system.activationScripts."jellyfin-create-bind-mount" = {
     deps = [ "users" "groups" ];
     text = ''
-      mkdir ${dir}
+      mkdir -p ${dir}
       chown jellyfin:jellyfin ${dir}
       chmod 700 ${dir}
     '';
