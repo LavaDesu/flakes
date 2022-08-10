@@ -20,6 +20,7 @@
       input
       nix-porcupine
       security
+      transmission
       wireguard
 
       ./filesystem.nix
