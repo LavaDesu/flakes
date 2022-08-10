@@ -35,6 +35,7 @@
 #       postgres
 #       synapse
       jellyfin
+      sonarr
       tmptsync
       unbound
       vaultwarden
