@@ -139,7 +139,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local servers = { 'cssls', 'html', 'rnix', 'rust_analyzer', 'yamlls' }
+local servers = { 'cssls', 'html', 'rnix', 'rust_analyzer', 'tsserver', 'yamlls' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         capabilities = capabilities,
@@ -193,12 +193,6 @@ cmp.setup {
         { name = 'nvim_lsp' },
         { name = 'luasnip' }
     }
-}
-
--- LSP/Volar
-require'lspconfig'.volar.setup{
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' },
-  cmd = { 'vue-language-server', '--stdio' }
 }
 
 -- LSP/Omnisharp
