@@ -1,6 +1,6 @@
 { fetchFromGitHub, inputs, lib }:
 let
-  version = "6.0";
+  version = "6.0.0";
   kernelHash = "13kqh7yhifwz5dmd3ky0b3mzbh9r0nmjfp5mxy42drcdafjl692w";
   #kernelPatchHash = "0y25zs7rlk9dz9ppyr76rv6id64j3f4hpby4wljmy7p9z9wba30s";
 
