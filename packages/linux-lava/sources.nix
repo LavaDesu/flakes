@@ -53,6 +53,7 @@ in {
     #kernelPatchSrc
     borePatch
     (patch ./si-manual-clocking.patch)
+    (patch ./winesync-hotfix.patch)
   ]
   ++ builtins.map (name: {
     inherit name;
