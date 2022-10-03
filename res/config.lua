@@ -139,14 +139,12 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
-local servers = { 'cssls', 'html', 'rnix', 'rust_analyzer', 'tsserver', 'yamlls' }
+local servers = { 'cssls', 'html', 'rnix', 'tsserver', 'yamlls' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         capabilities = capabilities,
         on_attach = on_attach,
-        flags = {
-            debounce_text_changes = 150,
-        }
+        flags = { debounce_text_changes = 150 }
     }
 end
 
@@ -197,16 +195,36 @@ cmp.setup {
 
 -- LSP/Omnisharp
 local pid = vim.fn.getpid()
-require'lspconfig'.omnisharp.setup {
+nvim_lsp.omnisharp.setup {
     capabilities = capabilities,
     on_attach = on_attach,
+    flags = { debounce_text_changes = 150 },
     cmd = { "{{OMNISHARP_PATH}}", "--languageserver", "--hostPID", tostring(pid) }
 }
+
+-- LSP/rust_analyzer
+nvim_lsp.rust_analyzer.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    flags = { debounce_text_changes = 150 },
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    enforce = true,
+                    group = "module"
+                }
+            }
+        }
+    }
+}
+
 
 -- LSP/Diagnostics
 nvim_lsp.diagnosticls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
+    flags = { debounce_text_changes = 150 },
     filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue' },
     init_options = {
         linters = {
