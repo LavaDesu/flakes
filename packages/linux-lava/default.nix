@@ -28,10 +28,12 @@ in buildLinux (args // {
     NO_HZ_FULL = yes;
     NO_HZ_FULL_NODEF = yes;
     NO_HZ_IDLE = no;
+    TICK_CPU_ACCOUNTING = no;
+    VIRT_CPU_ACCOUNTING_GEN = yes;
     CONTEXT_TRACKING = yes;
     CONTEXT_TRACKING_FORCE = no;
-    HZ_500 = yes;
-    HZ_500_NODEF = yes;
+    HZ_1000 = yes;
+    HZ_1000_NODEF = yes;
 
     # preempt
     PREEMPT = yes;
@@ -41,10 +43,7 @@ in buildLinux (args // {
     PREEMPT_DYNAMIC = yes;
 
     # scheduler
-    SCHED_ALT = yes;
-    SCHED_PDS = yes;
-    FAIR_GROUP_SCHED = no;
-    CFS_BANDWIDTH = no;
+    SCHED_BORE = yes;
 
     # disable numa
     NUMA = no;
