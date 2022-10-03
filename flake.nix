@@ -16,8 +16,6 @@
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
-    powercord-overlay.url = "github:LavaDesu/powercord-overlay";
-    powercord-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
     # services
     hosts-blocklists = { url = "github:notracking/hosts-blocklists"; flake = false; };
@@ -43,30 +41,11 @@
     # shells
     rust-overlay.url = "github:oxalica/rust-overlay";
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
-
-    # powercord plugins/themes
-    better-status-indicators = { url = "github:griefmodz/better-status-indicators"; flake = false; };
-    channel-typing = { url = "github:powercord-community/channel-typing"; flake = false; };
-    discord-tweaks = { url = "github:NurMarvin/discord-tweaks"; flake = false; };
-    fix-user-popouts = { url = "github:cyyynthia/fix-user-popouts"; flake = false; };
-    multitask = { url = "github:powercord-community/multitask"; flake = false; };
-    no-double-back-pc = { url = "github:the-cord-plug/no-double-back-pc"; flake = false; };
-    powercord-popout-fix = { url = "github:Nexure/PowerCord-Popout-Fix"; flake = false; };
-    rolecolor-everywhere = { url = "github:powercord-community/rolecolor-everywhere"; flake = false; };
-    theme-toggler = { url = "github:redstonekasi/theme-toggler"; flake = false; };
-    twemoji-but-good = { url = "github:powercord-community/twemoji-but-good"; flake = false; };
-    view-raw = { url = "github:Juby210/view-raw"; flake = false; };
-    who-reacted = { url = "github:jaimeadf/who-reacted"; flake = false; };
-
-    radialstatus = { url = "github:DiscordStyles/RadialStatus"; flake = false; };
-    tokyonight = { url = "github:Dyzean/Tokyo-Night"; flake = false; };
-    zelk = { url = "github:schnensch0/zelk"; flake = false; };
   };
 
   outputs = { self, agenix, nixos-generators, nixpkgs, nixpkgs-porcupine, ... } @ inputs:
     let
       overlays = (import ./overlays)
-        ++ [inputs.powercord-overlay.overlay]
         ++ [(final: prev: {
           me = prev.callPackage ./packages { inherit inputs; } // { inherit inputs; };
         })];
