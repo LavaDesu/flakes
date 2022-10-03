@@ -15,8 +15,10 @@ let
   );
 in {
   services = mkAttrsFromPaths [
+    ./services/jellyfin.nix
     ./services/nginx.nix
     ./services/postgres.nix
+    ./services/sonarr.nix
     ./services/synapse.nix
     ./services/tmptsync.nix
     ./services/unbound.nix

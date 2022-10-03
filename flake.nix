@@ -52,13 +52,13 @@
 
       mkSystem =
         if !(self ? rev) then throw "Dirty git tree detected." else
-        nixpkgs: name: arch: enableGUI: nixpkgs.lib.nixosSystem {
+        nixpkgs: name: arch: enableGUI: extraModules: nixpkgs.lib.nixosSystem {
           system = arch;
           modules = [
             { nixpkgs.overlays = overlays; }
             agenix.nixosModules.age
             (./hosts + "/${name}")
-          ];
+          ] ++ extraModules;
           specialArgs = {
             inherit inputs enableGUI;
             modules = import ./modules { lib = nixpkgs.lib; };
@@ -66,10 +66,16 @@
         };
     in
     {
-      nixosConfigurations."blossom" = mkSystem nixpkgs "blossom" "x86_64-linux" true;
+      nixosConfigurations."blossom" = mkSystem nixpkgs "blossom" "x86_64-linux" true [];
 
-      nixosConfigurations."caramel" = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false;
-      nixosConfigurations."sugarcane" = mkSystem nixpkgs-porcupine "sugarcane" "x86_64-linux" false;
+      nixosConfigurations."caramel" = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false [{
+        nixpkgs.overlays = [
+          (self: super: {
+            makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
+          })
+        ];
+      }];
+      nixosConfigurations."sugarcane" = mkSystem nixpkgs-porcupine "sugarcane" "x86_64-linux" false [];
 
       packages."x86_64-linux" =
         let
@@ -92,18 +98,7 @@
         {
           inherit (pkgs) nixUnstable;
 
-          caramel-iso = nixos-generators.nixosGenerate {
-            inherit pkgs;
-            format = "sd-aarch64";
-            modules = [
-              agenix.nixosModules.age
-              ./hosts/caramel
-            ];
-            specialArgs = {
-              inherit inputs;
-              modules = import ./modules { lib = nixpkgs-porcupine.lib; };
-            };
-          };
+          caramel-img = self.nixosConfigurations."caramel".config.system.build.sdImage;
         };
 
       # TODO: currently broken

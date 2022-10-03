@@ -24,8 +24,8 @@
     ];
 
     programs.git.signing.signByDefault = lib.mkForce false;
-    programs.zsh.history.path = lib.mkForce "/nix/persist/hana/zsh_history";
+    programs.zsh.history.path = lib.mkForce "/persist/hana/zsh_history";
 
-    home.file.".ssh/authorized_keys".source = config.lib.file.mkOutOfStoreSymlink "/nix/persist/hana/authorized_keys";
+    home.file.".ssh/authorized_keys".source = ../../res/authorized_keys;
   };
 }
