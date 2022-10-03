@@ -9,7 +9,9 @@ jobs:
     name: Check flake
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: cachix/install-nix-action@v17
         with:
           install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.12.0pre20220930_89ca75c/install
@@ -24,7 +26,9 @@ jobs:
     name: Build linux-lava for x86_64-linux
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: cachix/install-nix-action@v17
         with:
           install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.12.0pre20220930_89ca75c/install
@@ -39,7 +43,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Build nixUnstable for aarch64-linux
     steps:
-      - uses: actions/checkout@v2.1.0
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: dbhi/qus/action@main
         with:
           targets: arm aarch64
