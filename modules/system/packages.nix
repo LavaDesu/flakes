@@ -16,7 +16,7 @@
     wget
   ] ++ lib.optionals enableGUI [
     gparted
-    gnome3.nautilus
+    gnome.nautilus
   ];
   environment.variables.EDITOR = "nvim";
   programs.adb.enable = true;
