@@ -1,6 +1,7 @@
 name: Build blossom
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
