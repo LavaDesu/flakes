@@ -1,28 +1,29 @@
 diff --git a/crates/eww/src/widgets/widget_definitions.rs b/crates/eww/src/widgets/widget_definitions.rs
-index ec307537407..49c70571d4b 100644
+index 16f1f17d063..08d54cbe343 100644
 --- a/crates/eww/src/widgets/widget_definitions.rs
 +++ b/crates/eww/src/widgets/widget_definitions.rs
-@@ -6,7 +6,7 @@ use crate::{
- use anyhow::*;
+@@ -8,7 +8,7 @@ use crate::{
+ use anyhow::{anyhow, Context, Result};
  use codespan_reporting::diagnostic::Severity;
  use eww_shared_util::Spanned;
--use gdk::NotifyType;
-+use gdk::{NotifyType, ScrollDirection};
- use gtk::{self, glib, prelude::*};
- use itertools::Itertools;
- use once_cell::sync::Lazy;
-@@ -523,11 +523,14 @@ fn build_gtk_event_box(bargs: &mut BuilderArgs) -> Result<gtk::EventBox> {
+-use gdk::{ModifierType, NotifyType};
++use gdk::{ModifierType, NotifyType, ScrollDirection};
+ 
+ use glib::translate::FromGlib;
+ use gtk::{self, glib, prelude::*, DestDefaults, TargetEntry, TargetList};
+@@ -679,11 +679,14 @@ fn build_gtk_event_box(bargs: &mut BuilderArgs) -> Result<gtk::EventBox> {
          // @prop onscroll - event to execute when the user scrolls with the mouse over the widget. The placeholder `{}` used in the command will be replaced with either `up` or `down`.
          prop(timeout: as_duration = Duration::from_millis(200), onscroll: as_string) {
              gtk_widget.add_events(gdk::EventMask::SCROLL_MASK);
 -            gtk_widget.add_events(gdk::EventMask::SMOOTH_SCROLL_MASK);
-             connect_single_handler!(gtk_widget, gtk_widget.connect_scroll_event(move |_, evt| {
+-            connect_signal_handler!(gtk_widget, gtk_widget.connect_scroll_event(move |_, evt| {
 -                let delta = evt.delta().1;
 -                if delta != 0f64 { // Ignore the first event https://bugzilla.gnome.org/show_bug.cgi?id=675959
--                    run_command(timeout, &onscroll, if delta < 0f64 { "up" } else { "down" });
+-                    run_command(timeout, &onscroll, &[if delta < 0f64 { "up" } else { "down" }]);
++            connect_single_handler!(gtk_widget, gtk_widget.connect_scroll_event(move |_, evt| {
 +                let dir = match evt.direction() {
-+                    ScrollDirection::Up => "up",
-+                    ScrollDirection::Down => "down",
++                    ScrollDirection::Left => "up",
++                    ScrollDirection::Right => "down",
 +                    _ => "",
 +                };
 +                if dir != "" {
