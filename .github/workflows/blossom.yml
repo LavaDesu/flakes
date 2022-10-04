@@ -1,0 +1,23 @@
+name: Build blossom
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build blossom
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: cachix/install-nix-action@v17
+        with:
+          install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.12.0pre20220930_89ca75c/install
+          extra_nix_config: experimental-features = nix-command flakes
+      - uses: cachix/cachix-action@v10
+        with:
+          name: lava
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+      - run: nix build -L .#nixosConfigurations."blossom".config.system.build.toplevel
