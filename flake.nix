@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:LavaDesu/nixpkgs/laba/remove-mono";
     nixpkgs-porcupine.url = "github:NixOS/nixpkgs/nixos-21.11";
     home-manager.url = "github:nix-community/home-manager";
     home-manager-porcupine.url = "github:LavaDesu/home-manager/backport/gpg-agent";
