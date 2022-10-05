@@ -46,7 +46,9 @@ vim.g.signify_sign_change            = vim.g.signify_sign_add
 vim.g.signify_sign_change_delete     = vim.g.signify_sign_delete
 
 -- Theming
-vim.g.tokyonight_style = 'night'
+require("tokyonight").setup({
+    style = "night"
+})
 vim.cmd[[
     syntax enable
     colorscheme tokyonight

@@ -29,6 +29,7 @@ in {
       fzf-vim
       fzf-lsp-nvim
       lualine-nvim
+      plenary-nvim
       tokyonight-nvim
       vim-fugitive
       vim-nix
