@@ -18,7 +18,7 @@ index 16f1f17d063..08d54cbe343 100644
 +                    _ => "",
 +                };
 +                if dir != "" {
-+                    run_command(timeout, &onscroll, dir);
++                    run_command(timeout, &onscroll, &[dir]);
                  }
                  gtk::Inhibit(false)
              }));
