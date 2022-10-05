@@ -24,6 +24,13 @@ in
     "/home/.snapshots" = mkBtrfsMount 262 false;
     "/root" = mkBtrfsMount 260 false;
     "/var" = mkBtrfsMount 258 false;
+    "/persist" = {
+      depends = [ "/var" ];
+      device = "/var/persist";
+      fsType = "none";
+      options = [ "bind" ];
+      neededForBoot = true;
+    };
 
     # "/mnt/nfs" = {
     #   device = "192.168.100.11:/srv/nfs";
