@@ -3,5 +3,6 @@ builtins.map (path: import path) [
   ./material-icons.nix
   ./picom.nix
   ./rofi.nix
+  ./steam.nix
   ./xinit.nix
 ]
