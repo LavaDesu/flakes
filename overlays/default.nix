@@ -4,5 +4,6 @@ builtins.map (path: import path) [
   ./picom.nix
   ./rofi.nix
   ./steam.nix
+  ./wlroots.nix
   ./xinit.nix
 ]
