@@ -86,7 +86,6 @@
         in
         {
           inherit (pkgs.me) linux-lava;
-          inherit (self) nixosConfigurations;
         };
 
       packages."aarch64-linux" =
