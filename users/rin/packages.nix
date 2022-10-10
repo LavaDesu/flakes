@@ -24,8 +24,9 @@
     element-desktop
     eww
     feh
-    gnome.file-roller
+    gamescope
     gimp
+    gnome.file-roller
     kotatogram-desktop
     krita
     insomnia
