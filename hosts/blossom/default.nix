@@ -32,5 +32,12 @@
 
     ../../users/rin
   ];
+
+  system.replaceRuntimeDependencies = [ ({
+    original = pkgs.mesa;
+    replacement = pkgs.mesa.overrideAttrs(o: {
+      patches = o.patches ++ [ ./mesa_mr_17182.patch ];
+    });
+  }) ];
 }
 
