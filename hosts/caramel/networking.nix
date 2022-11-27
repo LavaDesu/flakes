@@ -23,4 +23,13 @@
       192.168.100.13 blossom
     '';
   };
+
+  # wait for ntp before connecting to wireguard
+  systemd = {
+    additionalUpstreamSystemUnits = [ "systemd-time-wait-sync.service" ];
+    services = {
+      "systemd-time-wait-sync".wantedBy = [ "multi-user.target" ];
+      "wireguard-wg0".after = [ "time-sync.target" ];
+    };
+  };
 }

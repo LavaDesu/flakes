@@ -33,7 +33,7 @@ in {
     ./system/input.nix
     ./system/kernel.nix
     ./system/nix.nix
-    ./system/nix-porcupine.nix
+    ./system/nix-stable.nix
     ./system/packages.nix
     ./system/security.nix
     ./system/snapper.nix

@@ -1,6 +1,6 @@
 { config, inputs, modules, modulesPath, overlays, pkgs, ... }: {
   networking.hostName = "caramel";
-  system.stateVersion = "21.11";
+  system.stateVersion = "22.11";
   time.timeZone = "Asia/Phnom_Penh";
 
   age.secrets = {
@@ -13,12 +13,12 @@
   imports =
     (with modules.system; [
       "${builtins.toString modulesPath}/installer/sd-card/sd-image-aarch64.nix"
-      inputs.home-manager-porcupine.nixosModule
+      inputs.home-manager-raccoon.nixosModule
 
       base
       home-manager
       input
-      nix-porcupine
+      nix-stable
       security
       transmission
       wireguard
@@ -39,6 +39,5 @@
       sonarr
       tmptsync
       unbound
-      vaultwarden
     ]);
 }

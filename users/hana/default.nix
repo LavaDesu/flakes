@@ -5,6 +5,10 @@
     shell = pkgs.zsh;
     uid = 1002;
     passwordFile = config.age.secrets.passwd.path;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPru5eTBvHJ4ZmrrzPRHCGM09wQP/ZHSaKYalDuBVO15 rin@blossom"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ5l9t8dc6mPsKKYqZlPKvhOdyqz+DS5UOcvHuh3uVGt @strawberry"
+    ];
   };
 
   home-manager.users.hana = { config, enableGUI, lib, pkgs, ... }: {
@@ -12,7 +16,6 @@
       username = "hana";
       homeDirectory = "/home/hana";
       stateVersion = "21.11";
-      keyboard = null; # see https://github.com/nix-community/home-manager/issues/2219
     };
 
     imports = with modules.user; [
@@ -25,7 +28,5 @@
 
     programs.git.signing.signByDefault = lib.mkForce false;
     programs.zsh.history.path = lib.mkForce "/persist/hana/zsh_history";
-
-    home.file.".ssh/authorized_keys".source = ../../res/authorized_keys;
   };
 }

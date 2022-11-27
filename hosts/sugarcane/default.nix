@@ -14,7 +14,7 @@
     base
     home-manager
     input
-    nix-porcupine
+    nix-stable
     security
     wireguard
 

@@ -2,8 +2,10 @@
   inputs = {
     nixpkgs.url = "github:LavaDesu/nixpkgs/laba/remove-mono";
     nixpkgs-porcupine.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixpkgs-raccoon.url = "github:NixOS/nixpkgs/nixos-22.11";
     home-manager.url = "github:nix-community/home-manager";
     home-manager-porcupine.url = "github:LavaDesu/home-manager/backport/gpg-agent";
+    home-manager-raccoon.url = "github:nix-community/home-manager/release-22.11";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix.url = "github:ryantm/agenix";
@@ -12,6 +14,7 @@
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager-porcupine.inputs.nixpkgs.follows = "nixpkgs-porcupine";
+    home-manager-raccoon.inputs.nixpkgs.follows = "nixpkgs-raccoon";
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -43,7 +46,7 @@
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, agenix, nixos-generators, nixpkgs, nixpkgs-porcupine, ... } @ inputs:
+  outputs = { self, agenix, nixos-generators, nixpkgs, nixpkgs-porcupine, nixpkgs-raccoon, ... } @ inputs:
     let
       overlays = (import ./overlays)
         ++ [(final: prev: {
@@ -68,7 +71,7 @@
     {
       nixosConfigurations."blossom" = mkSystem nixpkgs "blossom" "x86_64-linux" true [];
 
-      nixosConfigurations."caramel" = mkSystem nixpkgs-porcupine "caramel" "aarch64-linux" false [{
+      nixosConfigurations."caramel" = mkSystem nixpkgs-raccoon "caramel" "aarch64-linux" false [{
         nixpkgs.overlays = [
           (self: super: {
             makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
@@ -90,14 +93,12 @@
 
       packages."aarch64-linux" =
         let
-          pkgs = import nixpkgs-porcupine {
+          pkgs = import nixpkgs-raccoon {
             inherit overlays;
             system = "aarch64-linux";
           };
         in
         {
-          inherit (pkgs) nixUnstable;
-
           caramel-img = self.nixosConfigurations."caramel".config.system.build.sdImage;
         };
 

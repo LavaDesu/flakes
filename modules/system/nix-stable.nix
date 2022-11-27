@@ -1,6 +1,5 @@
 { config, lib, pkgs, ... }: {
   nix = rec {
-    package = pkgs.nix_2_4;
     binaryCaches = [
       "https://cache.nixos.org?priority=10"
       "https://lava.cachix.org"
