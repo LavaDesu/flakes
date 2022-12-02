@@ -9,7 +9,7 @@
   };
   imports = with modules.system; [
     (modulesPath + "/profiles/qemu-guest.nix")
-    inputs.home-manager-porcupine.nixosModule
+    inputs.home-manager-raccoon.nixosModule
 
     base
     home-manager
