@@ -53,6 +53,10 @@ let
       publicKey = "Fkcp/VSN4Dkhly8V4hskF4lnDviA7VZHCnWf7OliFCg=";
       allowedIPs = [ "10.100.0.4/32" ];
     };
+    maple = {
+      publicKey = "kPw8hpANygfz83Oi/l+iCVYalV2zfs7fhkccjoGG2Do=";
+      allowedIPs = [ "10.100.0.5/32" ];
+    };
   };
 
   clientPeers = builtins.attrValues clients;
