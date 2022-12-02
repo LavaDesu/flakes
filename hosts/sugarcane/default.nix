@@ -7,7 +7,7 @@
     passwd.file = ../../secrets/passwd.age;
     wg_sugarcane.file = ../../secrets/wg_sugarcane.age;
   };
-  imports = with modules.system; [
+  imports = (with modules.system; [
     (modulesPath + "/profiles/qemu-guest.nix")
     inputs.home-manager-raccoon.nixosModule
 
@@ -24,5 +24,8 @@
     ./packages.nix
 
     ../../users/hana
-  ];
+  ]) ++
+  (with modules.services; [
+    nginx
+  ]);
 }
