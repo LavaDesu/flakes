@@ -1,5 +1,5 @@
 # vim: ft=nix
-{ config, inputs, pkgs, sysConfig, ... }:
+{ config, inputs, pkgs, ... }:
 let
   lib = pkgs.lib;
 
@@ -15,18 +15,11 @@ let
     ll = "ls -al";
     q = "exit";
 
-    peach = "ssh lava@peach";
-    bunny = "ssh bunny@peach";
-
-    fa = "grep -Inr";
-    fai = "grep -Iinr";
+    fa = "rg";
+    fai = "rg -i";
 
     g1 = "xgamma -gamma 1";
     g3 = "xgamma -gamma 1.3";
-
-    bat = "echo 'battery' | doas tee /sys/class/drm/card1/device/power_dpm_state";
-    bal = "echo 'balanced' | doas tee /sys/class/drm/card1/device/power_dpm_state";
-    sclk = "doas setclock 50000 70000 800";
 
     sysu = "doas systemctl restart";
     sysd = "doas systemctl stop";
@@ -38,7 +31,7 @@ let
     jf = "doas journalctl -f";
 
     fl = "cd ~/Projects/flakes";
-    nr = "doas nixos-rebuild switch --flake .#${sysConfig.networking.hostName} -v";
+    nr = "doas nixos-rebuild switch --flake .# -v -L";
 
     gs = "git status";
     ga = "git add";
@@ -49,7 +42,7 @@ let
     gco = "git checkout";
     gd = "git diff";
     gds = "git diff --staged";
-    gf = "git commit --amend --no-edit --reset-author";
+    gf = "git commit --amend --reset-author --no-edit";
     gl = "git log";
     gr = "git rebase -i";
   };

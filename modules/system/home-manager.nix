@@ -4,7 +4,6 @@
     useUserPackages = true;
     extraSpecialArgs = {
       inherit enableGUI inputs modules;
-      sysConfig = config;
     };
   };
 }
