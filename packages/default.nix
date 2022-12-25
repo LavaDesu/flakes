@@ -7,6 +7,7 @@
   linux-lava = callPackage ./linux-lava { inherit inputs; };
   nvim-treesitter-nightly = callPackage ./nvim-treesitter-nightly { inherit inputs; };
   packwiz = callPackage ./packwiz { inherit inputs; };
+  rivalcfg = callPackage ./rivalcfg { };
   spotify-adblock = callPackage ./spotify-adblock { inherit inputs; };
   tetrio-desktop = callPackage ./tetrio/base.nix { };
   tetrio-desktop-plus = callPackage ./tetrio/plus.nix { inherit tetrio-desktop; };
