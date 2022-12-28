@@ -1,17 +1,16 @@
-From 0120e137d9c3aebcb9ac7bd319216a92fbed7499 Mon Sep 17 00:00:00 2001
+From fca48ab00a55955f8f495e0c4bbfb3110fdc5004 Mon Sep 17 00:00:00 2001
 From: LavaDesu <me@lava.moe>
-Date: Mon, 3 Oct 2022 22:55:47 +0700
+Date: Wed, 28 Dec 2022 20:28:18 +0700
 Subject: [PATCH] Lava's amdgpu patches
 
 ---
- drivers/gpu/drm/amd/amdgpu/amdgpu.h         |   4 +
- drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c |   2 +-
- drivers/gpu/drm/amd/pm/amdgpu_pm.c          | 106 ++++++++++++++++++++
- drivers/gpu/drm/amd/pm/legacy-dpm/si_dpm.c  |  17 ++++
- 4 files changed, 128 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/amd/amdgpu/amdgpu.h        |   4 +
+ drivers/gpu/drm/amd/pm/amdgpu_pm.c         | 106 +++++++++++++++++++++
+ drivers/gpu/drm/amd/pm/legacy-dpm/si_dpm.c |  17 ++++
+ 3 files changed, 127 insertions(+)
 
 diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu.h b/drivers/gpu/drm/amd/amdgpu/amdgpu.h
-index d597e2656c4..6eec6b36c52 100644
+index 2eca5822055..503f3b889f1 100644
 --- a/drivers/gpu/drm/amd/amdgpu/amdgpu.h
 +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu.h
 @@ -215,6 +215,10 @@ extern int amdgpu_noretry;
@@ -25,21 +24,8 @@ index d597e2656c4..6eec6b36c52 100644
  #ifdef CONFIG_HSA_AMD
  extern int sched_policy;
  extern bool debug_evictions;
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c
-index 782cbca3753..8cb600cb3b4 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.c
-@@ -58,7 +58,7 @@ static int amdgpu_dma_buf_attach(struct dma_buf *dmabuf,
- 	struct amdgpu_device *adev = amdgpu_ttm_adev(bo->tbo.bdev);
- 	int r;
- 
--	if (pci_p2pdma_distance_many(adev->pdev, &attach->dev, 1, true) < 0)
-+	if (pci_p2pdma_distance_many(adev->pdev, &attach->dev, 1, amdgpu_dpm == 1) < 0)
- 		attach->peer2peer = false;
- 
- 	r = pm_runtime_get_sync(adev_to_drm(adev)->dev);
 diff --git a/drivers/gpu/drm/amd/pm/amdgpu_pm.c b/drivers/gpu/drm/amd/pm/amdgpu_pm.c
-index 5e318b3f6c0..8da0b91d3ad 100644
+index 236657eece4..747aeb00d38 100644
 --- a/drivers/gpu/drm/amd/pm/amdgpu_pm.c
 +++ b/drivers/gpu/drm/amd/pm/amdgpu_pm.c
 @@ -35,6 +35,11 @@
@@ -205,5 +191,5 @@ index 49c398ec0aa..1f3f8a210e7 100644
  			if (ps->performance_levels[i].sclk > max_sclk_vddc)
  				ps->performance_levels[i].sclk = max_sclk_vddc;
 -- 
-2.36.1
+2.37.3
 
