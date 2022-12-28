@@ -1,7 +1,6 @@
 { config, ... }: {
   services.picom = {
     enable = true;
-    experimentalBackends = true;
 
     # blur = true;
     # blurExclude = [
