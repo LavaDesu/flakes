@@ -35,7 +35,7 @@
     obs-studio
     openjdk17
     pavucontrol
-    polymc
+    prismlauncher
     screenkey
     tor-browser-bundle-bin
     transmission-remote-gtk
