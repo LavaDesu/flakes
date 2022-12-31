@@ -32,9 +32,5 @@
 
     ../../users/rin
   ];
-
-  hardware.opengl.package = (pkgs.mesa.overrideAttrs(o: {
-    patches = o.patches ++ [ ./mesa_mr_17182.patch ];
-  })).drivers;
 }
 
