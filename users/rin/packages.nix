@@ -24,7 +24,6 @@
     element-desktop
     eww
     feh
-    gamescope
     gimp
     gnome.file-roller
     kotatogram-desktop
