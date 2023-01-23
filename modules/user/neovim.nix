@@ -13,7 +13,7 @@ in {
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
-    package = pkgs.neovim-nightly;
+    #package = pkgs.neovim-nightly;
     withNodeJs = true;
 
     extraPackages = with pkgs; [
@@ -44,7 +44,8 @@ in {
       cmp_luasnip
       luasnip
 
-      (pkgs.me.nvim-treesitter-nightly.withPlugins (p: with p; [
+      #(pkgs.me.nvim-treesitter-nightly.withPlugins (p: with p; [
+      (nvim-treesitter.withPlugins (p: with p; [
         tree-sitter-c-sharp
         pkgs.me.tree-sitter-glimmer
         tree-sitter-html
