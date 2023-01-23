@@ -31,6 +31,7 @@
     insomnia
     maim
     #me.tetrio-desktop-plus
+    mumble
     obs-studio
     openjdk17
     pavucontrol
