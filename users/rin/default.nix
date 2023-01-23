@@ -1,7 +1,7 @@
 { config, lib, modules, pkgs, ... }: {
   users.users.rin = {
     isNormalUser = true;
-    extraGroups = [ "adbusers" "audio" "video" "wheel" ];
+    extraGroups = [ "adbusers" "audio" "corectrl" "video" "wheel" ];
     shell = pkgs.zsh;
     uid = 1001;
     passwordFile = config.age.secrets.passwd.path;
