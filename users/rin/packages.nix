@@ -30,7 +30,7 @@
     krita
     insomnia
     maim
-    me.tetrio-desktop-plus
+    #me.tetrio-desktop-plus
     obs-studio
     openjdk17
     pavucontrol
