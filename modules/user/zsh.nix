@@ -38,7 +38,7 @@ let
     jf = "doas journalctl -f";
 
     fl = "cd ~/Projects/flakes";
-    nr = "doas nixos-rebuild switch --flake .#${sysConfig.networking.hostName} -v";
+    nr = "doas nixos-rebuild switch --flake .#${sysConfig.networking.hostName} -v -L";
 
     gs = "git status";
     ga = "git add";
