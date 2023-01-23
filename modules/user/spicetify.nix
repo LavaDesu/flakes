@@ -9,11 +9,10 @@ in
 
   programs.spicetify = {
     spotifyPackage = pkgs.spotify-unwrapped.overrideAttrs(o: {
-      installPhase = let
-        a = pkgs.lib.replaceStrings ["--prefix PATH"] [''--prefix SPOTIFY_ADBLOCK_CONFIG : ${adblock}/lib/config.toml \
+      installPhase = pkgs.lib.replaceStrings ["--prefix PATH"] [
+        ''--prefix SPOTIFY_ADBLOCK_CONFIG : ${adblock}/lib/config.toml \
           --prefix LD_PRELOAD : ${adblock}/lib/libspotifyadblock.so \
           --prefix PATH''] o.installPhase;
-      in builtins.trace a a;
     });
 
     enable = true;
