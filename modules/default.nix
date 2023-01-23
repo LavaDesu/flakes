@@ -58,6 +58,7 @@ in {
     ./user/polybar.nix
     ./user/rofi.nix
     ./user/sessionVariables.nix
+    ./user/spicetify.nix
     ./user/sxhkd.nix
     ./user/theming.nix
     ./user/xdg.nix

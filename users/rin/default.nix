@@ -32,6 +32,7 @@
       kitty
       mpv
       rofi
+      spicetify
 
       dunst
       eww

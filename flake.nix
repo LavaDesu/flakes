@@ -8,12 +8,14 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix.url = "github:ryantm/agenix";
     nixos-generators.url = "github:nix-community/nixos-generators";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager-raccoon.inputs.nixpkgs.follows = "nixpkgs-raccoon";
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 

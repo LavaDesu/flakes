@@ -419,6 +419,7 @@
         "packwiz": "packwiz",
         "pure": "pure",
         "rust-overlay": "rust-overlay",
+        "spicetify-nix": "spicetify-nix",
         "spotify-adblock": "spotify-adblock",
         "tree-sitter-glimmer": "tree-sitter-glimmer",
         "tree-sitter-jsonc": "tree-sitter-jsonc",
@@ -446,6 +447,26 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "spicetify-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1672725918,
+        "narHash": "sha256-hRFozbeEJOatUGjsOyiBsXzh9bio7LfszqRdmE1GO48=",
+        "owner": "the-argus",
+        "repo": "spicetify-nix",
+        "rev": "f97658eb60cb29a1a35eb6af2ec85d590f1b4a49",
+        "type": "github"
+      },
+      "original": {
+        "owner": "the-argus",
+        "repo": "spicetify-nix",
         "type": "github"
       }
     },
