@@ -31,9 +31,9 @@ let
         serverIp
       ];
     };
-    blossom = {
+    hyacinth = {
       gateway = "192.168.100.1";
-      interface = "wlp3s0";
+      interface = "enp5s0";
       routes = [
         serverIp
       ];
@@ -45,7 +45,7 @@ let
       publicKey = "VDqcpS0lJzFgwikj61MJ1xc9P8Cuq0NXa+Hc+etn2iA=";
       allowedIPs = [ "10.100.0.2/32" ];
     };
-    blossom = {
+    hyacinth = {
       publicKey = "6nVhazYdmC15A/nke9VrqIg3sOBVOmqj4GEsyBq7MVo=";
       allowedIPs = [ "10.100.0.3/32" ];
     };

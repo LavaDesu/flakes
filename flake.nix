@@ -69,6 +69,7 @@
     in
     {
       nixosConfigurations."blossom" = mkSystem nixpkgs "blossom" "x86_64-linux" true [];
+      nixosConfigurations."hyacinth" = mkSystem nixpkgs "hyacinth" "x86_64-linux" true [];
 
       nixosConfigurations."caramel" = mkSystem nixpkgs-raccoon "caramel" "aarch64-linux" false [{
         nixpkgs.overlays = [
