@@ -32,10 +32,15 @@
 
     ../../users/rin
   ];
-  programs.corectrl.enable = true;
+  programs.corectrl = {
+    enable = true;
+    gpuOverclock = {
+      enable = true;
+      ppfeaturemask = "0xffffffff";
+    };
+  };
   services.murmur = {
     enable = true;
     openFirewall = true;
   };
 }
-
