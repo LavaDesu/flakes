@@ -28,6 +28,8 @@
     gnome.file-roller
     kotatogram-desktop
     krita
+    lm_sensors
+    lutris
     insomnia
     maim
     #me.tetrio-desktop-plus
@@ -36,6 +38,7 @@
     openjdk17
     pavucontrol
     prismlauncher
+    psensor
     screenkey
     tor-browser-bundle-bin
     transmission-remote-gtk
