@@ -47,4 +47,7 @@
     enable = true;
     qemu.package = pkgs.qemu_kvm.override { smbdSupport = true; };
   };
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }

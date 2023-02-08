@@ -26,6 +26,7 @@
     feh
     gimp
     gnome.file-roller
+    gnome.zenity
     kotatogram-desktop
     krita
     lm_sensors
