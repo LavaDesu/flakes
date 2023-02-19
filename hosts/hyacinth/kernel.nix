@@ -5,7 +5,7 @@
       systemd-boot.enable = true;
     };
     initrd.availableKernelModules = [ "xhci_pci" "nvme" ];
-    initrd.kernelModules = [ "amdgpu" ];
+    initrd.kernelModules = [ "kms" ];
     kernelParams = [
       "amdgpu.gpu_recovery=1"
       "intel_pstate=passive"
