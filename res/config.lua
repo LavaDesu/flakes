@@ -269,4 +269,7 @@ require("lsp_signature").setup {
 }
 
 -- LSP/fzf
-require'fzf_lsp'.setup()
+require("fzf_lsp").setup()
+
+-- LSP/flutter
+require("flutter-tools").setup()
