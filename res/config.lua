@@ -277,6 +277,7 @@ require("flutter-tools").setup {
         enabled = true
     },
     lsp = {
+        on_attach = on_attach,
         cmd = { "{{DART_PATH}}", "language-server", "--protocol=lsp" }
     }
 }
