@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 let
   luaconf = pkgs.writeText "config.lua"
-    (lib.replaceStrings ["{{OMNISHARP_PATH}}"] ["${pkgs.omnisharp-roslyn}/bin/OmniSharp"]
+    (lib.replaceStrings
+      ["{{OMNISHARP_PATH}}" "{{DART_PATH}}"]
+      ["${pkgs.omnisharp-roslyn}/bin/OmniSharp" "${pkgs.dart}/bin/dart"]
       (builtins.readFile ../../res/config.lua));
 in {
   systemd.user.tmpfiles.rules = [

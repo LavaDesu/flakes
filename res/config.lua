@@ -272,4 +272,8 @@ require("lsp_signature").setup {
 require("fzf_lsp").setup()
 
 -- LSP/flutter
-require("flutter-tools").setup()
+require("flutter-tools").setup {
+    lsp = {
+        cmd = { "{{DART_PATH}}", "language-server", "--protocol=lsp" }
+    }
+}
