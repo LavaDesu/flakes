@@ -40,6 +40,7 @@ in {
       lsp_signature-nvim
 
       nvim-cmp
+      nvim-dap
       nvim-lspconfig
       cmp-nvim-lsp
       cmp_luasnip
