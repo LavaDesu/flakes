@@ -26,6 +26,7 @@ in {
     ];
 
     plugins = with pkgs.vimPlugins; [
+      flutter-tools-nvim
       fzf-vim
       fzf-lsp-nvim
       lualine-nvim
