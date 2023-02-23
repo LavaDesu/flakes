@@ -273,6 +273,9 @@ require("fzf_lsp").setup()
 
 -- LSP/flutter
 require("flutter-tools").setup {
+    debugger = {
+        enabled = true
+    },
     lsp = {
         cmd = { "{{DART_PATH}}", "language-server", "--protocol=lsp" }
     }
