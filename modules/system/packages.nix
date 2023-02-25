@@ -19,9 +19,9 @@
     gnome.nautilus
   ];
   environment.variables.EDITOR = "nvim";
-  programs.adb.enable = true;
 }
 // (if !enableGUI then {} else {
+  programs.adb.enable = true;
   hardware.opengl.extraPackages = with pkgs; [
     vaapiIntel
     vaapiVdpau
