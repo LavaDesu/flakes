@@ -1,9 +1,9 @@
 self: super: {
   discord-canary = super.discord-canary.override rec {
-    version = "0.0.134";
+    version = "0.0.148";
     src = builtins.fetchurl {
       url = "https://dl-canary.discordapp.net/apps/linux/${version}/discord-canary-${version}.tar.gz";
-      sha256 = "0hynv9nh6lcfy44yxs33686iyzvjrnczxkppb75c6a4wa7m5l8hz";
+      sha256 = "02cv8irj5rk8zpzyjknkvqkzfwfkyyvgv695i3mh3p734c7x56nr";
     };
   };
 }
