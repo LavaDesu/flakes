@@ -43,6 +43,7 @@
     enable = true;
     openFirewall = true;
   };
+  virtualisation.spiceUSBRedirection.enable = true;
   virtualisation.libvirtd = {
     enable = true;
     qemu.package = pkgs.qemu_kvm.override { smbdSupport = true; };
