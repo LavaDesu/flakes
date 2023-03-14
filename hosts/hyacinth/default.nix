@@ -52,4 +52,5 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   services.printing.enable = true;
+  services.printing.drivers = [ pkgs.epson-escpr ];
 }
