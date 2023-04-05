@@ -43,10 +43,14 @@
     enable = true;
     openFirewall = true;
   };
-  virtualisation.spiceUSBRedirection.enable = true;
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu.package = pkgs.qemu_kvm.override { smbdSupport = true; };
+  virtualisation = {
+    lxd.enable = true;
+    waydroid.enable = true;
+    spiceUSBRedirection.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.package = pkgs.qemu_kvm.override { smbdSupport = true; };
+    };
   };
   services.flatpak.enable = true;
   xdg.portal.enable = true;
