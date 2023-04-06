@@ -19,10 +19,20 @@ in
     theme = spicePkgs.themes.Dribbblish;
     colorScheme = "purple";
 
+    enabledCustomApps = with spicePkgs.apps; [
+      lyrics-plus
+    ];
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
       shuffle # shuffle+ (special characters are sanitized out of ext names)
       hidePodcasts
+
+      fullAppDisplayMod
+      skipStats
+      songStats
+      history
+      hidePodcasts
+      volumePercentage
     ];
   };
 
