@@ -31,7 +31,14 @@
   ];
   programs.light.enable = true;
   hardware.opentabletdriver.enable = true;
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    package = pkgs.steam.override {
+      extraPkgs = pkgs: with pkgs; [
+        gsettings-desktop-schemas
+      ];
+    };
+  };
   services.dbus.packages = [ pkgs.dconf pkgs.gcr ];
   services.gnome.sushi.enable = true;
 })
