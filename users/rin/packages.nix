@@ -27,7 +27,6 @@
     gimp
     gnome.file-roller
     gnome.zenity
-    jetbrains.idea-community
     kotatogram-desktop
     krita
     lm_sensors
