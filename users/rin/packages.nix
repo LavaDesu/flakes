@@ -34,7 +34,7 @@
     insomnia
     maim
     me.rivalcfg
-    #me.tetrio-desktop-plus
+    me.tetrio-desktop-plus
     mumble
     obs-studio
     openjdk17
