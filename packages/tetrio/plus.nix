@@ -1,32 +1,43 @@
 {
+  fetchzip,
+  lib,
   symlinkJoin,
   stdenvNoCC,
   tetrio-desktop,
   unzip
 }:
+
 let
   version = "0.23.7";
-  patchedAsar = stdenvNoCC.mkDerivation {
-    inherit version;
-    name = "tetrio-plus";
-    src = builtins.fetchurl {
-      url = "https://gitlab.com/UniQMG/tetrio-plus/uploads/e51f2fd7a1370bf4ceeecd371204c2e1/tetrio-plus_0.23.7_app.asar.zip";
-      sha256 = "03nla54r6s2xhd1ipxl0ffx6q0brby1jlxdx8p2q1nw80dx4gf1l";
-    };
-    dontUnpack = true;
 
-    nativeBuildInputs = [ unzip ];
-    buildPhase = ''
-      mkdir -p $out
-      unzip $src -d $out
+  patchedAsar = stdenvNoCC.mkDerivation rec {
+    pname = "tetrio-plus";
+    version = "0.25.3";
+
+    src = fetchzip {
+      url = "https://gitlab.com/UniQMG/tetrio-plus/uploads/684477053451cd0819e2c84e145966eb/tetrio-plus_0.25.3_app.asar.zip";
+      sha256 = "sha256-GQgt4GZNeKx/uzmVsuKppW2zg8AAiGqsk2JYJIkqfVE=";
+    };
+
+    installPhase = ''
+      runHook preInstall
+      install app.asar $out
+      runHook postInstall
     '';
-    dontInstall = true;
+
+    meta = with lib; {
+      description = "TETR.IO customization toolkit";
+      homepage = "https://gitlab.com/UniQMG/tetrio-plus";
+      license = licenses.mit;
+      maintainers = with maintainers; [ huantian ];
+      platforms = [ "x86_64-linux" ];
+    };
   };
 in tetrio-desktop.overrideAttrs(old: {
   pname = "tetrio-desktop-plus";
   version = old.version + "+${version}";
 
-  installPhase = old.installPhase + ''
-    cp ${patchedAsar}/app.asar $out/opt/TETR.IO/resources
+  postInstall = ''
+    cp ${patchedAsar} $out/opt/TETR.IO/resources/app.asar
   '';
 })

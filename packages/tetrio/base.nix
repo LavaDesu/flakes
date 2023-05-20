@@ -6,6 +6,9 @@
 , autoPatchelfHook
 , alsa-lib
 , cups
+, dpkg
+, gtk3
+, libpulseaudio
 , libX11
 , libXScrnSaver
 , libXtst
@@ -20,26 +23,20 @@ stdenv.mkDerivation rec {
   version = "8.0.0";
 
   src = fetchurl {
-    url = "https://web.archive.org/web/20211228025517/https://tetr.io/about/desktop/builds/TETR.IO%20Setup.deb";
+    url = "https://web.archive.org/web/20211228025517if_/https://tetr.io/about/desktop/builds/TETR.IO%20Setup.deb";
     name = "${pname}.deb";
     sha256 = "1nlblfhrph4cw8rpic9icrs78mzrxyskl7ggyy2i8bk9i07i21xf";
   };
 
   nativeBuildInputs = [
-    alsa-lib
+    dpkg
     autoPatchelfHook
-    cups
-    libX11
-    libXScrnSaver
-    libXtst
-    mesa
-    nss
     wrapGAppsHook
   ];
 
   dontWrapGApps = true;
 
-  libPath = lib.makeLibraryPath [
+  buildInputs = [
     alsa-lib
     cups
     libX11
@@ -47,23 +44,35 @@ stdenv.mkDerivation rec {
     libXtst
     mesa
     nss
+    gtk3
+  ];
+
+  libPath = lib.makeLibraryPath [
+    libpulseaudio
     systemd
   ];
 
-  unpackPhase = ''
-    mkdir -p $TMP/${pname} $out/bin
-    cp $src $TMP/${pname}.deb
-    ar vx $TMP/${pname}.deb
-    tar --no-overwrite-dir -xvf data.tar.xz -C $TMP/${pname}/
-  '';
+  unpackCmd = "dpkg -x $curSrc src";
 
   installPhase = ''
-    cp -R $TMP/${pname}/{usr/share,opt} $out/
-    wrapProgram $out/opt/TETR.IO/${pname} \
-      --prefix LD_LIBRARY_PATH : ${libPath}:$out/opt/TETR.IO
-    ln -s $out/opt/TETR.IO/${pname} $out/bin/
-    substituteInPlace $out/share/applications/${pname}.desktop \
-      --replace "Exec=\"/opt/TETR.IO/${pname}\"" "Exec=\"$out/opt/TETR.IO/${pname}\""
+    runHook preInstall
+
+    mkdir $out
+    cp -r opt/ usr/share/ $out
+
+    mkdir $out/bin
+    ln -s $out/opt/TETR.IO/tetrio-desktop $out/bin/
+
+    substituteInPlace $out/share/applications/tetrio-desktop.desktop \
+      --replace "Exec=\"/opt/TETR.IO/tetrio-desktop\"" "Exec=\"$out/opt/TETR.IO/tetrio-desktop\""
+
+    runHook postInstall
+  '';
+
+  postFixup = ''
+    wrapProgram $out/opt/TETR.IO/tetrio-desktop \
+      --prefix LD_LIBRARY_PATH : ${libPath}:$out/opt/TETR.IO \
+      ''${gappsWrapperArgs[@]}
   '';
 
   meta = with lib; {
