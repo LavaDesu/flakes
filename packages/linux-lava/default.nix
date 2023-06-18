@@ -18,7 +18,6 @@ in buildLinux (args // {
   structuredExtraConfig = with lib.kernel; builtins.mapAttrs (_: value: lib.mkForce value) {
     LOCALVERSION = freeform "-tkg-Lava";
     ZENIFY = yes;
-    MHASWELL = yes;
     WINESYNC = module;
 
     # tickless timers
