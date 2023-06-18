@@ -1,8 +1,8 @@
 { fetchFromGitHub, inputs, lib }:
 let
-  version = "6.1.1";
-  kernelHash = "1ssxn81jfl0jf9brczfrrwd1f1vmf594jvhrs7zgcc54a5qg389c";
-  kernelPatchHash = "0qmmg4lmz8qhbdc2k6lhavbfak2r64jr8ac16wvnm1x72jwcsil9";
+  version = "6.3.8";
+  kernelHash = "07ivnxynbmvk3sh2z4i8sp6my2397m746h64f2ip1lkbxpsr2d5s";
+  kernelPatchHash = "1d4154704940g7h58mv5djkcvhy334zslh161giwhmm57lysjywj";
 
   mm = lib.versions.majorMinor version;
   tkgPatches = [
@@ -32,8 +32,8 @@ let
   borePatch = {
     name = "bore-patch";
     patch = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/78e1cd84c173959e87cca10f648fbcfbb37fbad2/${mm}/sched/0001-bore.patch";
-      sha256 = "10dfd15zhvkvlk29zqlmgxm99y3lbkjlilvrbrdl8rjcybs4gbws";
+      url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/a108a60471fe304e5321394238a4f6107a1d466e/${mm}/sched/0001-bore.patch";
+      sha256 = "1x3hmzrm9954ajgn4qs4s45skqz1pap8sw052wx2qqgaqp1bpzs9";
     };
   };
 in {
@@ -51,7 +51,7 @@ in {
   kernelPatches = [
     kernelPatchSrc
     borePatch
-    (patch ./si-manual-clocking.patch)
+    #(patch ./si-manual-clocking.patch)
     #(patch ./atomic-async-page-flips.patch)
     #(patch ./winesync-hotfix.patch)
   ]
