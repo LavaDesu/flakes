@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/44acd64171d440c3d91709a194bf35d6461e16c4";
     nixpkgs-raccoon.url = "github:NixOS/nixpkgs/nixos-22.11";
     home-manager.url = "github:nix-community/home-manager";
     home-manager-raccoon.url = "github:nix-community/home-manager/release-22.11";
