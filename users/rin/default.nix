@@ -1,4 +1,5 @@
 { config, lib, modules, pkgs, ... }: {
+  programs.zsh.enable = true;
   users.users.rin = {
     isNormalUser = true;
     extraGroups = [ "adbusers" "audio" "corectrl" "libvirtd" "video" "wheel" ];
