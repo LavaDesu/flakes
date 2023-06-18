@@ -7,7 +7,7 @@ rustPlatform.buildRustPackage {
   version = "1.0";
   src = inputs.spotify-adblock;
 
-  cargoSha256 = "sha256-07vswkW0BZCEg8Z/cS71bbkJ546k+YI38HN5bdIqTPU=";
+  cargoSha256 = "sha256-t8OVQEp4M0H7gTGaP/2KBChRvAyhWCWV+6d/tPXa3/k=";
 
   patches = [ ./0002-allow-setting-config-from-environment-variable.patch ];
 
