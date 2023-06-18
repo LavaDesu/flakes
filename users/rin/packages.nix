@@ -10,7 +10,7 @@
     ffmpeg
     gnupg
     kitty
-    nodejs-16_x
+    nodejs-18_x
     pamixer
     ripgrep
     rnix-lsp

@@ -1,13 +1,13 @@
 {
   mkShell,
 
-  nodejs-16_x,
+  nodejs-18_x,
   nodePackages,
   watchman
 }:
 mkShell {
   buildInputs = [
-    nodejs-16_x
+    nodejs-18_x
     watchman
 
     nodePackages.pnpm
