@@ -33,7 +33,7 @@ let
     name = "bore-patch";
     patch = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/CachyOS/kernel-patches/a108a60471fe304e5321394238a4f6107a1d466e/${mm}/sched/0001-bore.patch";
-      sha256 = "1x3hmzrm9954ajgn4qs4s45skqz1pap8sw052wx2qqgaqp1bpzs9";
+      sha256 = "1qvy3sq6vc7f1mggwkxrmbzmwjabp3vmcywm81gmbcpd87l786n9";
     };
   };
 in {
