@@ -61,17 +61,14 @@ in {
             "rt.time.hard" = 200000;
           };
         }
-        {
-          name = "libpipewire-module-protocol-pulse";
-          args = {
-            "pulse.min.req" = "${str.quantum.min}/${str.rate}";
-            "pulse.default.req" = "${str.quantum.def}/${str.rate}";
-            "pulse.max.req" = "${str.quantum.max}/${str.rate}";
-            "pulse.min.quantum" = "${str.quantum.min}/${str.rate}";
-            "pulse.max.quantum" = "${str.quantum.max}/${str.rate}";
-          };
-        }
       ];
+      "pulse.properties" = {
+         "pulse.min.req" = "${str.quantum.min}/${str.rate}";
+         "pulse.default.req" = "${str.quantum.def}/${str.rate}";
+         "pulse.max.req" = "${str.quantum.max}/${str.rate}";
+         "pulse.min.quantum" = "${str.quantum.min}/${str.rate}";
+         "pulse.max.quantum" = "${str.quantum.max}/${str.rate}";
+      };
       "pulse.rules" = [
         {
           # Discord notification sounds fix
