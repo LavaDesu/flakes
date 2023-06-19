@@ -13,7 +13,7 @@
     script = builtins.readFile ../../scripts/polybar.sh;
     settings = {
       "bar/scroller" = {
-        monitor = "DisplayPort-0";
+        monitor = "DP-1";
         width = "100%";
         height = 1;
         background = colours.background1;
@@ -28,7 +28,7 @@
       };
 
       "bar/top" = {
-        monitor = "DisplayPort-0";
+        monitor = "DP-1";
         width = "100%";
         height = 29;
         background = colours.background1;

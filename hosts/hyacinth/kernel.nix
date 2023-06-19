@@ -17,7 +17,7 @@
     kernelModules = [ "v4l2loopback" ];
   };
   services.xserver.xrandrHeads = [{
-    output = "DisplayPort-0";
+    output = "DP-1";
     primary = true;
     monitorConfig = ''
       Modeline "1920x1080_165.00"  525.00  1920 2088 2296 2672  1080 1083 1088 1192 -hsync +vsync
