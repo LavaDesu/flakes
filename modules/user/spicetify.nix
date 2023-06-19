@@ -16,7 +16,9 @@ in
     });
 
     enable = true;
-    theme = spicePkgs.themes.Dribbblish;
+    theme = spicePkgs.themes.Dribbblish // {
+      requiredExtensions = [((builtins.head spicePkgs.themes.Dribbblish.requiredExtensions) // { filename = "theme.js"; }) ];
+    };
     colorScheme = "purple";
 
     enabledCustomApps = with spicePkgs.apps; [
