@@ -103,7 +103,6 @@ in {
     enable = true;
     dotDir = ".config/zsh";
 
-    enableAutosuggestions = true;
     autocd = true;
     defaultKeymap = "viins";
 
@@ -148,10 +147,14 @@ in {
     ];
 
     plugins = builtins.map (e: pluginFromInput e) [
+      "pure"
       "zsh-abbr"
       "zsh-history-substring-search"
       "fast-syntax-highlighting"
-      "pure"
-    ];
+    ] ++ [{
+      name = "zsh-autosuggestions";
+      src = pkgs.zsh-autosuggestions + "/share/zsh-autosuggestions";
+      file = "zsh-autosuggestions.zsh";
+    }];
   };
 }
