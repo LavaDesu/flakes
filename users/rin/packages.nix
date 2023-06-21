@@ -33,6 +33,7 @@
     lutris
     insomnia
     maim
+    mangohud
     me.rivalcfg
     me.tetrio-desktop-plus
     mumble
@@ -42,6 +43,7 @@
     pavucontrol
     prismlauncher
     psensor
+    qbittorrent
     screenkey
     tor-browser-bundle-bin
     transmission-remote-gtk
