@@ -17,7 +17,9 @@ in
 
     enable = true;
     theme = spicePkgs.themes.Dribbblish // {
-      requiredExtensions = [((builtins.head spicePkgs.themes.Dribbblish.requiredExtensions) // { filename = "theme.js"; }) ];
+      #src = inputs.spicetify-themes;
+      extraCommands = "spicetify-cli --no-restart config experimental_features 1";
+      #requiredExtensions = [((builtins.head spicePkgs.themes.Dribbblish.requiredExtensions) // { filename = "theme.js"; }) ];
     };
     colorScheme = "purple";
 
@@ -25,17 +27,14 @@ in
       lyrics-plus
     ];
     enabledExtensions = with spicePkgs.extensions; [
-      fullAppDisplay
+      fullAppDisplayMod
       shuffle # shuffle+ (special characters are sanitized out of ext names)
       hidePodcasts
 
-      fullAppDisplayMod
       skipStats
       songStats
       history
-      hidePodcasts
       volumePercentage
     ];
   };
-
 }

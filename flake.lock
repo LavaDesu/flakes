@@ -681,6 +681,7 @@
         "pure": "pure",
         "rust-overlay": "rust-overlay",
         "spicetify-nix": "spicetify-nix",
+        "spicetify-themes": "spicetify-themes",
         "spotify-adblock": "spotify-adblock",
         "tree-sitter-glimmer": "tree-sitter-glimmer",
         "tree-sitter-jsonc": "tree-sitter-jsonc",
@@ -729,6 +730,22 @@
       "original": {
         "owner": "the-argus",
         "repo": "spicetify-nix",
+        "type": "github"
+      }
+    },
+    "spicetify-themes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1687406074,
+        "narHash": "sha256-DPn54R0uRjmi6gl9Dfh7Hx1w2pDprltQJJp222esK3M=",
+        "owner": "spicetify",
+        "repo": "spicetify-themes",
+        "rev": "fba1a2971b8fd0cfa859e5901a724abbdd778e5b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "spicetify",
+        "repo": "spicetify-themes",
         "type": "github"
       }
     },

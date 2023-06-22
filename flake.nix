@@ -22,6 +22,7 @@
     # services
     hosts-blocklists = { url = "github:notracking/hosts-blocklists"; flake = false; };
     website = { url = "github:LavaDesu/lavadesu.github.io/master"; flake = false; };
+    spicetify-themes = { url = "github:spicetify/spicetify-themes"; flake = false; };
 
     # zsh plugins
     zsh-abbr = { url = "github:olets/zsh-abbr"; flake = false; };
