@@ -27,12 +27,12 @@ in {
   xdg = {
     enable = true;
     mime.enable = true;
-    mimeApps = {
-      enable = true;
+    # mimeApps = {
+    #   enable = true;
 
-      associations.added = mimes;
-      defaultApplications = mimes;
-    };
+    #   associations.added = mimes;
+    #   defaultApplications = mimes;
+    # };
   };
 
   # XXX: might need to be moved
