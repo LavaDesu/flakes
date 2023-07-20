@@ -20,6 +20,7 @@
 
     nodePackages_latest.pnpm
   ] ++ lib.optionals enableGUI [
+    android-studio
     discord-canary
     element-desktop
     eww
