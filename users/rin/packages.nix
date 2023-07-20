@@ -34,7 +34,6 @@
     insomnia
     maim
     mangohud
-    me.rivalcfg
     me.tetrio-desktop-plus
     mumble
     obs-studio
@@ -44,6 +43,7 @@
     prismlauncher
     psensor
     qbittorrent
+    rivalcfg
     screenkey
     tor-browser-bundle-bin
     transmission-remote-gtk
