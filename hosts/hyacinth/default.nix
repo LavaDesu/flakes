@@ -57,4 +57,8 @@
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.epson-escpr pkgs.me.epson-201112j ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1u"
+  ];
 }
