@@ -25,7 +25,7 @@
     element-desktop
     eww
     feh
-    gimp
+    (gimp.override { withPython = true; })
     gnome.file-roller
     gnome.zenity
     kotatogram-desktop
