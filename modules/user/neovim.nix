@@ -20,6 +20,7 @@ in {
 
     extraPackages = with pkgs; [
       rust-analyzer
+      nodePackages."@prisma/language-server"
       nodePackages.diagnostic-languageserver
       nodePackages.eslint_d
       nodePackages.typescript-language-server
