@@ -59,6 +59,7 @@ in {
         tree-sitter-lua
         tree-sitter-nix
         tree-sitter-php
+        tree-sitter-prisma
         tree-sitter-regex
         tree-sitter-rust
         tree-sitter-toml
