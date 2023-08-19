@@ -216,6 +216,9 @@ nvim_lsp.rust_analyzer.setup {
                     enforce = true,
                     group = "module"
                 }
+            },
+            diagnostics = {
+                disabled = { "incorrect-ident-case" }
             }
         }
     }
