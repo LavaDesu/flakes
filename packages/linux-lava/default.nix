@@ -110,4 +110,5 @@ in buildLinux (args // {
     LATENCYTOP = no;
     DEBUG_PREEMPT = no;
   };
+  ignoreConfigErrors = true;
 } // (args.argsOverride or {}))
