@@ -1,10 +1,11 @@
 { buildLinux
 , callPackage
 , ccacheStdenv
-, clangStdenv
 , inputs
 , kernelPatches
 , lib
+, llvmPackages
+, overrideCC
 , ...
 } @ args:
 
@@ -12,7 +13,10 @@ let
   sources = callPackage ./sources.nix { inherit inputs; };
 in buildLinux (args // {
   inherit (sources) src kernelPatches;
-  stdenv = ccacheStdenv.override { stdenv = clangStdenv; };
+  stdenv = ccacheStdenv.override {
+    # :sob: see https://github.com/NixOS/nixpkgs/issues/142901
+    stdenv = overrideCC llvmPackages.stdenv (llvmPackages.stdenv.cc.override { inherit (llvmPackages) bintools; });
+  };
   version = "${sources.version}-tkg-Lava";
   isZen = true;
   extraMakeFlags = [ "LLVM=1" "LLVM_IAS=1" ];
