@@ -1,5 +1,7 @@
 { buildLinux
 , callPackage
+, ccacheStdenv
+, clangStdenv
 , inputs
 , kernelPatches
 , lib
@@ -10,8 +12,10 @@ let
   sources = callPackage ./sources.nix { inherit inputs; };
 in buildLinux (args // {
   inherit (sources) src kernelPatches;
+  stdenv = ccacheStdenv.override { stdenv = clangStdenv; };
   version = "${sources.version}-tkg-Lava";
   isZen = true;
+  extraMakeFlags = [ "LLVM=1" "LLVM_IAS=1" ];
   # TODO:
   # some stuff is set in pkgs/os-specific/linux/kernel/common-config.nix
   # but i have no idea how to change it
@@ -19,6 +23,39 @@ in buildLinux (args // {
     LOCALVERSION = freeform "-tkg-Lava";
     ZENIFY = yes;
     WINESYNC = module;
+
+    #tkg defaults
+    DYNAMIC_FAULT = no;
+    DEFAULT_FQ_CODEL = no;
+    WERROR = no;
+    NTP_PPS = no;
+    ZSWAP_COMPRESSOR_DEFAULT_LZO = no;
+    PROFILE_ALL_BRANCHES = no;
+    CRYPTO_LZ4 = yes;
+    CRYPTO_LZ4HC = yes;
+    LZ4_COMPRESS = yes;
+    LZ4HC_COMPRESS = yes;
+    ZSWAP_COMPRESSOR_DEFAULT_LZ4 = yes;
+    DEBUG_FORCE_FUNCTION_ALIGN_64B = no;
+    X86_P6_NOP = no;
+    RCU_STRICT_GRACE_PERIOD = no;
+    ZSWAP_COMPRESSOR_DEFAULT = freeform "lz4";
+    CPU_FREQ_DEFAULT_GOV_SCHEDUTIL = yes;
+    CPU_FREQ_DEFAULT_GOV_ONDEMAND = no;
+    CPU_FREQ_DEFAULT_GOV_CONSERVATIVE = no;
+    CPU_FREQ_DEFAULT_GOV_PERFORMANCE = no;
+    CPU_FREQ_DEFAULT_GOV_PERFORMANCE_NODEF = no;
+    BLK_DEV_LOOP = module;
+    I2C_NCT6775 = module; # openrgb
+
+    # clang/llvm
+    LTO_CLANG_FULL = no;
+    LTO_CLANG_THIN = yes;
+    LTO_NONE = no;
+    KCSAN = no;
+    INIT_ON_FREE_DEFAULT_ON = yes;
+    INIT_STACK_ALL_ZERO = yes;
+    INIT_STACK_NONE = no;
 
     # tickless timers
     HZ_PERIODIC = no;
@@ -69,5 +106,4 @@ in buildLinux (args // {
     LATENCYTOP = no;
     DEBUG_PREEMPT = no;
   };
-  ignoreConfigErrors = true;
 } // (args.argsOverride or {}))
