@@ -16,6 +16,7 @@
 
     audio
     base
+    ccache
     greetd
     gui
     input
@@ -47,7 +48,6 @@
   };
   virtualisation = {
     lxd.enable = true;
-    #waydroid.enable = true;
     spiceUSBRedirection.enable = true;
     libvirtd = {
       enable = true;
@@ -66,5 +66,4 @@
     "python-2.7.18.6-env"
     "python-2.7.18.6"
   ];
-
 }

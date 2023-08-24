@@ -3,6 +3,7 @@
     package = pkgs.nixUnstable;
 
     settings = rec {
+      extra-sandbox-paths = [ config.programs.ccache.cacheDir ];
       substituters = [
         "https://cache.nixos.org?priority=10"
         "https://lava.cachix.org"
