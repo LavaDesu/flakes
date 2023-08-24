@@ -4,7 +4,7 @@ self: super: {
       # Some info:
       # - Make startx use $XAUTHORITY as server auth files instead of .serverauth.$$
       # - Make startx respect $XINITRC and $XSERVERRC
-      patches = old.patches ++ [ ./patches/startx.patch ];
+      patches = (old.patches or []) ++ [ ./patches/startx.patch ];
     });
   };
 }
