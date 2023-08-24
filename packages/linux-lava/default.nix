@@ -4,14 +4,15 @@
 , inputs
 , kernelPatches
 , lib
-, llvmPackages
+, llvmPackages_16
 , overrideCC
 , ...
 } @ args:
 
 let
   sources = callPackage ./sources.nix { inherit inputs; };
-in buildLinux (args // {
+  llvmPackages = llvmPackages_16;
+in (buildLinux (args // {
   inherit (sources) src kernelPatches;
   stdenv = ccacheStdenv.override {
     # :sob: see https://github.com/NixOS/nixpkgs/issues/142901
@@ -111,4 +112,6 @@ in buildLinux (args // {
     DEBUG_PREEMPT = no;
   };
   ignoreConfigErrors = true;
-} // (args.argsOverride or {}))
+} // (args.argsOverride or {}))).overrideAttrs(o: {
+  hardeningDisable = (o.hardeningDisable or []) ++ [ "strictoverflow" ];
+})
