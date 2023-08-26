@@ -12,9 +12,6 @@
       "split_lock_detect=off"
     ];
     kernelPackages = lib.mkForce (pkgs.linuxPackagesFor pkgs.me.linux-lava);
-
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback.out ];
-    kernelModules = [ "v4l2loopback" ];
   };
   services.xserver.xrandrHeads = [{
     output = "DP-1";
