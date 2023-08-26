@@ -49,7 +49,6 @@
     tor-browser-bundle-bin
     transmission-remote-gtk
     virt-manager
-    inputs.nix-gaming.packages.x86_64-linux.wine-osu
     winetricks
     xclip
     xorg.xgamma
