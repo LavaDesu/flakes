@@ -47,7 +47,6 @@
     openFirewall = true;
   };
   virtualisation = {
-    lxd.enable = true;
     spiceUSBRedirection.enable = true;
     libvirtd = {
       enable = true;
