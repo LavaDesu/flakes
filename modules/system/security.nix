@@ -1,9 +1,19 @@
 { config, pkgs, ... }: {
-  networking.firewall = {
+  networking.firewall =
+  let
+    iptables = "${pkgs.iptables}/bin/iptables";
+    genCmds = type: ''
+      ${iptables} -${type} nixos-fw -p tcp --source 192.168.0.0/16 -j nixos-fw-accept ${if type == "D" then " || true" else ""}
+      ${iptables} -${type} nixos-fw -p udp --source 192.168.0.0/16 -j nixos-fw-accept ${if type == "D" then " || true" else ""}
+    '';
+  in {
     enable = true;
     allowedUDPPortRanges = [ { from = 20000; to = 20100; } ];
     allowedTCPPortRanges = [ { from = 20000; to = 20100; } ];
     trustedInterfaces = [ "wg0" ];
+
+    extraCommands = genCmds "I";
+    extraStopCommands = genCmds "D";
   };
 
   services.openssh = {
