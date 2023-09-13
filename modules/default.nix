@@ -53,6 +53,7 @@ in {
     ./user/neovim.nix
     ./user/neovim-minimal.nix
     ./user/npm.nix
+    ./user/obs.nix
     ./user/packages-rin.nix
     ./user/pass.nix
     ./user/picom.nix

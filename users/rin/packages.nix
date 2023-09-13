@@ -37,7 +37,6 @@
     mangohud
     me.tetrio-desktop-plus
     mumble
-    obs-studio
     openjdk17
     inputs.nix-gaming.packages.x86_64-linux.osu-lazer-bin
     inputs.nix-gaming.packages.x86_64-linux.wine-osu

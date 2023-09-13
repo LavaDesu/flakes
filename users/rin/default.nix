@@ -32,6 +32,7 @@
 
       kitty
       mpv
+      obs
       rofi
       spicetify
 
