@@ -17,14 +17,18 @@
     audio
     base
     ccache
+    corectrl
+    flatpak
     greetd
     gui
     input
     kernel
     nix
     packages
+    printing
     security
     snapper
+    virtualisation
     wireguard
 
     modules.services.postgres
@@ -35,34 +39,14 @@
 
     ../../users/rin
   ];
-  programs.corectrl = {
-    enable = true;
-    gpuOverclock = {
-      enable = true;
-      ppfeaturemask = "0xffffffff";
-    };
-  };
   services.murmur = {
     enable = true;
     openFirewall = true;
   };
-  virtualisation = {
-    spiceUSBRedirection.enable = true;
-    libvirtd = {
-      enable = true;
-      qemu.package = pkgs.qemu_kvm.override { smbdSupport = true; };
-    };
-  };
-  services.flatpak.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.epson-escpr pkgs.me.epson-201112j ];
   services.postgresql.ensureDatabases = [ "barista" "barista-dev" ];
 
+  # For steam fhs-env
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1v"
-    "python-2.7.18.6-env"
-    "python-2.7.18.6"
   ];
 }

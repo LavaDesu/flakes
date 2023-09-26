@@ -28,6 +28,8 @@ in {
     ./system/audio.nix
     ./system/base.nix
     ./system/ccache.nix
+    ./system/corectrl.nix
+    ./system/flatpak.nix
     ./system/greetd.nix
     ./system/gui.nix
     ./system/home-manager.nix
@@ -36,9 +38,11 @@ in {
     ./system/nix.nix
     ./system/nix-stable.nix
     ./system/packages.nix
+    ./system/printing.nix
     ./system/security.nix
     ./system/snapper.nix
     ./system/transmission.nix
+    ./system/virtualisation.nix
     ./system/wireguard.nix
   ];
   user = mkAttrsFromPaths [
