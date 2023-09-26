@@ -39,10 +39,6 @@
 
     ../../users/rin
   ];
-  services.murmur = {
-    enable = true;
-    openFirewall = true;
-  };
   services.postgresql.ensureDatabases = [ "barista" "barista-dev" ];
 
   # For steam fhs-env

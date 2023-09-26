@@ -35,7 +35,6 @@
     maim
     mangohud
     me.tetrio-desktop-plus
-    mumble
     inputs.nix-gaming.packages.x86_64-linux.osu-lazer-bin
     inputs.nix-gaming.packages.x86_64-linux.wine-osu
     pavucontrol
