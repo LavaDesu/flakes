@@ -16,16 +16,15 @@
     rnix-lsp
     unrar
     weechat
-    youtube-dl
+    yt-dlp
 
     nodePackages_latest.pnpm
   ] ++ lib.optionals enableGUI [
-    android-studio
     discord-canary
     element-desktop
     eww
     feh
-    (gimp.override { withPython = false; })
+    gimp
     gnome.file-roller
     gnome.zenity
     kotatogram-desktop
@@ -37,7 +36,6 @@
     mangohud
     me.tetrio-desktop-plus
     mumble
-    openjdk17
     inputs.nix-gaming.packages.x86_64-linux.osu-lazer-bin
     inputs.nix-gaming.packages.x86_64-linux.wine-osu
     pavucontrol
