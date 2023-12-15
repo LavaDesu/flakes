@@ -43,6 +43,6 @@
 
   # For steam fhs-env
   nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1v"
+    "openssl-1.1.1w"
   ];
 }
