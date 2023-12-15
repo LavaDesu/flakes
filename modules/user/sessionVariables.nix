@@ -25,5 +25,7 @@
 
     WINEPREFIX = "${config.xdg.dataHome}/wine64";
     WINEARCH = "win64";
+    # Stops wine from creating filetype associations
+    WINEDLLOVERRIDES = "winemenubuilder.exe=d";
   };
 }
