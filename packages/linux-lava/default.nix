@@ -87,9 +87,6 @@ let
       PREEMPTION = yes;
       PREEMPT_DYNAMIC = yes;
 
-      # scheduler
-      SCHED_BORE = yes;
-
       # disable numa
       NUMA = no;
       AMD_NUMA = no;
