@@ -17,7 +17,7 @@
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming.url = "github:fufexan/nix-gaming/81af8b6232ed99c46413ca6d43aeb185c53f65b8";
 
     # services
     hosts-blocklists = { url = "github:notracking/hosts-blocklists"; flake = false; };
