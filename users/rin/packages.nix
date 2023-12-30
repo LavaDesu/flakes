@@ -12,6 +12,7 @@
     kitty
     nodejs-18_x
     pamixer
+    qmk
     ripgrep
     rnix-lsp
     unrar

@@ -31,6 +31,7 @@
   ];
   programs.light.enable = true;
   hardware.opentabletdriver.enable = true;
+  hardware.keyboard.qmk.enable = true;
   programs.steam = {
     enable = true;
     package = pkgs.steam.override {
