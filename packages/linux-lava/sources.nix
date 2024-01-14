@@ -1,6 +1,6 @@
 { fetchFromGitHub, inputs, lib }:
 let
-  version = "6.6.7";
+  version = "6.7.0";
   kernelHash = "1l2nisx9lf2vdgkq910n5ldbi8z25ky1zvl67zgwg2nxcdna09nr";
   kernelPatchHash = "1qnial7m91l3amcsgms3cs599pi529kvda1c982qk45s39y029xj";
 
@@ -37,7 +37,7 @@ in {
   };
 
   kernelPatches = [
-    kernelPatchSrc
+    #kernelPatchSrc
   ]
   ++ builtins.map (name: {
     inherit name;
