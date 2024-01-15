@@ -1,14 +1,3 @@
-(defwindow linebar :monitor 0
-                   :geometry (geometry :x "30px"
-                                       :y "0%"
-                                       :width "100%"
-                                       :height "2px"
-                                       :anchor "top center")
-                   :stacking "fg"
-                   :windowtype "dock"
-                   :wm-ignore false
-  (wlinebar))
-
 (defwindow mainbar :monitor 0
                    :geometry (geometry :x "0%"
                                        :y "0%"
@@ -16,8 +5,8 @@
                                        :height "30px"
                                        :anchor "top center")
                    :stacking "fg"
-                   :windowtype "dock"
-                   :wm-ignore false
+                   :exclusive false
+                   :focusable false
   (bar))
 
 (defvar time-extended false)  ; for :run-while property of below variable
@@ -34,8 +23,6 @@
                  :run-while time-extended
   `date "+:%S"`)
 
-(deflisten lworkspaces "./scripts/workspaces.sh")
-(deflisten llineworkspaces "./scripts/line-workspaces.sh")
 (deflisten ltitle "./scripts/title.sh")
 
 (defwidget bar []
@@ -46,15 +33,19 @@
       (title)
       (time))))
 
-(defwidget wlinebar []
-  (eventbox :onscroll "./scripts/scroll.sh {}"
-    (line_workspaces)))
-
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/workspaces.sh")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/active-workspace.sh")
 (defwidget workspaces []
-  (literal :content lworkspaces))
-
-(defwidget line_workspaces []
-  (literal :content llineworkspaces))
+  (box :class "widget workspaces"
+       :halign "start"
+       :valign "center"
+       :vexpand true
+       :hexpand true
+    (for workspace in workspaces
+      (eventbox :cursor "hand"
+        (button :class "${workspace.id == current_workspace ? "focused" : (workspace.windows > 0 ? "occupied" : "empty")}"
+                :onclick "hyprctl dispatch workspace ${workspace.id}"
+          "${workspace.id == current_workspace ? "" : (workspace.windows > 0 ? "" : "")}")))))
 
 (defwidget title []
   (literal :content ltitle))
@@ -72,6 +63,5 @@
       (time_extension :text {time-extended ? petimea : ""})
       (label :text ptime
              :class "base")
-      (time_extension :text {time-extended ? petimeb : ""})
-      )))
+      (time_extension :text {time-extended ? petimeb : ""}))))
 

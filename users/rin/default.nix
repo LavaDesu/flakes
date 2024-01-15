@@ -37,7 +37,7 @@
 #       spicetify
 
       dunst
-#       eww
+      eww
 #       picom
 # 
 #       xorg
