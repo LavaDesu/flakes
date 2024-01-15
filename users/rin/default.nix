@@ -36,7 +36,7 @@
       rofi
 #       spicetify
 
-#       dunst
+      dunst
 #       eww
 #       picom
 # 
