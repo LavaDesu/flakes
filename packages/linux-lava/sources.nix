@@ -6,14 +6,12 @@ let
 
   mm = lib.versions.majorMinor version;
   tkgPatches = [
-    "0001-mm-Support-soft-dirty-flag-reset-for-VA-range"
     "0002-clear-patches"
-    "0002-mm-Support-soft-dirty-flag-read-with-reset"
     "0003-glitched-base"
     "0003-glitched-eevdf-additions"
     "0003-glitched-cfs"
     "0007-v${mm}-fsync1_via_futex_waitv"
-    "0007-v${mm}-winesync"
+#    "0007-v${mm}-winesync" currently fails to patch
     "0012-misc-additions"
   ];
 

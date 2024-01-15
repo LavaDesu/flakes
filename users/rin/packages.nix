@@ -28,7 +28,6 @@
     gimp
     gnome.file-roller
     gnome.zenity
-    kotatogram-desktop
     krita
     lm_sensors
     lutris
@@ -37,7 +36,6 @@
     mangohud
     me.tetrio-desktop-plus
     inputs.nix-gaming.packages.x86_64-linux.osu-lazer-bin
-    inputs.nix-gaming.packages.x86_64-linux.wine-osu
     pavucontrol
     prismlauncher
     psensor
