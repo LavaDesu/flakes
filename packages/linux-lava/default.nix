@@ -4,14 +4,14 @@
 , inputs
 , kernelPatches
 , lib
-, llvmPackages_17
+, llvmPackages_16
 , overrideCC
 , ...
 } @ args:
 
 let
   sources = callPackage ./sources.nix { inherit inputs; };
-  llvmPackages = llvmPackages_17;
+  llvmPackages = llvmPackages_16;
   kernel = buildLinux (args // {
     inherit (sources) src kernelPatches;
     stdenv = ccacheStdenv.override {
