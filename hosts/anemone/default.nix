@@ -36,6 +36,10 @@
     ../../users/rin
   ];
 
+  environment.systemPackages = with pkgs; [ wpa_supplicant_gui ];
+
+  programs.hyprland.enable = true;
+
   # For steam fhs-env
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1w"

@@ -34,15 +34,17 @@
       mpv
       obs
       rofi
-      spicetify
+#       spicetify
 
-      dunst
-      eww
-      picom
+#       dunst
+#       eww
+#       picom
+# 
+#       xorg
+#       sxhkd
+#       bspwm
 
-      xorg
-      sxhkd
-      bspwm
+      #hyprland
     ];
 
     home.file.".local/bin/ipc-bridge.exe".source = builtins.fetchurl {
