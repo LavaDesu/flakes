@@ -1,7 +1,7 @@
 { fetchFromGitHub, inputs, lib }:
 let
   version = "6.7.0";
-  kernelHash = "1l2nisx9lf2vdgkq910n5ldbi8z25ky1zvl67zgwg2nxcdna09nr";
+  kernelHash = "0s8hbcsg7fdvspqam8kzcxygjsznr4zfi60nqgc81l3n4m518cgg";
   kernelPatchHash = "1qnial7m91l3amcsgms3cs599pi529kvda1c982qk45s39y029xj";
 
   mm = lib.versions.majorMinor version;
