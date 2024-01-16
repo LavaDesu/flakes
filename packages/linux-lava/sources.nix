@@ -35,7 +35,7 @@ in {
   };
 
   kernelPatches = [
-    ./dsd_um3402yar.patch
+    (patch ./dsd_um3402yar.patch)
     #kernelPatchSrc
   ]
   ++ builtins.map (name: {
