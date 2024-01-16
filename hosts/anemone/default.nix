@@ -41,23 +41,25 @@
 
   programs.hyprland.enable = true;
 
-  hardware.firmware = [
+  hardware.firmware = let
+    fw = "${pkgs.linux-firmware}/lib/firmware/cirrus/";
+   in [
       (
     pkgs.runCommandNoCC "cs35l41-10431683" { } ''
       mkdir -p $out/lib/firmware/cirrus
       cd $out/lib/firmware/cirrus
-      ln -s ./cs35l41-dsp1-spk-cali-10431e12-spkid0-l0.bin.xz cs35l41-dsp1-spk-cali-10431683-spkid0-l0.bin.xz
-      ln -s ./cs35l41-dsp1-spk-cali-10431e12-spkid0-l0.bin.xz cs35l41-dsp1-spk-cali-10431683-spkid0-r0.bin.xz
-      ln -s ./cs35l41-dsp1-spk-cali-10431e12-spkid0-l0.bin.xz cs35l41-dsp1-spk-cali-10431683-spkid1-l0.bin.xz
-      ln -s ./cs35l41-dsp1-spk-cali-10431e12-spkid0-l0.bin.xz cs35l41-dsp1-spk-cali-10431683-spkid1-r0.bin.xz
+      cp ${fw}/cs35l41-dsp1-spk-cali-10431e12-spkid0-l0.bin cs35l41-dsp1-spk-cali-10431683-spkid0-l0.bin
+      cp ${fw}/cs35l41-dsp1-spk-cali-10431e12-spkid0-l0.bin cs35l41-dsp1-spk-cali-10431683-spkid0-r0.bin
+      cp ${fw}/cs35l41-dsp1-spk-cali-10431e12-spkid0-l0.bin cs35l41-dsp1-spk-cali-10431683-spkid1-l0.bin
+      cp ${fw}/cs35l41-dsp1-spk-cali-10431e12-spkid0-l0.bin cs35l41-dsp1-spk-cali-10431683-spkid1-r0.bin
 
-      ln -s ./cs35l41-dsp1-spk-prot-10431e12-spkid0-l0.bin.xz cs35l41-dsp1-spk-prot-10431683-spkid0-l0.bin.xz
-      ln -s ./cs35l41-dsp1-spk-prot-10431e12-spkid0-l0.bin.xz cs35l41-dsp1-spk-prot-10431683-spkid0-r0.bin.xz
-      ln -s ./cs35l41-dsp1-spk-prot-10431e12-spkid0-l0.bin.xz cs35l41-dsp1-spk-prot-10431683-spkid1-l0.bin.xz
-      ln -s ./cs35l41-dsp1-spk-prot-10431e12-spkid0-l0.bin.xz cs35l41-dsp1-spk-prot-10431683-spkid1-r0.bin.xz
+      cp ${fw}/cs35l41-dsp1-spk-prot-10431e12-spkid0-l0.bin cs35l41-dsp1-spk-prot-10431683-spkid0-l0.bin
+      cp ${fw}/cs35l41-dsp1-spk-prot-10431e12-spkid0-l0.bin cs35l41-dsp1-spk-prot-10431683-spkid0-r0.bin
+      cp ${fw}/cs35l41-dsp1-spk-prot-10431e12-spkid0-l0.bin cs35l41-dsp1-spk-prot-10431683-spkid1-l0.bin
+      cp ${fw}/cs35l41-dsp1-spk-prot-10431e12-spkid0-l0.bin cs35l41-dsp1-spk-prot-10431683-spkid1-r0.bin
 
-      ln -s ./cs35l41-dsp1-spk-cali-10431e12.wmfw.xz cs35l41-dsp1-spk-cali-10431683.wmfw.xz
-      ln -s ./cs35l41-dsp1-spk-prot-10431e12.wmfw.xz cs35l41-dsp1-spk-prot-10431683.wmfw.xz
+      cp ${fw}/cs35l41-dsp1-spk-cali-10431e12.wmfw cs35l41-dsp1-spk-cali-10431683.wmfw
+      cp ${fw}/cs35l41-dsp1-spk-prot-10431e12.wmfw cs35l41-dsp1-spk-prot-10431683.wmfw
     ''
   )
   ];
