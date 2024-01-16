@@ -39,7 +39,7 @@
       dunst
       eww
 #       picom
-# 
+#
 #       xorg
 #       sxhkd
 #       bspwm
