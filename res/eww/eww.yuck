@@ -33,8 +33,8 @@
       (title)
       (time))))
 
-(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/workspaces.sh")
-(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/active-workspace.sh")
+(deflisten workspaces :initial "[]" "./scripts/workspaces.sh")
+(deflisten current_workspace :initial "1" "./scripts/active-workspace.sh")
 (defwidget workspaces []
   (box :class "widget workspaces"
        :halign "start"
