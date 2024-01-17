@@ -51,21 +51,27 @@ in {
 
       #(pkgs.me.nvim-treesitter-nightly.withPlugins (p: with p; [
       (nvim-treesitter.withPlugins (p: with p; [
+        tree-sitter-bash
+        tree-sitter-c
         tree-sitter-c-sharp
-        pkgs.me.tree-sitter-glimmer
+        tree-sitter-cpp
         tree-sitter-html
         tree-sitter-javascript
         tree-sitter-json
-        pkgs.me.tree-sitter-jsonc
         tree-sitter-lua
+        tree-sitter-markdown
         tree-sitter-nix
         tree-sitter-php
         tree-sitter-prisma
+        tree-sitter-python
+        tree-sitter-query
         tree-sitter-regex
         tree-sitter-rust
         tree-sitter-toml
-        tree-sitter-typescript
         tree-sitter-tsx
+        tree-sitter-typescript
+        tree-sitter-vim
+        tree-sitter-vimdoc
         tree-sitter-yaml
       ]))
     ];
