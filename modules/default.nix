@@ -27,6 +27,7 @@ in {
   system = mkAttrsFromPaths [
     ./system/audio.nix
     ./system/base.nix
+    ./system/bluetooth.nix
     ./system/ccache.nix
     ./system/corectrl.nix
     ./system/flatpak.nix
