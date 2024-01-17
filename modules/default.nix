@@ -50,6 +50,7 @@ in {
     ./user/direnv.nix
     ./user/dunst.nix
     ./user/eww.nix
+    ./user/eww-wayland.nix
     ./user/git.nix
     ./user/gpg.nix
     ./user/kitty.nix
@@ -63,6 +64,7 @@ in {
     ./user/picom.nix
     ./user/polybar.nix
     ./user/rofi.nix
+    ./user/rofi-wayland.nix
     ./user/sessionVariables.nix
     ./user/spicetify.nix
     ./user/sxhkd.nix

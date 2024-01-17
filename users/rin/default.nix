@@ -2,7 +2,7 @@
   programs.zsh.enable = true;
   users.users.rin = {
     isNormalUser = true;
-    extraGroups = [ "adbusers" "audio" "corectrl" "libvirtd" "video" "wheel" ];
+    extraGroups = [ "adbusers" "audio" "corectrl" "libvirtd" "networkmanager" "video" "wheel" ];
     shell = pkgs.zsh;
     uid = 1001;
     passwordFile = config.age.secrets.passwd.path;
@@ -33,17 +33,13 @@
       kitty
       mpv
       obs
-      rofi
-      spicetify
+      rofi-wayland
 
       dunst
-      eww
-      picom
-
-      xorg
-      sxhkd
-      bspwm
+      eww-wayland
     ];
+
+    services.mpris-proxy.enable = true;
 
     home.file.".local/bin/ipc-bridge.exe".source = builtins.fetchurl {
       url = "https://github.com/0e4ef622/wine-discord-ipc-bridge/releases/download/v0.0.1/winediscordipcbridge.exe";
