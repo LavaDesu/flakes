@@ -8,4 +8,9 @@
       };
     };
   };
+
+  services.xserver = {
+    autorun = false;
+    displayManager.startx.enable = true;
+  };
 }

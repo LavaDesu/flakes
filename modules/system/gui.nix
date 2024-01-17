@@ -24,11 +24,7 @@
   };
   services.xserver = {
     enable = true;
-    autorun = false;
-    displayManager = {
-      lightdm.enable = lib.mkForce false;
-      startx.enable = true;
-    };
+    displayManager.lightdm.enable = lib.mkForce false;
     desktopManager.xterm.enable = false;
   };
 }
