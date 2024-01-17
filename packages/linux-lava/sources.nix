@@ -36,6 +36,7 @@ in {
 
   kernelPatches = [
     #kernelPatchSrc
+    (patch ./dsd_um3402yar.patch)
   ]
   ++ builtins.map (name: {
     inherit name;
