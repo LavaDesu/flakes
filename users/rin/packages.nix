@@ -28,7 +28,7 @@
     gimp
     gnome.file-roller
     gnome.zenity
-    #kotatogram-desktop
+    kotatogram-desktop
     krita
     lm_sensors
     lutris
