@@ -4,6 +4,7 @@ builtins.map (path: import path) [
   ./corectrl.nix
   ./discord.nix
   ./eww.nix
+  ./kotatogram.nix
   ./material-icons.nix
   ./picom.nix
   ./rofi.nix
