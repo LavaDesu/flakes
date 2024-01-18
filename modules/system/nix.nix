@@ -15,6 +15,7 @@
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       ];
       trusted-substituters = substituters;
+      trusted-users = [ "root" "rin" ];
     };
 
     extraOptions = ''
