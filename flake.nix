@@ -91,6 +91,7 @@
         in
         {
           inherit (pkgs.me) linux-lava;
+          linux-lava_500hz = pkgs.me.linux-lava.override { timerHz = "500"; };
         };
 
       packages."aarch64-linux" =

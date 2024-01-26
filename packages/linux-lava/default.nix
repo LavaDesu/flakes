@@ -6,6 +6,7 @@
 , lib
 , llvmPackages_16
 , overrideCC
+, timerHz ? "1000"
 , ...
 } @ args:
 
@@ -77,8 +78,8 @@ let
       VIRT_CPU_ACCOUNTING_GEN = yes;
       CONTEXT_TRACKING = yes;
       CONTEXT_TRACKING_FORCE = no;
-      HZ_1000 = yes;
-      HZ_1000_NODEF = yes;
+      "HZ_${timerHz}" = yes;
+      "HZ_${timerHz}_NODEF" = yes;
 
       # preempt
       PREEMPT = yes;
