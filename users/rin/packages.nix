@@ -48,6 +48,12 @@
     transmission-remote-gtk
     virt-manager
     winetricks
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        ms-vsliveshare.vsliveshare
+        vscodevim.vim
+    ];
+    })
     xclip
     xorg.xgamma
   ];
