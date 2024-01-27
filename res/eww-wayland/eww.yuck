@@ -16,7 +16,7 @@
 (defpoll petimeb :interval "1s"
   `date "+:%S"`)
 
-(deflisten ltitle "./scripts/title.sh")
+(deflisten ltitle :initial "" "./scripts/title.sh")
 (deflisten lworkspaces :initial "[]" "./scripts/workspaces.sh")
 (deflisten lcurrent_workspace :initial "1" "./scripts/active-workspace.sh")
 

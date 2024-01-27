@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 out () {
-    if [ -z "$1" ]; then
+    if [ -z "$1" ] || [ "$1" == "null" ]; then
         echo ""
     else
         echo "(box :class \"widget title\" :halign \"center\" :valign \"center\" :vexpand true :hexpand true (label :text \"$1\"))"
