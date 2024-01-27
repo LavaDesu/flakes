@@ -25,6 +25,7 @@
     element-desktop
     eww
     feh
+    gamescope
     gimp
     gnome.file-roller
     gnome.zenity
