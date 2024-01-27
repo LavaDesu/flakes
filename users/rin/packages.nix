@@ -28,6 +28,7 @@
     gimp
     gnome.file-roller
     gnome.zenity
+    swaybg
     #kotatogram-desktop
     krita
     lm_sensors
