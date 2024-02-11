@@ -29,7 +29,7 @@
     gimp
     gnome.file-roller
     gnome.zenity
-    swaybg
+    grim
     #kotatogram-desktop
     krita
     lm_sensors
@@ -46,6 +46,8 @@
     qbittorrent
     rivalcfg
     screenkey
+    slurp
+    swaybg
     tor-browser-bundle-bin
     transmission-remote-gtk
     virt-manager
