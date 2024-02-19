@@ -1,7 +1,7 @@
 { config, inputs, modules, overlays, pkgs, ... }: {
   networking.hostName = "anemone";
   system.stateVersion = "23.11";
-  time.timeZone = "Asia/Phnom_Penh";
+  time.timeZone = "Australia/Melbourne";
 
   nixpkgs.overlays = [ inputs.neovim-nightly.overlay ];
   age.secrets = {
