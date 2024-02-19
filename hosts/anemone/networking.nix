@@ -6,6 +6,7 @@
     networkmanager = {
       enable = true;
       wifi.backend = "iwd";
+      dns = "none";
     };
 
     extraHosts = ''
