@@ -1,6 +1,6 @@
 { config, ... }: {
   networking = {
-    nameservers = [ "1.1.1.1" "8.8.8.8" ];
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
     wireless.iwd.enable = true;
 
     networkmanager = {
