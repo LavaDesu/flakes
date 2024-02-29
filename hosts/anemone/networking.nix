@@ -1,11 +1,10 @@
 { config, ... }: {
   networking = {
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
-    wireless.iwd.enable = true;
+    wireless.enable = true;
 
     networkmanager = {
       enable = true;
-      wifi.backend = "iwd";
       dns = "none";
     };
 
