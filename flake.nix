@@ -2,8 +2,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-raccoon.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
     home-manager.url = "github:nix-community/home-manager";
     home-manager-raccoon.url = "github:nix-community/home-manager/release-22.11";
+    home-manager-stable.url = "github:nix-community/home-manager/release-23.11";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix.url = "github:ryantm/agenix";
@@ -13,6 +15,7 @@
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager-raccoon.inputs.nixpkgs.follows = "nixpkgs-raccoon";
+    home-manager-stable.inputs.nixpkgs.follows = "nixpkgs-stable";
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +49,7 @@
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, agenix, nixos-generators, nixpkgs, nixpkgs-raccoon, ... } @ inputs:
+  outputs = { self, agenix, nixos-generators, nixpkgs, nixpkgs-raccoon, nixpkgs-stable, ... } @ inputs:
     let
       overlays = (import ./overlays)
         ++ [(final: prev: {
@@ -81,6 +84,7 @@
         ];
       }];
       nixosConfigurations."sugarcane" = mkSystem nixpkgs-raccoon "sugarcane" "x86_64-linux" false [];
+      nixosConfigurations."dandelion" = mkSystem nixpkgs-stable "dandelion" "aarch64-linux" false [];
 
       packages."x86_64-linux" =
         let

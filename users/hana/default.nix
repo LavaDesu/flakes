@@ -4,7 +4,7 @@
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
     uid = 1002;
-    passwordFile = config.age.secrets.passwd.path;
+    hashedPassword = "$y$j9T$BxnsFaGwBfSKe4jAJaaxI.$cpFtu8fzFhKalIV3WGuA2jz4//KJBwhiybpnlmoZPy.";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPru5eTBvHJ4ZmrrzPRHCGM09wQP/ZHSaKYalDuBVO15 rin@blossom"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ5l9t8dc6mPsKKYqZlPKvhOdyqz+DS5UOcvHuh3uVGt @strawberry"
@@ -15,7 +15,7 @@
     home = {
       username = "hana";
       homeDirectory = "/home/hana";
-      stateVersion = "21.11";
+      stateVersion = "23.11";
     };
 
     imports = with modules.user; [
