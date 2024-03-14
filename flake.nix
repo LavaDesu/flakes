@@ -94,7 +94,7 @@
           };
         in
         {
-          inherit (pkgs.me) linux-lava;
+          inherit (pkgs.me) linux-lava spotify-adblock;
         };
 
       packages."aarch64-linux" =
