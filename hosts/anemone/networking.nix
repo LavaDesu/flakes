@@ -1,12 +1,12 @@
 { config, ... }: {
   networking = {
-    nameservers = [ "8.8.8.8" "8.8.4.4" ];
+    #nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
     wg-quick.interfaces.wg0.configFile = "/persist/vpn.conf";
 
     networkmanager = {
       enable = true;
-      dns = "none";
+      #dns = "none";
     };
 
     extraHosts = ''
