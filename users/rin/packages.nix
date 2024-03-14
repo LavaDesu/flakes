@@ -22,6 +22,7 @@
     nodePackages_latest.pnpm
   ] ++ lib.optionals enableGUI [
     discord-canary
+    drawio
     element-desktop
     eww
     feh
