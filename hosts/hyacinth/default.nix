@@ -1,7 +1,7 @@
 { config, inputs, modules, overlays, pkgs, ... }: {
   networking.hostName = "hyacinth";
   system.stateVersion = "21.11";
-  time.timeZone = "Asia/Phnom_Penh";
+  time.timeZone = "Australia/Melbourne";
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nixpkgs.overlays = [ inputs.neovim-nightly.overlays.default ];
