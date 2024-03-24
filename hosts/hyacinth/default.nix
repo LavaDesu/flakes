@@ -29,7 +29,6 @@
     security
     snapper
     virtualisation
-    wireguard
 
     modules.services.postgres
 
@@ -40,6 +39,7 @@
     ../../users/rin
   ];
   services.postgresql.ensureDatabases = [ "barista" "barista-dev" ];
+  programs.hyprland.enable = true;
 
   # For steam fhs-env
   nixpkgs.config.permittedInsecurePackages = [
