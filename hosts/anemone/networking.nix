@@ -13,4 +13,6 @@
       192.168.100.16 hyacinth
     '';
   };
+
+  environment.etc."NetworkManager/system-connections".source = "/persist/nm_system-connections";
 }
