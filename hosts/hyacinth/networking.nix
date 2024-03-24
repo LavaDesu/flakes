@@ -1,20 +1,17 @@
 { config, ... }: {
   environment.etc."wpa_supplicant.conf".source = config.age.secrets.wpa_conf.path;
   networking = {
-    useDHCP = false;
+    useDHCP = true;
     interfaces.enp5s0.useDHCP = false;
 
     interfaces.enp5s0.ipv4.addresses = [{
-      address = "192.168.100.16";
+      address = "192.168.0.151";
       prefixLength = 24;
     }];
-    defaultGateway = "192.168.100.1";
-    nameservers = [ "1.1.1.1" ];
+    defaultGateway = "192.168.0.1";
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
     extraHosts = ''
-      192.168.100.12 strawberry
-      192.168.100.15 caramel
-
       10.100.0.1     sugarcane
     '';
   };
