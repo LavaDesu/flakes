@@ -1,8 +1,8 @@
 { fetchFromGitHub, inputs, lib }:
 let
-  version = "6.7.0";
-  kernelHash = "0s8hbcsg7fdvspqam8kzcxygjsznr4zfi60nqgc81l3n4m518cgg";
-  kernelPatchHash = "1qnial7m91l3amcsgms3cs599pi529kvda1c982qk45s39y029xj";
+  version = "6.9.3";
+  kernelHash = "0jc14s7z2581qgd82lww25p7c4w72scpf49z8ll3wylwk3xh3yi4";
+  kernelPatchHash = "1lzkpyp41175kf672s92bz7wzx0favy5xdmxpsgzl9s3z6hdyb7q";
 
   mm = lib.versions.majorMinor version;
   tkgPatches = [
@@ -11,6 +11,7 @@ let
     "0003-glitched-eevdf-additions"
     "0003-glitched-cfs"
     "0007-v${mm}-fsync1_via_futex_waitv"
+    "0007-v${mm}-ntsync"
 #   "0007-v${mm}-winesync" fails to patch
     "0012-misc-additions"
   ];
@@ -35,13 +36,11 @@ in {
   };
 
   kernelPatches = [
-    #kernelPatchSrc
-    (patch ./dsd_um3402yar.patch)
+    kernelPatchSrc
   ]
   ++ builtins.map (name: {
     inherit name;
     patch = "${inputs.linux-tkg}/linux-tkg-patches/${mm}/${name}.patch";
   }) tkgPatches
-  ++ [
-  ];
+  ++ [ ];
 }
