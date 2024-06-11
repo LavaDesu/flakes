@@ -40,6 +40,7 @@
   ];
   services.postgresql.ensureDatabases = [ "barista" "barista-dev" ];
   programs.hyprland.enable = true;
+  systemd.services.nix-daemon.environment.TMPDIR = "/nix/tmp";
 
   # For steam fhs-env
   nixpkgs.config.permittedInsecurePackages = [
