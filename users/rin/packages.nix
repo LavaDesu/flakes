@@ -10,11 +10,11 @@
     ffmpeg
     gnupg
     kitty
+    nil
     nodejs-18_x
     pamixer
     qmk
     ripgrep
-    rnix-lsp
     unrar
     weechat
     yt-dlp
