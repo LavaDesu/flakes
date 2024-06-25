@@ -3,7 +3,7 @@
   system.stateVersion = "23.11";
   time.timeZone = "Australia/Melbourne";
 
-  nixpkgs.overlays = [ inputs.neovim-nightly.overlay ];
+  nixpkgs.overlays = [ inputs.neovim-nightly.overlays.default ];
   age.secrets = {
     passwd.file = ../../secrets/passwd.age;
   };

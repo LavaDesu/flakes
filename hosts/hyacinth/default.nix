@@ -4,7 +4,7 @@
   time.timeZone = "Asia/Phnom_Penh";
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  nixpkgs.overlays = [ inputs.neovim-nightly.overlay ];
+  nixpkgs.overlays = [ inputs.neovim-nightly.overlays.default ];
   age.secrets = {
     passwd.file = ../../secrets/passwd.age;
     wg_hyacinth.file = ../../secrets/wg_blossom.age;
