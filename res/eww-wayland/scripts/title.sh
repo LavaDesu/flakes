@@ -11,7 +11,7 @@ out () {
 init=$(hyprctl activewindow -j | jq --raw-output .title)
 out "$init"
 
-socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 awk -F '>>|,' '/^activewindow>>/{print $3}' | while read -r line ; do
+socat -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | stdbuf -o0 awk -F '>>|,' '/^activewindow>>/{print $3}' | while read -r line ; do
     trunc=$(echo $line | cut -c-85)
     out "$trunc"
 done
