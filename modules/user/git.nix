@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ ... }: {
   programs.git = {
     enable = true;
     userName = "LavaDesu";
@@ -9,6 +9,7 @@
     };
     extraConfig = {
       core.abbrev = 11;
+      safe.directory = "/home/rin/Projects/flakes";
     };
   };
 }
