@@ -11,6 +11,7 @@
     allowedUDPPortRanges = [ { from = 20000; to = 20100; } ];
     allowedTCPPortRanges = [ { from = 20000; to = 20100; } ];
     trustedInterfaces = [ "wg0" ];
+    logRefusedConnections = false;
 
     extraCommands = genCmds "I";
     extraStopCommands = genCmds "D";
