@@ -26,7 +26,7 @@ in {
     pulse.enable = true;
     jack.enable = true;
   };
-  environment.etc."pipewire/pipewire.conf.d/99-config.conf".text = builtins.toJSON {
+  services.pipewire.extraConfig.pipewire = {
     "context.properties" = {
       "default.clock.rate" = int.rate;
       "default.clock.quantum" = int.quantum.def;
@@ -50,7 +50,7 @@ in {
       "resample.quality" = 1;
     };
   };
-  environment.etc."pipewire/pipewire-pulse.conf.d/99-config.conf".text = builtins.toJSON {
+  services.pipewire.extraConfig.pipewire-pulse = {
       "context.modules" = [
         {
           name = "libpipewire-module-rtkit";
