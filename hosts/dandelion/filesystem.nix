@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   bind = src: {
     depends = [ "/nix" ];
