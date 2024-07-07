@@ -1,10 +1,11 @@
 { config, lib, modules, pkgs, ... }: {
+  programs.zsh.enable = true;
   users.users.hana = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.zsh;
     uid = 1002;
-    hashedPassword = "$y$j9T$BxnsFaGwBfSKe4jAJaaxI.$cpFtu8fzFhKalIV3WGuA2jz4//KJBwhiybpnlmoZPy.";
+    hashedPassword = "$y$j9T$3xCNDudmfrIu5VfQQoDkj/$ugzJWq0gORN9jnhDsREu31CkL3zwniQu6KoLbmg6Wr/";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPru5eTBvHJ4ZmrrzPRHCGM09wQP/ZHSaKYalDuBVO15 rin@blossom"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ5l9t8dc6mPsKKYqZlPKvhOdyqz+DS5UOcvHuh3uVGt @strawberry"
