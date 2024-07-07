@@ -14,6 +14,8 @@
     security
     #wireguard
 
+    modules.services.postgres
+
     ./filesystem.nix
     ./kernel.nix
     ./networking.nix
