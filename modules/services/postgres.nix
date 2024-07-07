@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   dir = "/persist/postgresql/${config.services.postgresql.package.psqlSchema}";
   uid = toString config.ids.uids.postgres;
@@ -8,6 +8,7 @@ in {
   services.postgresql = {
     enable = true;
     dataDir = dir;
+    package = pkgs.postgresql_13;
     authentication = lib.mkOverride 10 ''
       #type  database  DBuser  origin-address      auth-method
       local  all       all                         trust
