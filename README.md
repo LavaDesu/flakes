@@ -14,17 +14,18 @@ to your liking. Open up `flake.nix`, add your new host config at the bottom, and
 ## Hosts
 | Name      | Description |
 | -------   | ----------- |
-| blossom   | Laptop and main PC |
+| hyacinth  | Main Desktop PC |
+| anemone   | Main Laptop |
 | caramel   | Raspberry Pi 400, stateless |
-| sugarcane | OVHCloud VPS, stateless |
+| dandelion | ARM OCI VPS, stateless |
 
 ## Users
 | Name | Description |
 | ---- | ----------- |
-| rin  | Main user for usage |
+| rin  | Main user for general usage |
 | hana | Lightweight user intended for inspecting stateless hosts |
 
 ## License
-Licensed under CC0; basically you can fork, modify, redistribute, or do whatever you want I don't really care.
+Licensed under CC0
 
 Credit is appreciated but not necessary
