@@ -36,7 +36,7 @@
     ./kernel.nix
     ./networking.nix
 
-    ../../users/rin
+    ../../users/rin/xorg.nix
   ];
   services.postgresql.ensureDatabases = [ "barista" "barista-dev" ];
   programs.hyprland.enable = true;

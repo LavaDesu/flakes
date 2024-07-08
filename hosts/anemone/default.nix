@@ -32,7 +32,7 @@
     ./kernel.nix
     ./networking.nix
 
-    ../../users/rin
+    ../../users/rin/wayland.nix
   ];
 
   programs.hyprland.enable = true;
