@@ -17,8 +17,8 @@
     output = "DP-1";
     primary = true;
     monitorConfig = ''
-      Modeline "1920x1080_165.00"  525.00  1920 2088 2296 2672  1080 1083 1088 1192 -hsync +vsync
-      Option "PreferredMode" "1920x1080_165.00"
+      Modeline "2560x1440_144.00"  808.75  2560 2792 3072 3584  1440 1443 1448 1568 -hsync +vsync
+      Option "PreferredMode" "2560x1440_144.00"
     '';
   }];
 }
