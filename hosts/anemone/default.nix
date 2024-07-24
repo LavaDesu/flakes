@@ -18,7 +18,7 @@
     ccache
     corectrl
     flatpak
-    greetd
+    greetd_wayland
     gui
     input
     kernel

@@ -31,7 +31,8 @@ in {
     ./system/ccache.nix
     ./system/corectrl.nix
     ./system/flatpak.nix
-    ./system/greetd.nix
+    ./system/greetd_wayland.nix
+    ./system/greetd_xorg.nix
     ./system/gui.nix
     ./system/home-manager.nix
     ./system/input.nix

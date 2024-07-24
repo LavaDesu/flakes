@@ -19,7 +19,7 @@
     ccache
     corectrl
     flatpak
-    greetd
+    greetd_xorg
     gui
     input
     kernel
