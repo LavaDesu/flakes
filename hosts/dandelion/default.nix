@@ -14,6 +14,7 @@
     security
     #wireguard
 
+    modules.services.nginx
     modules.services.postgres
 
     ./filesystem.nix

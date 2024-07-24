@@ -1,4 +1,5 @@
 { config, inputs, ... }: {
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
   security.acme = {
     acceptTerms = true;
     email = "me@lava.moe";
@@ -26,6 +27,11 @@
         useACMEHost = "lava.moe";
         forceSSL = true;
         root = inputs.website.outPath;
+      };
+      "cdn.lava.moe" = {
+        useACMEHost = "lava.moe";
+        forceSSL = true;
+        root = "/persist/cdn";
       };
       "_" = {
         default = true;
