@@ -25,6 +25,7 @@ in {
       options = [ "defaults" "size=12G" "mode=755" ];
     };
 
+    "/boot" = submount "/@/boot" false;
     "/boot/efi" = mkLabelMount "UEFI" "vfat" true;
     "/nix" = submount "/@/nix" false;
     "/persist" = (submount "/@/persist" true) // { neededForBoot = true; };
