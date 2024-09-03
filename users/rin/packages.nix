@@ -21,6 +21,7 @@
 
     nodePackages_latest.pnpm
   ] ++ lib.optionals enableGUI [
+    android-studio
     discord-canary
     drawio
     element-desktop
