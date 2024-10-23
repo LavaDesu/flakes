@@ -10,7 +10,7 @@
       verbose = false;
     };
     kernelModules = [ "kvm-amd" ];
-    kernelPackages = lib.mkForce (pkgs.linuxPackagesFor pkgs.me.linux-lava);
+    #kernelPackages = lib.mkForce (pkgs.linuxPackagesFor pkgs.me.linux-lava);
     kernelParams = [
       "quiet"
       "console=tty2"
