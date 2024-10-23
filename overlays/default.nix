@@ -8,5 +8,6 @@ builtins.map (path: import path) [
   ./picom.nix
   ./rofi.nix
   ./steam.nix
+  ./utillinux.nix
   ./xinit.nix
 ]
