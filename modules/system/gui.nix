@@ -15,7 +15,7 @@
       hanazono
       material-icons
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-extra
       open-sans
       twemoji-color-font
