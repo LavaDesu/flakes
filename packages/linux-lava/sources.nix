@@ -1,8 +1,8 @@
 { fetchFromGitHub, inputs, lib }:
 let
-  version = "6.9.3";
-  kernelHash = "0jc14s7z2581qgd82lww25p7c4w72scpf49z8ll3wylwk3xh3yi4";
-  kernelPatchHash = "1lzkpyp41175kf672s92bz7wzx0favy5xdmxpsgzl9s3z6hdyb7q";
+  version = "6.11.5";
+  kernelHash = "0bnbvadm4wvnwzcq319gsgl03ijvvljn7mj8qw87ihpb4p0cdljm";
+  kernelPatchHash = "0fd9cq0w0hv822ds4yf5k2jmpmjybdkmlkla6c4k3xf746rv68hr";
 
   mm = lib.versions.majorMinor version;
   tkgPatches = [
@@ -12,7 +12,6 @@ let
     "0003-glitched-cfs"
     "0007-v${mm}-fsync1_via_futex_waitv"
     "0007-v${mm}-ntsync"
-#   "0007-v${mm}-winesync" fails to patch
     "0012-misc-additions"
   ];
 
