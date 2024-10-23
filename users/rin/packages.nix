@@ -39,11 +39,11 @@
     maim
     mangohud
     #me.tetrio-desktop-plus
+    me.psensor
     inputs.nix-gaming.packages.x86_64-linux.osu-lazer-bin
     #inputs.nix-gaming.packages.x86_64-linux.wine-osu
     pavucontrol
     prismlauncher
-    psensor
     qbittorrent
     rivalcfg
     screenkey
