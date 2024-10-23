@@ -3,7 +3,7 @@
     enable = true;
     drivers = with pkgs; [
       epson-escpr
-      me.epson-201112j
+      #me.epson-201112j
     ];
   };
 }
