@@ -17,7 +17,6 @@ let
     rate = toString int.rate;
   };
 in {
-  sound.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -26,6 +25,7 @@ in {
     pulse.enable = true;
     jack.enable = true;
   };
+  hardware.alsa.enablePersistence = true;
   services.pipewire.extraConfig.pipewire = {
     "context.properties" = {
       "default.clock.rate" = int.rate;
