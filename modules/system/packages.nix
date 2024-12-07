@@ -16,7 +16,7 @@
     wget
   ] ++ lib.optionals enableGUI [
     gparted
-    gnome.nautilus
+    nautilus
   ];
   environment.variables.EDITOR = "nvim";
 }

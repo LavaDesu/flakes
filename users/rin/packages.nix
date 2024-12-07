@@ -26,10 +26,9 @@
     element-desktop
     eww
     feh
+    file-roller
     gamescope
     gimp
-    gnome.file-roller
-    gnome.zenity
     grim
     #kotatogram-desktop
     krita
@@ -61,5 +60,6 @@
     })
     xclip
     xorg.xgamma
+    zenity
   ];
 }
