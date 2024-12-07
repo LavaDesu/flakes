@@ -871,16 +871,18 @@
       "flake": false,
       "locked": {
         "lastModified": 1731435944,
-        "narHash": "sha256-ehdp9uV1ojFSirbD1OD0eaU1XF8sTUhP9U9/0VkaEdM=",
-        "owner": "olets",
-        "repo": "zsh-abbr",
+        "narHash": "sha256-BbCUYOrgAvLXydGbUqpSHgQIG5Y/F/vrslKSRKPniUQ=",
+        "ref": "refs/heads/main",
         "rev": "510cf85ce7c1a3a0cf8e81aefe83b8c79c2ae09c",
-        "type": "github"
+        "revCount": 985,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/olets/zsh-abbr"
       },
       "original": {
-        "owner": "olets",
-        "repo": "zsh-abbr",
-        "type": "github"
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/olets/zsh-abbr"
       }
     },
     "zsh-history-substring-search": {
