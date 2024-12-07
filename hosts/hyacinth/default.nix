@@ -16,6 +16,7 @@
 
     audio
     base
+    bluetooth
     ccache
     corectrl
     flatpak
