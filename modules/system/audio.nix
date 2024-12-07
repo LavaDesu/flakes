@@ -25,7 +25,6 @@ in {
     pulse.enable = true;
     jack.enable = true;
   };
-  hardware.alsa.enablePersistence = true;
   services.pipewire.extraConfig.pipewire = {
     "context.properties" = {
       "default.clock.rate" = int.rate;
