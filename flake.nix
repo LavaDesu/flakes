@@ -12,6 +12,7 @@
     nixos-generators.url = "github:nix-community/nixos-generators";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager-raccoon.inputs.nixpkgs.follows = "nixpkgs-raccoon";

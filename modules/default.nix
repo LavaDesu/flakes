@@ -25,6 +25,7 @@ in {
     ./services/vaultwarden.nix
   ];
   system = mkAttrsFromPaths [
+    ./system/aagl.nix
     ./system/audio.nix
     ./system/base.nix
     ./system/bluetooth.nix

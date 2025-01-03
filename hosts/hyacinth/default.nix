@@ -14,6 +14,7 @@
     inputs.home-manager.nixosModule
     home-manager
 
+    aagl
     audio
     base
     bluetooth
