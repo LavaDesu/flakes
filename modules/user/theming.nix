@@ -7,14 +7,24 @@
       name = "Open Sans";
       size = 11;
     };
-    iconTheme = {
-      package = pkgs.yaru-theme;
-      name = "Yaru";
+    # iconTheme = {
+    #   package = pkgs.yaru-theme;
+    #   name = "Yaru";
+    # };
+    # theme = {
+    #   name = "Adwaita-dark";
+    #   package = pkgs.gnome-themes-extra;
+    # };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
     };
-    theme = {
-      name = "Materia-dark";
-      package = pkgs.materia-theme;
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
     };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
   home.pointerCursor = {
