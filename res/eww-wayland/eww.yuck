@@ -9,6 +9,17 @@
                    :focusable false
   (bar))
 
+(defwindow mainbar-ext :monitor 1
+                   :geometry (geometry :x "0%"
+                                       :y "0%"
+                                       :width "100%"
+                                       :height "30px"
+                                       :anchor "top center")
+                   :stacking "fg"
+                   :exclusive false
+                   :focusable false
+  (bar))
+
 (defpoll ptime :interval "1s"
   `date +%H:%M`)
 (defpoll petimea :interval "1s"
