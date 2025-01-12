@@ -21,7 +21,8 @@
     ccache
     corectrl
     flatpak
-    greetd_xorg
+    #greetd_xorg
+    greetd_wayland
     gui
     input
     kernel
@@ -38,7 +39,8 @@
     ./kernel.nix
     ./networking.nix
 
-    ../../users/rin/xorg.nix
+    #../../users/rin/xorg.nix
+    ../../users/rin/wayland.nix
   ];
   services.postgresql.ensureDatabases = [ "barista" "barista-dev" ];
   programs.hyprland.enable = true;
