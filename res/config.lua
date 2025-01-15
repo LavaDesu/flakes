@@ -45,6 +45,9 @@ vim.g.signify_sign_delete_first_line = '┏━'
 vim.g.signify_sign_change            = vim.g.signify_sign_add
 vim.g.signify_sign_change_delete     = vim.g.signify_sign_delete
 
+-- VimTeX
+vim.g.vimtex_view_method = "zathura"
+
 -- Theming
 require("tokyonight").setup({
     style = "night"

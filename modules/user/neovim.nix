@@ -40,6 +40,7 @@ in {
       vim-repeat
       vim-signify
       vim-surround
+      vimtex
       lsp_signature-nvim
 
       nvim-cmp

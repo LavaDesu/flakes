@@ -48,6 +48,7 @@
     screenkey
     slurp
     swaybg
+    texliveFull
     tor-browser-bundle-bin
     transmission-remote-gtk
     virt-manager
@@ -60,6 +61,7 @@
     })
     xclip
     xorg.xgamma
+    zathura
     zenity
   ];
 }
