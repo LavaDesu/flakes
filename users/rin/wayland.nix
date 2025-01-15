@@ -40,6 +40,7 @@
     ];
 
     services.mpris-proxy.enable = true;
+    home.packages = [ pkgs.wl-clipboard ];
 
     home.file.".local/bin/ipc-bridge.exe".source = builtins.fetchurl {
       url = "https://github.com/0e4ef622/wine-discord-ipc-bridge/releases/download/v0.0.1/winediscordipcbridge.exe";
