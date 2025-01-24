@@ -19,6 +19,7 @@
       ./packages.nix
       sessionVariables
 
+      catppuccin
       direnv
       git
       gpg

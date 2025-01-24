@@ -14,6 +14,8 @@
 
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
+    catppuccin.url = "github:catppuccin/nix/8eada392fd6571a747e1c5fc358dd61c14c8704e";
+    catppuccin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager-raccoon.inputs.nixpkgs.follows = "nixpkgs-raccoon";
     home-manager-stable.inputs.nixpkgs.follows = "nixpkgs-stable";
@@ -50,7 +52,7 @@
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, agenix, nixos-generators, nixpkgs, nixpkgs-raccoon, nixpkgs-stable, ... } @ inputs:
+  outputs = { self, agenix, catppuccin, nixos-generators, nixpkgs, nixpkgs-raccoon, nixpkgs-stable, ... } @ inputs:
     let
       overlays = (import ./overlays)
         ++ [(final: prev: {
@@ -64,6 +66,7 @@
           modules = [
             { nixpkgs.overlays = overlays; }
             agenix.nixosModules.age
+            catppuccin.nixosModules.catppuccin
             (./hosts + "/${name}")
           ] ++ extraModules;
           specialArgs = {
