@@ -31,6 +31,7 @@
     gamescope
     gimp
     grim
+    jetbrains.idea-community-bin
     #kotatogram-desktop
     krita
     lm_sensors
