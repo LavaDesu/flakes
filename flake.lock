@@ -69,6 +69,22 @@
         "type": "github"
       }
     },
+    "catppuccin-palette": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1730938296,
+        "narHash": "sha256-8AZVLJq5fKbMd/YFbqwgpHB7p4iTPTIMmC39R+3ZZ80=",
+        "owner": "catppuccin",
+        "repo": "palette",
+        "rev": "b85d36adec22631684ae64ced0a5cdd15462de3b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "palette",
+        "type": "github"
+      }
+    },
     "catppuccin-v1_1": {
       "locked": {
         "lastModified": 1734055249,
@@ -865,6 +881,7 @@
         "aagl": "aagl",
         "agenix": "agenix",
         "catppuccin": "catppuccin",
+        "catppuccin-palette": "catppuccin-palette",
         "discord-tokyonight": "discord-tokyonight",
         "discover": "discover",
         "fast-syntax-highlighting": "fast-syntax-highlighting",

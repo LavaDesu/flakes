@@ -16,6 +16,7 @@
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin.url = "github:catppuccin/nix/8eada392fd6571a747e1c5fc358dd61c14c8704e";
     catppuccin.inputs.nixpkgs.follows = "nixpkgs";
+    catppuccin-palette = { url = "github:catppuccin/palette"; flake = false; };
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager-raccoon.inputs.nixpkgs.follows = "nixpkgs-raccoon";
     home-manager-stable.inputs.nixpkgs.follows = "nixpkgs-stable";
