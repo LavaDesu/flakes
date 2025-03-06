@@ -50,24 +50,17 @@ vim.g.vimtex_view_method = "zathura"
 
 -- Theming
 vim.api.nvim_command("syntax enable")
--- require("tokyonight").setup({
---     style = "night"
--- })
--- vim.cmd[[
---     syntax enable
---     colorscheme tokyonight
--- ]]
--- local colors = require("tokyonight.colors").setup {}
--- vim.cmd("highlight SignifySignAdd             guifg="..colors.green)
--- vim.cmd("highlight SignifySignChange          guifg="..colors.orange)
--- vim.cmd("highlight SignifySignDelete          guifg="..colors.red)
--- vim.cmd("highlight SignifySignDeleteFirstLine guifg="..colors.red)
--- vim.cmd("highlight SignifySignChangeDelete    guifg="..colors.red)
+local colors = require("catppuccin.palettes").get_palette "{{CATPPUCCIN_FLAVOUR}}"
+vim.cmd("highlight SignifySignAdd             guifg="..colors.green)
+vim.cmd("highlight SignifySignChange          guifg="..colors.peach)
+vim.cmd("highlight SignifySignDelete          guifg="..colors.red)
+vim.cmd("highlight SignifySignDeleteFirstLine guifg="..colors.red)
+vim.cmd("highlight SignifySignChangeDelete    guifg="..colors.red)
 
 -- Set this specific highlight group in rust
 -- Shown when using #[cfg] directives, entire chunks of disabled code has squiggly lines and I don't want
 -- to see it
--- vim.cmd("au FileType rust highlight DiagnosticUnderlineHint ctermfg=14 gui=italic guifg="..colors.comment)
+vim.cmd("au FileType rust highlight DiagnosticUnderlineHint ctermfg=14 gui=italic guifg="..colors.overlay2)
 
 -- Plugins
 require('nvim-treesitter.configs').setup {
