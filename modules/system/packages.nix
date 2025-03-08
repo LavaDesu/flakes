@@ -1,5 +1,6 @@
 { config, enableGUI, lib, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
+    comma
     efibootmgr
     git
     htop
