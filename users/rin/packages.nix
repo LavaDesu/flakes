@@ -1,8 +1,5 @@
 { config, enableGUI, inputs, pkgs, ... }: {
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox.override { extraNativeMessagingHosts = [ pkgs.passff-host ]; };
-  };
+  programs.firefox.enable = true;
 
   home.packages = with pkgs; [
     dconf
