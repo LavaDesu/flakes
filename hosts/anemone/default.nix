@@ -9,7 +9,6 @@
   };
 
   imports = with modules.system; [
-    inputs.home-manager.nixosModule
     home-manager
 
     audio

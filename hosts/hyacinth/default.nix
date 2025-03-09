@@ -11,7 +11,6 @@
     wpa_conf.file = ../../secrets/wpa_conf.age;
   };
   imports = with modules.system; [
-    inputs.home-manager.nixosModule
     home-manager
 
     aagl
