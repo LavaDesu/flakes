@@ -2,7 +2,7 @@
   programs.zsh.enable = true;
   users.users.rin = {
     isNormalUser = true;
-    extraGroups = [ "adbusers" "audio" "corectrl" "libvirtd" "networkmanager" "video" "wheel" ];
+    extraGroups = [ "adbusers" "audio" "corectrl" "libvirtd" "networkmanager" "video" "wheel" "wireshark" ];
     shell = pkgs.zsh;
     uid = 1001;
     passwordFile = config.age.secrets.passwd.path;
