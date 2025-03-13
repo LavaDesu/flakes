@@ -20,12 +20,15 @@
                    :focusable false
   (bar))
 
-(defpoll ptime :interval "1s"
+
+(defvar time-extended false)
+(defpoll ptime   :interval "1s"
   `date +%H:%M`)
-(defpoll petimea :interval "1s"
+(defpoll petimea :interval "1s" :run-while time-extended
   `date "+%A, %d %B %Y  "`)
-(defpoll petimeb :interval "1s"
+(defpoll petimeb :interval "1s" :run-while time-extended
   `date "+:%S"`)
+
 
 (deflisten ltitle :initial "" "./scripts/title.sh")
 (deflisten lworkspaces :initial "[]" "./scripts/workspaces.sh")
@@ -59,11 +62,14 @@
          :class "extension"))
 
 (defwidget time []
-  (box :orientation "horizontal"
-       :space-evenly false
-       :halign "end"
-       :class "widget time"
-    (time_extension :text petimea)
-    (label :text ptime
-           :class "base")
-    (time_extension :text petimeb)))
+  (button :onclick `eww update time-extended=${time-extended ? "false" : "true"}`
+    (box :orientation "horizontal"
+         :space-evenly false
+         :halign "end"
+         :class "widget time"
+      (time_extension :text {time-extended ? petimea : ""})
+      (label :text ptime
+             :class "base")
+      (time_extension :text {time-extended ? petimeb : ""})
+      )))
+
