@@ -60,12 +60,21 @@
           me = prev.callPackage ./packages { inherit inputs; } // { inherit inputs; };
         })];
 
+        patchOverlaysWithLinuxLava = nixpkgs: arch: ([(self: super: {
+          linuxLavaNixpkgs = import nixpkgs {
+            overlays = [ (import ./overlays/linux-lava.nix) ] ++ overlays;
+            system = arch;
+          };
+        })] ++ overlays);
+
       mkSystem =
         if !(self ? rev) then throw "Dirty git tree detected." else
         nixpkgs: name: arch: enableGUI: extraModules: nixpkgs.lib.nixosSystem {
           system = arch;
           modules = [
-            { nixpkgs.overlays = overlays; }
+            ({
+              nixpkgs.overlays = patchOverlaysWithLinuxLava nixpkgs arch;
+            })
             agenix.nixosModules.age
             catppuccin.nixosModules.catppuccin
             (./hosts + "/${name}")
@@ -93,8 +102,8 @@
 
       packages."x86_64-linux" =
         let
-          pkgs = import nixpkgs {
-            inherit overlays;
+          pkgs = import nixpkgs rec {
+            overlays = patchOverlaysWithLinuxLava nixpkgs system;
             system = "x86_64-linux";
           };
         in

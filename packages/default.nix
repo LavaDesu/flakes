@@ -1,11 +1,12 @@
 {
   callPackage,
+  linuxLavaNixpkgs,
   inputs
 }: rec {
   discord-tokyonight = callPackage ./discord-tokyonight { inherit inputs; };
   discover-overlay = callPackage ./discover { inherit inputs; };
   epson-201112j = callPackage ./epson-201112j { };
-  linux-lava = callPackage ./linux-lava { inherit inputs; };
+  linux-lava = linuxLavaNixpkgs.callPackage ./linux-lava { inherit inputs; };
   nvim-treesitter-nightly = callPackage ./nvim-treesitter-nightly { inherit inputs; };
   packwiz = callPackage ./packwiz { inherit inputs; };
   psensor = callPackage ./psensor {  };
