@@ -1,4 +1,12 @@
-{ config, enableGUI, inputs, pkgs, ... }: {
+{ enableGUI, inputs, pkgs, ... }:
+let
+  dotnet-combined = (with pkgs.dotnetCorePackages; combinePackages [
+      dotnet_8.sdk
+      dotnet_9.sdk
+      aspnetcore_8_0-bin
+      aspnetcore_9_0-bin
+  ]);
+in {
   programs.firefox.enable = true;
 
   home.packages = with pkgs; [
@@ -50,15 +58,12 @@
     transmission-remote-gtk
     virt-manager
     winetricks
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        ms-vsliveshare.vsliveshare
-        vscodevim.vim
-    ];
-    })
     xclip
     xorg.xgamma
     zathura
     zenity
+
+    (vscode.fhsWithPackages (_: [ dotnet-combined ]))
+    dotnet-combined
   ];
 }
