@@ -18,7 +18,6 @@
 
     nodePackages_latest.pnpm
   ] ++ lib.optionals enableGUI [
-    android-studio
     discord-canary
     drawio
     element-desktop
@@ -28,7 +27,6 @@
     gamescope
     gimp
     grim
-    jetbrains.idea-community-bin
     #kotatogram-desktop
     krita
     lm_sensors
@@ -48,7 +46,6 @@
     screenkey
     slurp
     swaybg
-    texliveFull
     tor-browser-bundle-bin
     transmission-remote-gtk
     virt-manager

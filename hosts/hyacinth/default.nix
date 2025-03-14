@@ -37,6 +37,7 @@
     ./filesystem.nix
     ./kernel.nix
     ./networking.nix
+    ./packages.nix
 
     #../../users/rin/xorg.nix
     ../../users/rin/wayland.nix
