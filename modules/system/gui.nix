@@ -14,6 +14,7 @@
       font-awesome_4
       hanazono
       material-icons
+      material-symbols
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-extra
