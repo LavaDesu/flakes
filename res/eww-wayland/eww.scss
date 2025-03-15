@@ -24,6 +24,19 @@ window {
     border-radius: 50px;
 }
 
+.title {
+    margin: 0 5px;
+}
+
+.pill {
+    margin-right: 5px;
+    padding: 5px 10px;
+}
+
+.extended {
+    padding: 5px 15px;
+}
+
 .time {
     .base {
         font-weight: 700;
@@ -70,3 +83,8 @@ window {
     }
 }
 
+.pill-icon {
+    color: $accent;
+    font-family: Material Symbols Outlined;
+    font-size: 18px;
+}

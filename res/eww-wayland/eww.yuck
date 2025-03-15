@@ -21,6 +21,9 @@
   (bar))
 
 
+(defvar bat-extended false)
+(defvar bluetooth-extended false)
+(defvar network-extended false)
 (defvar time-extended false)
 (defpoll ptime   :interval "1s"
   `date +%H:%M`)
@@ -28,8 +31,16 @@
   `date "+%A, %d %B %Y  "`)
 (defpoll petimeb :interval "1s" :run-while time-extended
   `date "+:%S"`)
+(defpoll pbat_cap :interval "5s"
+  `cat /sys/class/power_supply/BATT/capacity`)
+(defpoll pbat_status :interval "1s"
+  `cat /sys/class/power_supply/BATT/status`)
+(defpoll network_strength :interval "1s"
+  `nmcli -f IN-USE,SIGNAL device wifi | grep '*' | tr -d -c 0-9`)
+(defpoll bluetooth_device :interval "1s"
+  `bluetoothctl devices Connected | grep Device | cut -d" " -f3-`)
 
-
+(deflisten lnetwork :initial "" "./scripts/network.sh")
 (deflisten ltitle :initial "" "./scripts/title.sh")
 (deflisten lworkspaces :initial "[]" "./scripts/workspaces.sh")
 (deflisten lcurrent_workspace :initial "1" "./scripts/active-workspace.sh")
@@ -40,7 +51,7 @@
                :class "bar"
       (workspaces)
       (title)
-      (time))))
+      (right_bar))))
 
 (defwidget workspaces []
   (box :class "widget workspaces"
@@ -58,18 +69,89 @@
   (literal :content ltitle))
 
 (defwidget time_extension [text]
-  (label :text text
-         :class "extension"))
+  (revealer :transition "slideleft"
+            :reveal time-extended
+            :duration 150
+    (label :text text
+           :class "extension")))
+
+(defwidget right_bar []
+  (box :orientation "horizontal"
+       :space-evenly false
+       :halign "end"
+    (bluetooth)
+    (network)
+    (battery)
+    (time)))
+
+(defwidget bluetooth []
+  (button :onclick `eww update bluetooth-extended=${bluetooth-extended ? "false" : "true"}`
+    (box :orientation "horizontal"
+         :class {"widget pill" + ((bluetooth-extended && bluetooth_device != "") ? " extended" : "")}
+         :spacing {(bluetooth-extended && bluetooth_device != "") ? 5 : 0}
+         :space-evenly false
+      (label :text { bluetooth_device == "" ? "" : ""}
+             :class "base pill-icon")
+      (revealer :transition "slideleft"
+                :reveal {bluetooth-extended && bluetooth_device != ""}
+                :duration 150
+        (label :text bluetooth_device
+               :class "base")))))
+
+(defwidget network []
+  (button :onclick `eww update network-extended=${network-extended ? "false" : "true"}`
+    (box :orientation "horizontal"
+         :class {"widget pill" + ((network-extended && lnetwork != "Disconnected") ? " extended" : "")}
+         :spacing {(network-extended && lnetwork != "Disconnected") ? 5 : 0}
+         :space-evenly false
+      (label :text {
+          (lnetwork == "Disconnected") ? ""
+        : (network_strength == "") ? ""
+        : (network_strength < 20) ? ""
+        : (network_strength < 30) ? ""
+        : (network_strength < 55) ? ""
+        : (network_strength < 80) ? ""
+        : ""}
+             :class "base pill-icon")
+      (revealer :transition "slideleft"
+                :reveal {network-extended && lnetwork != "Disconnected"}
+                :duration 150
+        (label :text lnetwork
+               :class "base")))))
+
+(defwidget battery []
+  (button :onclick `eww update bat-extended=${bat-extended ? "false" : "true"}`
+    (box :orientation "horizontal"
+         :class {"widget pill" + (bat-extended ? " extended" : "")}
+         :spacing {bat-extended ? 3 : 0}
+         :space-evenly false
+      (label :text {
+          (pbat_status == "Charging" || pbat_status == "Full") ?
+            ( (pbat_cap < 20) ? ""
+            : (pbat_cap < 50) ? ""
+            : (pbat_cap < 100) ? ""
+            : "" )
+        : (pbat_cap < 10) ? ""
+        : (pbat_cap < 20) ? ""
+        : (pbat_cap < 50) ? ""
+        : (pbat_cap < 80) ? ""
+        : ""}
+             :class "base pill-icon")
+      (revealer :transition "slideleft"
+                :reveal bat-extended
+                :duration 150
+        (label :text {pbat_cap + "%"}
+               :class "base")))))
+
 
 (defwidget time []
   (button :onclick `eww update time-extended=${time-extended ? "false" : "true"}`
     (box :orientation "horizontal"
          :space-evenly false
-         :halign "end"
+         :hexpand true
          :class "widget time"
-      (time_extension :text {time-extended ? petimea : ""})
+      (time_extension :text petimea)
       (label :text ptime
              :class "base")
-      (time_extension :text {time-extended ? petimeb : ""})
-      )))
+      (time_extension :text petimeb))))
 
