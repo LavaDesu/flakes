@@ -42,7 +42,6 @@ in {
     insomnia
     maim
     mangohud
-    #me.tetrio-desktop-plus
     me.psensor
     inputs.nix-gaming.packages.x86_64-linux.osu-lazer-bin
     inputs.nix-gaming.packages.x86_64-linux.wine-osu
@@ -54,6 +53,7 @@ in {
     screenkey
     slurp
     swaybg
+    (tetrio-desktop.override { withTetrioPlus = true; })
     tor-browser-bundle-bin
     transmission-remote-gtk
     virt-manager
