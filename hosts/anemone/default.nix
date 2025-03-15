@@ -45,4 +45,6 @@
     enable = true;
     package = pkgs.wireshark;
   };
+
+  services.tlp.enable = true;
 }
