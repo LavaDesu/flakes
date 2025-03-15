@@ -12,8 +12,6 @@
       material-symbols
       material-icons
       cascadia-code
-      font-awesome
-      font-awesome_4
       hanazono
       noto-fonts
       noto-fonts-cjk-sans
