@@ -87,18 +87,7 @@
     in
     {
       nixosConfigurations."anemone" = mkSystem nixpkgs "anemone" "x86_64-linux" true [];
-      nixosConfigurations."blossom" = mkSystem nixpkgs "blossom" "x86_64-linux" true [];
       nixosConfigurations."hyacinth" = mkSystem nixpkgs "hyacinth" "x86_64-linux" true [];
-
-      nixosConfigurations."caramel" = mkSystem nixpkgs-raccoon "caramel" "aarch64-linux" false [{
-        nixpkgs.overlays = [
-          (self: super: {
-            makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
-          })
-        ];
-      }];
-      nixosConfigurations."sugarcane" = mkSystem nixpkgs-raccoon "sugarcane" "x86_64-linux" false [];
-      nixosConfigurations."dandelion" = mkSystem nixpkgs-stable "dandelion" "aarch64-linux" false [];
 
       packages."x86_64-linux" =
         let
@@ -119,7 +108,6 @@
           };
         in
         {
-          caramel-img = self.nixosConfigurations."caramel".config.system.build.sdImage;
         };
 
       # TODO: currently broken
