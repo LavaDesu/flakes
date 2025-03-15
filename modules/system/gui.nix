@@ -9,12 +9,12 @@
       };
     };
     fonts = with pkgs; [
+      material-symbols
+      material-icons
       cascadia-code
       font-awesome
       font-awesome_4
       hanazono
-      material-icons
-      material-symbols
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-extra
