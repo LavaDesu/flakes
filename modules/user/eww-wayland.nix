@@ -9,7 +9,7 @@ let
       substituteInPlace $out/eww.scss \
         --replace-warn "EWW_BACKGROUND" "${config.catppuccin.hexcolors.surface1}" \
         --replace-warn "EWW_TEXT" "${config.catppuccin.hexcolors.text}" \
-        --replace-warn "EWW_ACCENT" "${config.catppuccin.hexcolors.pink}"
+        --replace-warn "EWW_ACCENT" "${config.catppuccin.hexcolors.${config.catppuccin.accent}}"
     '';
   };
 in {
