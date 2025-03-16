@@ -49,21 +49,21 @@ in {
       };
 
       urgency_low = {
-        background = "#12131b";
-        foreground = "#d8dee8";
+        background = config.catppuccin.hexcolors.surface1;
+        foreground = config.catppuccin.hexcolors.text;
         timeout = 3;
       };
 
       urgency_normal = {
-        background = "#12131b";
-        foreground = "#d8dee8";
+        background = config.catppuccin.hexcolors.surface1;
+        foreground = config.catppuccin.hexcolors.text;
         timeout = 5;
       };
 
       urgency_critical = {
-        background = "#12131b";
-        foreground = "#d8dee8";
-        # frame_color = "#bf616a";
+        background = config.catppuccin.hexcolors.surface1;
+        foreground = config.catppuccin.hexcolors.text;
+        frame_color = config.catppuccin.hexcolors.red;
         timeout = 0;
       };
     };
