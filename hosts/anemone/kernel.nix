@@ -22,6 +22,8 @@
     ];
   };
 
+  powerManagement.cpufreq.min = 400000;
+
   hardware.cpu.amd.updateMicrocode = true;
 
   hardware.firmware = let
