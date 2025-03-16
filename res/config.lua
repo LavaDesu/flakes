@@ -12,6 +12,7 @@ vim.cmd('au BufEnter * set noro')
 vim.cmd('au CursorHold * lua vim.diagnostic.open_float(0, { scope = "line", focusable = false })')
 
 -- Settings
+vim.opt.mouse = ""
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.cursorline = true
