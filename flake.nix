@@ -14,6 +14,8 @@
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     # services
     # hosts-blocklists = { url = "github:notracking/hosts-blocklists"; flake = false; };

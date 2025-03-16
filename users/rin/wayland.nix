@@ -38,6 +38,8 @@
 
       dunst
       eww-wayland
+
+      spicetify
     ];
 
     services.mpris-proxy.enable = true;
