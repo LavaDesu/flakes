@@ -12,9 +12,9 @@ in {
       global = {
         monitor = 0;
         follow = "mouse";
-        width = 460;
+        width = "(100, 450)";
         origin = "top-right";
-        offset = "24x35";
+        offset = "24x50";
         notification_limit = 0;
         indicate_hidden = true;
         shrink = true;
@@ -36,7 +36,7 @@ in {
         hide_duplicate_count = true;
         show_indicators = false;
         icon_position = "left";
-        max_icon_size = 32;
+        max_icon_size = 40;
         sticky_history = true;
         history_length = 100;
         browser = "${pkgs.firefox}/bin/firefox -new-tab";
