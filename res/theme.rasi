@@ -12,9 +12,9 @@ configuration {
 @theme "/dev/null"
 
 * {
-  bg:                              #12131b;
-  fg:                              #f3f6ff;
-  button:                          #ae58c8;
+  bg:                              CAT_BACKGROUND;
+  fg:                              CAT_TEXT;
+  button:                          CAT_ACCENT;
 
   background-color:                @bg;
   text-color:                      @fg;
@@ -30,7 +30,7 @@ prompt { enabled: false; }
 
 entry {
   placeholder:                    "Search";
-  placeholder-color:              #f3f6ff90;
+  placeholder-color:              CAT_PLACEHOLDER;
   transparency:                   "real";
   expand:                         true;
   font:                           "Noto Sans 32";
@@ -70,7 +70,7 @@ element-text {
   margin:                         0% 3% 0.5% 3%;
   background-color:               inherit;
   text-color:                     inherit;
-  font:                           "Noto Sans 12";
+  font:                           "Noto Sans Medium 12";
 }
 
 element-icon {
@@ -85,4 +85,5 @@ element-icon {
 element selected {
   background-color:               @button;
   border-radius:                  8px;
+  text-color:                     @bg;
 }
