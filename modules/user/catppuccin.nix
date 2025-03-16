@@ -16,6 +16,7 @@
     accent = "maroon";
     flavor = "mocha";
     kitty.enable = true;
+    gtk.enable = true;
     nvim.enable = true;
   };
 }
