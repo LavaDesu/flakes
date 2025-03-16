@@ -7,7 +7,7 @@ let
     installPhase = ''
       cp -r ${../../res/eww-wayland} $out
       substituteInPlace $out/eww.scss \
-        --replace-warn "EWW_BACKGROUND" "${config.catppuccin.hexcolors.surface1}" \
+        --replace-warn "EWW_BACKGROUND" "${config.catppuccin.hexcolors.crust}" \
         --replace-warn "EWW_TEXT" "${config.catppuccin.hexcolors.text}" \
         --replace-warn "EWW_ACCENT" "${config.catppuccin.hexcolors.${config.catppuccin.accent}}"
     '';

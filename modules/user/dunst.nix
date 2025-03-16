@@ -49,19 +49,19 @@ in {
       };
 
       urgency_low = {
-        background = config.catppuccin.hexcolors.surface1;
+        background = config.catppuccin.hexcolors.crust;
         foreground = config.catppuccin.hexcolors.text;
         timeout = 3;
       };
 
       urgency_normal = {
-        background = config.catppuccin.hexcolors.surface1;
+        background = config.catppuccin.hexcolors.crust;
         foreground = config.catppuccin.hexcolors.text;
         timeout = 5;
       };
 
       urgency_critical = {
-        background = config.catppuccin.hexcolors.surface1;
+        background = config.catppuccin.hexcolors.crust;
         foreground = config.catppuccin.hexcolors.text;
         frame_color = config.catppuccin.hexcolors.red;
         timeout = 0;
