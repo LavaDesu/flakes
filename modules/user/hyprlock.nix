@@ -13,58 +13,80 @@
       };
       background = {
         monitor = "";
-        path = "$HOME/Pictures/Wallpapers/current.png";
-        blur_passes = 1;
         color = "$base";
       };
       label = [
+        # Fingerprint icon
+        {
+            monitor = "";
+            color = "$text";
+            font_family = "Material Symbols Outlined";
+            font_size = 64;
+            halign = "center";
+            valign = "top";
+            position = "0, -100";
+            text = "";
+        }
+        # Fingerprint text
+        {
+          monitor = "";
+          color = "$text";
+          text = "$FPRINTPROMPT";
+          font_size = 25;
+          font_family = "Open Sans";
+          position = "0, -235";
+          halign = "center";
+          valign = "top";
+        }
+        # Fail text under input
+        {
+          monitor = "";
+          color = "$red";
+          font_family = "Open Sans";
+          font_size = 25;
+          text = "$FAIL $ATTEMPTS[]";
+          position = "0, -200";
+          halign = "center";
+          valign = "center";
+        }
+        # Time
         {
           monitor = "";
           text = "$TIME";
           color = "$text";
           font_size = 90;
           font_family = "Open Sans";
-          position = "-30, 0";
+          position = "-50, 0";
           halign = "right";
           valign = "top";
         }
+        # Date
         {
           monitor = "";
           text = "cmd[update:43200000] date +'%A, %d %B %Y'";
           color = "$text";
           font_size = 25;
           font_family = "Open Sans";
-          position = "-30, -150";
+          position = "-40, -150";
           halign = "right";
           valign = "top";
-        }
-        {
-          monitor = "";
-          text = "fprint";
-          color = "$FPRINTPROMPT";
-          font_size = 14;
-          font_family = "Open Sans";
-          position = "0, -107";
-          halign = "center";
-          valign = "center";
         }
       ];
       input-field = {
         monitor = "";
-        size = "300, 60";
+        size = "600, 120";
         outline_thickness = 4;
+        check_color = "$peach";
         dots_size = 0.2;
         dots_spacing = 0.2;
         dots_center = true;
-        outer_color = "$accent";
-        inner_color = "$surface0";
+        fail_text = "";
         font_color = "$text";
+        inner_color = "$crust";
+        outer_color = "$base";
+        placeholder_text = "Password";
         fade_on_empty = false;
-        placeholder_text = ''<span foreground="##$textAlpha"><i>󰌾 Logged in as </i><span foreground="##$accentAlpha">$USER</span></span>'';
         hide_input = false;
-        check_color = "$accent";
-        fail_color = "$red";
-        fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
         capslock_color = "$yellow";
         position = "0, -47";
         halign = "center";
