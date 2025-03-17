@@ -67,7 +67,7 @@
           color = "$text";
           font_size = 25;
           font_family = "Open Sans";
-          position = "-40, -150";
+          position = "-50, -150";
           halign = "right";
           valign = "top";
         }
