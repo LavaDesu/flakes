@@ -1,6 +1,8 @@
 { config, inputs, pkgs, ... }:
 let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  colours = builtins.mapAttrs (_: colour: builtins.replaceStrings ["#"] [""] colour) config.catppuccin.hexcolors;
+  accentColour = colours.${config.catppuccin.accent};
 in
 {
   imports = [ inputs.spicetify-nix.homeManagerModules.spicetify ];
@@ -8,31 +10,25 @@ in
   programs.spicetify = {
     enable = true;
     alwaysEnableDevTools = true;
-    theme = spicePkgs.themes.dribbblish // rec {
-      src = pkgs.stdenvNoCC.mkDerivation {
-        pname = "spicetify-dribbblish-catppuccin-patch";
-        version = "1.0.0";
-        dontUnpack = true;
-        installPhase = let
-          color_prev1 = builtins.replaceStrings ["#"] [""] config.catppuccin.hexcolors.overlay1;
-          color_prev2 = builtins.replaceStrings ["#"] [""] config.catppuccin.hexcolors.overlay2;
-          color_next = builtins.replaceStrings ["#"] [""] config.catppuccin.hexcolors.${config.catppuccin.accent};
-          color_sidebar_prev = builtins.replaceStrings ["#"] [""] config.catppuccin.hexcolors.mantle;
-          color_sidebar_next = builtins.replaceStrings ["#"] [""] config.catppuccin.hexcolors.crust;
-
-          color_sidebar_text_prev = builtins.replaceStrings ["#"] [""] config.catppuccin.hexcolors.text;
-          color_sidebar_text_next = builtins.replaceStrings ["#"] [""] (config.catppuccin.hexcolors.base);
-        in ''
-          cp -r ${spicePkgs.themes.dribbblish.src} $out
-          substituteInPlace $out/color.ini \
-            --replace-fail "${color_prev1}" "${color_next}" \
-            --replace-fail "${color_prev2}" "${color_next}" \
-            --replace-fail "sidebar            = ${color_sidebar_prev}" \
-                           "sidebar            = ${color_sidebar_next}"
-        '';
-      };
+    theme = spicePkgs.themes.dribbblish;
+    customColorScheme = {
+      text               = colours.text;
+      subtext            = colours.subtext1;
+      sidebar-text       = colours.text;
+      main               = colours.base;
+      sidebar            = colours.mantle;
+      player             = colours.base;
+      card               = colours.base;
+      shadow             = colours.mantle;
+      selected-row       = colours.overlay2;
+      button             = colours.overlay1;
+      button-active      = colours.overlay2;
+      button-disabled    = colours.overlay0;
+      tab-active         = colours.surface0;
+      notification       = colours.surface0;
+      notification-error = colours.red;
+      misc               = colours.surface1;
     };
-    colorScheme = "catppuccin-${config.catppuccin.flavor}";
 
     enabledCustomApps = with spicePkgs.apps; [
       lyricsPlus
