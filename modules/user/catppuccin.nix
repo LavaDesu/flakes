@@ -18,6 +18,7 @@
       flavor = "latte";
       kitty.enable = true;
       gtk.enable = true;
+      hyprlock.enable = true;
       kvantum.enable = true;
       nvim.enable = true;
     };
