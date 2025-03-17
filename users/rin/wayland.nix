@@ -31,6 +31,7 @@
       theming
       xdg
 
+      hypridle
       hyprlock
       kitty
       mpv
