@@ -7,6 +7,7 @@ in
 
   programs.spicetify = {
     enable = true;
+    alwaysEnableDevTools = true;
     theme = spicePkgs.themes.dribbblish // rec {
       src = pkgs.stdenvNoCC.mkDerivation {
         pname = "spicetify-dribbblish-catppuccin-patch";
@@ -27,9 +28,7 @@ in
             --replace-fail "${color_prev1}" "${color_next}" \
             --replace-fail "${color_prev2}" "${color_next}" \
             --replace-fail "sidebar            = ${color_sidebar_prev}" \
-                           "sidebar            = ${color_sidebar_next}" \
-            --replace-fail "sidebar-text       = ${color_sidebar_text_prev}" \
-                           "sidebar-text       = ${color_sidebar_text_next}"
+                           "sidebar            = ${color_sidebar_next}"
         '';
       };
     };
