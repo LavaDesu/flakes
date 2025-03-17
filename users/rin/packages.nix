@@ -56,6 +56,7 @@ in {
     (tetrio-desktop.override { withTetrioPlus = true; })
     tor-browser-bundle-bin
     transmission-remote-gtk
+    vesktop
     virt-manager
     winetricks
     xclip
