@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, pkgs, ... }:
 let
   kblight = "light -s sysfs/leds/asus::kbd_backlight";
 in
@@ -9,7 +9,7 @@ in
     settings = {
       general = {
         lock_cmd = "pidof hyprlock || hyprlock";
-        before_sleep_cmd = "loginctl lock-session";
+        before_sleep_cmd = "${lib.getExe pkgs.playerctl} pause; loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
 
