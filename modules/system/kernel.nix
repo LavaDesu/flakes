@@ -11,5 +11,8 @@
     };
   };
   hardware.enableRedistributableFirmware = true;
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    priority = 100;
+  };
 }
