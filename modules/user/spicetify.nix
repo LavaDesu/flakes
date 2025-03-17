@@ -18,13 +18,18 @@ in
           color_next = builtins.replaceStrings ["#"] [""] config.catppuccin.hexcolors.${config.catppuccin.accent};
           color_sidebar_prev = builtins.replaceStrings ["#"] [""] config.catppuccin.hexcolors.mantle;
           color_sidebar_next = builtins.replaceStrings ["#"] [""] config.catppuccin.hexcolors.crust;
+
+          color_sidebar_text_prev = builtins.replaceStrings ["#"] [""] config.catppuccin.hexcolors.text;
+          color_sidebar_text_next = builtins.replaceStrings ["#"] [""] (config.catppuccin.hexcolors.base);
         in ''
           cp -r ${spicePkgs.themes.dribbblish.src} $out
           substituteInPlace $out/color.ini \
             --replace-fail "${color_prev1}" "${color_next}" \
             --replace-fail "${color_prev2}" "${color_next}" \
             --replace-fail "sidebar            = ${color_sidebar_prev}" \
-                           "sidebar            = ${color_sidebar_next}"
+                           "sidebar            = ${color_sidebar_next}" \
+            --replace-fail "sidebar-text       = ${color_sidebar_text_prev}" \
+                           "sidebar-text       = ${color_sidebar_text_next}"
         '';
       };
     };
