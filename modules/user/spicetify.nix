@@ -11,6 +11,9 @@ in
     theme = spicePkgs.themes.catppuccin;
     colorScheme = config.catppuccin.flavor;
 
+    enabledSnippets = with spicePkgs.snippets; [
+      removeGradient
+    ];
     enabledCustomApps = with spicePkgs.apps; [
       lyricsPlus
     ];
