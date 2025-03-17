@@ -7,6 +7,7 @@
     };
     initrd = {
       availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+      systemd.enable = true;
       verbose = false;
     };
     kernelModules = [ "kvm-amd" ];
@@ -21,6 +22,11 @@
       "udev.log_priority=3"
     ];
   };
+
+  swapDevices = [{
+    device = "/persist/swapfile";
+    size = 16 * 1024;
+  }];
 
   powerManagement.cpufreq.min = 400000;
 
