@@ -35,6 +35,7 @@
   ];
 
   programs.hyprland.enable = true;
+  security.pam.services.hyprlock = {};
 
   # For steam fhs-env
   nixpkgs.config.permittedInsecurePackages = [

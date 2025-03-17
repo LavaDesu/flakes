@@ -31,6 +31,7 @@
       theming
       xdg
 
+      hyprlock
       kitty
       mpv
       obs

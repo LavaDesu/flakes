@@ -57,6 +57,7 @@ in {
     ./user/eww-wayland.nix
     ./user/git.nix
     ./user/gpg.nix
+    ./user/hyprlock.nix
     ./user/kitty.nix
     ./user/mpv.nix
     ./user/neovim.nix
