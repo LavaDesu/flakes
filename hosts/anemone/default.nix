@@ -47,5 +47,6 @@
     package = pkgs.wireshark;
   };
 
+  services.fprintd.enable = true;
   services.tlp.enable = true;
 }
