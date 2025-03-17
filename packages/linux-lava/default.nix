@@ -3,6 +3,7 @@
 , inputs
 , lib
 , linuxLavaEnv
+, useCcache ? false
 , ...
 } @ args:
 
@@ -10,7 +11,7 @@ let
   sources = callPackage ./sources.nix { inherit inputs; };
   kernel = buildLinux (args // {
     inherit (sources) src kernelPatches;
-    inherit (linuxLavaEnv) stdenv;
+    stdenv = if useCcache then linuxLavaEnv.ccacheStdenv else linuxLavaEnv.stdenv;
     version = "${sources.version}-tkg-Lava";
     isZen = true;
     extraMakeFlags = [ "LLVM=1" "LLVM_IAS=1" ];

@@ -10,12 +10,11 @@ self: super: let
       echo " -resource-dir=${llvmPackages.libclang.lib}/lib/clang/${clangVersion}" >> $out/nix-support/cc-cflags
     '';
   };
-  stdenv = super.ccacheStdenv.override {
-    stdenv = super.overrideCC llvmPackages.stdenv cc;
-  };
+  stdenv = super.overrideCC llvmPackages.stdenv cc;
+  ccacheStdenv = super.ccacheStdenv.override { inherit stdenv; };
 in {
   linuxLavaEnv = {
-    inherit llvmPackages clangVersion cc stdenv;
+    inherit llvmPackages clangVersion cc stdenv ccacheStdenv;
   };
   rust-bindgen-unwrapped = super.rust-bindgen-unwrapped.override {
     clang = cc;

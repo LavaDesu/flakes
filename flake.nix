@@ -80,6 +80,7 @@
         in
         {
           inherit (pkgs.me) linux-lava spotify-adblock;
+          linux-lava-ccache = pkgs.me.linux-lava.override { useCcache = true; };
         };
     };
 }
