@@ -1,4 +1,4 @@
-#!/usr/bin/env -S nix shell 'nixpkgs#git' 'nixpkgs#curl' -c sh
+#!/usr/bin/env -S nix shell 'nixpkgs#git' 'nixpkgs#curl' -c bash
 
 update_kernel() {
     previous_ver=$(cat packages/linux-lava/sources.nix | grep "version =" | sed --expression='s/[^0-9.]//g')
