@@ -97,6 +97,9 @@ let
     bindkey -M vicmd 'k' history-substring-search-up
     bindkey -M vicmd 'j' history-substring-search-down
   '';
+  disableExecute = ''
+    bindkey -a -r ':'
+  '';
 in {
   programs.command-not-found.enable = true;
   programs.zsh = {
@@ -144,6 +147,7 @@ in {
       direnv
       genAbbrs
       viExtraNav
+      disableExecute
     ];
 
     plugins = builtins.map (e: pluginFromInput e) [
