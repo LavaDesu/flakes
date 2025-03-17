@@ -7,14 +7,6 @@
       name = "Open Sans";
       size = 11;
     };
-    # iconTheme = {
-    #   package = pkgs.yaru-theme;
-    #   name = "Yaru";
-    # };
-    # theme = {
-    #   name = "Adwaita-dark";
-    #   package = pkgs.gnome-themes-extra;
-    # };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = if config.catppuccin.flavor == "latte" then "0" else "1";
     };

@@ -12,11 +12,19 @@
     default = builtins.mapAttrs (name: value: value.hex) config.catppuccin.colors;
   };
 
-  config.catppuccin = {
-    accent = "maroon";
-    flavor = "latte";
-    kitty.enable = true;
-    gtk.enable = true;
-    nvim.enable = true;
+  config = {
+    catppuccin = {
+      accent = "maroon";
+      flavor = "latte";
+      kitty.enable = true;
+      gtk.enable = true;
+      kvantum.enable = true;
+      nvim.enable = true;
+    };
+    qt = {
+      enable = true;
+      style.name = "kvantum";
+      platformTheme.name = "kvantum";
+    };
   };
 }
