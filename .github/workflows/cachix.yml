@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
@@ -8,14 +9,11 @@ jobs:
     name: Check flake
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: cachix/install-nix-action@v17
-        with:
-          install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.12.0pre20220930_89ca75c/install
-          extra_nix_config: experimental-features = nix-command flakes
-      - uses: cachix/cachix-action@v10
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v14
         with:
           name: lava
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
@@ -25,14 +23,11 @@ jobs:
     name: Build linux-lava for x86_64-linux
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: cachix/install-nix-action@v17
-        with:
-          install_url: https://github.com/numtide/nix-unstable-installer/releases/download/nix-2.12.0pre20220930_89ca75c/install
-          extra_nix_config: experimental-features = nix-command flakes
-      - uses: cachix/cachix-action@v10
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v14
         with:
           name: lava
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'

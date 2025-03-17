@@ -1,0 +1,48 @@
+name: Auto update
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for updates
+        id: check
+        run: |
+          local=$(cat flake.lock | jq ".nodes.nixpkgs.locked.rev")
+          remote=$(curl "https://api.github.com/repos/NixOS/nixpkgs/branches/nixos-unstable/commits?per_page=1" | jq ".commit.sha")
+          if [[ $local == $remote ]]; then
+            echo "skip=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=0" >> "$GITHUB_OUTPUT"
+            branch=$(TZ='Australia/Melbourne' date '+staging_auto/%Y%m%d')
+            echo "branch_name=${branch}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install nix
+        if: steps.check.outputs.skip == 0
+        uses: cachix/install-nix-action@v31
+
+      - name: Configure git
+        if: steps.check.outputs.skip == 0
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Update
+        if: steps.check.outputs.skip == 0
+        run: ./update.sh
+
+      - name: Push
+        if: steps.check.outputs.skip == 0
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ steps.check.outputs.branch_name }}
