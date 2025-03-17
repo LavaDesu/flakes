@@ -28,6 +28,13 @@
     size = 16 * 1024;
   }];
 
+  services.logind.lidSwitch = "suspend-then-hibernate";
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=14400
+    SuspendEstimationSec=3600
+    HibernateOnACPower=false
+  '';
+
   powerManagement.cpufreq.min = 400000;
 
   hardware.cpu.amd.updateMicrocode = true;
