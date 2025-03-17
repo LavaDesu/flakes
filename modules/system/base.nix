@@ -8,7 +8,7 @@
   };
   environment.pathsToLink = [ "/share/zsh" ];
 
-  i18n.defaultLocale = "en_GB.UTF-8";
+  i18n.defaultLocale = "en_AU.UTF-8";
   users.mutableUsers = false;
 
   system = {
