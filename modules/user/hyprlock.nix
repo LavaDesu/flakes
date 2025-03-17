@@ -9,6 +9,7 @@
       auth = {
         fingerprint = {
           enabled = true;
+          ready_message = "Scan fingerprint to unlock";
         };
       };
       background = {
