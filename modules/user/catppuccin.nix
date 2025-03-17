@@ -14,7 +14,7 @@
 
   config.catppuccin = {
     accent = "maroon";
-    flavor = "mocha";
+    flavor = "latte";
     kitty.enable = true;
     gtk.enable = true;
     nvim.enable = true;
