@@ -21,7 +21,7 @@
   (bar))
 
 
-(defvar bat-extended false)
+(defvar bat-extended true)
 (defvar bluetooth-extended false)
 (defvar network-extended false)
 (defvar time-extended false)
