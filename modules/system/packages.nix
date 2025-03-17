@@ -24,7 +24,7 @@
 }
 // (if !enableGUI then {} else {
   programs.adb.enable = true;
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.extraPackages = with pkgs; [
     vaapiIntel
     vaapiVdpau
     libvdpau-va-gl

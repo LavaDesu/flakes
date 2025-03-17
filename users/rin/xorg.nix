@@ -5,7 +5,7 @@
     extraGroups = [ "adbusers" "audio" "corectrl" "libvirtd" "networkmanager" "video" "wheel" ];
     shell = pkgs.zsh;
     uid = 1001;
-    passwordFile = config.age.secrets.passwd.path;
+    hashedPasswordFile = config.age.secrets.passwd.path;
   };
   home-manager.users.rin = { config, enableGUI, lib, pkgs, ... }: {
     home = {

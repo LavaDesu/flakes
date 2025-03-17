@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
   fonts = {
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
     fontconfig = {
       defaultFonts = {
         serif = [ "NotoSerif" ];
@@ -8,7 +8,7 @@
         monospace = [ "CascadiaCode" ];
       };
     };
-    fonts = with pkgs; [
+    packages = with pkgs; [
       material-symbols
       material-icons
       cascadia-code

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ ... }: {
   services.xserver = {
     displayManager = {
       xserverArgs = [
@@ -6,14 +6,14 @@
         "-arinterval 15"
       ];
     };
-    libinput = {
-      enable = true;
-      mouse = {
-        accelSpeed = "0";
-        accelProfile = "flat";
-      };
+    xkb.options = "caps:escape";
+  };
+  services.libinput = {
+    enable = true;
+    mouse = {
+      accelSpeed = "0";
+      accelProfile = "flat";
     };
-    xkbOptions = "caps:escape";
   };
   console.useXkbConfig = true;
 }
