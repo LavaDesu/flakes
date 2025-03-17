@@ -1,8 +1,9 @@
-{ ... }:
+{ config, ... }:
 let
   kblight = "light -s sysfs/leds/asus::kbd_backlight";
 in
 {
+  home.packages = [ config.services.hypridle.package ];
   services.hypridle = {
     enable = true;
     settings = {
