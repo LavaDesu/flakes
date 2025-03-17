@@ -16,15 +16,15 @@
     #   package = pkgs.gnome-themes-extra;
     # };
     gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
+      gtk-application-prefer-dark-theme = if config.catppuccin.flavor == "latte" then "0" else "1";
     };
     gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
+      gtk-application-prefer-dark-theme = if config.catppuccin.flavor == "latte" then "0" else "1";
     };
   };
 
   dconf.settings = {
-    "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    "org/gnome/desktop/interface".color-scheme = if config.catppuccin.flavor == "latte" then "prefer-light" else "prefer-dark";
   };
 
   home.pointerCursor = {
