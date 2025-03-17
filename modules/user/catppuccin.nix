@@ -15,7 +15,7 @@
   config = {
     catppuccin = {
       accent = "maroon";
-      flavor = "latte";
+      flavor = "mocha";
       kitty.enable = true;
       gtk.enable = true;
       hyprlock.enable = true;
