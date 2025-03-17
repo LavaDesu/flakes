@@ -8,7 +8,7 @@
       };
 
       initial_session = {
-        command = "Hyprland > \"$XDG_RUNTIME_DIR/Hyprland.out\"";
+        command = "source $HOME/.config/zsh/.zshrc && Hyprland > \"$XDG_RUNTIME_DIR/Hyprland.out\"";
         user = "rin";
       };
     };
