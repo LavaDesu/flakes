@@ -106,7 +106,7 @@
          :space-evenly false
       (label :text {
           (lnetwork == "Disconnected") ? ""
-        : (network_strength == "") ? ""
+        : (network_strength == "") ? ""
         : (network_strength < 20) ? ""
         : (network_strength < 30) ? ""
         : (network_strength < 55) ? ""
