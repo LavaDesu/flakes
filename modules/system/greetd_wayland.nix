@@ -8,7 +8,9 @@
       };
 
       initial_session = {
-        command = "source $HOME/.config/zsh/.zshrc && Hyprland > \"$XDG_RUNTIME_DIR/Hyprland.out\"";
+        command = "${pkgs.writeShellScript "launch.sh" ''
+          zsh -c "source $HOME/.config/zsh/.zshrc && Hyprland > \"$XDG_RUNTIME_DIR/Hyprland.out\""
+        ''}";
         user = "rin";
       };
     };
