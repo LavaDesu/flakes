@@ -1,8 +1,8 @@
 { fetchFromGitHub, inputs, lib }:
 let
-  version = "6.13.6";
+  version = "6.13.7";
   kernelHash = "0vhdz1as27kxav81rkf6fm85sqrbj5hjhz5hpyxcd5b6p1pcr7g7";
-  kernelPatchHash = "11jbq6j7kz47p1291ys9b7v7jh7skaw1n4rj10ahl5m701lsk0vz";
+  kernelPatchHash = "0akxqc8fdf6gkiy967crp7m1ikidd3rlhx804y3da1jl75dgqcrw";
 
   mm = lib.versions.majorMinor version;
   tkgPatches = [
