@@ -23,6 +23,14 @@ jobs:
     name: Build linux-lava for x86_64-linux
     runs-on: ubuntu-latest
     steps:
+      # credits to https://github.com/easimon/maximize-build-space/issues/45
+      - name: Remove unneeded packages to maximise build space
+        shell: bash
+        run: |
+            df -h
+            sudo rm -rf /usr/share/dotnet
+            sudo rm -rf /usr/local/lib/android
+            df -h
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
