@@ -16,6 +16,28 @@
         monitor = "";
         color = "$base";
       };
+      shape = [
+        # Battery pill
+        {
+          monitor = "";
+          size = "165, 65";
+          color = "$crust";
+          rounding = -1;
+          halign = "right";
+          valign = "top";
+          position = "-595,-10";
+        }
+        # Time pill
+        {
+          monitor = "";
+          size = "545, 65";
+          color = "$crust";
+          rounding = -1;
+          halign = "right";
+          valign = "top";
+          position = "-40,-10";
+        }
+      ];
       label = [
         # Fingerprint icon
         {
@@ -50,27 +72,38 @@
           halign = "center";
           valign = "center";
         }
-        # Time
+        # Battery icon
         {
           monitor = "";
-          text = "$TIME";
-          color = "$text";
-          font_size = 90;
-          font_family = "Open Sans";
-          position = "-50, 0";
+          text = "";
+          color = "$accent";
+          font_family = "Material Symbols Outlined";
+          font_size = 27;
+          position = "-695, -20";
           halign = "right";
           valign = "top";
         }
-        # Date
+        # Battery percentage
         {
           monitor = "";
-          text = "cmd[update:43200000] date +'%A, %d %B %Y'";
+          text = ''cmd[update:60000] echo "<span weight='700'>$(cat /sys/class/power_supply/BATT/capacity)%</span>"'';
           color = "$text";
-          font_size = 25;
+          font_size = 23;
           font_family = "Open Sans";
-          position = "-50, -150";
+          position = "-625, -20";
           halign = "right";
           valign = "top";
+        }
+        # Time and Date
+        {
+          monitor = "";
+          color = "$text";
+          font_family = "Open Sans";
+          font_size = 23;
+          halign = "right";
+          valign = "top";
+          position = "-70, -20";
+          text = ''cmd[update:1000] echo "<span alpha='70%' weight='550'>$(date '+%A, %d %B %Y')</span>  <span weight='700'>$(date +%H:%M)</span><span alpha='70%' weight='550'>$(date +:%S)</span>"'';
         }
       ];
       input-field = {
