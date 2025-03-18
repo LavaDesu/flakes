@@ -1,4 +1,4 @@
-{ config, inputs, lib, ... }: {
+{ config, inputs, lib, pkgs, ... }: {
   imports = [
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
@@ -32,5 +32,27 @@
       light.configuration.catppuccin.flavor = "latte";
       dark.configuration.catppuccin.flavor = "mocha";
     };
+
+    home.packages = [(pkgs.writeShellScriptBin "theme" ''
+      if [ "$1" != "dark" ] && [ "$1" != "light" ]; then
+        echo "invalid theme, valid values: [dark, light]"
+        exit 1
+      fi
+      current="$HOME/.local/state/nix/profiles/home-manager"
+      cached="$HOME/.local/state/last-parent-specialisation"
+      if [ -d "$current/specialisation" ]; then
+        if [ -d "$cached" ]; then
+          rm -f "$cached"
+        fi
+        ln -sf "$(readlink -f $current)" "$cached"
+      fi
+
+      if [ ! -d "$cached/specialisation" ]; then
+        echo "no specialisations found"
+        exit 1
+      fi
+
+      "$cached/specialisation/$1/activate"
+    '')];
   };
 }
