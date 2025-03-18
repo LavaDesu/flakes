@@ -15,7 +15,7 @@
   config = {
     catppuccin = {
       accent = "maroon";
-      flavor = "mocha";
+      flavor = lib.mkDefault "mocha";
       kitty.enable = true;
       gtk.enable = true;
       hyprlock.enable = true;
@@ -26,6 +26,11 @@
       enable = true;
       style.name = "kvantum";
       platformTheme.name = "kvantum";
+    };
+
+    specialisation = {
+      light.configuration.catppuccin.flavor = "latte";
+      dark.configuration.catppuccin.flavor = "mocha";
     };
   };
 }
