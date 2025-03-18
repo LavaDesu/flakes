@@ -32,7 +32,7 @@
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=14400
     SuspendEstimationSec=3600
-    HibernateOnACPower=false
+    HibernateOnACPower=true
   '';
 
   powerManagement.cpufreq.min = 400000;
