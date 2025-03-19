@@ -19,13 +19,7 @@
       kitty.enable = true;
       gtk.enable = true;
       hyprlock.enable = true;
-      kvantum.enable = true;
       nvim.enable = true;
-    };
-    qt = {
-      enable = true;
-      style.name = "kvantum";
-      platformTheme.name = "kvantum";
     };
 
     specialisation = {
