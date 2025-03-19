@@ -34,8 +34,19 @@
     };
 
     home.packages = [(pkgs.writeShellScriptBin "theme" ''
-      if [ "$1" != "dark" ] && [ "$1" != "light" ]; then
-        echo "invalid theme, valid values: [dark, light]"
+      last_path="$HOME/.local/state/last-theme"
+      target="$1"
+      if [ "$target" == "restore" ]; then
+        echo "restoring theme"
+        if [ ! -e "$last_path" ]; then
+          echo "no last theme found; assuming dark"
+          target="dark"
+        else
+          target=$(cat "$last_path" | tr -d "\n")
+        fi
+      fi
+      if [ "$target" != "dark" ] && [ "$target" != "light" ]; then
+        echo "invalid theme, valid values: [dark, light, restore]"
         exit 1
       fi
       current="$HOME/.local/state/nix/profiles/home-manager"
@@ -52,7 +63,9 @@
         exit 1
       fi
 
-      "$cached/specialisation/$1/activate"
+      "$cached/specialisation/$target/activate"
+
+      echo "$target" > "$last_path"
     '')];
   };
 }
