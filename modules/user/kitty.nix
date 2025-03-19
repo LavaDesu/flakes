@@ -11,6 +11,7 @@
       enable_audio_bell = false;
       color5 = config.catppuccin.hexcolors.mauve;
       color13 = config.catppuccin.hexcolors.mauve;
+      window_margin_width = 5;
     };
   };
 }
