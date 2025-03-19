@@ -30,10 +30,20 @@
     home.packages = [(pkgs.writeShellScriptBin "theme" ''
       last_path="$HOME/.local/state/last-theme"
       target="$1"
+      if [ "$target" == "get_last" ]; then
+        if [ ! -e "$last_path" ]; then
+          echo "no last theme found; assuming dark" >&2
+          target="dark"
+        else
+          target=$(cat "$last_path" | tr -d "\n")
+        fi
+        echo "$target"
+        exit 0
+      fi
       if [ "$target" == "restore" ]; then
         echo "restoring theme"
         if [ ! -e "$last_path" ]; then
-          echo "no last theme found; assuming dark"
+          echo "no last theme found; assuming dark" >&2
           target="dark"
         else
           target=$(cat "$last_path" | tr -d "\n")
