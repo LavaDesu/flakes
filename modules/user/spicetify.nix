@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in
@@ -46,4 +46,6 @@ in
       volumePercentage
     ];
   };
+
+  home.file.".local/bin/spotify".source = lib.getExe config.programs.spicetify.spicedSpotify;
 }
