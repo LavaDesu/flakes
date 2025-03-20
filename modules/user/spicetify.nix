@@ -8,7 +8,25 @@ in
   programs.spicetify = {
     enable = true;
     alwaysEnableDevTools = true;
-    theme = spicePkgs.themes.catppuccin;
+    theme = spicePkgs.themes.catppuccin // {
+      additionalCss = ''
+        /* Removes "About the artist" text in now playing menu */
+        .main-nowPlayingView-sectionHeaderText {
+          display: none;
+        }
+
+        /* Removes gradient in now playing menu */
+        .main-nowPlayingView-contextItemInfo:before {
+          background: none;
+        }
+
+        /* Removes gradient above artist image */
+        /* https://stackoverflow.com/a/77015731 < this is so smart */
+        .main-nowPlayingView-aboutArtistV2ImageContainer.main-nowPlayingView-aboutArtistV2Image {
+          background-size: 0% 0%, cover;
+        }
+      '';
+    };
     colorScheme = config.catppuccin.flavor;
 
     enabledSnippets = with spicePkgs.snippets; [
