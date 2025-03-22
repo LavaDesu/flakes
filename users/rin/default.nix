@@ -36,10 +36,10 @@
       kitty
       mpv
       obs
-      rofi-wayland
+      rofi
 
       dunst
-      eww-wayland
+      eww
 
       spicetify
     ];

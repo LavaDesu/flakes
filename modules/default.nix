@@ -32,7 +32,7 @@ in {
     ./system/ccache.nix
     ./system/corectrl.nix
     ./system/flatpak.nix
-    ./system/greetd_wayland.nix
+    ./system/greetd.nix
     ./system/gui.nix
     ./system/home-manager.nix
     ./system/input.nix
@@ -48,7 +48,6 @@ in {
     ./system/wireguard.nix
   ];
   user = mkAttrsFromPaths [
-    ./user/bspwm.nix
     ./user/catppuccin.nix
     ./user/direnv.nix
     ./user/dunst.nix
@@ -63,14 +62,9 @@ in {
     ./user/neovim-minimal.nix
     ./user/npm.nix
     ./user/obs.nix
-    ./user/packages-rin.nix
-    ./user/pass.nix
-    ./user/picom.nix
-    ./user/polybar.nix
     ./user/rofi.nix
     ./user/sessionVariables.nix
     ./user/spicetify.nix
-    ./user/sxhkd.nix
     ./user/theming.nix
     ./user/xdg.nix
     ./user/zsh.nix

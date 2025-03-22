@@ -17,7 +17,7 @@
     ccache
     corectrl
     flatpak
-    greetd_wayland
+    greetd
     gui
     input
     kernel
@@ -31,11 +31,8 @@
     ./kernel.nix
     ./networking.nix
 
-    ../../users/rin/wayland.nix
+    ../../users/rin
   ];
-
-  programs.hyprland.enable = true;
-  security.pam.services.hyprlock = {};
 
   # For steam fhs-env
   nixpkgs.config.permittedInsecurePackages = [

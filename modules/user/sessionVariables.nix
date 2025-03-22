@@ -6,7 +6,6 @@
       "$PATH"
     ];
 
-    XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
     EDITOR = "nvim";
 
     _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${config.xdg.configHome}/java";

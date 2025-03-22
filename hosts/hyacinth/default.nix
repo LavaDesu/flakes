@@ -20,7 +20,7 @@
     ccache
     corectrl
     flatpak
-    greetd_wayland
+    greetd
     gui
     input
     kernel
@@ -38,10 +38,9 @@
     ./networking.nix
     ./packages.nix
 
-    ../../users/rin/wayland.nix
+    ../../users/rin
   ];
   services.postgresql.ensureDatabases = [ "barista" "barista-dev" ];
-  programs.hyprland.enable = true;
   systemd.services.nix-daemon.environment.TMPDIR = "/nix/tmp";
 
   # For steam fhs-env
