@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   services.greetd = {
     enable = true;
     settings = {
@@ -14,10 +14,5 @@
         user = "rin";
       };
     };
-  };
-
-  services.xserver = {
-    autorun = false;
-    displayManager.startx.enable = true;
   };
 }

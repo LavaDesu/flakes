@@ -20,7 +20,6 @@
     ccache
     corectrl
     flatpak
-    #greetd_xorg
     greetd_wayland
     gui
     input
@@ -39,7 +38,6 @@
     ./networking.nix
     ./packages.nix
 
-    #../../users/rin/xorg.nix
     ../../users/rin/wayland.nix
   ];
   services.postgresql.ensureDatabases = [ "barista" "barista-dev" ];

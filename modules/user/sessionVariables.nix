@@ -22,7 +22,6 @@
     NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/npmrc";
     PUB_CACHE = "${config.xdg.cacheHome}/dart";
     WGETRC = "${config.xdg.configHome}/wgetrc";
-    XINITRC = "${config.xdg.configHome}/xorg/xinitrc";
 
     WINEPREFIX = "${config.xdg.dataHome}/wine64";
     WINEARCH = "win64";

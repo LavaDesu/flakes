@@ -7,5 +7,4 @@ builtins.map (path: import path) [
   ./rofi.nix
   ./steam.nix
   ./utillinux.nix
-  ./xinit.nix
 ]

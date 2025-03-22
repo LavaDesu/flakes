@@ -58,8 +58,6 @@ in {
     vesktop
     virt-manager
     winetricks
-    xclip
-    xorg.xgamma
     zathura
     zenity
 

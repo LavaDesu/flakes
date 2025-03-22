@@ -33,7 +33,6 @@ in {
     ./system/corectrl.nix
     ./system/flatpak.nix
     ./system/greetd_wayland.nix
-    ./system/greetd_xorg.nix
     ./system/gui.nix
     ./system/home-manager.nix
     ./system/input.nix
@@ -54,7 +53,6 @@ in {
     ./user/direnv.nix
     ./user/dunst.nix
     ./user/eww.nix
-    ./user/eww-wayland.nix
     ./user/git.nix
     ./user/gpg.nix
     ./user/hypridle.nix
@@ -70,13 +68,11 @@ in {
     ./user/picom.nix
     ./user/polybar.nix
     ./user/rofi.nix
-    ./user/rofi-wayland.nix
     ./user/sessionVariables.nix
     ./user/spicetify.nix
     ./user/sxhkd.nix
     ./user/theming.nix
     ./user/xdg.nix
-    ./user/xorg.nix
     ./user/zsh.nix
   ];
 }
