@@ -25,7 +25,6 @@
       gpg
       neovim
       npm
-      pass
       zsh
     ] ++ lib.optionals enableGUI [
       theming
