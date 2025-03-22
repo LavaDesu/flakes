@@ -5,7 +5,7 @@ let
     version = "1.0.0";
     dontUnpack = true;
     installPhase = ''
-      cp -r ${../../res/eww-wayland} $out
+      cp -r ${../../res/eww} $out
       substituteInPlace $out/eww.scss \
         --replace-warn "EWW_BACKGROUND" "${config.catppuccin.hexcolors.crust}" \
         --replace-warn "EWW_TEXT" "${config.catppuccin.hexcolors.text}" \
