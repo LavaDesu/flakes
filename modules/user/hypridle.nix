@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  kblight = "light -s sysfs/leds/asus::kbd_backlight";
+  kblight = "light -s sysfs/leds/${config.me.kbBacklightDevice}";
 in
 {
   home.packages = [ config.services.hypridle.package ];
@@ -13,12 +13,13 @@ in
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
 
-      listener = [
+      listener = lib.optionals (config.me.kbBacklightDevice != null) [
         {
           timeout = 120;
           on-timeout = "${kblight} -O && ${kblight} -S 0";
           on-resume = "${kblight} -I";
         }
+      ] ++ [
         {
           timeout = 150;
           on-timeout = "light -O && light -T 0.5";
@@ -33,6 +34,7 @@ in
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
+      ] ++ lib.optionals (config.me.environment == "laptop") [
         {
           timeout = 600;
           on-timeout = "systemctl suspend";

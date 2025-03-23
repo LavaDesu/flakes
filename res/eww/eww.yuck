@@ -20,27 +20,31 @@
                    :focusable false
   (bar))
 
+(defvar bat-enabled _BAT_ENABLED_)
+(defvar bt-enabled _BT_ENABLED_)
+(defvar wifi-enabled _WIFI_ENABLED_)
 
 (defvar bat-extended true)
 (defvar bluetooth-extended false)
 (defvar network-extended false)
 (defvar time-extended false)
+
 (defpoll ptime   :interval "1s"
   `date +%H:%M`)
 (defpoll petimea :interval "1s" :run-while time-extended
   `date "+%A, %d %B %Y  "`)
 (defpoll petimeb :interval "1s" :run-while time-extended
   `date "+:%S"`)
-(defpoll pbat_cap :interval "5s"
-  `cat /sys/class/power_supply/BATT/capacity`)
-(defpoll pbat_status :interval "1s"
-  `cat /sys/class/power_supply/BATT/status`)
-(defpoll network_strength :interval "1s"
+(defpoll pbat_cap :interval "5s" :run-while bat-enabled
+  `cat /sys/class/power_supply/_BAT_PATH_/capacity`)
+(defpoll pbat_status :interval "1s" :run-while bat-enabled
+  `cat /sys/class/power_supply/_BAT_PATH_/status`)
+(defpoll network_strength :interval "1s" :run-while wifi-enabled
   `nmcli -f IN-USE,SIGNAL device wifi | grep '*' | tr -d -c 0-9`)
-(defpoll bluetooth_device :interval "1s"
+(defpoll bluetooth_device :interval "1s" :run-while bt-enabled
   `bluetoothctl devices Connected | grep Device | cut -d" " -f3-`)
 
-(deflisten lnetwork :initial "" "./scripts/network.sh")
+(deflisten lnetwork :initial "" :run-while wifi-enabled "./scripts/network.sh")
 (deflisten ltitle :initial "" "./scripts/title.sh")
 (deflisten lworkspaces :initial "[]" "./scripts/workspaces.sh")
 (deflisten lcurrent_workspace :initial "1" "./scripts/active-workspace.sh")
@@ -79,9 +83,9 @@
   (box :orientation "horizontal"
        :space-evenly false
        :halign "end"
-    (bluetooth)
-    (network)
-    (battery)
+    (box :visible {bt-enabled} (bluetooth))
+    (box :visible {wifi-enabled} (network))
+    (box :visible {bat-enabled} (battery))
     (time)))
 
 (defwidget bluetooth []

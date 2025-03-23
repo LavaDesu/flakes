@@ -1,18 +1,43 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+let
+  inherit (lib)
+    mkOption
+    types;
+in {
   options.me = {
-    environment = lib.mkOption {
-      type = lib.types.enum [ "desktop" "laptop" "headless" ];
+    environment = mkOption {
+      type = types.enum [ "desktop" "laptop" "headless" ];
       default = "desktop";
     };
 
-    fprint = lib.mkOption {
-      type = lib.types.bool;
+    fprint = mkOption {
+      type = types.bool;
       default = false;
     };
 
-    gui = lib.mkOption {
-      type = lib.types.bool;
+    gui = mkOption {
+      type = types.bool;
       default = config.me.environment != "headless";
+    };
+
+    batteryDevice = mkOption {
+      type = types.nullOr types.string;
+      default = null;
+    };
+
+    kbBacklightDevice = mkOption {
+      type = types.nullOr types.string;
+      default = null;
+    };
+
+    hasBluetooth = mkOption {
+      type = types.bool;
+      default = config.me.environment == "laptop";
+    };
+
+    hasWifi = mkOption {
+      type = types.bool;
+      default = config.me.environment == "laptop";
     };
   };
 }

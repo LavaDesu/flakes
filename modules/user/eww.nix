@@ -6,10 +6,17 @@ let
     dontUnpack = true;
     installPhase = ''
       cp -r ${../../res/eww} $out
+
+      substituteInPlace $out/eww.yuck \
+        --replace-fail "_BAT_ENABLED_" "${config.me.batteryPath != null}" \
+        --replace-fail "_BAT_PATH_" "${config.me.batteryPATH}" \
+        --replace-fail "_BT_ENABLED_" "${config.me.hasBluetooth}" \
+        --replace-fail "_WIFI_ENABLED_" "${config.me.hasWifi}"
+
       substituteInPlace $out/eww.scss \
-        --replace-warn "EWW_BACKGROUND" "${config.catppuccin.hexcolors.crust}" \
-        --replace-warn "EWW_TEXT" "${config.catppuccin.hexcolors.text}" \
-        --replace-warn "EWW_ACCENT" "${config.catppuccin.hexcolors.${config.catppuccin.accent}}"
+        --replace-fail "EWW_BACKGROUND" "${config.catppuccin.hexcolors.crust}" \
+        --replace-fail "EWW_TEXT" "${config.catppuccin.hexcolors.text}" \
+        --replace-fail "EWW_ACCENT" "${config.catppuccin.hexcolors.${config.catppuccin.accent}}"
     '';
   };
 in {

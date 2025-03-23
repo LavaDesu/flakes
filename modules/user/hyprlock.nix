@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, lib, ... }: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -8,7 +8,7 @@
       };
       auth = {
         fingerprint = {
-          enabled = true;
+          enabled = config.me.fprint;
           ready_message = "Scan fingerprint to unlock";
         };
       };
@@ -38,7 +38,7 @@
           position = "-40,-10";
         }
       ];
-      label = [
+      label = lib.optionals config.me.fprint [
         # Fingerprint icon
         {
             monitor = "";
@@ -61,17 +61,7 @@
           halign = "center";
           valign = "top";
         }
-        # Fail text under input
-        {
-          monitor = "";
-          color = "$red";
-          font_family = "Open Sans";
-          font_size = 25;
-          text = "$FAIL $ATTEMPTS[]";
-          position = "0, -200";
-          halign = "center";
-          valign = "center";
-        }
+      ] ++ lib.optionals (config.me.batteryDevice != null) [
         # Battery icon
         {
           monitor = "";
@@ -86,7 +76,7 @@
         # Battery percentage
         {
           monitor = "";
-          text = ''cmd[update:60000] echo "<span weight='700'>$(cat /sys/class/power_supply/BATT/capacity)%</span>"'';
+          text = ''cmd[update:60000] echo "<span weight='700'>$(cat /sys/class/power_supply/${config.me.batteryDevice}/capacity)%</span>"'';
           color = "$text";
           font_size = 23;
           font_family = "Open Sans";
@@ -94,6 +84,7 @@
           halign = "right";
           valign = "top";
         }
+      ] ++ [
         # Time and Date
         {
           monitor = "";
@@ -104,6 +95,18 @@
           valign = "top";
           position = "-70, -20";
           text = ''cmd[update:1000] echo "<span alpha='70%' weight='550'>$(date '+%A, %d %B %Y')</span>  <span weight='700'>$(date +%H:%M)</span><span alpha='70%' weight='550'>$(date +:%S)</span>"'';
+        }
+
+        # Fail text under input
+        {
+          monitor = "";
+          color = "$red";
+          font_family = "Open Sans";
+          font_size = 25;
+          text = "$FAIL $ATTEMPTS[]";
+          position = "0, -200";
+          halign = "center";
+          valign = "center";
         }
       ];
       input-field = {
