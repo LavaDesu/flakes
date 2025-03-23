@@ -11,7 +11,7 @@ window {
 }
 
 .bar {
-    margin: 5px 20px 0px 20px;
+    margin: 5px 20px 5px 20px;
 }
 
 .widget {
@@ -22,6 +22,7 @@ window {
     font-size: 15px;
     padding: 5px 15px;
     border-radius: 50px;
+    box-shadow: $accent 0px 0px 2px;
 }
 
 .title {
