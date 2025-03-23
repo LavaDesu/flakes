@@ -26,7 +26,9 @@
       neovim
       npm
       zsh
-    ] ++ lib.optionals config.me.gui [
+    # HACK: include all gui for now due to infinite recursion (inability to dynamically control imports)
+    # ] ++ lib.optionals config.me.gui [
+    ] ++ [
       theming
       xdg
 
