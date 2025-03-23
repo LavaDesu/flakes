@@ -14,7 +14,7 @@
 
   config = {
     catppuccin = {
-      accent = lib.mkDefault "maroon";
+      accent = lib.mkDefault "pink";
       flavor = lib.mkDefault "mocha";
       kitty.enable = true;
       gtk.enable = true;
@@ -23,14 +23,8 @@
     };
 
     specialisation = {
-      light.configuration.catppuccin = {
-        accent = "pink";
-        flavor = "latte";
-      };
-      dark.configuration.catppuccin = {
-        accent = "maroon";
-        flavor = "mocha";
-      };
+      light.configuration.catppuccin.flavor = "latte";
+      dark.configuration.catppuccin.flavor = "mocha";
     };
 
     home.packages = [(pkgs.writeShellScriptBin "theme" ''
