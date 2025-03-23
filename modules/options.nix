@@ -21,12 +21,12 @@ in {
     };
 
     batteryDevice = mkOption {
-      type = types.nullOr types.string;
+      type = with types; nullOr (uniq str);
       default = null;
     };
 
     kbBacklightDevice = mkOption {
-      type = types.nullOr types.string;
+      type = with types; nullOr (uniq str);
       default = null;
     };
 
