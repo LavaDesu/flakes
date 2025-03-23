@@ -8,8 +8,8 @@ let
       cp -r ${../../res/eww} $out
 
       substituteInPlace $out/eww.yuck \
-        --replace-fail "_BAT_ENABLED_" "${config.me.batteryPath != null}" \
-        --replace-fail "_BAT_PATH_" "${config.me.batteryPATH}" \
+        --replace-fail "_BAT_ENABLED_" "${config.me.batteryDevice != null}" \
+        --replace-fail "_BAT_PATH_" "${config.me.batteryDevice}" \
         --replace-fail "_BT_ENABLED_" "${config.me.hasBluetooth}" \
         --replace-fail "_WIFI_ENABLED_" "${config.me.hasWifi}"
 
