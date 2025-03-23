@@ -1,5 +1,6 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
+  inherit (lib) boolToString;
   res = pkgs.stdenvNoCC.mkDerivation {
     pname = "eww-wayland-config";
     version = "1.0.0";
@@ -8,10 +9,10 @@ let
       cp -r ${../../res/eww} $out
 
       substituteInPlace $out/eww.yuck \
-        --replace-fail "_BAT_ENABLED_" "${config.me.batteryDevice != null}" \
+        --replace-fail "_BAT_ENABLED_" "${boolToString (config.me.batteryDevice != null)}" \
         --replace-fail "_BAT_PATH_" "${config.me.batteryDevice}" \
-        --replace-fail "_BT_ENABLED_" "${config.me.hasBluetooth}" \
-        --replace-fail "_WIFI_ENABLED_" "${config.me.hasWifi}"
+        --replace-fail "_BT_ENABLED_" "${boolToString config.me.hasBluetooth}" \
+        --replace-fail "_WIFI_ENABLED_" "${boolToString config.me.hasWifi}"
 
       substituteInPlace $out/eww.scss \
         --replace-fail "EWW_BACKGROUND" "${config.catppuccin.hexcolors.crust}" \
