@@ -1,4 +1,6 @@
-{ config, enableGUI, inputs, modules, overlays, ... }: {
+{ config, inputs, modules, ... }: {
+  imports = [ modules.options ];
+
   environment.etc = {
     "machine-id".source = "/persist/machine-id";
     "ssh/ssh_host_rsa_key".source = "/persist/ssh_host_rsa_key";

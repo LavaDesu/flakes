@@ -14,6 +14,7 @@ let
     }) paths
   );
 in {
+  options = ./options.nix;
   services = mkAttrsFromPaths [
     ./services/jellyfin.nix
     ./services/nginx.nix
