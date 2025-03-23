@@ -39,6 +39,7 @@
     batteryDevice = "BATT";
     kbBacklightDevice = "asus::kbd_backlight";
     hasFingerprint = true;
+    hidpi = true;
   };
 
   # For steam fhs-env

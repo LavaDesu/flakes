@@ -1,4 +1,17 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+let
+  scaling = if config.me.hidpi then 1 else 0.5;
+  s = value: if builtins.isInt value || builtins.isFloat value
+  then
+    builtins.floor (value * scaling)
+  else if builtins.isList value
+  then
+    lib.strings.concatMapStringsSep "," (v: builtins.toString (scaling * v)) value
+  else
+    builtins.throw "invalid scaled value type ${builtins.typeOf value} for ${value}";
+  sn = value: s (builtins.map (v: (-v)) value);
+in
+{
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -16,26 +29,27 @@
         monitor = "";
         color = "$base";
       };
-      shape = [
+      shape = lib.optionals (config.me.batteryDevice != null) [
         # Battery pill
         {
           monitor = "";
-          size = "165, 65";
+          size = s [165 65];
           color = "$crust";
           rounding = -1;
           halign = "right";
           valign = "top";
-          position = "-595,-10";
+          position = sn [595 10];
         }
+      ] ++ [
         # Time pill
         {
           monitor = "";
-          size = "545, 65";
+          size = s [545 65];
           color = "$crust";
           rounding = -1;
           halign = "right";
           valign = "top";
-          position = "-40,-10";
+          position = sn [40 10];
         }
       ];
       label = lib.optionals config.me.hasFingerprint [
@@ -44,10 +58,10 @@
             monitor = "";
             color = "$text";
             font_family = "Material Symbols Outlined";
-            font_size = 64;
+            font_size = s 64;
             halign = "center";
             valign = "top";
-            position = "0, -100";
+            position = sn [0 100];
             text = "";
         }
         # Fingerprint text
@@ -55,9 +69,9 @@
           monitor = "";
           color = "$text";
           text = "$FPRINTPROMPT";
-          font_size = 25;
+          font_size = s 25;
           font_family = "Open Sans";
-          position = "0, -235";
+          position = sn [0 235];
           halign = "center";
           valign = "top";
         }
@@ -68,8 +82,8 @@
           text = "";
           color = "$accent";
           font_family = "Material Symbols Outlined";
-          font_size = 27;
-          position = "-695, -20";
+          font_size = s 27;
+          position = sn [695 20];
           halign = "right";
           valign = "top";
         }
@@ -78,9 +92,9 @@
           monitor = "";
           text = ''cmd[update:60000] echo "<span weight='700'>$(cat /sys/class/power_supply/${config.me.batteryDevice}/capacity)%</span>"'';
           color = "$text";
-          font_size = 23;
+          font_size = s 23;
           font_family = "Open Sans";
-          position = "-625, -20";
+          position = sn [625 20];
           halign = "right";
           valign = "top";
         }
@@ -90,10 +104,10 @@
           monitor = "";
           color = "$text";
           font_family = "Open Sans";
-          font_size = 23;
+          font_size = s 23;
           halign = "right";
           valign = "top";
-          position = "-70, -20";
+          position = sn [70 20];
           text = ''cmd[update:1000] echo "<span alpha='70%' weight='550'>$(date '+%A, %d %B %Y')</span>  <span weight='700'>$(date +%H:%M)</span><span alpha='70%' weight='550'>$(date +:%S)</span>"'';
         }
 
@@ -102,17 +116,17 @@
           monitor = "";
           color = "$red";
           font_family = "Open Sans";
-          font_size = 25;
+          font_size = s 25;
           text = "$FAIL $ATTEMPTS[]";
-          position = "0, -200";
+          position = sn [0 200];
           halign = "center";
           valign = "center";
         }
       ];
       input-field = {
         monitor = "";
-        size = "600, 120";
-        outline_thickness = 4;
+        size = s [600 120];
+        outline_thickness = s 4;
         check_color = "$peach";
         dots_size = 0.2;
         dots_spacing = 0.2;
@@ -125,7 +139,7 @@
         fade_on_empty = false;
         hide_input = false;
         capslock_color = "$yellow";
-        position = "0, -47";
+        position = sn [0 47];
         halign = "center";
         valign = "center";
       };

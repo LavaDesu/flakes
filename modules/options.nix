@@ -39,5 +39,10 @@ in {
       type = types.bool;
       default = config.me.environment == "laptop";
     };
+
+    hidpi = mkOption {
+      type = types.bool;
+      default = false;
+    };
   };
 }
