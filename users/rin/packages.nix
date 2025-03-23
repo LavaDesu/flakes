@@ -1,4 +1,4 @@
-{ enableGUI, inputs, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 let
   dotnet-combined = (with pkgs.dotnetCorePackages; combinePackages [
       dotnet_8.sdk
@@ -25,7 +25,7 @@ in {
     yt-dlp
 
     nodePackages_latest.pnpm
-  ] ++ lib.optionals enableGUI [
+  ] ++ lib.optionals config.me.gui [
     drawio
     element-desktop
     eww

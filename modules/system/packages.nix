@@ -1,4 +1,4 @@
-{ config, enableGUI, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     comma
     ecryptfs
@@ -16,13 +16,13 @@
     sshfs
     rsync
     wget
-  ] ++ lib.optionals enableGUI [
+  ] ++ lib.optionals config.me.gui [
     gparted
     nautilus
   ];
   environment.variables.EDITOR = "nvim";
 }
-// (if !enableGUI then {} else {
+// (if !config.me.gui then {} else {
   programs.adb.enable = true;
   hardware.graphics.extraPackages = with pkgs; [
     vaapiIntel

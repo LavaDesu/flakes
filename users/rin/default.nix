@@ -1,4 +1,4 @@
-{ config, lib, modules, pkgs, ... }: {
+{ config, modules, pkgs, ... }: {
   programs.zsh.enable = true;
   users.users.rin = {
     isNormalUser = true;
@@ -7,7 +7,7 @@
     uid = 1001;
     hashedPasswordFile = config.age.secrets.passwd.path;
   };
-  home-manager.users.rin = { config, enableGUI, lib, pkgs, ... }: {
+  home-manager.users.rin = { config, lib, pkgs, ... }: {
     home = {
       username = "rin";
       homeDirectory = "/home/rin";
@@ -26,7 +26,7 @@
       neovim
       npm
       zsh
-    ] ++ lib.optionals enableGUI [
+    ] ++ lib.optionals config.me.gui [
       theming
       xdg
 

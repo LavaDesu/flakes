@@ -12,7 +12,7 @@
     ];
   };
 
-  home-manager.users.hana = { config, enableGUI, lib, pkgs, ... }: {
+  home-manager.users.hana = { config, lib, pkgs, ... }: {
     home = {
       username = "hana";
       homeDirectory = "/home/hana";

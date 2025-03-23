@@ -1,4 +1,4 @@
-{ config, enableGUI, inputs, modules, ... }: {
+{ config, inputs, modules, ... }: {
   imports = [
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -6,7 +6,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit enableGUI inputs modules;
+      inherit inputs modules;
       sysConfig = config;
     };
     sharedModules = [

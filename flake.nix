@@ -51,7 +51,7 @@
 
       mkSystem =
         if !(self ? rev) then throw "Dirty git tree detected." else
-        nixpkgs: name: arch: enableGUI: extraModules: nixpkgs.lib.nixosSystem {
+        nixpkgs: name: arch: extraModules: nixpkgs.lib.nixosSystem {
           system = arch;
           modules = [
             ({
@@ -62,14 +62,14 @@
             (./hosts + "/${name}")
           ] ++ extraModules;
           specialArgs = {
-            inherit inputs enableGUI;
+            inherit inputs;
             modules = import ./modules { lib = nixpkgs.lib; };
           };
         };
     in
     {
-      nixosConfigurations."anemone" = mkSystem nixpkgs "anemone" "x86_64-linux" true [];
-      nixosConfigurations."hyacinth" = mkSystem nixpkgs "hyacinth" "x86_64-linux" true [];
+      nixosConfigurations."anemone" = mkSystem nixpkgs "anemone" "x86_64-linux" [];
+      nixosConfigurations."hyacinth" = mkSystem nixpkgs "hyacinth" "x86_64-linux" [];
 
       packages."x86_64-linux" =
         let
