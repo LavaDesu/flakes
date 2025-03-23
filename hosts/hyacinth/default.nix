@@ -31,8 +31,6 @@
     snapper
     virtualisation
 
-    modules.services.postgres
-
     ./filesystem.nix
     ./kernel.nix
     ./networking.nix
@@ -40,7 +38,6 @@
 
     ../../users/rin
   ];
-  services.postgresql.ensureDatabases = [ "barista" "barista-dev" ];
   systemd.services.nix-daemon.environment.TMPDIR = "/nix/tmp";
 
   # For steam fhs-env
