@@ -34,6 +34,13 @@
     ../../users/rin
   ];
 
+  me = {
+    environment = "laptop";
+    batteryDevice = "BATT";
+    kbBacklightDevice = "asus::kbd_backlight";
+    fprint = true;
+  };
+
   # For steam fhs-env
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1w"
