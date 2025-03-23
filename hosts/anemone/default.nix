@@ -38,7 +38,7 @@
     environment = "laptop";
     batteryDevice = "BATT";
     kbBacklightDevice = "asus::kbd_backlight";
-    fprint = true;
+    hasFingerprint = true;
   };
 
   # For steam fhs-env

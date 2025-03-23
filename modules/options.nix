@@ -10,7 +10,7 @@ in {
       default = "desktop";
     };
 
-    fprint = mkOption {
+    hasFingerprint = mkOption {
       type = types.bool;
       default = false;
     };

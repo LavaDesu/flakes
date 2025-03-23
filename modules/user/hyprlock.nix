@@ -8,7 +8,7 @@
       };
       auth = {
         fingerprint = {
-          enabled = config.me.fprint;
+          enabled = config.me.hasFingerprint;
           ready_message = "Scan fingerprint to unlock";
         };
       };
@@ -38,7 +38,7 @@
           position = "-40,-10";
         }
       ];
-      label = lib.optionals config.me.fprint [
+      label = lib.optionals config.me.hasFingerprint [
         # Fingerprint icon
         {
             monitor = "";
