@@ -22,7 +22,7 @@ window {
     font-size: 15px;
     padding: 5px 15px;
     border-radius: 50px;
-    box-shadow: $accent 0px 0px 2px;
+    box-shadow: rgba($foreground, .7) 0px 0px 2px;
 }
 
 .title {
