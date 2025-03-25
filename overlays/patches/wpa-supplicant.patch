@@ -1,0 +1,13 @@
+diff --git a/wpa_supplicant/systemd/wpa_supplicant.service.in b/wpa_supplicant/systemd/wpa_supplicant.service.in
+index 58a6228..fbe7de3 100644
+--- a/wpa_supplicant/systemd/wpa_supplicant.service.in
++++ b/wpa_supplicant/systemd/wpa_supplicant.service.in
+@@ -7,7 +7,7 @@ Wants=network.target
+ [Service]
+ Type=dbus
+ BusName=fi.w1.wpa_supplicant1
+-ExecStart=@BINDIR@/wpa_supplicant -u
++ExecStart=@BINDIR@/wpa_supplicant -u -q
+ 
+ [Install]
+ WantedBy=multi-user.target
