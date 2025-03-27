@@ -5,6 +5,7 @@ let
   kernelPatchHash = "0akxqc8fdf6gkiy967crp7m1ikidd3rlhx804y3da1jl75dgqcrw";
 
   mm = lib.versions.majorMinor version;
+  patchVer = lib.versions.patch version;
   tkgPatches = [
     "0002-clear-patches"
     "0003-glitched-base"
@@ -34,7 +35,7 @@ in {
     sha256 = kernelHash;
   };
 
-  kernelPatches = [
+  kernelPatches = lib.optionals (patchVer != 0) [
     kernelPatchSrc
   ]
   ++ builtins.map (name: {
