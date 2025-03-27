@@ -12,7 +12,6 @@ let
     "0003-glitched-eevdf-additions"
     "0003-glitched-cfs"
     "0007-v${mm}-fsync_legacy_via_futex_waitv"
-    "0007-v${mm}-ntsync"
     "0012-misc-additions"
   ];
 
