@@ -20,7 +20,6 @@ in {
 
     extraPackages = with pkgs; [
       rust-analyzer
-      nodePackages."@prisma/language-server"
       nodePackages.diagnostic-languageserver
       nodePackages.eslint_d
       nodePackages.typescript-language-server
@@ -63,7 +62,6 @@ in {
         tree-sitter-markdown
         tree-sitter-nix
         tree-sitter-php
-        tree-sitter-prisma
         tree-sitter-python
         tree-sitter-query
         tree-sitter-regex
