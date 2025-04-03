@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
   nix = {
-    package = pkgs.nixVersions.git;
+    package = pkgs.nixVersions.latest;
 
     settings = rec {
       extra-sandbox-paths = [ config.programs.ccache.cacheDir ];
