@@ -3,7 +3,7 @@
   system.stateVersion = "24.11";
   time.timeZone = "Australia/Melbourne";
 
-  imports = with modules.system; [
+  imports = with modules.system; with modules.services; [
     home-manager-stable
 
     base
