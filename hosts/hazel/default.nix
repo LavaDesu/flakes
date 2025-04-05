@@ -4,7 +4,7 @@
   time.timeZone = "Australia/Melbourne";
 
   imports = with modules.system; [
-    home-manager
+    home-manager-stable
 
     base
     kernel
