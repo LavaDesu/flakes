@@ -3,7 +3,7 @@ let
   mkLabelMount = label: type: options: {
     device = "/dev/disk/by-label/${label}";
     fsType = type;
-    options = options;
+    options = [ "defaults" ] ++ options;
   };
   mkBtrfsMount = name: ext: subvol: atime: mkLabelMount name "btrfs"
   ([
