@@ -11,9 +11,8 @@
     withNodeJs = false;
 
     plugins = with pkgs.vimPlugins; [
-      ctrlp-vim
+      fzf-vim
       lualine-nvim
-      nerdtree
       tokyonight-nvim
       vim-fugitive
       vim-nix
@@ -21,14 +20,7 @@
       vim-signify
       vim-surround
 
-      nvim-cmp
-      nvim-lspconfig
-      cmp-nvim-lsp
-      cmp_luasnip
-      luasnip
-
       (nvim-treesitter.withPlugins (p: with p; [
-        tree-sitter-comment
         tree-sitter-json
         tree-sitter-lua
         tree-sitter-nix
