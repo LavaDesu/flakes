@@ -7,6 +7,7 @@
     git
     htop
     jq
+    kitty.terminfo
     libarchive
     lf
     msr-tools
