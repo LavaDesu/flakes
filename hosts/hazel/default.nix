@@ -1,4 +1,4 @@
-{ modules, pkgs, ... }: {
+{ config, modules, pkgs, ... }: {
   networking.hostName = "hazel";
   system.stateVersion = "24.11";
   time.timeZone = "Australia/Melbourne";
@@ -35,5 +35,11 @@
       dbtype = "pgsql";
       adminpassFile = "/persist/nextcloud-admin-pass";
     };
+    https = true;
+  };
+
+  services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
+    forceSSL = true;
+    enableACME = true;
   };
 }
