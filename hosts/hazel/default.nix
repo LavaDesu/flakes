@@ -15,7 +15,6 @@
     ./filesystem.nix
     ./kernel.nix
     ./networking.nix
-    ./packages.nix
 
     ../../users/hana
   ];
