@@ -18,4 +18,6 @@
 
     ../../users/hana
   ];
+
+  me.environment = "headless";
 }
