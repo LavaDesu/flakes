@@ -3,6 +3,10 @@
   system.stateVersion = "24.11";
   time.timeZone = "Australia/Melbourne";
 
+  age.secrets = {
+    acme_dns.file = ../../secrets/acme_dns.age;
+  };
+
   imports = with modules.system; with modules.services; [
     home-manager-stable
 
