@@ -17,7 +17,7 @@ let
     (if atime then "relatime" else "noatime")
   ] ++ ext);
 
-  mkHazelMount = mkBtrfsMount "HAZEL" [ "noauto" ];
+  mkHazelMount = mkBtrfsMount "HAZEL" [];
 in
 {
   boot.supportedFilesystems = [ "btrfs" ];
