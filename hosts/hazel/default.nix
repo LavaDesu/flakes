@@ -1,4 +1,4 @@
-{ modules, ... }: {
+{ modules, pkgs, ... }: {
   networking.hostName = "hazel";
   system.stateVersion = "24.11";
   time.timeZone = "Australia/Melbourne";
@@ -8,6 +8,7 @@
 
     base
     kernel
+    nginx
     nix-stable
     packages
     security
@@ -20,4 +21,15 @@
   ];
 
   me.environment = "headless";
+
+  services.nextcloud = {
+    enable = true;
+    package = pkgs.nextcloud31;
+    hostName = "cloud.lava.moe";
+    database.createLocally = true;
+    config = {
+      dbtype = "pgsql";
+      adminpassFile = "/persist/nextcloud-admin-pass";
+    };
+  };
 }
