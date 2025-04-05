@@ -6,7 +6,7 @@ let
     options = options;
   };
   mkBtrfsMount = name: ext: subvol: atime: mkLabelMount name "btrfs"
-  [
+  ([
     "autodefrag"
     "compress=zstd:4"
     "compress-force=zstd:4"
@@ -15,7 +15,7 @@ let
     "space_cache=v2"
     "subvol=${subvol}"
     (if atime then "relatime" else "noatime")
-  ] ++ ext;
+  ] ++ ext);
 
   mkHazelMount = mkBtrfsMount "HAZEL" [ "noauto" ];
 in
