@@ -1,4 +1,24 @@
-{ config, modules, pkgs, ... }: {
+{ config, modules, pkgs, ... }:
+let
+  dirs = [
+    ["immich" "immich"]
+    ["nextcloud" "nextcloud"]
+    ["postgresql" "postgres"]
+    ["redis-immich" "redis-immich"]
+  ];
+
+  rules = builtins.map (d: "d /flower/${builtins.elemAt d 0} 750 ${builtins.elemAt d 1} ${builtins.elemAt d 1}") dirs;
+  mounts = builtins.listToAttrs (builtins.map (d: {
+    name = "/var/lib/${builtins.elemAt d 0}";
+    value = {
+      depends = [ "/flower" ];
+      device = "/flower/${builtins.elemAt d 0}";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+  }) dirs);
+in
+{
   networking.hostName = "hazel";
   system.stateVersion = "24.11";
   time.timeZone = "Australia/Melbourne";
@@ -65,4 +85,7 @@
       '';
     };
   };
+
+  systemd.tmpfiles.rules = rules;
+  fileSystems = mounts;
 }
