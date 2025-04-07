@@ -8,6 +8,7 @@
     hashedPassword = "$y$j9T$3xCNDudmfrIu5VfQQoDkj/$ugzJWq0gORN9jnhDsREu31CkL3zwniQu6KoLbmg6Wr/";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPru5eTBvHJ4ZmrrzPRHCGM09wQP/ZHSaKYalDuBVO15 rin@anemone"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILhP8yi/CdACtql3I4j0xI+r0KV4AVCb265Bd/RTFBu4 hana@dandelion"
     ];
   };
 
