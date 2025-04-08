@@ -26,6 +26,7 @@ in {
 
     nodePackages_latest.pnpm
   ] ++ lib.optionals config.me.gui [
+  android-studio
     drawio
     element-desktop
     eww
