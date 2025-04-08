@@ -21,7 +21,7 @@ let
     ${fhsEnv}/bin/${drvName}-fhs-env ${super.android-studio.passthru.unwrapped}/bin/studio.sh "$@"
   '';
 in {
-  android-studio = super.android-studio.overrideAttrs(_: {
+  android-studio-patched = super.android-studio.overrideAttrs(_: {
     inherit startScript;
   });
 }
