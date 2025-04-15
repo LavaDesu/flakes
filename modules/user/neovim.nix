@@ -56,8 +56,10 @@ in {
         tree-sitter-c-sharp
         tree-sitter-cpp
         tree-sitter-html
+        tree-sitter-java
         tree-sitter-javascript
         tree-sitter-json
+        tree-sitter-kotlin
         tree-sitter-lua
         tree-sitter-markdown
         tree-sitter-nix
@@ -66,11 +68,13 @@ in {
         tree-sitter-query
         tree-sitter-regex
         tree-sitter-rust
+        tree-sitter-swift
         tree-sitter-toml
         tree-sitter-tsx
         tree-sitter-typescript
         tree-sitter-vim
         tree-sitter-vimdoc
+        tree-sitter-xml
         tree-sitter-yaml
       ]))
     ];
