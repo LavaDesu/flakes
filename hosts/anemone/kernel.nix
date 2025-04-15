@@ -28,12 +28,14 @@
     size = 16 * 1024;
   }];
 
+  /*
   services.logind.lidSwitch = "suspend-then-hibernate";
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=14400
     SuspendEstimationSec=3600
     HibernateOnACPower=true
   '';
+  */
 
   powerManagement.cpufreq.min = 400000;
 
