@@ -27,6 +27,7 @@ in {
     nodePackages_latest.pnpm
   ] ++ lib.optionals config.me.gui [
     android-studio
+    bitwarden-desktop
     ciscoPacketTracer8
     drawio
     element-desktop

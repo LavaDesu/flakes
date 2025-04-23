@@ -1,5 +1,6 @@
 builtins.map (path: import path) [
   ./android-studio.nix
+  ./bitwarden-desktop.nix
   ./cascadia-code.nix
   ./ccache.nix
   ./eww.nix
