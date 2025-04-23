@@ -23,4 +23,5 @@
     '';
   };
   nixpkgs.config.allowUnfree = true;
+  system.rebuild.enableNg = true;
 }
