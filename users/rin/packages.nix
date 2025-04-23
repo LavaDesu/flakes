@@ -7,7 +7,10 @@ let
       aspnetcore_9_0-bin
   ]);
 in {
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    nativeMessagingHosts = [ pkgs.bitwarden-desktop ];
+  };
 
   home.packages = with pkgs; [
     dconf
