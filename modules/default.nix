@@ -21,6 +21,7 @@ in {
     ./services/postgres.nix
     ./services/sonarr.nix
     ./services/synapse.nix
+    ./services/syncthing.nix
     ./services/tmptsync.nix
     ./services/unbound.nix
     ./services/vaultwarden.nix

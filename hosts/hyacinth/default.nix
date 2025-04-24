@@ -31,6 +31,8 @@
     snapper
     virtualisation
 
+    modules.services.syncthing
+
     ./filesystem.nix
     ./kernel.nix
     ./networking.nix
