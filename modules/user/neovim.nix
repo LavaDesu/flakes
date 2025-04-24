@@ -55,6 +55,7 @@ in {
         tree-sitter-c
         tree-sitter-c-sharp
         tree-sitter-cpp
+        tree-sitter-groovy
         tree-sitter-html
         tree-sitter-java
         tree-sitter-javascript
