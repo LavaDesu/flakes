@@ -117,14 +117,6 @@ in {
     };
 
     enableCompletion = true;
-    initExtraBeforeCompInit = ''
-      fpath+=(/run/current-system/sw/share/zsh/site-functions)
-      zstyle ':completion:*' completer _complete
-      zstyle ':completion:*' matcher-list "" 'm:{[:lower:][:upper:]-_}={[:upper:][:lower:]_-}' '+l:|=* r:|=*'
-      zstyle ':completion:*' menu select
-      _comp_options+=(globdots)
-      zmodload zsh/complist
-    '';
 
     localVariables = {
       KEYTIMEOUT = "1";
@@ -138,16 +130,26 @@ in {
       ls = "ls --color=auto --group-directories-first -v";
       diff = "diff -Naur --color=auto";
     };
-    initExtraFirst = ''
-      autoload -U colors && colors
-    '';
-    initExtra = lib.concatStringsSep "\n" [
-      pure
-      cursorShape
-      direnv
-      genAbbrs
-      viExtraNav
-      disableExecute
+    initContent = lib.mkMerge [
+      (lib.mkBefore ''
+        autoload -U colors && colors
+      '')
+      (lib.mkOrder 550 ''
+        fpath+=(/run/current-system/sw/share/zsh/site-functions)
+        zstyle ':completion:*' completer _complete
+        zstyle ':completion:*' matcher-list "" 'm:{[:lower:][:upper:]-_}={[:upper:][:lower:]_-}' '+l:|=* r:|=*'
+        zstyle ':completion:*' menu select
+        _comp_options+=(globdots)
+        zmodload zsh/complist
+      '')
+      (lib.concatStringsSep "\n" [
+        pure
+        cursorShape
+        direnv
+        genAbbrs
+        viExtraNav
+        disableExecute
+      ])
     ];
 
     plugins = builtins.map (e: pluginFromInput e) [
