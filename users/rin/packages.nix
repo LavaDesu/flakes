@@ -19,7 +19,7 @@ in {
     gnupg
     kitty
     nil
-    nodejs-18_x
+    nodejs_latest
     pamixer
     qmk
     ripgrep
