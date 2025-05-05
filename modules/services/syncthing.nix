@@ -1,4 +1,14 @@
-{ ... }: {
+{ config, ... }:
+let
+  dir = "/persist/shared/.syncthing";
+  uid = toString config.users.users.rin.uid;
+  gid = toString config.users.groups.users.gid;
+in
+{
+  systemd.tmpfiles.rules = [
+    "d ${dir}/config 700 ${uid} ${gid}"
+    "d ${dir}/data 700 ${uid} ${gid}"
+  ];
   systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
   services.syncthing = {
     enable = true;
@@ -7,16 +17,5 @@
     group = "users";
     dataDir = "/persist/shared/.syncthing/data";
     configDir = "/persist/shared/.syncthing/config";
-    settings = {
-      devices = {
-        #"anemone".id = "";
-      };
-      # folders = {
-      #   "Obby" = {
-      #     path = "/home/rin/Documents/Obby/Obby";
-      #     devices = [];
-      #   };
-      # };
-    };
   };
 }
