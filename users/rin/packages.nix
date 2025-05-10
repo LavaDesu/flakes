@@ -37,7 +37,7 @@ in {
     feh
     file-roller
     gamescope
-    gimp
+    gimp3
     grim
     #kotatogram-desktop
     krita
