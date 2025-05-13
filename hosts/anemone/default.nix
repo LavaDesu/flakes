@@ -32,6 +32,8 @@
     ./networking.nix
 
     ../../users/rin
+
+    modules.services.syncthing
   ];
 
   me = {
