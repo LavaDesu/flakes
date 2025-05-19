@@ -723,6 +723,7 @@
         "spicetify-nix": "spicetify-nix",
         "spotify-adblock": "spotify-adblock",
         "tree-sitter-jsonc": "tree-sitter-jsonc",
+        "website": "website",
         "wine-discord-ipc-bridge": "wine-discord-ipc-bridge",
         "zsh-abbr": "zsh-abbr",
         "zsh-history-substring-search": "zsh-history-substring-search"
@@ -844,6 +845,23 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "website": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668017714,
+        "narHash": "sha256-ywy/7xeT6FHkF7lcs+stW1WPV+piE8ztSwcQ161iico=",
+        "owner": "LavaDesu",
+        "repo": "lavadesu.github.io",
+        "rev": "4e30c50be520a0a1bbecf408f056e6aaf135df67",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LavaDesu",
+        "ref": "master",
+        "repo": "lavadesu.github.io",
         "type": "github"
       }
     },

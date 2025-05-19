@@ -23,7 +23,7 @@
 
     # services
     # hosts-blocklists = { url = "github:notracking/hosts-blocklists"; flake = false; };
-    # website = { url = "github:LavaDesu/lavadesu.github.io/master"; flake = false; };
+    website = { url = "github:LavaDesu/lavadesu.github.io/master"; flake = false; };
 
     # zsh plugins
     zsh-abbr = { url = "git+https://github.com/olets/zsh-abbr?submodules=1"; flake = false; };
