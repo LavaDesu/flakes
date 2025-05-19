@@ -68,11 +68,13 @@
           specialArgs = {
             inherit inputs;
             modules = import ./modules { lib = nixpkgs.lib; };
+            gcSecrets = builtins.fromJSON (builtins.readFile "${self}/secrets.gcrypt/shared.json");
           };
         };
     in
     {
       nixosConfigurations."anemone" = mkSystem nixpkgs "anemone" "x86_64-linux" [];
+      nixosConfigurations."dandelion" = mkSystem nixpkgs-vicuna "dandelion" "aarch64-linux" [];
       nixosConfigurations."hazel" = mkSystem nixpkgs-vicuna "hazel" "x86_64-linux" [];
       nixosConfigurations."hyacinth" = mkSystem nixpkgs "hyacinth" "x86_64-linux" [];
 
