@@ -5,6 +5,7 @@
 
   age.secrets = {
     acme_dns.file = ../../secrets/acme_dns.age;
+    wg_dandelion.file = ../../secrets/wg_dandelion.age;
   };
 
   imports = with modules.system; [
