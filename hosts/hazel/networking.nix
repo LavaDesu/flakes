@@ -1,0 +1,5 @@
+{ config, ... }: {
+  networking = {
+    useDHCP = true;
+  };
+}

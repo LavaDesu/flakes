@@ -2,15 +2,19 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-    agenix.url = "github:ryantm/agenix";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    nixpkgs-vicuna.url = "github:NixOS/nixpkgs/release-24.11";
+    home-manager-vicuna.url = "github:nix-community/home-manager/release-24.11";
+    home-manager-vicuna.inputs.nixpkgs.follows = "nixpkgs-vicuna";
+
+    agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     catppuccin.url = "github:catppuccin/nix/8eada392fd6571a747e1c5fc358dd61c14c8704e";
     catppuccin.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin-palette = { url = "github:catppuccin/palette"; flake = false; };
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     neovim-nightly.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
@@ -35,7 +39,7 @@
     wine-discord-ipc-bridge = { url = "github:0e4ef622/wine-discord-ipc-bridge"; flake = false; };
   };
 
-  outputs = { self, agenix, catppuccin, nixpkgs, ... } @ inputs:
+  outputs = { self, agenix, catppuccin, nixpkgs, nixpkgs-vicuna, ... } @ inputs:
     let
       overlays = (import ./overlays)
         ++ [(final: prev: {
@@ -69,6 +73,7 @@
     in
     {
       nixosConfigurations."anemone" = mkSystem nixpkgs "anemone" "x86_64-linux" [];
+      nixosConfigurations."hazel" = mkSystem nixpkgs-vicuna "hazel" "x86_64-linux" [];
       nixosConfigurations."hyacinth" = mkSystem nixpkgs "hyacinth" "x86_64-linux" [];
 
       packages."x86_64-linux" =
