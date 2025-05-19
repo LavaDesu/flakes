@@ -52,7 +52,7 @@
       imports = [ modules.services.transmission ];
       services.transmission.settings = {
         rpc-host-whitelist-enabled = false;
-        rpc-whitelist = "10.100.0.*,10.0.0.*,10.25.0.*,192.168.100.*";
+        rpc-whitelist = lib.mkForce "10.100.0.*,10.0.0.*,10.25.0.*,192.168.100.*";
         rpc-username = gcSecrets.transmission.username;
         rpc-password = gcSecrets.transmission.password;
       };
