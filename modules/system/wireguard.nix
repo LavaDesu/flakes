@@ -93,7 +93,7 @@ let
     let
       client = clients."${config.networking.hostName}";
       routes = routeBypass."${config.networking.hostName}";
-      mapRoutes = type: lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route ${type} ${r} dev ${routes.interface}") routes.routes;
+      mapRoutes = type: lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route ${type} ${r} via 192.168.1.1 dev ${routes.interface}") routes.routes;
     in {
       ips = client.allowedIPs;
       listenPort = port;
