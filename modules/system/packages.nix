@@ -17,6 +17,7 @@
     neovim
     nfs-utils
     ntfs3g
+    oci-cli
     ripgrep
     rsync
     sshfs
