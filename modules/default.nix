@@ -23,6 +23,7 @@ in {
     ./services/synapse.nix
     ./services/syncthing.nix
     ./services/tmptsync.nix
+    ./services/transmission.nix
     ./services/unbound.nix
     ./services/vaultwarden.nix
   ];
@@ -46,7 +47,6 @@ in {
     ./system/printing.nix
     ./system/security.nix
     ./system/snapper.nix
-    ./system/transmission.nix
     ./system/virtualisation.nix
     ./system/wireguard.nix
   ];
