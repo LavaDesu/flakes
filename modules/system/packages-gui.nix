@@ -1,8 +1,7 @@
 { config, lib, pkgs, ... }: {
   config = lib.mkIf config.me.gui {
     environment.systemPackages = with pkgs; [
-      bitwarden-desktop
-      gparted
+     gparted
       nautilus
     ];
     programs.adb.enable = true;

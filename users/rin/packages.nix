@@ -9,7 +9,7 @@ let
 in {
   programs.firefox = {
     enable = true;
-    nativeMessagingHosts = [ pkgs.bitwarden-desktop ];
+    nativeMessagingHosts = [];
   };
 
   home.packages = with pkgs; [
