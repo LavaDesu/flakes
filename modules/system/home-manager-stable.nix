@@ -1,6 +1,6 @@
 { config, inputs, modules, ... }: {
   imports = [
-    inputs.home-manager-vicuna.nixosModules.home-manager
+    inputs.home-manager-stable.nixosModules.home-manager
   ];
   home-manager = {
     useGlobalPkgs = true;

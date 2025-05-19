@@ -4,9 +4,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixpkgs-vicuna.url = "github:NixOS/nixpkgs/release-24.11";
-    home-manager-vicuna.url = "github:nix-community/home-manager/release-24.11";
-    home-manager-vicuna.inputs.nixpkgs.follows = "nixpkgs-vicuna";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/release-25.05";
+    home-manager-stable.url = "github:nix-community/home-manager/release-25.05";
+    home-manager-stable.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +39,7 @@
     wine-discord-ipc-bridge = { url = "github:0e4ef622/wine-discord-ipc-bridge"; flake = false; };
   };
 
-  outputs = { self, agenix, catppuccin, nixpkgs, nixpkgs-vicuna, ... } @ inputs:
+  outputs = { self, agenix, catppuccin, nixpkgs, nixpkgs-stable, ... } @ inputs:
     let
       overlays = (import ./overlays)
         ++ [(final: prev: {
@@ -74,8 +74,8 @@
     in
     {
       nixosConfigurations."anemone" = mkSystem nixpkgs "anemone" "x86_64-linux" [];
-      nixosConfigurations."dandelion" = mkSystem nixpkgs-vicuna "dandelion" "aarch64-linux" [];
-      nixosConfigurations."hazel" = mkSystem nixpkgs-vicuna "hazel" "x86_64-linux" [];
+      nixosConfigurations."dandelion" = mkSystem nixpkgs-stable "dandelion" "aarch64-linux" [];
+      nixosConfigurations."hazel" = mkSystem nixpkgs-stable "hazel" "x86_64-linux" [];
       nixosConfigurations."hyacinth" = mkSystem nixpkgs "hyacinth" "x86_64-linux" [];
 
       packages."x86_64-linux" =
