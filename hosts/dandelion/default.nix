@@ -16,6 +16,7 @@
     nix-stable
     packages
     security
+    wireguard
 
     modules.services.nginx
     modules.services.postgres

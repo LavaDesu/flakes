@@ -11,7 +11,8 @@ in {
 
   "secrets/acme_dns.age".publicKeys = [ dandelion hazel rin ];
   "secrets/warden_admin.age".publicKeys = [ rin ];
-  "secrets/wg_blossom.age".publicKeys = [ blossom rin ];
+  "secrets/wg_anemone.age".publicKeys = [ anemone rin ];
+  "secrets/wg_dandelion.age".publicKeys = [ dandelion rin ];
+  "secrets/wg_hyacinth.age".publicKeys = [ blossom rin ];
   "secrets/wg_caramel.age".publicKeys = [ rin ];
-  "secrets/wg_sugarcane.age".publicKeys = [ rin ];
 }
