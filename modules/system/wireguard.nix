@@ -42,7 +42,7 @@ let
       allowedIPs = [ "10.100.0.3/32" "${gcSecrets.wireguard.ipv6Subnet}:3"];
     };
     anemone = {
-      publicKey = "Fkcp/VSN4Dkhly8V4hskF4lnDviA7VZHCnWf7OliFCg=";
+      publicKey = "px5+JNdAmqBvUC++DhiJrUBRAr+BYP6iYVt4sbhPTWY=";
       allowedIPs = [ "10.100.0.4/32" "${gcSecrets.wireguard.ipv6Subnet}:4" ];
     };
     hibiscus = {
