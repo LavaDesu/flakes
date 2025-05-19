@@ -14,7 +14,6 @@ in {
 
   home.packages = with pkgs; [
     dconf
-    fd
     ffmpeg
     gnupg
     kitty
@@ -22,7 +21,6 @@ in {
     nodejs_latest
     pamixer
     qmk
-    ripgrep
     unrar
     weechat
     yt-dlp

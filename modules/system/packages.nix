@@ -4,7 +4,9 @@
     comma
     ecryptfs
     efibootmgr
+    fd
     git
+    git-crypt
     htop
     jq
     kitty.terminfo
@@ -15,8 +17,9 @@
     neovim
     nfs-utils
     ntfs3g
-    sshfs
+    ripgrep
     rsync
+    sshfs
     wget
   ];
   environment.variables.EDITOR = "nvim";
