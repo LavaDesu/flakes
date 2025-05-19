@@ -5,9 +5,5 @@ self: super: {
       keyutils
       gamescope
     ];
-
-    extraLibraries = pkgs: with pkgs; [
-      openssl_1_1
-    ];
   };
 }

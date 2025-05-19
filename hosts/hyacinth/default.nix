@@ -43,9 +43,4 @@
   systemd.services.nix-daemon.environment.TMPDIR = "/nix/tmp";
 
   services.jenkins.enable = true;
-
-  # For steam fhs-env
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
 }
