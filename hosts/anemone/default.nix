@@ -5,6 +5,7 @@
 
   nixpkgs.overlays = [ inputs.neovim-nightly.overlays.default ];
   age.secrets = {
+    wg_anemone.file = ../../secrets/wg_anemone.age;
     passwd.file = ../../secrets/passwd.age;
   };
 
@@ -26,6 +27,7 @@
     printing
     security
     snapper
+    wireguard
 
     ./filesystem.nix
     ./kernel.nix
