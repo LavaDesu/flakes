@@ -48,7 +48,14 @@
       };
 
       networking.firewall.enable = false;
-      systemd.services.transmission.serviceConfig.BindReadOnlyPaths = lib.mkForce [ builtins.storeDir "/etc" ];
+      # https://github.com/NixOS/nixpkgs/issues/258793
+      systemd.services.transmission.serviceConfig = {
+          BindReadOnlyPaths = lib.mkForce [ builtins.storeDir "/etc" ];
+          RootDirectoryStartOnly = lib.mkForce false;
+          RootDirectory = lib.mkForce "";
+          PrivateMounts = lib.mkForce false;
+          PrivateUsers = lib.mkForce false;
+      };
       imports = [ modules.services.transmission ];
       services.transmission.settings = {
         rpc-host-whitelist-enabled = false;
