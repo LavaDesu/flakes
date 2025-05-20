@@ -112,6 +112,20 @@ let
       peers = [ serverPeer ];
     };
   };
+
+  clientQuickConfig = {
+    wg-quick.interfaces =
+    let
+      client = clients."${config.networking.hostName}";
+    in {
+      wg0 = {
+        address = client.allowedIPs;
+        privateKeyFile = config.age.secrets."wg_${config.networking.hostName}".path;
+
+        peers = [ serverPeer ];
+      };
+    };
+  };
 in {
   boot.kernel.sysctl = lib.mkIf (config.networking.hostName == serverName) ({
     "net.ipv6.conf.all.forwarding" = true;
@@ -120,6 +134,7 @@ in {
   networking =
     lib.mkMerge [
       (lib.mkIf (config.networking.hostName == serverName) serverConfig)
-      (lib.mkIf (builtins.hasAttr config.networking.hostName clients) clientConfig)
+      #(lib.mkIf (builtins.hasAttr config.networking.hostName clients) clientConfig)
+      (lib.mkIf (builtins.hasAttr config.networking.hostName clients) clientQuickConfig)
     ];
 }
