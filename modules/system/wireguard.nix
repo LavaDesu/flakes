@@ -120,6 +120,7 @@ let
     in {
       wg0 = {
         address = client.allowedIPs;
+        dns = [ "2606:4700:4700::1111" "2606:4700:4700::1001" "1.1.1.1" "1.0.0.1" ];
         privateKeyFile = config.age.secrets."wg_${config.networking.hostName}".path;
 
         peers = [ serverPeer ];
