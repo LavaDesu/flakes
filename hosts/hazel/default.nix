@@ -32,10 +32,12 @@ in
 
     base
     kernel
-    nginx
     nix-stable
     packages
     security
+
+    nginx
+    unbound
 
     ./filesystem.nix
     ./kernel.nix
