@@ -50,7 +50,10 @@ let
       publicKey = "vQ5a2KMrwi7RCRsD0yvog+n35vQYFuvwiPn+W4lbRBw=";
       allowedIPs = [ "10.100.0.21/32" "${gcSecrets.wireguard.ipv6Subnet}:21" "fd0d::21" ];
       interfaces = {
-        wg0 = { peers = [ (serverPeerWith [ "10.100.0.0/24" "fd0d::/16" ]) ]; };
+        wg0 = {
+          dns = [ "::1" "127.0.0.1" ];
+          peers = [ (serverPeerWith [ "10.100.0.0/24" "fd0d::/16" ]) ];
+        };
       };
     };
   };
