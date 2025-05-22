@@ -26,6 +26,7 @@ in {
     ./services/transmission.nix
     ./services/unbound.nix
     ./services/vaultwarden.nix
+    ./services/website.nix
   ];
   system = mkAttrsFromPaths [
     ./system/aagl.nix
