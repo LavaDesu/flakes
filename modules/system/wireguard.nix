@@ -58,7 +58,7 @@ let
     };
   };
 
-  clientPeers = builtins.attrValues clients;
+  clientPeers = builtins.removeAttrs (builtins.attrValues clients) [ "interfaces" ];
   serverPeerWith = ips: {
     publicKey = "3ugIk2tQZXjAH9/95s63ld2WNUHQrd4Mz5jzbln6oj0=";
     allowedIPs = ips;
