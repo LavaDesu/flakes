@@ -3,7 +3,7 @@ let
   dir = "/persist/unbound";
 
   converted = pkgs.runCommand "stevenblack-hosts-unbound" {} ''
-    grep '^0\.0\.0\.0' "${inputs.stevenblack-hosts}/hosts" | awk '{print "local-zone: \""$2"\" always_refuse"}' > "$out"
+    grep '^0\.0\.0\.0' "${inputs.stevenblack-hosts}/hosts" | awk '{print "local-zone: \""$2"\" always_refuse"}' | tail -n +2 > "$out"
   '';
 in {
   networking.firewall.interfaces.wg0 = {
