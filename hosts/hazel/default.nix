@@ -25,6 +25,7 @@ in
 
   age.secrets = {
     acme_dns.file = ../../secrets/acme_dns.age;
+    wg_hazel.file = ../../secrets/wg_hazel.age;
   };
 
   imports = with modules.system; with modules.services; [
