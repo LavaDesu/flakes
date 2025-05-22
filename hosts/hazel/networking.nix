@@ -1,9 +1,9 @@
-{ config, ... }: {
+{ gcSecrets, ... }: {
   networking = {
     useDHCP = true;
     interfaces.enp8s0.ipv6.addresses = [
       {
-        address = "2a01:4f9:4a:2694::11";
+        address = gcSecrets.hazel.ipv6Addr;
         prefixLength = 64;
       }
     ];
