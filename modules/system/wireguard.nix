@@ -21,33 +21,18 @@ let
       '') forwarding
     );
 
-  routeBypass = {
-    anemone = {
-      interface = "wlp1s0";
-      routes = [ serverIp ];
-    };
-    hyacinth = {
-      interface = "enp5s0";
-      routes = [ serverIp ];
-    };
-  };
-
   clients = {
-    # caramel = {
-    #   publicKey = "VDqcpS0lJzFgwikj61MJ1xc9P8Cuq0NXa+Hc+etn2iA=";
-    #   allowedIPs = [ "10.100.0.2/32" ];
-    # };
     hyacinth = {
       publicKey = "6nVhazYdmC15A/nke9VrqIg3sOBVOmqj4GEsyBq7MVo=";
-      allowedIPs = [ "10.100.0.3/32" "${gcSecrets.wireguard.ipv6Subnet}:3"];
+      allowedIPs = [ "10.100.0.3/32" "${gcSecrets.wireguard.ipv6Subnet}:3" "fd0d::3" ];
     };
     anemone = {
       publicKey = "px5+JNdAmqBvUC++DhiJrUBRAr+BYP6iYVt4sbhPTWY=";
-      allowedIPs = [ "10.100.0.4/32" "${gcSecrets.wireguard.ipv6Subnet}:4" ];
+      allowedIPs = [ "10.100.0.4/32" "${gcSecrets.wireguard.ipv6Subnet}:4" "fd0d::4" ];
     };
     hibiscus = {
       publicKey = "vQ5a2KMrwi7RCRsD0yvog+n35vQYFuvwiPn+W4lbRBw=";
-      allowedIPs = [ "10.100.0.5/32" "${gcSecrets.wireguard.ipv6Subnet}:5" ];
+      allowedIPs = [ "10.100.0.5/32" "${gcSecrets.wireguard.ipv6Subnet}:5" "fd0d::5" ];
     };
   };
 
@@ -77,7 +62,7 @@ let
     };
 
     wireguard.interfaces.wg0 = {
-      ips = [ "10.100.0.1/24" "${gcSecrets.wireguard.ipv6Subnet}:1" ];
+      ips = [ "10.100.0.1/24" "${gcSecrets.wireguard.ipv6Subnet}:1" "fd0d::1" ];
       listenPort = port;
 
       postSetup = ''
@@ -95,45 +80,20 @@ let
   };
 
   clientConfig = {
-    wireguard.interfaces.wg0 =
-    let
-      client = clients."${config.networking.hostName}";
-      routes = routeBypass."${config.networking.hostName}";
-      mapRoutes = type: lib.concatMapStringsSep "\n" (r: "${pkgs.iproute2}/bin/ip route ${type} ${r} dev ${routes.interface}") routes.routes;
-    in {
-      ips = client.allowedIPs;
-      listenPort = port;
-
-      postSetup = ''
-        ${mapRoutes "add"}
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${serverInterface} -j MASQUERADE
-      '';
-
-      postShutdown = ''
-        ${mapRoutes "del"}
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${serverInterface} -j MASQUERADE
-      '';
-
-      privateKeyFile = config.age.secrets."wg_${config.networking.hostName}".path;
-      peers = [ serverPeer ];
-    };
-  };
-
-  clientQuickConfig = {
     wg-quick.interfaces =
     let
       client = clients."${config.networking.hostName}";
     in {
       wg0 = {
         address = client.allowedIPs;
-        dns = [ "2606:4700:4700::1111" "2606:4700:4700::1001" "1.1.1.1" "1.0.0.1" ];
+        dns = [ "fd0d::1" "10.100.0.1" ];
         privateKeyFile = config.age.secrets."wg_${config.networking.hostName}".path;
 
         peers = [ server6OnlyPeer ];
       };
       wg1 = {
         address = client.allowedIPs;
-        dns = [ "2606:4700:4700::1111" "2606:4700:4700::1001" "1.1.1.1" "1.0.0.1" ];
+        dns = [ "fd0d::1" "10.100.0.1" ];
         privateKeyFile = config.age.secrets."wg_${config.networking.hostName}".path;
 
         peers = [ serverPeer ];
@@ -149,7 +109,6 @@ in {
   networking =
     lib.mkMerge [
       (lib.mkIf (config.networking.hostName == serverName) serverConfig)
-      #(lib.mkIf (builtins.hasAttr config.networking.hostName clients) clientConfig)
-      (lib.mkIf (builtins.hasAttr config.networking.hostName clients) clientQuickConfig)
+      (lib.mkIf (builtins.hasAttr config.networking.hostName clients) clientConfig)
     ];
 }
