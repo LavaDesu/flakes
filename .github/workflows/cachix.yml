@@ -22,12 +22,11 @@ jobs:
             nix eval .#checks.x86_64-linux.is_dirty;
             if [ $? -eq 0 ]; then
               break;
-            else
-              if [ $s -eq 10 ]; then
-                exit 1
+            elif [ $s -eq 10 ]; then
+                exit 1;
               fi
               sleep 5;
-            fi
+            fi;
           done
       - uses: cachix/install-nix-action@v31
       - uses: cachix/cachix-action@v14
