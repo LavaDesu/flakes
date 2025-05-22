@@ -13,6 +13,7 @@ in {
   "secrets/warden_admin.age".publicKeys = [ rin ];
   "secrets/wg_anemone.age".publicKeys = [ anemone rin ];
   "secrets/wg_dandelion.age".publicKeys = [ dandelion rin ];
+  "secrets/wg_hazel.age".publicKeys = [ hazel rin ];
   "secrets/wg_hyacinth.age".publicKeys = [ blossom rin ];
   "secrets/wg_caramel.age".publicKeys = [ rin ];
 }

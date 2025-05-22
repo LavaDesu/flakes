@@ -47,7 +47,7 @@ let
       };
     };
     hazel = {
-      publicKey = "vQ5a2KMrwi7RCRsD0yvog+n35vQYFuvwiPn+W4lbRBw=";
+      publicKey = "0zruTndObzHo+b1rbOuTsxCU97epygZycxXS/lgUHUc=";
       allowedIPs = [ "10.100.0.21/32" "${gcSecrets.wireguard.ipv6Subnet}:21" "fd0d::21" ];
       interfaces = {
         wg0 = {
