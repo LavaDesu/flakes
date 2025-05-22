@@ -16,6 +16,11 @@ jobs:
         uses: sliteteam/github-action-git-crypt-unlock@1.2.0
         env:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v14
+        with:
+          name: lava
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - name: Wait..
         run:
           for s in {1..10}; do
@@ -27,11 +32,6 @@ jobs:
             fi;
             sleep 5;
           done
-      - uses: cachix/install-nix-action@v31
-      - uses: cachix/cachix-action@v14
-        with:
-          name: lava
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - run: nix flake check --keep-going --verbose
 
   build:
