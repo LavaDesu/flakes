@@ -21,6 +21,7 @@
 
     modules.services.nginx
     modules.services.postgres
+    modules.services.unbound
 
     ./filesystem.nix
     ./kernel.nix

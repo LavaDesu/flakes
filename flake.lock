@@ -722,6 +722,7 @@
         "pure": "pure",
         "spicetify-nix": "spicetify-nix",
         "spotify-adblock": "spotify-adblock",
+        "stevenblack-hosts": "stevenblack-hosts",
         "tree-sitter-jsonc": "tree-sitter-jsonc",
         "website": "website",
         "wine-discord-ipc-bridge": "wine-discord-ipc-bridge",
@@ -763,6 +764,22 @@
       "original": {
         "owner": "abba23",
         "repo": "spotify-adblock",
+        "type": "github"
+      }
+    },
+    "stevenblack-hosts": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1747792192,
+        "narHash": "sha256-HeWotX8CVc3vDlvAGq99FaeAT9JRSWtx4N/NhtjPwtg=",
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "rev": "dbdcb032706dfe548745266218501afa93c14ad5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "StevenBlack",
+        "repo": "hosts",
         "type": "github"
       }
     },

@@ -1,8 +1,12 @@
-{ inputs, ... }:
+{ inputs, pkgs, gcSecrets, ... }:
 let
   dir = "/persist/unbound";
+
+  converted = pkgs.runCommand "stevenblack-hosts-unbound" {} ''
+    grep '^0\.0\.0\.0' "${inputs.stevenblack-hosts}/hosts" | awk '{print "local-zone: \""$2"\" always_refuse"}' > "$out"
+  '';
 in {
-  networking.firewall.interfaces.wlan0 = {
+  networking.firewall.interfaces.wg0 = {
     allowedUDPPorts = [ 53 853 ];
     allowedTCPPorts = [ 53 853 ];
   };
@@ -16,17 +20,20 @@ in {
         name = ".";
         forward-tls-upstream = true;
         forward-addr = [
+          "2606:4700:4700::1111@853#cloudflare-dns.com"
+          "2606:4700:4700::1001@853#cloudflare-dns.com"
           "1.1.1.1@853#cloudflare-dns.com"
           "1.0.0.1@853#cloudflare-dns.com"
         ];
       }];
 
       server = {
-        interface = [ "0.0.0.0" ];
+        interface = [ "0.0.0.0" "::0" ];
         access-control = [
           "127.0.0.1/8      allow"
           "10.0.0.0/8       allow"
           "192.168.100.0/24 allow"
+          "${gcSecrets.wireguard.ipv6Subnet}/80 allow"
         ];
         domain-insecure = [ "\"local.lava.moe\"" ];
         local-zone = [ "\"warden.local.lava.moe.\" redirect" ];
@@ -35,7 +42,7 @@ in {
         ];
       };
 
-      include = "${inputs.hosts-blocklists}/unbound/unbound.blacklist.conf";
+      include = "${converted}";
     };
   };
 

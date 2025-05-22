@@ -22,7 +22,7 @@
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     # services
-    # hosts-blocklists = { url = "github:notracking/hosts-blocklists"; flake = false; };
+    stevenblack-hosts = { url = "github:StevenBlack/hosts"; flake = false; };
     website = { url = "github:LavaDesu/lavadesu.github.io/master"; flake = false; };
 
     # zsh plugins
