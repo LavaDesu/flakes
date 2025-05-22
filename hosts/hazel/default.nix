@@ -38,6 +38,7 @@ in
 
     nginx
     unbound
+    wireguard
 
     ./filesystem.nix
     ./kernel.nix
