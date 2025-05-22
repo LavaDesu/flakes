@@ -34,6 +34,7 @@ in {
           "127.0.0.1/8      allow"
           "10.0.0.0/8       allow"
           "192.168.100.0/24 allow"
+          "fd0d::/16 allow"
           "${gcSecrets.wireguard.ipv6Subnet}:/80 allow"
         ];
         domain-insecure = [ "\"local.lava.moe\"" ];
