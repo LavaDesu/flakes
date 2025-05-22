@@ -18,7 +18,7 @@ jobs:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
       - name: Wait..
         run:
-          sleep 5;
+          sleep 20;
       - uses: cachix/install-nix-action@v31
       - uses: cachix/cachix-action@v14
         with:
