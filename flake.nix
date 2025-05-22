@@ -78,6 +78,8 @@
       nixosConfigurations."hazel" = mkSystem nixpkgs-stable "hazel" "x86_64-linux" [];
       nixosConfigurations."hyacinth" = mkSystem nixpkgs "hyacinth" "x86_64-linux" [];
 
+      checks."x86_64-linux".is_dirty = if !(self ? rev) then throw "Dirty git tree detected." else self.rev;
+
       packages."x86_64-linux" =
         let
           pkgs = import nixpkgs rec {
