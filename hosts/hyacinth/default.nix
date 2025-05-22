@@ -7,7 +7,7 @@
   nixpkgs.overlays = [ inputs.neovim-nightly.overlays.default ];
   age.secrets = {
     passwd.file = ../../secrets/passwd.age;
-    wg_hyacinth.file = ../../secrets/wg_blossom.age;
+    wg_hyacinth.file = ../../secrets/wg_hyacinth.age;
     wpa_conf.file = ../../secrets/wpa_conf.age;
   };
   imports = with modules.system; [
