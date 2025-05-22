@@ -58,6 +58,12 @@ let
     endpoint = "${serverIp}:${toString port}";
     persistentKeepalive = 25;
   };
+  server6OnlyPeer = {
+    publicKey = "3ugIk2tQZXjAH9/95s63ld2WNUHQrd4Mz5jzbln6oj0=";
+    allowedIPs = [ "::/0" ];
+    endpoint = "${serverIp}:${toString port}";
+    persistentKeepalive = 25;
+  };
 
   serverConfig = {
     nat = {
@@ -123,7 +129,15 @@ let
         dns = [ "2606:4700:4700::1111" "2606:4700:4700::1001" "1.1.1.1" "1.0.0.1" ];
         privateKeyFile = config.age.secrets."wg_${config.networking.hostName}".path;
 
+        peers = [ server6OnlyPeer ];
+      };
+      wg1 = {
+        address = client.allowedIPs;
+        dns = [ "2606:4700:4700::1111" "2606:4700:4700::1001" "1.1.1.1" "1.0.0.1" ];
+        privateKeyFile = config.age.secrets."wg_${config.networking.hostName}".path;
+
         peers = [ serverPeer ];
+        autostart = false;
       };
     };
   };
