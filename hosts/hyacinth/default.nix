@@ -3,7 +3,6 @@
   system.stateVersion = "21.11";
   time.timeZone = "Australia/Melbourne";
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nixpkgs.overlays = [ inputs.neovim-nightly.overlays.default ];
   age.secrets = {
     passwd.file = ../../secrets/passwd.age;
@@ -29,7 +28,6 @@
     printing
     security
     snapper
-    virtualisation
 
     modules.services.syncthing
 
