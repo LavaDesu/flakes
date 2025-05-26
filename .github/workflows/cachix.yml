@@ -21,17 +21,9 @@ jobs:
         with:
           name: lava
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - name: Wait..
-        run:
-          for s in {1..10}; do
-            nix eval .#checks.x86_64-linux.is_dirty;
-            if [ $? -eq 0 ]; then
-              break;
-            elif [ $s -eq 10 ]; then
-              exit 1;
-            fi;
-            sleep 5;
-          done
+      - run:
+          cd /
+          cd -
       - run: nix flake check --keep-going --verbose
 
   build:
