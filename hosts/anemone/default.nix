@@ -51,6 +51,8 @@
     package = pkgs.wireshark;
   };
 
+  environment.systemPackages = with pkgs; [ ciscoPacketTracer8 ];
+
   services.fprintd.enable = true;
   services.tlp.enable = true;
 }

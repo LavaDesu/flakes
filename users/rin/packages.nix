@@ -28,7 +28,6 @@ in {
     nodePackages_latest.pnpm
   ] ++ lib.optionals config.me.gui [
     android-studio
-    ciscoPacketTracer8
     drawio
     element-desktop
     eww
