@@ -28,6 +28,7 @@
     printing
     security
     snapper
+    wireguard
 
     modules.services.syncthing
 
