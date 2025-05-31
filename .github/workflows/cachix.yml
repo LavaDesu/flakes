@@ -21,9 +21,9 @@ jobs:
         with:
           name: lava
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run:
-          cd /
-          cd -
+      - run: |
+            cd /
+            cd -
       - run: nix flake check --keep-going --verbose
 
   build:
