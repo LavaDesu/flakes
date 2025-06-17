@@ -9,9 +9,8 @@ let
   tkgPatches = [
     "0002-clear-patches"
     "0003-glitched-base"
-    "0003-glitched-eevdf-additions"
+    "0001-bore"
     "0003-glitched-cfs"
-    "0007-v${mm}-fsync_legacy_via_futex_waitv"
     "0012-misc-additions"
   ];
 

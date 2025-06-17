@@ -56,6 +56,10 @@ let
       INIT_STACK_ALL_ZERO = yes;
       INIT_STACK_NONE = no;
 
+      # bore
+      SCHED_BORE = yes;
+      MIN_BASE_SLICE_NS = freeform "2000000";
+
       # tickless timers
       HZ_PERIODIC = no;
       NO_HZ = yes;
