@@ -30,6 +30,7 @@ in {
     android-studio
     drawio
     element-desktop
+    evince
     eww
     feh
     file-roller
@@ -55,6 +56,7 @@ in {
     slurp
     swaybg
     (tetrio-desktop.override { withTetrioPlus = true; })
+    texliveFull
     tor-browser-bundle-bin
     transmission-remote-gtk
     vesktop

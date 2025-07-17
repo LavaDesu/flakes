@@ -139,7 +139,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local servers = { 'cssls', 'html', 'nil_ls', 'ts_ls', 'yamlls' }
+local servers = { 'cssls', 'html', 'nil_ls', 'texlab', 'ts_ls', 'yamlls' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         capabilities = capabilities,

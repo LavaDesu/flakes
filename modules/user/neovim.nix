@@ -35,6 +35,7 @@ in {
       plenary-nvim
       tokyonight-nvim
       vim-fugitive
+      vim-latex-live-preview
       vim-nix
       vim-repeat
       vim-signify
@@ -61,6 +62,7 @@ in {
         tree-sitter-javascript
         tree-sitter-json
         tree-sitter-kotlin
+        tree-sitter-latex
         tree-sitter-lua
         tree-sitter-markdown
         tree-sitter-nix
