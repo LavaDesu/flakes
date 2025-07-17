@@ -5,7 +5,6 @@ builtins.map (path: import path) [
   ./ccache.nix
   ./eww.nix
   ./material-icons.nix
-  ./oci-cli.nix
   ./steam.nix
   ./utillinux.nix
   ./wpa-supplicant.nix
