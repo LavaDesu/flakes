@@ -40,7 +40,6 @@ in
       shuffle
       hidePodcasts
 
-      skipStats
       songStats
       history
       volumePercentage
