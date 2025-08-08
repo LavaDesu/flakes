@@ -1,6 +1,6 @@
 { config, lib, pkgs, gcSecrets, ... }:
 let
-  port = 51820;
+  port = 123;
   serverName = "dandelion";
   serverInterface = "enp0s6";
   serverIp = gcSecrets.wireguard.gateway;
