@@ -28,6 +28,7 @@ let
       interfaces = {
         wg0 = { peers = [ server6OnlyPeer ]; };
         wg1 = { peers = [ serverPeer ]; autostart = false; };
+        wg2 = { peers = [ serverLocalOnlyPeer ]; autostart = false; };
       };
     };
     anemone = {
@@ -36,6 +37,7 @@ let
       interfaces = {
         wg0 = { peers = [ server6OnlyPeer ]; };
         wg1 = { peers = [ serverPeer ]; autostart = false; };
+        wg2 = { peers = [ serverLocalOnlyPeer ]; autostart = false; };
       };
     };
     hibiscus = {
@@ -44,6 +46,7 @@ let
       interfaces = {
         wg0 = { peers = [ server6OnlyPeer ]; };
         wg1 = { peers = [ serverPeer ]; autostart = false; };
+        wg2 = { peers = [ serverLocalOnlyPeer ]; autostart = false; };
       };
     };
     hazel = {
@@ -52,7 +55,7 @@ let
       interfaces = {
         wg0 = {
           dns = [ "::1" "127.0.0.1" ];
-          peers = [ (serverPeerWith [ "10.100.0.0/24" "fd0d::/16" ]) ];
+          peers = [ serverLocalOnlyPeer ];
         };
       };
     };
@@ -67,6 +70,7 @@ let
   };
   serverPeer = serverPeerWith [ "0.0.0.0/0" "::/0" ];
   server6OnlyPeer = serverPeerWith [ "10.100.0.0/24" "::/0" ];
+  serverLocalOnlyPeer = serverPeerWith [ "10.100.0.0/24" "fd0d::/16" ];
 
   serverConfig = {
     nat = {
