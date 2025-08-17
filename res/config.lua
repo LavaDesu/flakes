@@ -82,7 +82,9 @@ require('auto-save').setup {
     condition = autosavecond,
 }
 require('nvim-ts-autotag').setup {}
-require('nvim-highlight-colors').setup {}
+require('nvim-highlight-colors').setup {
+    render = "virtual",
+}
 require('nvim-treesitter.configs').setup {
     highlight = { enable = true },
     indent = { enable = false }
