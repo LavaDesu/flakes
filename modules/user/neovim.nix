@@ -35,6 +35,7 @@ in {
       fzf-vim
       fzf-lsp-nvim
       lualine-nvim
+      nvim-ts-autotag
       nvim-web-devicons
       plenary-nvim
       tokyonight-nvim

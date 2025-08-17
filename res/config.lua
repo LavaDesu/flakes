@@ -66,6 +66,7 @@ vim.cmd("au FileType rust highlight DiagnosticUnderlineHint ctermfg=14 gui=itali
 
 -- Plugins
 require('autoclose').setup {}
+require('nvim-ts-autotag').setup {}
 require('nvim-highlight-colors').setup {}
 require('nvim-treesitter.configs').setup {
     highlight = { enable = true },
