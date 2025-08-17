@@ -20,6 +20,8 @@ in {
 
     extraPackages = with pkgs; [
       rust-analyzer
+      nodePackages."@astrojs/language-server"
+      nodePackages."@tailwindcss/language-server"
       nodePackages.diagnostic-languageserver
       nodePackages.eslint_d
       nodePackages.typescript-language-server
@@ -52,6 +54,7 @@ in {
 
       #(pkgs.me.nvim-treesitter-nightly.withPlugins (p: with p; [
       (nvim-treesitter.withPlugins (p: with p; [
+        tree-sitter-astro
         tree-sitter-bash
         tree-sitter-c
         tree-sitter-c-sharp
