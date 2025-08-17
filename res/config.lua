@@ -65,13 +65,23 @@ vim.cmd("highlight SignifySignChangeDelete    guifg="..colors.red)
 vim.cmd("au FileType rust highlight DiagnosticUnderlineHint ctermfg=14 gui=italic guifg="..colors.overlay2)
 
 -- Plugins
+require('autoclose').setup {}
+require('nvim-highlight-colors').setup {}
 require('nvim-treesitter.configs').setup {
     highlight = { enable = true },
     indent = { enable = false }
 }
 require('lualine').setup {
     options = {
-        theme = 'tokyonight'
+        theme = 'catppuccin'
+    },
+    sections = {
+        lualine_c = {
+            {
+                "filename",
+                path = 1,
+            }
+        }
     }
 }
 
@@ -94,9 +104,6 @@ function _G.javascript_indent()
 end
 
 vim.cmd('au FileType javascript setlocal indentexpr=v:lua.javascript_indent()')
-
--- nvim-highlight-colors
-require('nvim-highlight-colors').setup {}
 
 -- LSP
 local nvim_lsp = require('lspconfig')

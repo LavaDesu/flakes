@@ -30,10 +30,12 @@ in {
     ];
 
     plugins = with pkgs.vimPlugins; [
+      autoclose-nvim
       flutter-tools-nvim
       fzf-vim
       fzf-lsp-nvim
       lualine-nvim
+      nvim-web-devicons
       plenary-nvim
       tokyonight-nvim
       vim-fugitive
