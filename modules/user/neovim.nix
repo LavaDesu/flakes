@@ -47,6 +47,7 @@ in {
 
       nvim-cmp
       nvim-dap
+      nvim-highlight-colors
       nvim-lspconfig
       cmp-nvim-lsp
       cmp_luasnip

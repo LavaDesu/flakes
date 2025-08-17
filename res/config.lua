@@ -18,6 +18,7 @@ vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes:3"
 vim.opt.title = true
+vim.opt.termguicolors = true
 vim.opt.updatetime = 0
 vim.opt.clipboard:prepend('unnamedplus')
 
@@ -93,6 +94,9 @@ function _G.javascript_indent()
 end
 
 vim.cmd('au FileType javascript setlocal indentexpr=v:lua.javascript_indent()')
+
+-- nvim-highlight-colors
+require('nvim-highlight-colors').setup {}
 
 -- LSP
 local nvim_lsp = require('lspconfig')
