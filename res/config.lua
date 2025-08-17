@@ -68,6 +68,19 @@ vim.cmd("au FileType rust highlight DiagnosticUnderlineHint ctermfg=14 gui=itali
 
 -- Plugins
 require('autoclose').setup {}
+local function autosavecond(buf)
+    if vim.tbl_contains({"astro"}, vim.fn.getbufvar(buf, "&filetype")) then
+        return true
+    end
+    return false
+end
+require('auto-save').setup {
+    trigger_events = {
+        defer = { "InsertLeave", "TextChanged", "TextChangedI" },
+    },
+    debounce_delay = 250,
+    condition = autosavecond,
+}
 require('nvim-ts-autotag').setup {}
 require('nvim-highlight-colors').setup {}
 require('nvim-treesitter.configs').setup {

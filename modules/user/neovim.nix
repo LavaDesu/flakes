@@ -31,6 +31,7 @@ in {
 
     plugins = with pkgs.vimPlugins; [
       autoclose-nvim
+      auto-save-nvim
       flutter-tools-nvim
       fzf-vim
       fzf-lsp-nvim
