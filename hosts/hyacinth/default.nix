@@ -41,5 +41,5 @@
   ];
   systemd.services.nix-daemon.environment.TMPDIR = "/nix/tmp";
 
-  services.jenkins.enable = true;
+  me.hasBluetooth = true;
 }
