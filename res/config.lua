@@ -1,11 +1,13 @@
 -- Keybindings
-local map = vim.api.nvim_set_keymap
-map('n', '<C-H>', '<C-W>h', { noremap = true })
-map('n', '<C-J>', '<C-W>j', { noremap = true })
-map('n', '<C-K>', '<C-W>k', { noremap = true })
-map('n', '<C-L>', '<C-W>l', { noremap = true })
-map('n', '<C-Q>', ':q<CR>', { noremap = true })
-map('n', '<C-P>', ':Files<CR>', { noremap = true })
+local map = vim.keymap.set
+map('n', '<C-H>', '<C-W>h', { remap = false })
+map('n', '<C-J>', '<C-W>j', { remap = false })
+map('n', '<C-K>', '<C-W>k', { remap = false })
+map('n', '<C-L>', '<C-W>l', { remap = false })
+map('n', '<C-Q>', ':q<CR>', { remap = false })
+map('n', '<C-P>', ':Files<CR>', { remap = false })
+map('n', '<C-/>', 'gcc', { remap = true, silent = true })
+map('v', '<C-/>', 'gc', { remap = true, silent = true })
 
 -- Autocommands
 vim.cmd('au BufEnter * set noro')
