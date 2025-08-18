@@ -35,6 +35,7 @@ in {
 
   kernelPatches = lib.optionals hasPatch [
     kernelPatchSrc
+    (patch ./bluetooth.patch)
   ]
   ++ builtins.map (name: {
     inherit name;
