@@ -15,7 +15,7 @@ in
     "/" = {
       device = "rootfs";
       fsType = "tmpfs";
-      options = [ "defaults" "size=8G" "mode=755" ];
+      options = [ "defaults" "size=24G" "mode=755" ];
     };
     "/boot" = mkLabelMount "CUP" "vfat";
 
