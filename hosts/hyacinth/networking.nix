@@ -3,7 +3,7 @@
   networking = {
     useDHCP = true;
     interfaces.enp5s0.useDHCP = false;
-    interfaces.enp5s0.wakeOnLan.enable = false;
+    interfaces.enp5s0.wakeOnLan.enable = true;
 
     interfaces.enp5s0.ipv4.addresses = [{
       address = "192.168.1.201";
