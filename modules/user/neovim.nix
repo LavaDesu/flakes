@@ -20,6 +20,7 @@ in {
 
     extraPackages = with pkgs; [
       rust-analyzer
+      texlab
       nodePackages."@astrojs/language-server"
       nodePackages."@tailwindcss/language-server"
       nodePackages.diagnostic-languageserver
