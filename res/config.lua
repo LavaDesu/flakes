@@ -168,7 +168,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local servers = { 'astro', 'cssls', 'html', 'nil_ls', 'tailwindcss', 'texlab', 'ts_ls', 'yamlls' }
+local servers = { 'astro', 'clangd', 'cssls', 'html', 'nil_ls', 'tailwindcss', 'texlab', 'ts_ls', 'yamlls' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         capabilities = capabilities,
