@@ -53,7 +53,7 @@
         echo "invalid theme, valid values: [dark, light, restore]"
         exit 1
       fi
-      current="$HOME/.local/state/nix/profiles/home-manager"
+      current="$HOME/.local/state/home-manager/gcroots/current-home/"
       cached="$HOME/.local/state/last-parent-specialisation"
       if [ -d "$current/specialisation" ]; then
         if [ -d "$cached" ]; then
