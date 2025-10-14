@@ -1,8 +1,8 @@
 { fetchFromGitHub, inputs, lib }:
 let
-  version = "6.16.1";
-  kernelHash = "10ydzfzc3g0nhns6md08gpfshhjcyd58lylqr15alijjdgzf4jqs";
-  kernelPatchHash = "0qg6jcbjwik2xzz26zbiz495ig03znaf0s4xp2qrl36lpsbjcr7a";
+  version = "6.17.2";
+  kernelHash = "19spyyknps9dzb6mz5sk685a505hzqi144lqc0rdi6f9l5k72q4v";
+  kernelPatchHash = "1rnqfjq2n75fnkn3qhgkg9783l1qfqz9vggx403b464vss58c28s";
 
   mm = lib.versions.majorMinor version;
   hasPatch = (builtins.length (builtins.splitVersion version)) == 3;
