@@ -2,7 +2,7 @@
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   security.acme = {
     acceptTerms = true;
-    email = "me@lava.moe";
+    defaults.email = "me@lava.moe";
     certs."lava.moe" = {
       group = "nginx";
       domain = "lava.moe";
