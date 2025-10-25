@@ -73,7 +73,7 @@ in
   };
 
   users.users.immich.extraGroups = [ "video" "render" ];
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   services.nginx.virtualHosts."photos.lava.moe" = {
     enableACME = true;
     forceSSL = true;
