@@ -16,7 +16,6 @@ let
 in {
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
     theme = "theme";
   };
   xdg.configFile."rofi/theme.rasi".source = theme;
