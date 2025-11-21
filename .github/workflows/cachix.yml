@@ -17,7 +17,7 @@ jobs:
         env:
           GIT_CRYPT_KEY: ${{ secrets.GIT_CRYPT_KEY }}
       - uses: cachix/install-nix-action@v31
-      - uses: cachix/cachix-action@v14
+      - uses: cachix/cachix-action@v16
         with:
           name: lava
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
@@ -42,7 +42,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: cachix/install-nix-action@v31
-      - uses: cachix/cachix-action@v14
+      - uses: cachix/cachix-action@v16
         with:
           name: lava
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
