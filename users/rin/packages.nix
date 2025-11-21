@@ -57,7 +57,7 @@ in {
     swaybg
     (tetrio-desktop.override { withTetrioPlus = true; })
     texliveFull
-    tor-browser-bundle-bin
+    tor-browser
     transmission-remote-gtk
     vesktop
     virt-manager

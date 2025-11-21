@@ -13,4 +13,8 @@
     ];
     kernelPackages = lib.mkForce (pkgs.linuxPackagesFor pkgs.me.linux-lava);
   };
+  hardware.amdgpu.overdrive = {
+    enable = true;
+    ppfeaturemask = "0xffffffff";
+  };
 }

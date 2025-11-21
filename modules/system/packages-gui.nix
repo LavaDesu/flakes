@@ -6,8 +6,8 @@
     ];
     programs.adb.enable = true;
     hardware.graphics.extraPackages = with pkgs; [
-      vaapiIntel
-      vaapiVdpau
+      intel-vaapi-driver
+      libva-vdpau-driver
       libvdpau-va-gl
     ];
     programs.light.enable = true;

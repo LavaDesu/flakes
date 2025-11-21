@@ -15,7 +15,6 @@
       hanazono
       noto-fonts
       noto-fonts-cjk-sans
-      noto-fonts-extra
       open-sans
       twemoji-color-font
       unifont

@@ -1,13 +1,13 @@
 { ... }: {
   programs.git = {
     enable = true;
-    userName = "Cilly Leang";
-    userEmail = "me@lava.moe";
     signing = {
       key = "059F098EBF0E9A13E10A46BF6500251E087653C9";
       signByDefault = true;
     };
-    extraConfig = {
+    settings = {
+      user.name = "Cilly Leang";
+      user.email = "me@lava.moe";
       core.abbrev = 11;
       safe.directory = "/home/rin/Projects/flakes";
     };
